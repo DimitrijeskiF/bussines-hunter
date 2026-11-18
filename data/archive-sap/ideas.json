@@ -1,0 +1,108 @@
+{
+  "runs": [
+    "2026-11-07"
+  ],
+  "ideas": {
+    "einvoice-master-data-preflight": {
+      "title": "E-invoice pre-flight checker for SAP master data",
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "run": "2026-11-07",
+          "score": 61.1,
+          "rank": 1,
+          "status": "top"
+        }
+      ],
+      "last_seen": "2026-11-07"
+    },
+    "ibs-cbs-sap-tax-test-harness": {
+      "title": "IBS/CBS tax-reform test harness for SAP",
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "run": "2026-11-07",
+          "score": 55.8,
+          "rank": 2,
+          "status": "top"
+        }
+      ],
+      "last_seen": "2026-11-07"
+    },
+    "split-payment-cash-simulator": {
+      "title": "Split-payment cash-flow simulator for Brazil's dual VAT",
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "run": "2026-11-07",
+          "score": 37.2,
+          "rank": 3,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-07"
+    },
+    "colombia-payroll-dian-reconciliation": {
+      "title": "Electronic payroll and DIAN acceptance reconciliation for SAP",
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "run": "2026-11-07",
+          "score": 31.9,
+          "rank": 4,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-07"
+    },
+    "data-act-cloud-exit-manager": {
+      "title": "EU Data Act cloud-exit and switching readiness manager",
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "run": "2026-11-07",
+          "score": 26.6,
+          "rank": 5,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-07"
+    },
+    "cbam-sap-import-connector": {
+      "title": "CBAM declaration and certificate-cost connector for SAP",
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "run": "2026-11-07",
+          "status": "excluded",
+          "why": "Killed by the skeptic: SAP ships this natively. In June 2026 SAP announced an end-to-end CBAM declarant solution that covers data collection and mapping, emissions and cost calculation, CBAM liability accounting (available now in Green Ledger), certificate asset management, cash-impact forecasting and declaration generation (coming soon). SAP's solution pulls import records and CN codes from SAP GTS and collects supplier emissions data (Excel ingestion, SAP Sustainability Data Exchange). That is exactly the connector proposed here. Several SAP-integrated third-party tools (PwC on SAP Store, Detaysoft, Tanso, SupplyOn) already cover mid-size importers, and EY is running webinars on CBAM with SAP SFM. Little room is left for a new small entrant. Evidence for the idea was only two advisory articles on deadlines, with no buyer-gap evidence."
+        }
+      ],
+      "last_seen": "2026-11-07"
+    },
+    "ecc-migration-data-readiness": {
+      "title": "ECC migration readiness and data cleanup toolkit",
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "run": "2026-11-07",
+          "status": "excluded",
+          "why": "Killed by the skeptic: SAP already gives the core of this away. SAP Readiness Check analyses system compatibility, add-ons, data volume and custom code usage, and the Custom Code Migration tool covers unused or incompatible Z code. The 'readiness score' half of the idea is native and free. The data-cleanup half is a crowded, well-funded category: Syniti (now Capgemini), SNP, Precisely, Natuvion and others sell exactly master-data profiling and cleansing for S/4 migrations, often bundled with the SI doing the project. Late migrators buy through system integrators that already have their preferred toolsets. A 1-3 person team would need SI partnerships and security reviews before the Dec 2027 deadline, and the window closes as projects finish. Evidence is two Register articles about deadline slippage and budget overruns. They show the migration is painful, but not that a tool gap exists."
+        }
+      ],
+      "last_seen": "2026-11-07"
+    },
+    "vsme-supplier-esg-requests": {
+      "title": "VSME-capped supplier ESG data collection for SAP",
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "run": "2026-11-07",
+          "status": "excluded",
+          "why": "Killed by the skeptic: A dominant, funded, SAP-connected incumbent already sells this. osapiens markets VSME supplier collection, and the card's own evidence is osapiens' VSME page. EcoVadis and IntegrityNext already own supplier ESG questionnaires at scale for large buyers. SAP covers the workflow natively: Ariba SLP runs supplier questionnaires from the vendor master, and SAP Sustainability Data Exchange handles supplier sustainability data. 'Enforcing the value-chain cap' is a rule set any of them can add, not a stand-alone product. The rules are still moving. Taylor Wessing and Forvis Mazars (May 2026) describe VSME being replaced by a new voluntary standard ('VS'), and sources disagree on when the cap binds. A product built around 'VSME' risks being outdated at launch. Omnibus I cut CSRD scope to firms above 1,000 employees and EUR 450m turnover, which shrinks the buyer pool sharply."
+        }
+      ],
+      "last_seen": "2026-11-07"
+    }
+  }
+}

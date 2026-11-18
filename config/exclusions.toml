@@ -1,0 +1,22 @@
+# Hard rules every agent follows.
+
+# Ideas matching any of these are rejected outright.
+reject = [
+  "Software sold mainly to large companies, or that needs enterprise sales",
+  "Things good free tools already do well everywhere: PDF conversion, file sharing, generic notes, chat, calendars",
+  "Hardware or physical devices",
+  "Anything that needs a banking, insurance, medical or legal licence just to start",
+  "Running cost per user that cannot fit under a $1-3 monthly price (for example heavy AI video or voice for every user)",
+  "Gambling, adult content, or anything that tracks or collects data about other people without their consent",
+  "Pure services or agencies with no software product",
+]
+
+# What a good idea looks like.
+prefer = [
+  "A digital subscription that ordinary people, freelancers or one-person shops would pay $1-3 a month for",
+  "A need that comes back every week or month, so people keep paying",
+  "Either missing everywhere, or working in some countries but missing in others",
+  "Very low running cost per user, so $1-3 still leaves a profit after app store fees",
+  "A first version that 1-3 people can ship within about 3 months",
+  "Users can be found without paid ads: app stores, search, word of mouth, online communities",
+]

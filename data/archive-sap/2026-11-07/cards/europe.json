@@ -1,0 +1,125 @@
+{
+  "region": "europe",
+  "summary": [
+    "Europe's strongest near-term forcing functions are the German B2B e-invoice issuing mandate (1 Jan 2027 for firms above EUR 800k turnover, 2028 for the rest) and the CBAM definitive phase, with certificate purchases starting Feb 2027.",
+    "SAP ECC mainstream maintenance ends 31 Dec 2027 and about half of German-speaking SAP users are expected to miss it, which creates demand for tooling around migration, data cleansing and interim security patching.",
+    "CSRD has been narrowed to firms above 1,000 employees and EUR 450m turnover, so the buyer pool is smaller but still enterprise-sized. Supplier data collection under the VSME cap is a weak spot of generic ESG platforms.",
+    "SAP is actively buying European AI and data startups in 2026 (Prior Labs, Dremio, Reltio, TechWolf), which shows an acquisition appetite for small teams with specialised data and AI technology.",
+    "This was a quick run: only a few lenses were searched, and local-language sources were thinly covered."
+  ],
+  "cards": [
+    {
+      "id": "eu-01",
+      "title": "E-invoice issuing readiness and validation layer for SAP (XRechnung/ZUGFeRD)",
+      "problem": "From 1 Jan 2027 German companies with turnover above EUR 800k must issue structured e-invoices, and all others from 2028. Finance and IT teams on ECC or older S/4 releases must produce valid XRechnung/ZUGFeRD output from many output channels and master data of mixed quality, and must catch errors before sending.",
+      "who_feels_it": {"role": "Head of Accounts Receivable / Finance IT", "industry": "Manufacturing and wholesale (Mittelstand)"},
+      "forcing_function": "German UStG Section 14 amendment: issuing mandatory 1 Jan 2027 (turnover above EUR 800k) and 1 Jan 2028 (all others).",
+      "lens": ["regulation", "pain"],
+      "evidence": [
+        {"claim": "Receiving e-invoices is mandatory since Jan 2025; issuing is required from 1 Jan 2027 above EUR 800k turnover and from 1 Jan 2028 for all others.", "url": "https://www.banqup.com/resources/guides/germany-s-b2b-e-invoicing-2027-roadmap"},
+        {"claim": "Guide covering German B2B e-invoicing timeline, formats XRechnung and ZUGFeRD, and the lack of a central reporting platform.", "url": "https://edicomgroup.com/blog/germany-b2b-electronic-invoice"}
+      ],
+      "existing_tools": [
+        {"name": "Sovos / Avalara / Edicom", "gap": "Large compliance networks aimed at network connectivity, not lightweight master-data and master-data-to-format validation inside SAP for mid-size firms."},
+        {"name": "Storecove", "gap": "Access point focus, little help with fixing source data in SAP."}
+      ],
+      "sap_touchpoint": "SAP SD/FI billing output, ECC and S/4HANA, with master data (VAT IDs, Leitweg-IDs, bank data) pre-checked.",
+      "countries": ["Germany", "Austria"],
+      "solution_idea": "A SAP-connected pre-flight checker that scans customer master data and billing documents, flags what would fail EN 16931 validation, and generates fix lists before the 2027/2028 deadlines."
+    },
+    {
+      "id": "eu-02",
+      "title": "CBAM importer declaration and certificate cost tracking connected to SAP purchasing",
+      "problem": "CBAM definitive phase started 1 Jan 2026. Importers must collect supplier emissions data per shipment, calculate embedded emissions, and accrue certificate cost, with certificates to be bought from 1 Feb 2027 for 2026 imports. Data sits in purchasing, customs and supplier spreadsheets.",
+      "who_feels_it": {"role": "Head of Customs / Trade Compliance", "industry": "Steel, aluminium, fertiliser, cement importing manufacturers"},
+      "forcing_function": "CBAM definitive phase from 1 Jan 2026; certificate purchases from 1 Feb 2027, retroactive for 2026 imports.",
+      "lens": ["regulation", "pain"],
+      "evidence": [
+        {"claim": "CBAM definitive phase began 1 Jan 2026; certificates are to be purchased from 1 Feb 2027 retroactively for 2026 imports.", "url": "https://gerlach-customs.com/de-de/news/wissenswertes/cbam-2026-pflichten-fuer-deutsche-importeure/"},
+        {"claim": "Roedl briefing on new CBAM duties and deadlines (published Oct 2025).", "url": "https://www.roedl.com/insights/cbam-2026-neue-pflichten-neue-fristen/"}
+      ],
+      "existing_tools": [
+        {"name": "CBAM-Estimator", "gap": "Estimation and reporting only, weak ERP integration."},
+        {"name": "PwC CBAM module", "gap": "Services-led, expensive for mid-size importers."}
+      ],
+      "sap_touchpoint": "SAP MM purchase orders and goods receipts, SAP GTS customs declarations, material master CN codes.",
+      "countries": ["Germany", "Netherlands", "Italy", "Poland"],
+      "solution_idea": "A connector that pulls CN-coded imports from SAP MM/GTS, runs supplier emission data requests, and produces the declaration plus a certificate liability forecast for finance."
+    },
+    {
+      "id": "eu-03",
+      "title": "ECC end-of-maintenance risk toolkit: data cleansing and virtual patching for late migrators",
+      "problem": "ECC mainstream maintenance ends 31 Dec 2027. Roughly half of German-speaking SAP users are expected to miss it, and migration projects frequently overrun budget. Late migrators need clean data for migration and a way to manage security exposure after patches stop.",
+      "who_feels_it": {"role": "CIO / SAP Program Lead", "industry": "Cross-industry, DACH"},
+      "forcing_function": "SAP ECC 6.0 mainstream maintenance ends 31 Dec 2027; extended maintenance to 2030 costs a 2 percent premium.",
+      "lens": ["sap_gaps", "pain"],
+      "evidence": [
+        {"claim": "About half of German-speaking SAP users are set to miss the 2027 ECC support deadline (DSAG, Feb 2026).", "url": "https://www.theregister.com/2026/02/27/dsag_ecc_sap/"},
+        {"claim": "Most SAP migrations bust budgets and timelines, research finds (Feb 2026).", "url":"https://www.theregister.com/2026/02/05/sap_migrations_research/"}
+      ],
+      "existing_tools": [
+        {"name": "SAP Migration Cockpit", "gap": "Basic data load tooling, not data quality triage at scale."},
+        {"name": "Third-party maintenance firms", "gap": "Service offerings rather than software."}
+      ],
+      "sap_touchpoint": "ECC 6.0 to S/4HANA migration; master data and custom code (Z objects) analysis.",
+      "countries": ["Germany", "Austria", "Switzerland"],
+      "solution_idea": "A software product that profiles ECC master data and unused custom code, scores migration readiness, and generates cleanup worklists, sold to mid-size firms and SI partners."
+    },
+    {
+      "id": "eu-04",
+      "title": "VSME-capped supplier ESG data requests for CSRD-scope enterprises",
+      "problem": "Omnibus I narrowed CSRD to firms above 1,000 employees and EUR 450m turnover, and caps what large firms may ask of smaller suppliers. Generic ESG platforms are weak at collecting supplier data at scale within the cap, so sustainability teams still chase spreadsheets.",
+      "who_feels_it": {"role": "Head of Sustainability Reporting / Procurement", "industry": "Large manufacturing and retail"},
+      "forcing_function": "CSRD as amended by Omnibus I (published Feb 2026, in force Mar 2026), with the value-chain cap tied to the VSME standard.",
+      "lens": ["regulation", "pain"],
+      "evidence": [
+        {"claim": "Omnibus I limits CSRD to firms above 1,000 employees and EUR 450m turnover; sources differ on when the value-chain cap binds.", "url": "https://www.brightest.io/csrd-reporting-software"},
+        {"claim": "Vendor material notes that generic ESG platforms handle supplier data collection poorly and that a free German VSME tool exists.", "url": "https://osapiens.com/en/regulations/vsme-voluntary-sustainability-reporting-standard-for-smes"}
+      ],
+      "existing_tools": [
+        {"name": "osapiens", "gap": "Broad platform; may be heavy for narrow supplier-request use."},
+        {"name": "Persefoni", "gap": "Carbon-accounting focus, not supplier VSME workflow."}
+      ],
+      "sap_touchpoint": "SAP Ariba / vendor master as the supplier list; SAP Sustainability Control Tower as target.",
+      "countries": ["Germany", "France", "Netherlands", "Denmark"],
+      "solution_idea": "A supplier-facing VSME questionnaire and validation service that takes the vendor master from SAP, enforces the cap, and writes answers back to SAP sustainability tooling."
+    },
+    {
+      "id": "eu-05",
+      "title": "Cloud exit and switching readiness manager under the EU Data Act",
+      "problem": "Since 12 Sept 2025 cloud and SaaS contracts must include switching terms, and most switching charges are barred from 12 Jan 2027. Enterprises with sprawling SaaS and cloud contracts, including SAP RISE, have no central view of exit terms, data export readiness and legacy contract gaps.",
+      "who_feels_it": {"role": "Head of IT Procurement / Legal Ops", "industry": "Cross-industry"},
+      "forcing_function": "EU Data Act Chapter VI applicable from 12 Sept 2025; switching charges barred from 12 Jan 2027; unfair-terms rule for older contracts from 12 Sept 2027.",
+      "lens": ["regulation"],
+      "evidence": [
+        {"claim": "Cloud switching rules applied from 12 Sept 2025; fees limited to cost until 12 Jan 2027 then mostly barred.", "url": "https://www.alston.com/en/insights/publications/2025/09/eu-data-act-switching-requirements-cloud-services"},
+        {"claim": "Law-firm view on how the Data Act reshapes cloud contract switching terms.", "url": "https://www.traverssmith.com/knowledge/knowledge-container/the-data-acts-changes-to-cloud-services-contracts-tipping-the-scales-on-switching/"}
+      ],
+      "existing_tools": [
+        {"name": "Contract lifecycle tools (Icertis, SAP Contract Lifecycle Management)", "gap": "Not tuned to Data Act switching clause checks and exit plans."}
+      ],
+      "sap_touchpoint": "RISE with SAP and BTP contracts, plus SAP Ariba contract data.",
+      "countries": ["Germany", "France", "Netherlands", "Sweden"],
+      "solution_idea": "An AI contract scanner that checks cloud contracts for Data Act switching terms, tracks exit-plan readiness per vendor and flags renegotiation windows."
+    },
+    {
+      "id": "eu-06",
+      "title": "Skills and workforce data add-ons for SAP HR following SAP's TechWolf deal",
+      "problem": "SAP bought Belgian TechWolf (Oct 2026) for skills intelligence in Joule HR, which signals demand for skills and workforce planning data. Narrow adjacent tools that clean and map job architecture or skills data between HR systems and SuccessFactors could attract SAP partnership or acquisition interest.",
+      "who_feels_it": {"role": "CHRO / HR Analytics Lead", "industry": "Large enterprises"},
+      "forcing_function": null,
+      "lens": ["money", "sap_gaps"],
+      "evidence": [
+        {"claim": "SAP announced the acquisition of Belgian TechWolf on 6 Oct 2026, its fourth 2026 deal after Reltio, Dremio and Prior Labs.", "url": "https://sifted.eu/articles/sap-techwolf-acquisition-deal/"},
+        {"claim": "TechWolf deal aims to strengthen SAP Joule for HR and workforce planning.", "url": "https://www.thestack.technology/sap-buys-ai-workforce-startup-techwolf/"}
+      ],
+      "existing_tools": [
+        {"name": "TechWolf (now SAP)", "gap": "Now bundled into SAP; independent alternatives for non-SAP HRIS may remain."},
+        {"name": "Eightfold", "gap": "Talent platform, expensive and not focused on job architecture cleanup."}
+      ],
+      "sap_touchpoint": "SAP SuccessFactors and Joule.",
+      "countries": ["Belgium", "Germany", "Netherlands"],
+      "solution_idea": "A job-architecture normalisation tool that maps free-text job titles and skills to a taxonomy for SuccessFactors migration and analytics projects."
+    }
+  ]
+}

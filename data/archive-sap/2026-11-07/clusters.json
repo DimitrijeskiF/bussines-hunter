@@ -1,0 +1,168 @@
+{
+  "clusters": [
+    {
+      "id": "einvoice-master-data-preflight",
+      "title": "E-invoice pre-flight checker for SAP master data",
+      "problem": "New and changing e-invoice rules reject documents when the data in SAP is wrong or missing. German firms must issue valid XRechnung/ZUGFeRD invoices from 2027 out of mixed-quality master data, Mexican exporters must keep SAP in line with SAT customs catalogs that changed twice in 2026, and Chilean shippers must add transport details their ERP often lacks at issuing time. Teams find and fix these gaps by hand, and compliance networks such as Sovos and Edicom handle transmission rather than source-data quality inside SAP.",
+      "solution_idea": "A SAP-connected pre-flight checker that scans customer, material and delivery data against each country's e-invoice format rules and authority catalogs, flags what would be rejected and produces fix lists before documents are issued. Start with a German EN 16931 rule pack for the 2027 deadline, then add Mexico (SAT catalog diffs) and Chile (transport data).",
+      "buyer": "Head of Finance IT / Accounts Receivable",
+      "regions": ["europe", "latin_america"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "forcing_function": "Germany: structured e-invoice issuing mandatory from 1 Jan 2027 (turnover above EUR 800k) and 1 Jan 2028 (all others). Mexico: CFDI 4.0 with Carta Porte and foreign-trade complement, with SAT catalog updates in Aug and Oct 2026. Chile: SII transport-data rules for invoices and dispatch guides reported effective 1 Nov 2026.",
+      "sap_touchpoint": "SAP SD/FI billing output and SD/LE deliveries in ECC and S/4HANA, customer and material master data (VAT IDs, Leitweg-IDs, tariff codes), SAP GTS and country localisations; checks run before the document reaches the access point or tax authority.",
+      "card_refs": ["europe/eu-01", "latin_america/la-03", "latin_america/la-04"],
+      "evidence": [
+        {"claim": "Receiving e-invoices is mandatory since Jan 2025; issuing is required from 1 Jan 2027 above EUR 800k turnover and from 1 Jan 2028 for all others.", "url": "https://www.banqup.com/resources/guides/germany-s-b2b-e-invoicing-2027-roadmap"},
+        {"claim": "Guide covering German B2B e-invoicing timeline, formats XRechnung and ZUGFeRD, and the lack of a central reporting platform.", "url": "https://edicomgroup.com/blog/germany-b2b-electronic-invoice"},
+        {"claim": "SAT updated the CFDI 4.0 customs catalog on 21 Aug 2026 and added records on 1 Oct 2026, effective 2 Oct (Thomson Reuters regulatory updates)", "url": "https://europe.thomsonreuters.com/pl/compliance/regulatory-updates/mexico"},
+        {"claim": "Carta Porte can be combined with the foreign-trade complement in one CFDI, requiring tariff fraction data for exports", "url": "https://www.contadigital.mx/posts/complemento-comercio-exterior-20"},
+        {"claim": "Carta Porte applies to anyone moving their own goods domestically from 2025", "url": "https://www.noticiasgobierno.com/carta-porte-cfdi-4-0-2026-quien-la-necesita-y-como-emitirla/"},
+        {"claim": "Lookuptax cites SII Res. 144 (23 Oct 2026) with extra transport requirements effective 1 Nov 2026", "url": "https://lookuptax.com/tax-changes/chile/sii-res-144-2026-transport-invoice-requirements"},
+        {"claim": "Law firm note says the new dispatch guide rules become mandatory from Nov 2026", "url": "https://www.lawandtrends.com/noticias/tributario/chile-actualiza-la-normativa-de-guias-de-despacho-los-nuevos-requisitos-seran-obligatorios-desde-noviembre-de-2026-1.html"},
+        {"claim": "Sovos describes new transport-data fields and a dispatch guide register", "url": "https://sovos.com/es/biblioteca-de-contenidos/iva/guia-factura-traslado-bienes-2026/"}
+      ]
+    },
+    {
+      "id": "ibs-cbs-sap-tax-test-harness",
+      "title": "IBS/CBS tax-reform test harness for SAP",
+      "problem": "Brazilian SAP customers must extend tax schemas, NF-e XML groups (IBSCBS, gIBSUF, gIBSMun, gCBS) and fiscal master data before CBS/IBS charging starts in January 2027, often while still on ECC or mid-migration to S/4HANA. Testing the new tax outcomes across thousands of materials and scenarios is largely manual, and existing tools cover tax content or document emission rather than validating the SAP tax configuration itself.",
+      "solution_idea": "A tool that reads SAP tax configuration and master data, simulates IBS/CBS outcomes and flags wrong NCM/CST mappings and gaps before go-live, then keeps running as a continuous check as the rules change through 2033.",
+      "buyer": "Head of Tax / Fiscal IT manager",
+      "regions": ["latin_america"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "forcing_function": "CBS/IBS charging starts January 2027; e-documents with IBS/CBS fields become mandatory in phases; transition to 2033",
+      "sap_touchpoint": "SAP ECC and S/4HANA SD/MM tax schemas, NF-e integration with SEFAZ, SAP DRC.",
+      "card_refs": ["latin_america/la-01"],
+      "evidence": [
+        {"claim": "SAP published technical notes in Sept 2025 for new NF-e fields and tax calculation; the SAP tax schemas in SD and MM must be extended for CBS, IBS and IS (technical guide, 2025)", "url": "https://www.reformatributaria.com/wp-content/uploads/2025/08/Reforma-Tributaria-Brasileira-e-SAP-Impactos-Adaptacoes-e-Detalhamento-das-SAP-Notes.pdf"},
+        {"claim": "Systax column (22 Apr 2026) says ECC mainstream maintenance ends in 2027 and overlaps with the tax reform, and that heavily customised Brazilian SAP systems are a tax and technical debt", "url": "https://www.baguete.com.br/noticias/2027-e-um-ultimato-para-quem-ainda-roda-sap-ecc"},
+        {"claim": "Regulation requires ERP changes and testing before the new fiscal-document fields become mandatory", "url": "https://www.ozai.com.br/publicado-regulamento-cbs-ibs/"}
+      ]
+    },
+    {
+      "id": "cbam-sap-import-connector",
+      "title": "CBAM declaration and certificate-cost connector for SAP",
+      "problem": "The CBAM definitive phase started on 1 Jan 2026, and importers of steel, aluminium, fertiliser and cement must collect supplier emissions data per shipment, calculate embedded emissions and accrue certificate cost. Certificates for 2026 imports must be bought from 1 Feb 2027, yet the data sits in purchasing, customs and supplier spreadsheets. Existing tools are estimation-only with weak ERP integration, or services-led and expensive for mid-size importers.",
+      "solution_idea": "A connector that pulls CN-coded imports from SAP MM/GTS, runs supplier emission data requests, and produces the CBAM declaration plus a certificate liability forecast for finance.",
+      "buyer": "Head of Customs / Trade Compliance",
+      "regions": ["europe"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "forcing_function": "CBAM definitive phase from 1 Jan 2026; certificate purchases from 1 Feb 2027, retroactive for 2026 imports.",
+      "sap_touchpoint": "SAP MM purchase orders and goods receipts, SAP GTS customs declarations, material master CN codes.",
+      "card_refs": ["europe/eu-02"],
+      "evidence": [
+        {"claim": "CBAM definitive phase began 1 Jan 2026; certificates are to be purchased from 1 Feb 2027 retroactively for 2026 imports.", "url": "https://gerlach-customs.com/de-de/news/wissenswertes/cbam-2026-pflichten-fuer-deutsche-importeure/"},
+        {"claim": "Roedl briefing on new CBAM duties and deadlines (published Oct 2025).", "url": "https://www.roedl.com/insights/cbam-2026-neue-pflichten-neue-fristen/"}
+      ]
+    },
+    {
+      "id": "ecc-migration-data-readiness",
+      "title": "ECC migration readiness and data cleanup toolkit",
+      "problem": "SAP ECC mainstream maintenance ends on 31 Dec 2027, and about half of German-speaking SAP users are expected to miss it, while most migration projects overrun budget and timelines. Late migrators need clean master data and a clear view of unused custom code, but SAP Migration Cockpit only handles basic data loads and third-party maintenance firms sell services rather than software.",
+      "solution_idea": "A software product that profiles ECC master data and unused custom code, scores migration readiness and generates cleanup worklists, sold to mid-size firms and SI partners.",
+      "buyer": "CIO / SAP Program Lead",
+      "regions": ["europe"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "forcing_function": "SAP ECC 6.0 mainstream maintenance ends 31 Dec 2027; extended maintenance to 2030 costs a 2 percent premium.",
+      "sap_touchpoint": "ECC 6.0 to S/4HANA migration; master data and custom code (Z objects) analysis.",
+      "card_refs": ["europe/eu-03"],
+      "evidence": [
+        {"claim": "About half of German-speaking SAP users are set to miss the 2027 ECC support deadline (DSAG, Feb 2026).", "url": "https://www.theregister.com/2026/02/27/dsag_ecc_sap/"},
+        {"claim": "Most SAP migrations bust budgets and timelines, research finds (Feb 2026).", "url": "https://www.theregister.com/2026/02/05/sap_migrations_research/"}
+      ]
+    },
+    {
+      "id": "data-act-cloud-exit-manager",
+      "title": "EU Data Act cloud-exit and switching readiness manager",
+      "problem": "Since 12 Sept 2025 cloud and SaaS contracts must include switching terms, and most switching charges are barred from 12 Jan 2027. Enterprises with sprawling SaaS and cloud contracts, including SAP RISE, have no central view of exit terms, data export readiness and gaps in older contracts, and contract lifecycle tools are not tuned to Data Act switching checks.",
+      "solution_idea": "An AI contract scanner that checks cloud contracts for Data Act switching terms, tracks exit-plan readiness per vendor and flags renegotiation windows.",
+      "buyer": "Head of IT Procurement / Legal Ops",
+      "regions": ["europe"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "forcing_function": "EU Data Act Chapter VI applicable from 12 Sept 2025; switching charges barred from 12 Jan 2027; unfair-terms rule for older contracts from 12 Sept 2027.",
+      "sap_touchpoint": "RISE with SAP and BTP contracts, plus SAP Ariba contract data.",
+      "card_refs": ["europe/eu-05"],
+      "evidence": [
+        {"claim": "Cloud switching rules applied from 12 Sept 2025; fees limited to cost until 12 Jan 2027 then mostly barred.", "url": "https://www.alston.com/en/insights/publications/2025/09/eu-data-act-switching-requirements-cloud-services"},
+        {"claim": "Law-firm view on how the Data Act reshapes cloud contract switching terms.", "url": "https://www.traverssmith.com/knowledge/knowledge-container/the-data-acts-changes-to-cloud-services-contracts-tipping-the-scales-on-switching/"}
+      ]
+    },
+    {
+      "id": "vsme-supplier-esg-requests",
+      "title": "VSME-capped supplier ESG data collection for SAP",
+      "problem": "Omnibus I narrowed CSRD to firms above 1,000 employees and EUR 450m turnover and caps what they may ask of smaller suppliers, tied to the VSME standard. Generic ESG platforms are weak at collecting supplier data at scale within that cap, so sustainability and procurement teams still chase spreadsheets.",
+      "solution_idea": "A supplier-facing VSME questionnaire and validation service that takes the vendor master from SAP, enforces the value-chain cap and writes answers back to SAP sustainability tooling.",
+      "buyer": "Head of Sustainability Reporting / Procurement",
+      "regions": ["europe"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "forcing_function": "CSRD as amended by Omnibus I (published Feb 2026, in force Mar 2026), with the value-chain cap tied to the VSME standard.",
+      "sap_touchpoint": "SAP Ariba / vendor master as the supplier list; SAP Sustainability Control Tower as target.",
+      "card_refs": ["europe/eu-04"],
+      "evidence": [
+        {"claim": "Omnibus I limits CSRD to firms above 1,000 employees and EUR 450m turnover; sources differ on when the value-chain cap binds.", "url": "https://www.brightest.io/csrd-reporting-software"},
+        {"claim": "Vendor material notes that generic ESG platforms handle supplier data collection poorly and that a free German VSME tool exists.", "url": "https://osapiens.com/en/regulations/vsme-voluntary-sustainability-reporting-standard-for-smes"}
+      ]
+    },
+    {
+      "id": "split-payment-cash-simulator",
+      "title": "Split-payment cash-flow simulator for Brazil's dual VAT",
+      "problem": "Under Brazil's dual VAT, split payment moves tax out of company cash at the moment of payment, which hits working capital. Its start date is unclear because financial institutions asked for more time, and treasury and tax teams at large SAP users lack tools that model credits, payment timing and reconciliation per customer and supplier.",
+      "solution_idea": "A forecasting layer on SAP FI data that simulates the cash impact of split payment and tax-credit offsets under different start dates and feeds treasury dashboards.",
+      "buyer": "Treasurer / CFO",
+      "regions": ["latin_america"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "forcing_function": "Dual VAT from Jan 2027; split payment delayed and not expected at the start, with a later mandatory phase",
+      "sap_touchpoint": "SAP FI-AP/AR and treasury, bank reconciliation.",
+      "card_refs": ["latin_america/la-02"],
+      "evidence": [
+        {"claim": "Reports say split payment will not start in January 2027 after pressure from financial institutions, and no new date had been announced", "url": "https://convergenciadigital.com.br/governo/receita-atende-instituicoes-financeiras-e-split-payment-fica-fora-do-inicio-da-reforma-tributaria/"},
+        {"claim": "Omie guide lists mandatory split payment as a later-phase item of the 2027-2033 transition", "url": "https://www.omie.com.br/split-payment/"},
+        {"claim": "Legal bulletin (Aug 2026) says split payment will not operate in Jan 2027", "url": "https://lopescastelo.adv.br/wp-content/uploads/2026/08/Informativo-62.pdf"}
+      ]
+    },
+    {
+      "id": "colombia-payroll-dian-reconciliation",
+      "title": "Electronic payroll and DIAN acceptance reconciliation for SAP",
+      "problem": "Colombian employers must transmit electronic payroll and support documents to DIAN, and non-compliance carries the same fines as e-invoicing. HR and tax teams at large multi-entity employers reconcile SAP payroll runs against DIAN acceptance by hand. Evidence of new 2026 obligations is thin, so the pain rests on the existing mandate.",
+      "solution_idea": "A reconciliation dashboard that matches SAP payroll results with DIAN acceptance status (CUNE), flags rejected or late documents and corrects them automatically.",
+      "buyer": "Payroll manager / Head of Tax",
+      "regions": ["latin_america"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "forcing_function": "Existing DIAN payroll and support-document mandate; sanctions under Art. 652-1; a draft resolution on monthly accumulation was discussed in July 2026",
+      "sap_touchpoint": "SAP HCM / SuccessFactors Employee Central payroll to DIAN.",
+      "card_refs": ["latin_america/la-05"],
+      "evidence": [
+        {"claim": "Non-compliance with electronic payroll carries the same sanctions as the e-invoicing mandate (Sovos)", "url": "https://sovos.com/es/blog/iva/el-mandato-de-nomina-electronica-de-colombia/"},
+        {"claim": "Concept 010193 of 2026 says late transmission alone does not block cost deduction (Softland blog, Aug 2026, single source)", "url": "https://softland.com/co/nomina-electronica-colombia/"},
+        {"claim": "Portafolio argues the 2026 challenge is getting the calculations right", "url": "https://www.portafolio.co/economia/empleo/nomina-electronica-en-2026-el-reto-es-hacer-bien-las-cuentas-502607"}
+      ]
+    }
+  ],
+  "dropped": [
+    {"card_ref": "europe/eu-06", "reason": "Cut to stay within the 8-idea cap: weakest card in the run. It has no law or deadline, its evidence covers SAP's TechWolf acquisition rather than buyer pain, and SAP now owns the closest tool."}
+  ]
+}

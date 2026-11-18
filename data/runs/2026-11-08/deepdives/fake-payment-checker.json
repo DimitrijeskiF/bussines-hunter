@@ -1,0 +1,167 @@
+{
+  "id": "fake-payment-checker",
+  "title": "Real-payment checker and daily cash ledger for micro-sellers",
+  "one_liner": "An Android app for small shops that says every real Yape, Plin, Nequi or Pix payment out loud, keeps one list of today's confirmed payments across all your wallets, tells you in seconds whether a customer's payment screenshot matches a real payment, and closes the till at night.",
+  "competitors": [
+    {
+      "name": "Yape (BCP)",
+      "url": "https://www.yape.com.pe/",
+      "what_they_do": "Peru's largest wallet (free for people). Its help pages carry a video titled 'No caigas con yapeos falsos' and a FAQ on spotting a fake yapeo, and the press reports a security-code feature against fake payments (that article could not be opened this run). Also offers Yape Tienda and Yape Promos.",
+      "weakness": "Shows only payments received in Yape itself. No combined list with bank apps, no screenshot check and no daily cash close for a shop. It is also the biggest threat: BCP can add any of these features for free."
+    },
+    {
+      "name": "Plin (inside BBVA, Interbank, Scotiabank, BanBif, Caja Arequipa and other bank apps)",
+      "url": "https://www.plin.pe/",
+      "what_they_do": "Free instant transfers by phone number or QR. Works with Yape. Gives shops a printable QR and sticker. Limit S/ 500 per payment, and a shop can take up to S/ 20,000 a day by QR.",
+      "weakness": "Lives inside each bank's app, so a shop with two banks checks two apps. Its homepage says nothing about payment alerts for shops or about fake receipts."
+    },
+    {
+      "name": "Yape Voz - Pagos en Altavoz (ElCheMo.Com)",
+      "url": "https://play.google.com/store/apps/details?id=com.yapeaudio.www.elchemo.com",
+      "what_they_do": "Android app that reads Yape payments aloud. Rated 4.3 on Google Play. Price and installs could not be checked because the listing did not load.",
+      "weakness": "From its title it does voice alerts only. No sign of a screenshot check or a cash ledger, but this could not be checked."
+    },
+    {
+      "name": "Alerta Pago - Voz Yape y Plin (Lam Paz), plus ya Pague (Saccaco.pe, 4.2), Tingu Alerta (4.3), Pago Voz (AUME, 4.3), PagoVoz (Garralatino, 4.6), Pago Voz Pro (Sincrobiz, 3.5), Yape Listener and Loraa",
+      "url": "https://play.google.com/store/apps/details?id=com.alertapago.app",
+      "what_they_do": "At least 9 small Peruvian Android apps that announce Yape and Plin payments by voice. All were found on one Google Play results page, so this is a crowded niche. The scout card found Pago Voz Pro at about 1,400 installs. Prices and install counts for the others were not checked.",
+      "weakness": "They compete on the same voice-alert feature, and their titles suggest none adds a screenshot check or a daily cash close. Listings could not be opened, so this was not confirmed."
+    },
+    {
+      "name": "Sino Pix: Pix por voz e caixa (Orange Softwares, Brazil)",
+      "url": "https://play.google.com/store/apps/details?id=net.orangesoftwares.sinopix",
+      "what_they_do": "Announces Pix payments by voice and, going by its title, adds a cash-register (caixa) view. Rated 4.5. Price not checked.",
+      "weakness": "This is the closest match to the ledger idea in Brazil. Whether it checks screenshots or works across many banks is unknown, because the listing did not load."
+    },
+    {
+      "name": "ConferePix: Seu PIX confirmado (Financeiro Net, Brazil), plus FalaPix (4.5), PIX VOZ (4.8), Caiu o Pix? (3.3), Pix Alerta and Notificacoes Faladas - Pix (4.1)",
+      "url": "https://play.google.com/store/apps/details?id=com.br.ConferePix",
+      "what_they_do": "Brazilian Android apps that speak or confirm incoming Pix payments. ConferePix (rated 4.4) is pitched as confirming that a Pix arrived. Prices and installs were not checked.",
+      "weakness": "Brazil already has several well-rated voice and confirm apps. A newcomer would need a clearly different feature, such as screenshot matching or a cash close, to stand out."
+    },
+    {
+      "name": "Mercado Pago, InfinitePay, PagBank and other card machines with Pix QR (Brazil)",
+      "what_they_do": "Free merchant apps and card readers that show an instant credit alert when a Pix paid by QR lands. They earn a fee per transaction or on the card machine. Brazilian merchant guides recommend them against fake Pix.",
+      "weakness": "They only see payments into their own account. Many stalls take Pix straight to a personal bank key, and readers cost money and fees."
+    },
+    {
+      "name": "Nequi, Daviplata and Bre-B (Colombia)",
+      "url": "https://www.banrep.gov.co/es/bre-b",
+      "what_they_do": "Free wallets plus Bre-B, the central bank's instant payment system. It launched around October 2025 and in its first year had 245 member institutions, more than 36 million users, more than 116 million keys and over 1.7 billion transfers, with 37% made by QR.",
+      "weakness": "Each bank or wallet app still shows only its own credits, and the Bre-B page says nothing about alerts for the receiver. Because any bank can now pay any shop's key, though, many shops may need just one app, which shrinks the value of combining wallets."
+    }
+  ],
+  "customer": {
+    "who": "Bodega owners, market-stall and food vendors, and small online sellers (WhatsApp, Instagram, Facebook Marketplace, TikTok live) who take wallet or Pix payments from strangers. The owner's phone gets the payment, but often a helper or a busy owner at the counter has to decide on the spot.",
+    "where": "Peru first: Lima (bodegas, Gamarra, Mesa Redonda, municipal markets), then Arequipa and Trujillo. Colombia: Bogota (tiendas de barrio, Corabastos), Medellin and Cali. Brazil: Sao Paulo (Bras and 25 de Marco), Rio de Janeiro, Belo Horizonte and street markets in the Northeast.",
+    "pain_in_their_words": "A worker at a Lima food business got a Yape 'receipt' on WhatsApp that looked odd. She checked her account, nothing had arrived, and the customer stopped replying (Rest of World, 2023). Yape said it received up to 30 scam reports a day, and its help pages now include a video called 'No caigas con yapeos falsos'. Brazilian merchant guides warn that a real payment receipt and a scheduled-payment receipt look exactly the same, so a screenshot proves nothing and the only safe check is your own bank app (Nuvemshop, updated June 2026). The number of voice-alert apps for Yape, Plin and Pix shows sellers want to know a payment is real without opening their bank app every time. Not checked this run: shopkeepers' own forum posts and app reviews, because Reddit and the Play Store review pages could not be opened."
+  },
+  "mvp": {
+    "scope": [
+      "Android only, Peru only at launch. Reads payment notifications (with the user's permission) from Yape and from the main Plin bank apps (BCP, Interbank, BBVA, Scotiabank).",
+      "Says each confirmed payment out loud in Spanish (amount and payer name) using the phone's offline text-to-speech. This is the free hook, because rivals already offer it.",
+      "One list of today's confirmed payments across all those apps, with a running total and a 'duplicate receipt' flag when the same operation number shows up twice.",
+      "Screenshot check: the seller shares a customer's payment screenshot to the app, on-device text recognition (Google ML Kit) reads the amount, name, time and operation number, and the app answers 'Confirmed', 'Not found yet, wait 1 minute' or 'Already used'.",
+      "Daily cash close: wallet totals plus the cash counted by hand, sent as one image to WhatsApp (owner, partner or accountant).",
+      "Pro subscription through Google Play Billing in local currency, plus a remotely updated rules file so new notification formats can be added without an app update.",
+      "Left out of version 1: iPhone (iOS does not let apps read other apps' notifications), Brazil (too many banks), cloud sync and a second-phone counter display."
+    ],
+    "time_to_build": "About 3 months for the Peru Android version, plus 1-2 months to add Colombia (Nequi, Daviplata, Bancolombia and other Bre-B banks). Brazil is a later, longer project because of the number of Pix bank apps.",
+    "team": "1 Android developer (Kotlin, notification listener and on-device text recognition) plus 1 part-time person in Lima who interviews bodegueros, collects sample notifications and screenshots (with consent) and runs a 20-30 shop pilot. Design can be bought in for a few weeks."
+  },
+  "pricing": {
+    "model": "Free tier plus a monthly or yearly Pro subscription in local currency through Google Play",
+    "price": "Free: voice alerts and today's list for one wallet. Pro: S/ 5 a month or S/ 45 a year in Peru (about $1.40 and $12); about COP 5,900 a month in Colombia and R$ 7.90 a month in Brazil (about $1.45). Pro adds all wallets, screenshot checks, duplicate-receipt alerts, cash-close history and export.",
+    "rationale": "Many voice-alert apps already exist (prices not checked this run, probably free or ad-funded), so voice alerts must be free. Charging for them would not work. The paid part is what nobody shows yet: screenshot matching, combining wallets and the cash close. The skeptic suggested testing S/ 5-10 a month. S/ 5 sits inside the $1-3 range and is about one-twentieth of the S/ 100 fake payment it is meant to stop. A yearly plan suits shops that are open all year, and local-currency prices are essential because buyers think in soles, pesos and reais. In India, wallets supply speaker boxes that announce each payment, which suggests merchants value hearing every payment (background knowledge; the price page could not be opened this run)."
+  },
+  "unit_economics": {
+    "cost_per_user": "About $0.02 a month. Notification reading, voice and text recognition all run on the phone, so there are no AI, SMS or per-message costs. The server only serves a small rules file, licence checks and crash reports. The bigger deductions are the 15% Google Play fee on subscriptions and sales tax of about 18-19% in Peru and Colombia, which comes out of the displayed price.",
+    "users_needed": "At S/ 5 (about $1.40), roughly $1.00 a month is left per user after tax, the Play fee and running cost, so about 10,000 paying users bring $10,000 a month. At S/ 9.90 the figure falls to about 5,200 users. If 3-5% of free users pay, that means about 200,000-330,000 installs, which is a lot in a niche that already has many free voice-alert apps."
+  },
+  "how_to_get_users": "1) Play Store search. Peruvians and Brazilians already search phrases like 'yape voz', 'alerta yape plin' and 'pix por voz'; at least 9 apps in each country target them. That proves the searches exist but means a fight on listing quality, ratings and a clearly different promise, such as 'detects fake yapeos'. 2) Short videos on TikTok, YouTube Shorts and Facebook Reels showing a fake screenshot caught in seconds at a real bodega counter. Fake-yapeo stories already get press coverage in Peru, so this content travels without ads. 3) The product advertises itself: neighbouring stalls and customers hear the spoken alert, and the WhatsApp cash-close image carries a small app link. 4) Groups such as the Asociacion de Bodegueros del Peru, market and Gamarra trader associations in Lima, Fenalco chapters in Colombia, and Sebrae and Abrasel in Brazil run talks and training for small businesses. A free 'how to spot fake payments' session with a pilot code is a natural fit. 5) Walking markets in Lima with a QR sticker for the counter, in the same way wallets spread their QR stickers. None of this needs paid ads, because the pain is concrete, local and easy to show in a 15-second clip.",
+  "first_users": [
+    {
+      "name": "Asociacion de Bodegueros del Peru",
+      "where": "Lima, Peru (national bodega owners' association)",
+      "why": "Represents the corner shops that take Yape and Plin all day and is regularly quoted in Peruvian press on bodega problems. It is a good partner for a pilot and an anti-fraud talk. Not opened this run."
+    },
+    {
+      "name": "Emporio Comercial de Gamarra",
+      "where": "La Victoria, Lima, Peru (garment trading district)",
+      "why": "Thousands of small shops sell in person and through WhatsApp and live selling, taking wallet payments from strangers, which is exactly where fake screenshots show up. Not opened this run."
+    },
+    {
+      "name": "Lima municipal food markets (Mercado Central and district mercados de abastos)",
+      "where": "Lima, Peru (in person)",
+      "why": "Busy stalls take many small Yape and Plin payments while the owner's phone is in a pocket. Stall associations in each market make it possible to reach many sellers at once. Not opened this run."
+    },
+    {
+      "name": "Facebook Marketplace and buy-and-sell groups in Lima",
+      "where": "Facebook, Peru",
+      "why": "Online sellers there get paid by Yape or Plin from people they do not know and are sent receipts by WhatsApp, which is the remote version of the scam. Specific groups were not checked this run."
+    },
+    {
+      "name": "r/PERU",
+      "where": "Reddit",
+      "why": "Peru's main subreddit, where yapeo scams and small-business problems come up. Useful for finding pain stories and early testers. Reddit could not be opened this run."
+    },
+    {
+      "name": "Fenalco (Federacion Nacional de Comerciantes Empresarios)",
+      "where": "Colombia, with regional chapters (seccionales)",
+      "why": "Colombia's main merchants' federation, offering training and events. It is a route to shops in Bogota, Medellin and Cali now taking Nequi, Daviplata and Bre-B payments.",
+      "url": "https://www.fenalco.com.co/"
+    },
+    {
+      "name": "Corabastos",
+      "where": "Bogota, Colombia (wholesale food market, in person)",
+      "why": "One of the largest concentrations of small vendors in Colombia, handling fast, high-volume payments where a quick 'is it real?' check matters. Not opened this run."
+    },
+    {
+      "name": "r/Colombia",
+      "where": "Reddit",
+      "why": "Colombia's main subreddit, where Nequi and Daviplata scams are discussed. Good for testing the message in Colombian Spanish. Reddit could not be opened this run."
+    },
+    {
+      "name": "Sebrae",
+      "where": "Brazil (national small-business support agency with local offices)",
+      "why": "Trains millions of micro-entrepreneurs and MEIs. A session on avoiding fake Pix, with the app as a tool, fits its training offer.",
+      "url": "https://sebrae.com.br/sites/PortalSebrae"
+    },
+    {
+      "name": "Abrasel (Associacao Brasileira de Bares e Restaurantes)",
+      "where": "Brazil, 27 state and 26 regional chapters",
+      "why": "Its site reports that Pix is now 20.5% of sales in bars and restaurants, and small food businesses get paid by Pix at the counter and for deliveries.",
+      "url": "https://abrasel.com.br/"
+    }
+  ],
+  "risks": [
+    "The basic feature is already common. Google Play shows at least 9 voice-alert apps for Yape and Plin in Peru and about 9 for Pix in Brazil, rated mostly 3.3-4.8. One of them (Sino Pix) already adds a cash register. Unless the screenshot check and cash close really win users, this is just one more app in a crowded list. Installs, prices and exact features of these apps were not checked this run.",
+    "The wallets can wipe out the idea with one update. Yape already runs anti-fake-yapeo campaigns and reportedly a security code. If BCP, Interbank or Nequi add spoken alerts, a shop ledger or a 'verify receipt' button, the free built-in version wins.",
+    "Interoperability shrinks the multi-wallet need. Plin and Yape already pay each other, and Colombia's Bre-B links 245 institutions, so more shops can take every payment into one app and have less reason to combine wallets.",
+    "It depends on Android notification access. Wallets can change or hide notification text at any time, and Google has started hiding some sensitive notification content from third-party apps in recent Android versions (background knowledge, not re-checked). It cannot work on iPhone at all.",
+    "Trust. Shopkeepers may refuse an unknown app that reads their bank notifications, especially as fake banking apps are themselves a known scam. The app must do everything on the phone, say so clearly, and probably earn trust through associations rather than ads.",
+    "Willingness to pay is unproven. No evidence was found of a shop paying for any payment checker, rival apps are probably free, and micro-merchants watch every sol. The skeptic's test (a Lima pilot at S/ 5-10 a month) has not been done.",
+    "Screenshot matching has edge cases. Late notifications, unsupported banks or a scheduled Pix can produce a wrong 'not found' that insults an honest customer, or a wrong 'confirmed' that costs the shop money. Either error quickly destroys trust.",
+    "Brazil is far more fragmented: hundreds of Pix-enabled banks and fintechs, each with its own notification format, so expanding there is slow and costly to maintain.",
+    "The evidence is thin and partly old: a 2023 Rest of World article, press headlines and a 2026 merchant guide, with no interviews with shopkeepers."
+  ],
+  "sources": [
+    {"title": "Rest of World (Spanish edition, Feb 2023): fake receipts and 'digital shoplifting' in Peru and Colombia", "url": "https://restofworld.org/2023/fake-receipts-scammers-digital-shoplifting/es/"},
+    {"title": "Nuvemshop blog: Pix falso, how merchants can spot fake Pix receipts (updated June 2026)", "url": "https://www.nuvemshop.com.br/blog/pix-falso/"},
+    {"title": "Yape homepage (features, Yape Tienda, free yapeos)", "url": "https://www.yape.com.pe/"},
+    {"title": "Yape security page (video 'No caigas con yapeos falsos', FAQ on spotting a fake yapeo)", "url": "https://www.yape.com.pe/seguridad"},
+    {"title": "Plin homepage (banks, Yape interoperability, QR for shops, limits)", "url": "https://www.plin.pe/"},
+    {"title": "Banco de la Republica: Bre-B first-year figures", "url": "https://www.banrep.gov.co/es/bre-b"},
+    {"title": "Google Play search results Peru: 'yape notificacion voz' (opened once, before the search limit notice)", "url": "https://play.google.com/store/search?q=yape%20notificacion%20voz&c=apps&gl=PE&hl=es"},
+    {"title": "Google Play search results Brazil: 'pix recebido aviso voz' (opened once, before the search limit notice)", "url": "https://play.google.com/store/search?q=pix%20recebido%20aviso%20voz&c=apps&gl=BR&hl=pt_BR"},
+    {"title": "Google Play listing: Yape Voz - Pagos en Altavoz (title only loaded)", "url": "https://play.google.com/store/apps/details?id=com.yapeaudio.www.elchemo.com"},
+    {"title": "Google Play listing: Alerta Pago - Voz Yape y Plin (title only loaded)", "url": "https://play.google.com/store/apps/details?id=com.alertapago.app"},
+    {"title": "Google Play listing: Sino Pix - Pix por voz e caixa (title only loaded)", "url": "https://play.google.com/store/apps/details?id=net.orangesoftwares.sinopix"},
+    {"title": "Google Play listing: ConferePix - Seu PIX confirmado (title only loaded)", "url": "https://play.google.com/store/apps/details?id=com.br.ConferePix"},
+    {"title": "Fenalco homepage", "url": "https://www.fenalco.com.co/"},
+    {"title": "Sebrae portal", "url": "https://sebrae.com.br/sites/PortalSebrae"},
+    {"title": "Abrasel homepage (chapters; Pix 20.5% of bar and restaurant sales headline)", "url": "https://abrasel.com.br/"},
+    {"title": "Peru Retail: Yape launches security code against fake yapeos (from scout card; returned 403 this run)", "url": "https://www.peru-retail.com/yape-lanza-codigo-de-seguridad-para-evitar-yapeos-falsos-como-funciona/"},
+    {"title": "Agora RN: 24 million Brazilian victims of digital scams and fake Pix (from scout card; not reopened)", "url": "https://agorarn.com.br/economia/brasil-tem-24-milhoes-de-vitimas-de-golpes-digitais-e-pix-falso-prejuizo-chega-a-r-29-bilhoes/"}
+  ]
+}

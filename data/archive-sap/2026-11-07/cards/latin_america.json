@@ -1,0 +1,114 @@
+{
+  "region": "latin_america",
+  "summary": [
+    "Brazil's dual VAT (IBS/CBS) starts charging in January 2027 and the transition runs to 2033. It lands in the same window as the end of SAP ECC mainstream maintenance (2027), so SAP customers face two large changes at once.",
+    "Most sources are vendor or law-firm content, so exact dates should be re-checked against official texts. Split payment appears to be delayed and not mandatory at the start of 2027.",
+    "Mexico's CFDI 4.0 with Carta Porte and the foreign-trade complement needs constant catalog upkeep (SAT updated customs catalogs in Aug and Oct 2026). That is a steady pain for nearshoring manufacturers.",
+    "Chile's SII added transport-data requirements for dispatch guides and invoices (reported effective 1 Nov 2026). It adds a new compliance layer on top of an already mature e-invoicing system.",
+    "No SAP acquisition of a Brazilian or Mexican startup was found. SAP is pushing AI agents and a EUR 100M AI fund, and SAPinsider argues tax logic should stay inside the ERP core."
+  ],
+  "cards": [
+    {
+      "id": "la-01",
+      "title": "IBS/CBS tax-reform readiness and test harness for SAP",
+      "problem": "Brazilian SAP customers must extend tax schemas, NF-e XML groups (IBSCBS, gIBSUF, gIBSMun, gCBS) and fiscal master data before CBS/IBS start. Many are doing this while still on ECC or mid-migration to S/4HANA. Testing and validating the new tax calculation across thousands of materials and scenarios is largely manual.",
+      "who_feels_it": {"role": "Head of Tax / Fiscal IT manager", "industry": "Manufacturing, retail, distribution"},
+      "forcing_function": "CBS/IBS charging starts January 2027; e-documents with IBS/CBS fields become mandatory in phases; transition to 2033",
+      "lens": ["regulation", "sap_gaps", "pain"],
+      "evidence": [
+        {"claim": "SAP published technical notes in Sept 2025 for new NF-e fields and tax calculation; the SAP tax schemas in SD and MM must be extended for CBS, IBS and IS (technical guide, 2025)", "url": "https://www.reformatributaria.com/wp-content/uploads/2025/08/Reforma-Tributaria-Brasileira-e-SAP-Impactos-Adaptacoes-e-Detalhamento-das-SAP-Notes.pdf"},
+        {"claim": "Systax column (22 Apr 2026) says ECC mainstream maintenance ends in 2027 and overlaps with the tax reform, and that heavily customised Brazilian SAP systems are a tax and technical debt", "url": "https://www.baguete.com.br/noticias/2027-e-um-ultimato-para-quem-ainda-roda-sap-ecc"},
+        {"claim": "Regulation requires ERP changes and testing before the new fiscal-document fields become mandatory", "url": "https://www.ozai.com.br/publicado-regulamento-cbs-ibs/"}
+      ],
+      "existing_tools": [
+        {"name": "Systax", "gap": "Tax content engine; does not offer automated regression testing of SAP tax outcomes across the whole master-data estate"},
+        {"name": "SAP Document and Reporting Compliance", "gap": "Covers document emission and reporting, not validation of tax parameterisation or customisations"},
+        {"name": "Inventti / TNV", "gap": "Messaging and XML generation; services-led"}
+      ],
+      "sap_touchpoint": "SAP ECC and S/4HANA SD/MM tax schemas, NF-e integration with SEFAZ, SAP DRC.",
+      "countries": ["Brazil"],
+      "solution_idea": "A tool that reads SAP tax configuration and master data, simulates IBS/CBS outcomes and flags wrong NCM/CST mappings and gaps before go-live. It then keeps running as a continuous check as the rules change."
+    },
+    {
+      "id": "la-02",
+      "title": "Cash-flow and split-payment simulator for the dual VAT",
+      "problem": "Split payment moves tax out of company cash at the moment of payment, which hits working capital. The start date is unclear because the financial system asked for more time. Treasury and tax teams lack tools that model credits, payment timing and reconciliation per customer and supplier.",
+      "who_feels_it": {"role": "Treasurer / CFO", "industry": "Large Brazilian companies across sectors"},
+      "forcing_function": "Dual VAT from Jan 2027; split payment delayed and not expected at the start, with a later mandatory phase",
+      "lens": ["regulation", "pain"],
+      "evidence": [
+        {"claim": "Reports say split payment will not start in January 2027 after pressure from financial institutions, and no new date had been announced", "url": "https://convergenciadigital.com.br/governo/receita-atende-instituicoes-financeiras-e-split-payment-fica-fora-do-inicio-da-reforma-tributaria/"},
+        {"claim": "Omie guide lists mandatory split payment as a later-phase item of the 2027-2033 transition", "url": "https://www.omie.com.br/split-payment/"},
+        {"claim": "Legal bulletin (Aug 2026) says split payment will not operate in Jan 2027", "url": "https://lopescastelo.adv.br/wp-content/uploads/2026/08/Informativo-62.pdf"}
+      ],
+      "existing_tools": [
+        {"name": "Omie", "gap": "Aimed at SMEs, not enterprise SAP treasury"},
+        {"name": "SAP S/4HANA finance", "gap": "No dedicated working-capital impact model for split payment"}
+      ],
+      "sap_touchpoint": "SAP FI-AP/AR and treasury, bank reconciliation.",
+      "countries": ["Brazil"],
+      "solution_idea": "A forecasting layer on SAP FI data that simulates the cash impact of split payment and tax credit offsets under different start dates. It would feed treasury dashboards."
+    },
+    {
+      "id": "la-03",
+      "title": "CFDI Carta Porte and foreign-trade catalog sync for SAP (nearshoring)",
+      "problem": "Mexican manufacturers and logistics teams must keep Carta Porte, foreign-trade complement and customs catalogs current in the ERP. SAT changed the customs catalogs in Aug and Oct 2026, and errors lead to fines. Master-data gaps (tariff codes, customs patents) are corrected by hand.",
+      "who_feels_it": {"role": "Customs and logistics compliance manager", "industry": "Manufacturing / IMMEX exporters"},
+      "forcing_function": "CFDI 4.0 is the only valid scheme in 2026; Carta Porte covers own-goods transport since 2025; fines of about 17k to 90k pesos reported",
+      "lens": ["regulation", "pain"],
+      "evidence": [
+        {"claim": "SAT updated the CFDI 4.0 customs catalog on 21 Aug 2026 and added records on 1 Oct 2026, effective 2 Oct (Thomson Reuters regulatory updates)", "url": "https://europe.thomsonreuters.com/pl/compliance/regulatory-updates/mexico"},
+        {"claim": "Carta Porte can be combined with the foreign-trade complement in one CFDI, requiring tariff fraction data for exports", "url": "https://www.contadigital.mx/posts/complemento-comercio-exterior-20"},
+        {"claim": "Carta Porte applies to anyone moving their own goods domestically from 2025", "url": "https://www.noticiasgobierno.com/carta-porte-cfdi-4-0-2026-quien-la-necesita-y-como-emitirla/"}
+      ],
+      "existing_tools": [
+        {"name": "Sovos", "gap": "Compliance network; per-document pricing, limited catalog-quality monitoring in SAP master data"},
+        {"name": "Edicom", "gap": "EDI and e-invoicing transport; does not clean ERP master data"},
+        {"name": "Vertex", "gap": "Tax focus rather than customs master-data validation"}
+      ],
+      "sap_touchpoint": "SAP SD/LE shipping, SAP GTS, Mexican localisation.",
+      "countries": ["Mexico"],
+      "solution_idea": "Monitor SAT catalog releases, diff them against SAP master data and flag affected materials and customers before invoices get rejected."
+    },
+    {
+      "id": "la-04",
+      "title": "Chile transport-data checks for dispatch guides and invoices",
+      "problem": "SII added mandatory transport details (origin, destination, driver, carrier RUT) for invoices and dispatch guides covering goods transport. ERPs and warehouse systems often lack this data at issuing time, so logistics and finance must complete it by hand.",
+      "who_feels_it": {"role": "Logistics / supply chain operations manager", "industry": "Retail, distribution, mining supply"},
+      "forcing_function": "SII resolution on transport documents reported effective 1 Nov 2026; electronic dispatch-guide register reported for 2027",
+      "lens": ["regulation"],
+      "evidence": [
+        {"claim": "Lookuptax cites SII Res. 144 (23 Oct 2026) with extra transport requirements effective 1 Nov 2026", "url": "https://lookuptax.com/tax-changes/chile/sii-res-144-2026-transport-invoice-requirements"},
+        {"claim": "Law firm note says the new dispatch guide rules become mandatory from Nov 2026", "url": "https://www.lawandtrends.com/noticias/tributario/chile-actualiza-la-normativa-de-guias-de-despacho-los-nuevos-requisitos-seran-obligatorios-desde-noviembre-de-2026-1.html"},
+        {"claim": "Sovos describes new transport-data fields and a dispatch guide register", "url": "https://sovos.com/es/biblioteca-de-contenidos/iva/guia-factura-traslado-bienes-2026/"}
+      ],
+      "existing_tools": [
+        {"name": "Sovos", "gap": "Document layer; does not capture driver or carrier data upstream in warehouse workflows"},
+        {"name": "Nubox / YoFacturo", "gap": "SME invoicing, not integrated with enterprise SAP logistics"}
+      ],
+      "sap_touchpoint": "SAP SD delivery and outbound shipping to DTE issuing.",
+      "countries": ["Chile"],
+      "solution_idea": "A lightweight middleware that captures carrier and driver data at the dock, validates it, and injects it into SAP deliveries before the DTE is sent to SII. The dates reported by sources conflict, so confirm on the SII site."
+    },
+    {
+      "id": "la-05",
+      "title": "Colombia payroll and support-document reconciliation",
+      "problem": "Electronic payroll and support documents must be transmitted to DIAN, and non-compliance carries the same fines as e-invoicing. Late transmission is tolerated for deductions in at least one ruling, but HR and tax teams reconcile payroll runs against DIAN acceptance by hand.",
+      "who_feels_it": {"role": "HR payroll manager / tax accountant", "industry": "Large multi-entity employers"},
+      "forcing_function": "Existing DIAN payroll and support-document mandate; sanctions under Art. 652-1; a draft resolution on monthly accumulation was discussed in July 2026",
+      "lens": ["regulation", "pain"],
+      "evidence": [
+        {"claim": "Non-compliance with electronic payroll carries the same sanctions as the e-invoicing mandate (Sovos)", "url": "https://sovos.com/es/blog/iva/el-mandato-de-nomina-electronica-de-colombia/"},
+        {"claim": "Concept 010193 of 2026 says late transmission alone does not block cost deduction (Softland blog, Aug 2026, single source)", "url": "https://softland.com/co/nomina-electronica-colombia/"},
+        {"claim": "Portafolio argues the 2026 challenge is getting the calculations right", "url": "https://www.portafolio.co/economia/empleo/nomina-electronica-en-2026-el-reto-es-hacer-bien-las-cuentas-502607"}
+      ],
+      "existing_tools": [
+        {"name": "Softland", "gap": "ERP-bundled, mid-market"},
+        {"name": "Sovos", "gap": "Transmission only, little reconciliation with SAP HCM"}
+      ],
+      "sap_touchpoint": "SAP HCM / SuccessFactors Employee Central payroll to DIAN.",
+      "countries": ["Colombia"],
+      "solution_idea": "A reconciliation dashboard that matches SAP payroll results with DIAN acceptance status (CUNE), flags rejected or late documents and auto-corrects them. Evidence for new 2026 obligations is thin, so this is a weaker card."
+    }
+  ]
+}

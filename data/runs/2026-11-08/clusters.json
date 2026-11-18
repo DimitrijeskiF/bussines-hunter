@@ -1,0 +1,480 @@
+{
+  "clusters": [
+    {
+      "id": "sole-trader-tax-threshold-watcher",
+      "title": "Sales-tax limit and regime tracker for sole traders",
+      "problem": "Sole traders on small-business VAT, GST or consumption-tax regimes must watch their own turnover against legal limits, and crossing a line can switch on tax from the very invoice that crosses it (Germany, Italy) or bring surprise notices (India's 2025 UPI-based GST notices). Tax offices do not warn anyone, and the only tools are full bookkeeping suites or one-off calculators. Japan's invoice-registered freelancers face a similar choice as the 2-wari relief ends and they must pick between 3-wari, simplified and general tax.",
+      "solution_idea": "A phone and web app where the user logs or imports income (CSV, bank or UPI statements), picks their country's regime, and sees a running meter and forecast against each limit with alerts and plain-language next steps. One rules file per country (Quebec GST/QST, German Kleinunternehmer, Italian forfettario, Dutch KOR, Indian GST, Japanese consumption-tax options), updated every year.",
+      "customer": "Freelancers and one-person shops near small-business tax limits in Europe, Quebec, India and Japan",
+      "gap_type": "missing_here",
+      "regions": ["north_america", "europe", "south_asia", "east_asia"],
+      "patterns": {
+        "global_pain": true,
+        "arbitrage": null
+      },
+      "why_now": "Germany's reformed Kleinunternehmer limits apply since 2025, Indian states sent UPI-based GST notices to small traders in July 2025, and Japan's 2-wari relief ends with the 2026 tax year.",
+      "subscription_case": "Turnover builds every month and limits and rules change every year, so a running forecast with alerts keeps its value; a Quebec tax calculator already charges CAD 3.99 a month with about 2.8 thousand ratings. Free spreadsheets compete, so income entry must be close to automatic.",
+      "card_refs": ["north_america/na-02", "europe/eu-01", "south_asia/sa-01", "east_asia/ea-01"],
+      "evidence": [
+        {"claim": "Since 2025 German Kleinunternehmer status ends immediately from the sale that crosses 100,000 EUR, and the 25,000 EUR prior-year limit applies (guide, 2025-2026).", "url": "https://selbststaendigkeit.de/buchhaltung-fuer-gruender/umsatzsteuer-bei-kleinunternehmern/"},
+        {"claim": "A German founder platform leaflet states that watching the limits is the entrepreneur's own responsibility, not the tax office's.", "url": "https://gruenderplattform.de/assets/indexable/documents/Merkblatt-Kleinunternehmerregelung.pdf"},
+        {"claim": "In Italy, exceeding 100,000 EUR under the forfettario regime ends it mid-year and VAT applies from the invoice that crossed the line.", "url": "https://www.money.it/regime-forfettario-cosa-succede-se-superi-100000-euro"},
+        {"claim": "Revenu Québec says you are a small supplier only if taxable supplies stay at or below CAD 30,000 in a quarter and in the four quarters before it.", "url": "https://www.revenuquebec.ca/en/businesses/consumption-taxes/gsthst-and-qst/registering-for-the-gst-and-qst/small-suppliers/"},
+        {"claim": "Calcul Taxes Québec (iOS) is aimed at self-employed workers, charges CAD 3.99 per month or CAD 33.99 per year, and has a 4.8 rating from about 2.8 thousand ratings. It does not mention invoicing or threshold tracking.", "url": "https://apps.apple.com/ca/app/calcul-taxes-qu%C3%A9bec-tps-tvq/id1603154795?l=fr-CA"},
+        {"claim": "Karnataka's tax department issued notices from UPI data covering 2021-22 to 2024-25 to traders above the turnover threshold, causing protests in July 2025.", "url": "https://www.business-standard.com/india-news/karnataka-upi-gst-notices-vendors-demand-relief-turn-to-cash-125072300585_1.html"},
+        {"claim": "A vegetable seller received a roughly 29 lakh rupee notice; thresholds are 40 lakh for goods and 20 lakh for services, and exempt goods are not taxable.", "url": "https://www.angelone.in/news/upi-transactions-lead-to-rs-29-lakh-gst-notice-for-vegetable-seller"},
+        {"claim": "Search results from Japanese tax media describe the 2-wari rule as ending with the period that includes 30 Sep 2026, and a new 3-wari rule for 2027 and 2028 only, for sole proprietors with base-period sales of 10 million yen or less. These come from private explainers, not the tax office.", "url": "https://media.moneyforward.com/articles/10846"}
+      ]
+    },
+    {
+      "id": "freelancer-foreign-income-tax-ledger",
+      "title": "Foreign-income tax ledger for freelancers paid from abroad",
+      "problem": "Freelancers in Nigeria, Pakistan and Argentina who are paid in dollars by foreign clients must convert income at official rates, keep bank and platform proof, and stay within local rules: Nigeria's 2026 self-assessment, Pakistan's approved-bank-channel test for low export tax rates, and Argentina's monotributo category caps. Most track this in screenshots and spreadsheets, the guides disagree with each other, and tax offices are now sending notices.",
+      "solution_idea": "A mobile app where freelancers log or forward each foreign payout, attach bank advices and receipts, convert at stored official rates, see where they stand against local conditions and caps, and export a filing-ready summary. Rates and rules live in configurable country files because sources disagree.",
+      "customer": "Freelancers and remote workers in Nigeria, Pakistan and Argentina paid by foreign clients and platforms",
+      "gap_type": "missing_here",
+      "regions": ["africa", "south_asia", "latin_america"],
+      "patterns": {
+        "global_pain": true,
+        "arbitrage": null
+      },
+      "why_now": "Nigeria's Tax Act took effect on 1 Jan 2026 with filing penalties, Pakistan's FBR is issuing bulk notices over undeclared foreign income, and Argentina's BCRA removed the dollar cap for service exporters in September 2025.",
+      "subscription_case": "Income arrives monthly and proof must be kept all year; a missed Nigerian filing costs 100,000+ naira and a wrong Argentine category risks exclusion, so $1-3 a month (about 300-500 PKR in Pakistan) is small against the stakes. Tax-season spikes are a churn risk, so annual-in-monthly framing helps.",
+      "card_refs": ["africa/af-01", "south_asia/sa-02", "latin_america/la-05"],
+      "evidence": [
+        {"claim": "Cleva guide (29 Dec 2025): first 800,000 naira tax-free but registration and annual filing still required; foreign income converted at official CBN rate on receipt date; expense receipts needed; penalties 100,000 naira first month of non-filing.", "url": "https://www.getcleva.com/blog/nigeria-tax-reform-2026-everything-freelancers-and-remote-workers-need-to-know"},
+        {"claim": "Search found only fee-comparison blogs for receiving dollars, no tool that tracks income by currency and rate for tax purposes.", "url": "https://www.getcleva.com/blog/best-digital-platforms-for-freelancers-to-receive-usd-in-nigeria"},
+        {"claim": "FBR planned bulk notices to registered non-filers and filers who did not declare foreign income, and went after Payoneer-routed income.", "url": "https://www.geo.tv/latest/338963-fbr-uncovers-rs60-billion-overseas-transactions-mega-scam"},
+        {"claim": "A 2026 guide says PSEB-registered freelancers pay 0.25% and others 1%, with an 80% approved-bank-channel condition; sources disagree on Section 65F details.", "url": "https://cssprep.com.pk/freelancer-income-tax-pakistan/"},
+        {"claim": "A 2026-27 guide says the 0.25% rate was extended to 2029 and advises monthly reconciliation of withholding certificates to a ledger.", "url": "https://www.toolsfluent.com/blog/freelancer-tax-pakistan-2026-guide"},
+        {"claim": "A professional-accounting blog reports BCRA Communication A 8330 of 18 Sep 2025 removed the USD 36,000 annual cap for service exporters.", "url": "https://blogdelcontador.com.ar/news-46223-freelancers-ahora-podran-cobrar-en-dolares-del-exterior-sin-limites-y-sin-obligacion-de-liquidarlos-a-pesos"},
+        {"claim": "Global66 warns that dollars received from abroad count toward the annual monotributo limit and ARCA can exclude the taxpayer, while Contablix says documented export income does not add to the cap: sources disagree.", "url": "https://contablix.ar/blog/monotributo-freelancers-digitales-instructores-2026"}
+      ]
+    },
+    {
+      "id": "micro-e-invoicing-app",
+      "title": "Phone-first e-invoicing for micro-sellers under new mandates",
+      "problem": "E-invoicing and e-receipt mandates are reaching the smallest taxpayers: UAE businesses by March 2027, Saudi sellers above SAR 187,500 by February 2027, Egyptian e-receipts, Turkish e-SMM freelance receipts and Poland's KSeF. Compliant tools are full accounting suites priced for companies (about AED 99, SAR 60-140 or 150 TL a month), while free state tools are bare and send no alerts. Freelancers and tiny shops that send or receive a few invoices a month have no cheap phone option.",
+      "solution_idea": "A phone-first, local-language invoice and receipt app that issues or receives compliant e-invoices through the official API or an accredited partner, with QR codes, WhatsApp sharing, new-invoice alerts and forwarding to the accountant. Launch one country module at a time, starting where the deadline is nearest.",
+      "customer": "Freelancers, home businesses and tiny shops in the UAE, Saudi Arabia, Egypt, Turkey and Poland that must issue or receive e-invoices",
+      "gap_type": "missing_here",
+      "regions": ["middle_east", "africa", "europe"],
+      "patterns": {
+        "global_pain": true,
+        "arbitrage": null
+      },
+      "why_now": "ZATCA announced Wave 25 on 24 July 2026 with a 1 Feb 2027 deadline, UAE e-invoicing piloted in June 2026 ahead of a 31 March 2027 deadline, Egypt tied tax benefits to e-receipt compliance in March 2026, and Poland's KSeF phased in during 2026.",
+      "subscription_case": "Every invoice must go through the system, so the tool is used every month for as long as the person trades, and fines (from SAR 5,000 per violation in Saudi Arabia) make compliance non-optional. A $2-3 plan undercuts every named competitor by a wide margin; integrator and certification costs must be checked before building.",
+      "card_refs": ["middle_east/me-01", "middle_east/me-02", "middle_east/me-05", "africa/af-03", "europe/eu-05"],
+      "evidence": [
+        {"claim": "The National (Dec 2025) reports e-invoicing is mandatory in 2026-27, with a pilot in June 2026 and a 31 March 2027 initial deadline for businesses with revenue under Dh50 million; occasional traders are affected.", "url": "https://www.thenationalnews.com/business/economy/2025/12/07/uae-tax-accidental-businesspeople-wont-survive-shift-to-e-invoicing"},
+        {"claim": "Mazeed, a UAE tool aimed at freelancers and small businesses with an Arabic interface, lists paid packages starting from AED 99 per month.", "url": "https://mazeed.com/blog/self-employed-accounting-software/"},
+        {"claim": "EY reports ZATCA announced the 25th wave on 24 July 2026: taxpayers above SAR 187,500 turnover in 2022-2025 must integrate by 1 February 2027.", "url": "https://taxnews.ey.com/news/2026-1705-saudi-arabia-announces-25th-wave-of-phase-2-e-invoicing-integration"},
+        {"claim": "Qoyod's published entry prices conflict across sources, from SAR 60 per month plus VAT on its own blog to SAR 138 per month on its academy page.", "url": "https://www.qoyod.com/en/blog/e-invoicing/e-invoice-program-costs/"},
+        {"claim": "A Saudi marketplace listing offers a Phase 2 invoicing app at 999 SAR for small business, showing small sellers are buying one-off licences.", "url": "https://sa.opensooq.com/en/search/281969280"},
+        {"claim": "Paraşüt's official pages list its e-Fatura program at 150 TL plus VAT per month, and sell e-SMM credits separately (100 for 400 TL plus VAT); different pages show different bundle prices.", "url": "https://www.parasut.com/on-muhasebe-fiyatlari/makbuzlu"},
+        {"claim": "Egyptian Tax Authority statement reported by Ahram (8 Mar 2026): e-invoice and e-receipt compliance is a condition for benefiting from the accounting system.", "url": "https://gate.ahram.org.eg/News/5544514.aspx"},
+        {"claim": "iFirma's overview of KSeF programs for small firms says automatic download and new-invoice notifications come with its paid module; the free e-Mikrofirma app needs manual checking of the KSeF inbox.", "url": "https://www.ifirma.pl/blog/programy-do-obslugi-ksef-przeglad-rozwiazan-dla-malych-firm-jdg-i-freelancerow-2026/"}
+      ]
+    },
+    {
+      "id": "platform-seller-tax-tracker",
+      "title": "Tax companion for people who sell or earn through online platforms",
+      "problem": "Marketplaces and gig platforms now withhold tax from small sellers or report them to the tax office: Mexico raised platform income-tax withholding to 2.5% in 2026, Vietnam, Indonesia and the Philippines have marketplace withholding, and EU platforms report sellers under DAC7. Sellers must collect certificates, credit what was already withheld so they do not pay twice, and keep cost records to prove casual sales made no profit. Help is scattered across blogs, spreadsheets, official portals and pricier accounting apps.",
+      "solution_idea": "A phone app where sellers upload platform payout, sales and retention files and see income, tax already withheld, stored certificates, counters against reporting thresholds and the next deadline, with an export ready for the tax form or a no-profit summary. One rules file per country.",
+      "customer": "Part-time sellers and earners on Mercado Libre, Amazon, Shopee, Lazada, TikTok Shop, Vinted and eBay in Mexico, Southeast Asia and the EU",
+      "gap_type": "missing_here",
+      "regions": ["latin_america", "southeast_asia_oceania", "europe"],
+      "patterns": {
+        "global_pain": true,
+        "arbitrage": null
+      },
+      "why_now": "Mexico's 2026 tax package raised platform withholding and gave the SAT online access to platform data, Vietnam's platform withholding began in July 2025 and flat-rate household tax ended in January 2026, Indonesia's PMK 37/2025 is rolling out, and DAC7 reports reach EU sellers every January.",
+      "subscription_case": "Payouts and filings recur monthly or quarterly, and forgetting to credit withheld tax means paying it twice, so about $2 a month is cheaper than one accountant question. EU resale use may be seasonal, so a yearly-style plan may fit better there.",
+      "card_refs": ["latin_america/la-02", "southeast_asia_oceania/sea-02", "europe/eu-02"],
+      "evidence": [
+        {"claim": "El Contribuyente (19 Nov 2025): from 2026 ISR withholding on individuals selling on platforms rises from 1% to 2.5%, and 100% IVA withholding applies if there is no valid RFC.", "url": "https://www.elcontribuyente.mx/2025/11/en-2026-vender-en-plataformas-digitales-sera-mas-caro-habra-nuevas-retenciones/"},
+        {"claim": "An accountant warns that forgetting to credit withheld IVA on the monthly form leads to paying the same tax twice.", "url": "https://praxiumconsultores.com/blog/retenciones-de-amazon-y-mercado-libre-como-acreditarlas"},
+        {"claim": "Vietnam Decree 117/2025 requires e-commerce platforms with payment functions to withhold and pay VAT and personal income tax for sellers from 1 July 2025; sellers must still issue invoices.", "url": "https://vietnamnews.vn/economy/1720550/platforms-to-help-online-sellers-pay-taxes-from-july-1.html"},
+        {"claim": "Philippines RR 16-2023: platforms withhold 1% on half of gross remittances to sellers above PHP 500,000 a year and issue Form 2307, which the seller uses as a credit.", "url": "https://www.tripleiconsulting.com/what-philippine-rr-16-2023-withholding-tax-online-sellers/"},
+        {"claim": "Philippine freelancer tax apps exist but are pricier than the target: Symph's tool lists 2307 and official receipts in a PHP 499 a month Pro tier.", "url": "https://finance-freelancer-tools.landing.symph.co/"},
+        {"claim": "Vinted UK states that 30 sales or about 2,000 EUR per calendar year triggers the report, which is a data report, not a tax bill.", "url": "https://www.vinted.co.uk/dac7"},
+        {"claim": "A seller on eBay Germany's community forum describes payouts held and account blocked after the DAC7 report until a tax number was supplied.", "url": "https://community.ebay.de/t5/DAC7-PStTG/Konto-gesperrt-Auszahlung-einbehalten-DAC7/m-p/4933684"},
+        {"claim": "Margeo (French reseller log) notes platform reports show turnover and fees but not cost basis, so sellers should keep purchase records; thresholds apply per platform.", "url": "https://margeoapp.com/en/blog/dac7-explained-online-sellers-europe/"}
+      ]
+    },
+    {
+      "id": "late-payment-chaser",
+      "title": "Late-payment chaser for freelancers and small suppliers, with local legal deadlines",
+      "problem": "Freelancers and small suppliers send invoices from many tools and chase late payments by hand, which is awkward and easy to forget; about 85% of freelancers report being paid late at least sometimes. India (45-day rule for MSME suppliers) and Japan (Freelance Act written terms and payment dates) now give suppliers a legal clock, but few know or track it. Reminders exist only inside bigger invoicing and accounting suites.",
+      "solution_idea": "Forward, photograph or type any invoice or job, and the app tracks the due date and the local legal deadline, sends polite then firmer reminders by email, SMS or WhatsApp, and drafts a formal notice when needed. In Japan it can also turn a chat message into the order notice the Freelance Act requires.",
+      "customer": "Freelancers and small suppliers who sell on credit in the US, Canada, India and Japan",
+      "gap_type": "missing_here",
+      "regions": ["north_america", "south_asia", "east_asia"],
+      "patterns": {
+        "global_pain": true,
+        "arbitrage": null
+      },
+      "why_now": "India's Section 43B(h) 45-day rule took effect in April 2024, Japan's Freelance Act in November 2024, and New York and other places have passed freelancer payment laws.",
+      "subscription_case": "Invoices go out every month, and recovering one late invoice a quarter pays for a year of a $2-3 plan (about 100 rupees a month in India). The audience is solo freelancers and small suppliers who will not buy a $20+ suite.",
+      "card_refs": ["north_america/na-04", "south_asia/sa-04", "east_asia/ea-05"],
+      "evidence": [
+        {"claim": "A 2026 statistics roundup reports about 85% of freelancers have invoices paid late at least some of the time and about 21% are paid late or not at all more than half the time (citing Remote's 2025 report; secondary source).", "url": "https://agiled.app/statistics/late-payment-statistics"},
+        {"claim": "A survey summary reports 62% of New York freelance workers have lost wages due to nonpayment.", "url": "https://authorsguild.org/news/survey-finds-62-percent-of-ny-freelance-workers-have-lost-wages-due-to-nonpayment"},
+        {"claim": "Intuit QuickBooks 2025 survey: 47% of 2,487 US small businesses report invoices overdue by more than 30 days (secondary report).", "url": "https://mediapost.com/publications/article/415441/payments-to-agencies-freelancers-increasingly-del.html"},
+        {"claim": "Section 43B(h), effective 1 April 2024, bars buyers from deducting unpaid MSME dues beyond 45 days (15 without a written agreement).", "url": "https://www.cashfree.com/blog/msme-45-days-payment-rule-section-43bh-explained/"},
+        {"claim": "SME Chamber asked the Finance Minister to continue the 45-day rule, showing small suppliers rely on it.", "url": "https://yourstory.com/smbstory/continue-45-day-msme-payment-rule-industry-body-fm-nirmala-sitharaman"},
+        {"claim": "TallyPrime added features for overdue MSME bills, but it serves buyers and accountants rather than suppliers.", "url": "https://tallysolutions.com/tally/streamlining-compliance-and-payments-to-msmes/"},
+        {"claim": "The Freelance Act took effect on 1 Nov 2024 and requires clients to show scope, deliverables, pay and payment date in writing or electronically.", "url": "https://www.legal500.com/developments/?p=45290"},
+        {"claim": "A Money Forward guide updated January 2026 says the clients covered include individuals with employees, that terms can go by email or chat, and that it offers a free order-form template.", "url": "https://biz.moneyforward.com/contract/basic/16213/"}
+      ]
+    },
+    {
+      "id": "driver-true-take-home",
+      "title": "True take-home and tax tracker for ride-hail and delivery drivers",
+      "problem": "Ride-hail and delivery drivers in Brazil, Mexico, Indonesia and nearby countries cannot easily see what they keep after platform fees, fuel and car costs, while commission rules and per-km pay keep changing. Brazilian drivers must also work out monthly carne-leao tax with a 40% deduction, and Mexican drivers face new IMSS rules. Official tools are bare forms, and the driver apps that exist are built for US, EU or Australian mileage rules.",
+      "solution_idea": "A light local-language app where drivers import each day's or week's platform payout (screenshot or PDF), log fuel and costs, and see net pay per hour, per km and per month plus the real fee percentage. Add the monthly carne-leao figure and DARF reminder in Brazil and a simple SAT/IMSS summary in Mexico.",
+      "customer": "Ride-hail and delivery drivers in Brazil, Mexico, Indonesia, Thailand, the Philippines and Vietnam",
+      "gap_type": "missing_here",
+      "regions": ["latin_america", "southeast_asia_oceania"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": {
+          "solved_in": ["north_america", "europe"],
+          "open_in": ["latin_america", "southeast_asia_oceania"],
+          "note": "Driversnote and Everlance already serve drivers on US and EU mileage and tax rules (and Driversnote and DRIVR do so in Australia), but nothing localised handles Brazilian carne-leao, Mexican SAT/IMSS or Indonesian platform fee structures."
+        }
+      },
+      "why_now": "Indonesia's 8% commission rule began on 1 July 2026 and drivers say the numbers do not add up; Mexico's platform-worker law took effect in 2026 and Brazilian fuel price rises led 99 to change per-km pay.",
+      "subscription_case": "Drivers check earnings daily and Brazilian drivers face a monthly tax deadline; at $1-2 a month the tool is small next to the roughly Rp 450,000 a month the Indonesian commission change is said to be worth, and spotting one unprofitable ride pattern pays for it.",
+      "card_refs": ["latin_america/la-03", "southeast_asia_oceania/sea-01"],
+      "evidence": [
+        {"claim": "2026 Brazilian press explains that app drivers must calculate and pay income tax themselves via carne-leao, with a 40% deduction; the monthly threshold cited is R$ 1,903.98 (figure may be outdated).", "url": "https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/curiosidades/irpf-2026-motorista-de-aplicativo-precisa-declarar-entenda-como-funciona/"},
+        {"claim": "Brazilian press (2026) says 99 raised pay per km by 5% after fuel price rises, showing margins move often.", "url": "https://garagem360.com.br/?p=156149"},
+        {"claim": "Mexico: reform in force from Jan 2026, with 237,627 platform workers with IMSS access by end of June 2026, per a trade press report.", "url": "https://thelogisticsworld.com/planeacion-estrategica/ya-hay-fechas-para-la-puesta-en-marcha-de-la-reforma-que-regula-el-trabajo-en-plataformas-digitales"},
+        {"claim": "Gojek, Grab and Maxim applied the 8% commission to two-wheel rides from 1 July 2026 (Bisnis.com, 1 Jul 2026).", "url": "https://teknologi.bisnis.com/read/20260701/266/1984787/potongan-grab-gojek-turun-jadi-8-begini-dampak-yang-dirasakan-driver-ojol"},
+        {"claim": "A driver union says a Rp 15,500 fare leaves the driver Rp 11,040 after app, insurance and the 8% cut, about 29% total; daily income stays Rp 50,000-100,000 against about Rp 75,000 minimum costs (detikFinance, Jul 2026).", "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8565704/driver-ojol-teriak-pendapatan-tak-naik-karena-potongan-aplikator-masih-20"},
+        {"claim": "Bisnis.com ran a piece on 3 Jul 2026 headlined that drivers say they are confused by the 8% commission (page could not be opened, headline only).", "url": "https://teknologi.bisnis.com/read/20260703/266/1985273/biaya-komisi-gojek-grab-8-berlaku-driver-ojol-mengaku-bingung"}
+      ]
+    },
+    {
+      "id": "savings-circle-ledger",
+      "title": "No-custody ledger for rotating savings groups (ajo, chama, arisan, paluwagan, hui)",
+      "problem": "Millions of people run rotating savings groups in WhatsApp chats and notebooks with no written record. Organisers chase payments and track whose turn it is by hand, and members worry about mismanagement and fraud. Existing apps either hold the money (which needs licences and trust), focus on investment-group accounting like Kenya's Chamasoft, or are small and local-only.",
+      "solution_idea": "A record-keeping-only group ledger: the organiser sets up the cycle and turn order, members confirm contributions by link or screenshot with a mobile-money reference, and the app sends WhatsApp reminders and keeps a shareable history page. Localised per country, and it never holds money.",
+      "customer": "Organisers of rotating savings groups in Nigeria, Kenya, Ghana, Indonesia, the Philippines, Vietnam and Malaysia",
+      "gap_type": "missing_here",
+      "regions": ["africa", "southeast_asia_oceania"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "Instant e-wallet and mobile-money payments make collecting contributions easy but leave the record-keeping in chats, and fintech and blockchain projects aimed at these groups show demand while manual groups still suffer mismanagement and online arisan fraud.",
+      "subscription_case": "Groups run for months or years and organisers feel the pain every cycle, so an organiser would pay about $2 a month, or the group could split it at a few cents per member. Free-tier competition and the small ticket size are the risks.",
+      "card_refs": ["africa/af-05", "southeast_asia_oceania/sea-03"],
+      "evidence": [
+        {"claim": "AjoMoney (Nigeria) offers rotating group savings with daily, weekly or monthly rotations and credit access (App Store listing).", "url": "https://apps.apple.com/in/app/ajomoney/id1587583677"},
+        {"claim": "Chamasoft is a bookkeeping app for investment groups with a free plan and paid tiers; app stores describe M-Pesa payment prompts and reconciliation.", "url": "https://apps.apple.com/ie/app/chamasoft/id1489712788"},
+        {"claim": "Ajo project page says manual trust-based groups are vulnerable to mismanagement and that its target markets are Nigeria, Kenya, Ghana and South Africa.", "url": "https://www.karmahq.xyz/project/ajo-1/about"},
+        {"claim": "A village study found online arisan commonly runs over WhatsApp without a valid written agreement.", "url": "https://rama.unimal.ac.id/id/eprint/12634/2/Abstrak.pdf"},
+        {"claim": "Arisan NAYA lists in-app payment of dues and Bank Jago has a Kantong Arisan feature; a student prototype of an arisan app had no reminders, chat or member history.", "url": "https://apps.apple.com/id/app/naya/id1663402017"},
+        {"claim": "Vietnam's 'So Hui' app keeps data on the device only and is free with purchases; 'CashMate' markets a Philippine digital paluwagan tracker.", "url": "https://apps.apple.com/us/app/id6752617071"}
+      ]
+    },
+    {
+      "id": "marketplace-profit-checker",
+      "title": "Settlement-file profit checker for small marketplace sellers",
+      "problem": "Small sellers on Shopee, Lazada, TikTok Shop, Smartstore and Coupang need real profit per order after commissions, ads, returns, shipping and VAT, but fee schedules keep changing. Today they use static fee calculators or buy Excel templates that break when settlement file formats change. Thailand's six-month fee cut from 1 December 2026 forces another round of recalculation for about 1.2 million sellers.",
+      "solution_idea": "A web app where sellers upload the platform's payout or settlement file, add cost per item, and see profit per order, product and month, with fee tables kept current centrally. Start with one or two marketplaces per country.",
+      "customer": "One-person online sellers on Shopee, Lazada and TikTok Shop in Thailand and on Smartstore and Coupang in South Korea",
+      "gap_type": "missing_here",
+      "regions": ["southeast_asia_oceania", "east_asia"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "Thailand agreed a marketplace fee cut running from 1 Dec 2026 to 31 May 2027, after which rates are reassessed, and Korean marketplace fee schedules changed in June 2025.",
+      "subscription_case": "Settlements arrive at least monthly and fee rules change often, so a subscription pays for always-current fee tables; Korean sellers already pay for Excel templates, although as one-off purchases.",
+      "card_refs": ["southeast_asia_oceania/sea-04", "east_asia/ea-06"],
+      "evidence": [
+        {"claim": "From 1 Dec 2026 to 31 May 2027 eligible sellers pay fees at 1 Jan 2026 levels; top rates fall from 19.26% to 13.91% on Shopee, 17.50% to 11.60% on Lazada and 21.94% to 17.66% on TikTok Shop; ads excluded.", "url": "https://www.relevantaudience.com/ecommerce-marketing/shopee-lazada-tiktok-shop-gp-fee-cut-thailand/"},
+        {"claim": "Flowaccount publishes a Thai-language guide to 2026 seller fees on all three platforms, showing sellers look for this information.", "url": "https://flowaccount.com/blog/commission-fees-ecommerce-shopee-lazada-tiktok/"},
+        {"claim": "Existing options are separate fee calculators with editable assumptions; one says its results are estimates, not final invoices.", "url": "https://ecomcalctools.com/tiktok/shop-fee-calculator-thailand/"},
+        {"claim": "Kmong sellers offer Excel files where the user pastes the marketplace settlement file and gets net profit per product after fees, ad, return, shipping and packing costs.", "url": "https://kmong.com/gig/851278"},
+        {"claim": "A free web margin calculator for Smartstore, Coupang and 11st exists, but its fee rates follow the June 2025 revamp and may be stale.", "url": "https://demoday.co.kr/tools/smartstore-margin"},
+        {"claim": "A Kmong multichannel dashboard template targets sellers who want to avoid expensive settlement programs.", "url": "https://kmong.com/gig/752258"}
+      ]
+    },
+    {
+      "id": "fake-payment-checker",
+      "title": "Real-payment checker and daily cash ledger for micro-sellers",
+      "problem": "Bodegas, market stalls and online sellers in Peru, Colombia and Brazil get fooled by fake or edited Yape, Plin, Nequi and Pix receipts shown in person or sent on WhatsApp, plus scheduled-Pix and fake bank-app tricks. The only safe check is opening each wallet or bank app, and each one shows only its own credits.",
+      "solution_idea": "An Android app that reads incoming payment notifications (with permission), keeps one confirmed-payments list across wallets, announces each real credit, and checks a customer's screenshot against confirmed payments, with a daily cash-close summary on top.",
+      "customer": "Micro-merchants and online sellers in Peru, Colombia and Brazil who accept Yape, Plin, Nequi, Daviplata or Pix",
+      "gap_type": "missing_here",
+      "regions": ["latin_america"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "Fake-receipt generators and AI image editing make forgeries cheap, and Pix, Yape and Plin are now the default way to pay in small shops.",
+      "subscription_case": "Avoiding one fake S/ 100 payment a month earns back $1-3, and the daily sales ledger is used every day, so both the habit and the payment recur.",
+      "card_refs": ["latin_america/la-01"],
+      "evidence": [
+        {"claim": "Rest of World (16 Feb 2023): fake-receipt scams grew in Peru and Colombia; Yape said it got up to 30 scam reports a day; merchants often rely on customer screenshots because receiver notification was weak.", "url": "https://restofworld.org/2023/fake-receipts-scammers-digital-shoplifting/es/"},
+        {"claim": "Peruvian press covers repeated cases of bodegueros hit by fake Yape payments, and Yape launched a security code feature against fake yapeos (headline-level confirmation only).", "url": "https://www.peru-retail.com/yape-lanza-codigo-de-seguridad-para-evitar-yapeos-falsos-como-funciona/"},
+        {"claim": "Brazilian guides for merchants say fake Pix receipts, scheduled-Pix tricks and counterfeit bank apps are common, and the only safe check is the merchant's own statement.", "url": "https://www.nuvemshop.com.br/blog/pix-falso/"},
+        {"claim": "About 24 million Brazilians were victims of Pix or boleto fraud between July 2024 and June 2025, per a press report on a Datafolha and Forum survey (original report not opened).", "url": "https://agorarn.com.br/economia/brasil-tem-24-milhoes-de-vitimas-de-golpes-digitais-e-pix-falso-prejuizo-chega-a-r-29-bilhoes/"}
+      ]
+    },
+    {
+      "id": "official-letter-explainer",
+      "title": "Photo explainer for official letters, for foreign residents in Japan",
+      "problem": "Foreign residents in Japan get ward-office, tax, pension and insurance letters in difficult Japanese, often with deadlines. Reports describe people signing documents without being sure what they say, and camera translation gives literal text, not what to do and by when.",
+      "solution_idea": "Photograph a letter and get a short plain-language summary in the user's language, the action needed, the deadline and a calendar reminder, plus a saved inbox of past letters. Monthly scans are capped to control model costs.",
+      "customer": "Foreign residents of Japan (workers, students and permanent residents), about 4.1 million people",
+      "gap_type": "missing_everywhere",
+      "regions": ["east_asia"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "The foreign population passed 4 million for the first time in 2025 and keeps growing, and vision language models now make reading a photographed letter cheap.",
+      "subscription_case": "Households get official letters every month (tax, insurance, pension, school, utilities) and mistakes cost real money; about $2 a month with a scan cap covers the vision-model cost.",
+      "card_refs": ["east_asia/ea-04"],
+      "evidence": [
+        {"claim": "The foreign resident count reached a record 4,125,395 at the end of 2025, up 356,418 on the year (March 2026 report).", "url": "https://www.nippon.com/en/news/yjj2026032700900"},
+        {"claim": "A January 2026 Japanese news item reports anxiety about signing documents without understanding them, and that AI translation did not fully remove the worry.", "url": "https://material.human.sankei.co.jp/news/2026/20260104.html"},
+        {"claim": "The Japanese government plans subsidies for staff helping foreign residents at ward counters, which shows official channels are stretched.", "url": "https://asianews.network/?p=267352"}
+      ]
+    },
+    {
+      "id": "school-app-digest",
+      "title": "One weekly digest for all school apps",
+      "problem": "Parents get notices from several school and district platforms (ParentSquare, ClassDojo, Seesaw, Remind, Canvas and district portals), and each shows only its own messages. Many parents switch off alerts, miss deadlines and keep no single calendar, and schools do not consolidate the platforms.",
+      "solution_idea": "A forwarding address and share sheet that reads school emails and screenshots, pulls out events, deadlines and forms with a small language model, and sends one weekly digest plus a calendar feed.",
+      "customer": "Parents of school-age children in the US and Canada, especially with two or more children or schools",
+      "gap_type": "missing_everywhere",
+      "regions": ["north_america"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "Schools keep adding edtech: a February 2026 testimony cited about 58 apps per school, and an October 2026 Boston Globe piece reports districts average about 3,000 digital tools.",
+      "subscription_case": "The pain comes back every school week for about 10 months a year, and $2 a month is easy to justify against missed deadlines. Seasonal use is a churn risk, so annual pricing helps.",
+      "card_refs": ["north_america/na-01"],
+      "evidence": [
+        {"claim": "Parents describe push-notification overload and switching off alerts because of the number of school and kid-activity platforms (Scary Mommy).", "url": "https://www.scarymommy.com/parenting/welcome-back-to-school-push-notification-hell"},
+        {"claim": "Boston Globe, 5 Oct 2026, reports on parents struggling with school edtech apps, platforms and passwords (headline and snippet seen in search; I did not open the full page).", "url": "https://www.bostonglobe.com/2026/10/05/lifestyle/parents-schools-edtech-apps-platforms-passwords/"},
+        {"claim": "A Vermont legislature testimony (Feb 2026) from Internet Safety Labs says schools recommend or require about 58 apps per school on average.", "url": "https://legislature.vermont.gov/Documents/2026/Workgroups/House%20Commerce/Bills/H.650/Witness%20Documents/H.650~Lisa%20LeVasseur~Testimony~2-6-2026.pdf"},
+        {"claim": "A district FAQ notes ParentSquare does not replace the grade portal, Canvas or Seesaw, so consolidation is limited in practice.", "url": "https://www.sthelens.k12.or.us/fs/pages/4395"}
+      ]
+    },
+    {
+      "id": "kenya-hustler-compliance",
+      "title": "Monthly SHA and eTIMS companion for Kenya's self-employed",
+      "problem": "Kenya's informal workers must pay monthly SHA health contributions and traders are being pushed onto eTIMS invoicing, but rates are disputed, status updates are slow and only about 5 million of 32 million registered people actively contribute. No simple tool tells a self-employed person what they owe, when, and whether it posted.",
+      "solution_idea": "An Android app in English and Swahili that reads M-Pesa messages to estimate monthly income, calculates SHA due, sends a reminder with a ready paybill, keeps an eTIMS invoice log and exports KRA-ready summaries.",
+      "customer": "Self-employed Kenyans, jua kali workers, duka owners and market traders",
+      "gap_type": "missing_here",
+      "regions": ["africa"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "SHA replaced NHIF in 2024 and KRA stepped up eTIMS enforcement in 2026, including targeting Eastleigh traders in April 2026.",
+      "subscription_case": "SHA is due every month and filings recur, so reminders plus an M-Pesa income estimate save penalties and queue time. Official channels are free, so the value must come from clarity and automation.",
+      "card_refs": ["africa/af-02"],
+      "evidence": [
+        {"claim": "Capital FM (Aug 2026): 32.18 million Kenyans registered with SHA as of 31 July 2026 but only about 1 in 6 actively contributing.", "url": "https://capitalfm.africa/only-1-in-6-sha-members-actively-contributing-despite-32m-registration/"},
+        {"claim": "July 2026 People Daily piece on growing complaints that SHA rates do not match actual income and how to appeal.", "url": "https://peopledaily.digital/news/how-to-appeal-your-sha-contributions-if-you-believe-the-amount-is-too-high/amp"},
+        {"claim": "TechTrends Kenya (17 May 2026): registration, filing and payment described as very complicated for small operators; Eastleigh traders struggle to get eTIMS invoices for expense claims.", "url": "https://techtrendske.co.ke/2026/05/17/kra-etims-informal-sector-tax-drive/"}
+      ]
+    },
+    {
+      "id": "family-scam-shield",
+      "title": "Family scam shield for older parents",
+      "problem": "Older people in Brazil get fake Receita, INSS and relative-in-trouble messages asking for Pix payments, and a 2025 survey found 44% of seniors were victims of or targeted by financial scams. Their adult children want a simple way for a parent to forward a suspicious message, get a clear answer, and alert a family member.",
+      "solution_idea": "A share target and WhatsApp number where the senior forwards a message and gets a one-line verdict in plain Portuguese with a voice reply, while a linked family member is notified on risky cases. A cheap text-only model handles each check.",
+      "customer": "Adult children of seniors, and seniors themselves, in Brazil first, then Mexico and Argentina",
+      "gap_type": "missing_here",
+      "regions": ["latin_america"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "AI-written scam messages such as the fake 'CPF cancelled' scam are rising, and WhatsApp's own Scam Alert was reported as still in early testing and not yet available in Brazil.",
+      "subscription_case": "A family plan at about $2 a month paid by the adult child for peace of mind. Free AI chatbots and big platforms compete, so the family alert and the senior-friendly flow must be the difference.",
+      "card_refs": ["latin_america/la-04"],
+      "evidence": [
+        {"claim": "Febraban survey (June 2025) via press: 39% of Brazilians victims or targeted by financial scams, the highest since 2021, 44% among seniors.", "url": "https://seucreditodigital.com.br/golpes-em-contas-39-brasileiros-vitimas/"},
+        {"claim": "Olhar Digital (4 Mar 2026): the fake 'CPF cancelled' scam on WhatsApp uses AI to build believable messages and Pix payment links.", "url": "https://olhardigital.com.br/2026/03/04/seguranca/golpe-do-cpf-cancelado-no-whatsapp-saiba-como-se-proteger/"},
+        {"claim": "A GolpeZero app exists on the Brazilian App Store, analysing pasted texts, links and audio with AI; pricing and image support not confirmed.", "url": "https://apps.apple.com/br/app/golpezero/id6754057548"}
+      ]
+    },
+    {
+      "id": "side-earner-year-round-tax-records",
+      "title": "Year-round records for side earners' annual tax return",
+      "problem": "Salaried people with side income in Japan, Korean freelancers with 3.3% withheld, and US tipped and overtime workers all need records kept through the year to file correctly or claim a refund or deduction, but bookkeeping apps assume a full business. Korean refund apps help only at filing time and take 10-20% of the refund, Japan's tax office now looks at whether books were kept, and the new US tips deduction puts the burden of proof on the worker.",
+      "solution_idea": "A light phone ledger that captures sales, costs, receipts and pay stubs (by photo or payment notification) across several income sources, estimates the refund or deduction as the year goes on, and exports a filing-ready list for the local tax return.",
+      "customer": "Side earners and freelancers in Japan and South Korea, and US tipped and hourly workers",
+      "gap_type": "missing_here",
+      "regions": ["east_asia", "north_america"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "72.5% of Japanese firms permitted side jobs in 2025 and record-keeping now decides how side income is classified, Korean refund-app commissions drew complaints again in 2025, and the US finalised the qualified-tips rules in 2026.",
+      "subscription_case": "Expense logging is a monthly habit and the filing moment comes every year; a flat fee of about $2 a month beats a 10-20% refund commission for people with bigger refunds. Free tiers and many US tip trackers compete, so seasonal churn is a real risk.",
+      "card_refs": ["east_asia/ea-02", "east_asia/ea-03", "north_america/na-05"],
+      "evidence": [
+        {"claim": "A 2025 Korean news item reports a user who paid a 17% fee to a refund app and felt it was unfair.", "url": "https://kbmaeil.com/article/20250706500017"},
+        {"claim": "A 2024 Korean article states that checking the refund is free but a 10-20% fee applies to actually claiming it, and names Samjeomsam, Toss Save-it and 1-bun as tax-tech apps.", "url": "https://economist.co.kr/article/view/ecn202406200005"},
+        {"claim": "A 2026 guide explains that the 3.3% rate ignores expenses and deductions, so including them often lowers the final tax, and that Hometax filing is free.", "url": "https://wikidocs.net/blog/@Insight_Lab/22657/"},
+        {"claim": "Yayoi explains that after the October 2022 revision, the old 3 million yen guideline for side income was dropped and keeping books became the key factor.", "url": "https://www.yayoi-kk.co.jp/shinkoku/oyakudachi/fukugyo-300man/"},
+        {"claim": "Mynavi reported in September 2025 that 72.5% of firms permit side jobs, up 1.7 points.", "url": "https://career-research.mynavi.jp/reserch/20250930_101865/"},
+        {"claim": "Law-firm summaries say the 2025-2028 deduction is capped at USD 25,000, and the burden of keeping tip logs, pay stubs and statements falls on the worker.", "url": "https://www.mondaq.com/unitedstates/tax-authorities/1789216/internal-revenue-service-publishes-final-rule-for-no-tax-on-tips-deduction"},
+        {"claim": "The 'Qualified Tips' iOS app is built around the deduction with a free tier and a Pro subscription, which shows paid demand but also competition.", "url": "https://apps.apple.com/app/id6778865958"}
+      ]
+    },
+    {
+      "id": "paylater-due-date-tracker",
+      "title": "One due-date list for all paylater and instalment plans",
+      "problem": "Young Indonesians often juggle several paylater services (SPayLater, GoPayLater, Kredivo and others) with different due dates. A late payment brings a penalty and can show on the credit record and block other credit, yet each app shows only its own debt and the usual advice is to keep your own calendar or spreadsheet.",
+      "solution_idea": "An Android app that lists every instalment by manual entry or by reading notifications, shows the total due per week and month, warns before due dates and suggests a payoff order. Reading notifications needs a legal check first.",
+      "customer": "Young urban paylater users in Indonesia, later the Philippines",
+      "gap_type": "missing_here",
+      "regions": ["southeast_asia_oceania"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "Paylater use and coverage of defaults keep growing, and 2026 articles explain how one missed payment can lead other lenders to reject you.",
+      "subscription_case": "Instalments fall due every month, and one avoided late fee (5% a month on the overdue amount, per one source) covers many months of a $1 subscription.",
+      "card_refs": ["southeast_asia_oceania/sea-05"],
+      "evidence": [
+        {"claim": "CNBC Indonesia summarises late-payment penalty rules for SPayLater, GoPayLater and Kredivo (Jul 2024).", "url": "https://www.cnbcindonesia.com/market/20240712114220-17-554048/catat-ini-aturan-denda-telat-bayar-spay-later-gopay-later-kredivo"},
+        {"claim": "A 2026 article warns that defaulting on one paylater can be flagged in the credit-record system and lead other lenders to reject you.", "url": "https://desakarangbendo.id/berita-pinjaman-online/021901569/awas-galbay-ini-cara-menggunakan-paylater-agar-tidak-masuk-daftar-hitam-slik-ojk-2026/"},
+        {"claim": "Kontan's MomsMoney explains how to pay Shopee Paylater before the due date to avoid fines, showing the need is real.", "url": "https://momsmoney.kontan.co.id/news/cara-bayar-shopee-paylater-sebelum-jatuh-tempo-bebas-beban-cicilan"}
+      ]
+    },
+    {
+      "id": "dialect-voice-note-transcriber",
+      "title": "Dialect voice-note transcriber for WhatsApp (Swiss German, Darija, Egyptian Arabic)",
+      "problem": "People in Switzerland, Morocco and Egypt send long WhatsApp voice notes in dialects with no standard spelling. WhatsApp's built-in transcription covers only a few languages (one test listed English, Portuguese, Spanish and Russian), and general tools handle standard German or Modern Standard Arabic, not dialect. Freelancers and shop owners who take orders and instructions by voice need them as text.",
+      "solution_idea": "A share-sheet app: forward a voice note and get a transcript plus a two-line summary from a dialect-tuned speech model, with a monthly minute cap to keep cost per user low.",
+      "customer": "Heavy WhatsApp voice-note users, freelancers and small sellers in Switzerland, Austria, Morocco and Egypt",
+      "gap_type": "missing_here",
+      "regions": ["europe", "africa"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "Dialect speech models and datasets (for example Darija fine-tunes on DODa) now exist, while WhatsApp's own transcription, added in November 2024, still skips these dialects.",
+      "subscription_case": "Heavy users open it daily or weekly, and people already pay human transcribers on Fiverr or buy credits in a Swiss app. Speech-to-text cost per minute must fit under $1-3, so a minute cap is required; accuracy and cost are the open questions, and a paid Swiss competitor exists.",
+      "card_refs": ["europe/eu-06", "africa/af-04"],
+      "evidence": [
+        {"claim": "A test report on WhatsApp's built-in transcription listed only English, Portuguese, Spanish and Russian, so German is missing.", "url": "https://www.nextpit.de/whatsapp-sprachnachrichten-text-umwandeln-anleitung"},
+        {"claim": "A Swiss outlet asked in 2023 how WhatsApp transcription would handle Mundart messages.", "url": "https://www.netzwoche.ch/news/2023-02-17/whatsapp-will-sprachnachrichten-automatisch-transkribieren"},
+        {"claim": "The 'Schweizerdeutsch uebersetzen' iOS app transcribes dialect with a few free minutes then in-app purchases, so a paid competitor already exists.", "url": "https://apps.apple.com/ch/app/schweizerdeutsch-%C3%BCbersetzen/id6446903220"},
+        {"claim": "WhatsApp rolled out voice message transcription in Nov 2024 for a limited set of languages (Techweez).", "url": "https://techweez.com/2024/11/22/whatsapp-rolls-out-transcription-feature-for-voice-messages/"},
+        {"claim": "Researchers published a Darija speech recognition model fine-tuned on the DODa dataset, showing the technology is feasible but not packaged as a consumer product.", "url": "https://huggingface.co/nadiamallouk/wav2vec2-darija"},
+        {"claim": "A Fiverr freelancer sells human Darija WhatsApp-voice-note transcription, evidence people pay for this but via manual service.", "url": "https://www.fiverr.com/ezzougari_hamza/transcribe-moroccan-darija-audio-to-text"}
+      ]
+    },
+    {
+      "id": "appointment-slot-alerts",
+      "title": "Appointment-slot alerts for residence, ID and office visits (notify only)",
+      "problem": "Booking a public-office appointment for a residence card, ID or registration is a lottery: two of three requests at Berlin Buergeraemter fail, and Spain's extranjeria pages often show no slots. People refresh pages for days, and only free hobbyist tools exist, each for a single city.",
+      "solution_idea": "A web and push service that watches official slot pages for chosen offices and services and alerts users instantly with a deep link. It never books on the user's behalf.",
+      "customer": "Expats, students and residents in Germany, Spain, Italy, the Netherlands and France who need residence, ID or registration appointments",
+      "gap_type": "missing_here",
+      "regions": ["europe"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "Offices are now digital-by-appointment, and the UK's May 2026 ban on paid driving-test booking services shows both the demand and the legal line an alert-only tool must stay behind.",
+      "subscription_case": "The need is urgent but ends once the slot is booked, so churn is high; it works best as a month-to-month pass or a plan covering several recurring appointment types (renewals, passports, car registration). Scraping terms are a legal risk.",
+      "card_refs": ["europe/eu-04"],
+      "evidence": [
+        {"claim": "Search results describe a free 'Buergerwecker' that emails free Buergeramt slots in Leipzig and Dresden (2026), showing demand and that coverage is regional.", "url": "https://www.l-iz.de/politik/leipzig/2026/08/einfacher-freie-termine-in-den-leipziger-und-dresdner-buergeraemtern-finden-der-buergerwecker-von-jakub-waller-664613"},
+        {"claim": "An open-source Selenium cita-bot exists to catch Spanish extranjeria slots, showing users script this themselves.", "url": "https://github.com/cita-bot/cita-bot"},
+        {"claim": "From 12 May 2026 UK law bans third parties from booking driving tests for others and DVSA removed 17 apps; paid booking services are the risky model.", "url": "https://www.gov.uk/government/news/end-of-the-road-for-unofficial-driving-test-booking-services"}
+      ]
+    },
+    {
+      "id": "household-employer-pay-records",
+      "title": "Pay records and reminders for households and one-person employers",
+      "problem": "New rules make tiny employers pay on a strict schedule: since 1 January 2026 Saudi households must pay domestic workers electronically through Musaned by the end of each Hijri month, and since 1 July 2026 Australian employers must get super to the fund within seven days of payday after the free ATO clearing house closed. Households and micro-employers with one to three staff also need proof of advances, leave and end-of-service dues, but only government portals or full payroll products exist.",
+      "solution_idea": "A simple app that records each pay, works out what is due (Hijri-month salary, advances, leave and end-of-service in Saudi Arabia; super in Australia), sends reminders before deadlines and keeps a printable proof record. Payments themselves go through Musaned, the bank or a SuperStream-compliant partner.",
+      "customer": "Households employing domestic workers in Saudi Arabia and the UAE, and Australian sole traders and families employing one to three people",
+      "gap_type": "missing_here",
+      "regions": ["middle_east", "southeast_asia_oceania"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "Saudi Arabia's mandatory e-salary for domestic workers took full effect on 1 Jan 2026, and Australia's free Small Business Superannuation Clearing House closed on 1 July 2026 as Payday Super began.",
+      "subscription_case": "Pay dates come every month or payday and missing them brings penalties, so a small monthly fee is plausible. Willingness to pay is unproven: many employers may rely on Musaned, bank apps or payroll suites, and Australian partner fees must be checked against a $3 price.",
+      "card_refs": ["middle_east/me-06", "southeast_asia_oceania/sea-06"],
+      "evidence": [
+        {"claim": "Khaleej Times reports Saudi Arabia made electronic salary transfer through approved channels mandatory for domestic workers from 1 January 2026.", "url": "https://www.khaleejtimes.com/world/gulf/saudi-arabia-mandatory-e-salary-domestic-workers-january-1-2026?amp=1"},
+        {"claim": "Gulf News describes the Musaned e-salary system, including wage records, advances and loans to domestic workers, and payment due by Hijri month.", "url": "https://gulfnews.com/world/gulf/saudi/saudi-arabia-to-introduce-mandatory-e-salary-system-for-domestic-workers-1.500386507"},
+        {"claim": "The SBSCH closed on 1 July 2026; the ATO points employers to payroll software, tax professionals or the SuperStream product register.", "url": "https://www.ato.gov.au/businesses-and-organisations/super-for-employers/payday-super/payday-super-resources/how-to-transition-from-the-small-business-superannuation-clearing-house"},
+        {"claim": "From 1 July 2026 employers must ensure super is received by the fund within seven days of payday.", "url": "https://hallandwilcox.com.au/news/payday-super-starts-1-july-2026-what-employers-need-to-do-now/"},
+        {"claim": "Xero says the SBSCH was free and lists fund clearing houses, commercial providers and payroll software as the three replacements; it gives no prices and says its own plans include auto super.", "url": "https://www.xero.com/au/guides/sbsch-closure/"}
+      ]
+    },
+    {
+      "id": "uae-arabic-practice-for-kids",
+      "title": "Arabic homework practice for non-Arab kids in UAE schools",
+      "problem": "Non-Arab pupils in UAE private schools must study Arabic, now starting in kindergarten, but rarely hear it outside class. Parents report children struggling and turn to costly private tutors, while existing kids' Arabic apps are general reading games not tied to the school syllabus.",
+      "solution_idea": "A mobile practice app aligned to the UAE non-native Arabic syllabus by grade, with short audio exercises, on-device speaking checks and a parent progress view.",
+      "customer": "Expat parents in the UAE with children in private schools, later other Gulf states",
+      "gap_type": "missing_here",
+      "regions": ["middle_east"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "The UAE made a daily 40-minute Arabic lesson mandatory in private kindergartens from the 2025-26 school year, on top of existing mandatory Arabic for non-Arab pupils.",
+      "subscription_case": "Lessons run daily or weekly through a school year lasting months, and families already pay for tutors and apps, so $2-3 a month is an easy add-on. Crowded kids' language apps are the main risk.",
+      "card_refs": ["middle_east/me-04"],
+      "evidence": [
+        {"claim": "Semafor (25 June 2025) reports private kindergartens in the UAE must teach daily 40-minute Arabic lessons from the next school year.", "url": "https://www.semafor.com/article/06/25/2025/uae-makes-arabic-mandatory-for-kindergarteners"},
+        {"claim": "Gulf News reports foreign private schools must give non-Arab pupils four hours of Arabic a week, and that private tutors are benefiting from the policy.", "url": "https://gulfnews.com/uae/why-non-arab-expats-dont-pick-up-arabic-1.60837061"},
+        {"claim": "Existing kids Arabic apps include Amal (free with in-app purchases), Arabee (UAE) and Lugha, which advertises one subscription for up to four children.", "url": "https://mwm.ai/ko/apps/amal-kids-read-learn-arabic/1517863038"}
+      ]
+    },
+    {
+      "id": "gulf-family-document-expiry-tracker",
+      "title": "Family residency and ID expiry tracker for Gulf expats",
+      "problem": "Expats in the UAE and Saudi Arabia must track visas or iqamas, Emirates IDs, passports, tenancy, car registration, insurance and licences for the whole family, and late renewals cost money (Dh20 a day for a late Emirates ID after a 30-day grace period). Government apps alert only for their own documents, and the one private tracker found is English-only and UAE-only.",
+      "solution_idea": "An Arabic, English, Hindi and Urdu reminder app with family profiles, Hijri date support, per-country renewal checklists with fine amounts and required documents, and a secure scan vault.",
+      "customer": "Expat workers and families in the UAE and Saudi Arabia, especially those whose employer does not handle renewals",
+      "gap_type": "missing_here",
+      "regions": ["middle_east"],
+      "patterns": {
+        "global_pain": false,
+        "arbitrage": null
+      },
+      "why_now": "UAE overstay fines were reportedly unified at AED 50 a day from 11 February 2026 (unverified), and visa renewals are now linked with other fines.",
+      "subscription_case": "Weak to medium: documents fall due only a few times a year, so a monthly price needs extras such as the family vault, fines lookup and checklists. An existing UAE tracker charges $12.99 a year, which points to yearly pricing.",
+      "card_refs": ["middle_east/me-03"],
+      "evidence": [
+        {"claim": "Gulf News and PolicyBazaar describe a 30-day grace period and then Dh20 per day (cap Dh1,000) for late Emirates ID renewal; an expired visa also lapses the ID.", "url": "https://gulfnews.com/uae/government/uae-residency-emirates-id-know-the-updates-on-various-violations-and-fines-1.103489199"},
+        {"claim": "The App Store listing for Dubai Reminder shows an English-only, UAE-only tracker with a Pro plan at $12.99 per year, no ratings yet, and no affiliation with government.", "url": "https://apps.apple.com/us/app/-/id6756177345"},
+        {"claim": "Guides on Saudi iqama renewal say the employer is legally responsible but employees are advised to track dates themselves and note that Hijri to Gregorian conversion can shift dates; third-party trackers exist.", "url": "https://www.expirationreminder.com/document-tracking/iqama-saudi-work-permit"}
+      ]
+    }
+  ],
+  "dropped": [
+    {"card_ref": "africa/af-06", "reason": "Cut to stay within 20 ideas: the scout rates its willingness to pay the weakest in the Africa file, free WhatsApp Business labels cover the basics, and paid Nigerian tools (Orie Lite, Buvvo, MySalesCat) already compete."},
+    {"card_ref": "south_asia/sa-05", "reason": "Crowded market where several paid poster apps and free tiers already serve Indian shops; only a price play. Cut to stay within 20 ideas."},
+    {"card_ref": "south_asia/sa-03", "reason": "Demand is a one-time rush before the May 2027 deadline, so the monthly subscription case is weak by the scout's own rating. Cut to stay within 20 ideas."},
+    {"card_ref": "latin_america/la-06", "reason": "Instructor numbers unconfirmed and rules still settling, with generic scheduling and Pix billing tools covering much of the need. Cut to stay within 20 ideas."},
+    {"card_ref": "north_america/na-03", "reason": "Small, seasonal market better suited to yearly pricing, and SnoBird plus a free tracker launched in August 2026 already exist. Cut to stay within 20 ideas."},
+    {"card_ref": "europe/eu-03", "reason": "Use is sporadic (a few products a year), the scout says a one-off purchase may fit better than a subscription, and the North America scout found warranty and receipt vaults already crowded. Cut to stay within 20 ideas."}
+  ]
+}

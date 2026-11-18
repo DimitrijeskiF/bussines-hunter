@@ -1,0 +1,126 @@
+{
+  "id": "ibs-cbs-sap-tax-test-harness",
+  "title": "IBS/CBS tax-reform test harness for SAP",
+  "one_liner": "A read-only tool that checks whether your SAP system calculates Brazil's new IBS and CBS taxes correctly on every product, customer and transaction type, and re-runs the check each time the rules or SAP notes change until 2033.",
+  "competitors": [
+    {
+      "name": "Vertex TestSuite (Vertex PLUS Tools for SAP)",
+      "url": "https://www.vertexinc.com/pt-br/recursos/biblioteca-de-recursos/testsuite-automatiza-testes-de-regressao-sap",
+      "what_they_do": "Installs in SAP ECC or S/4HANA, extracts SAP data to build test scripts automatically, runs order-to-cash and procure-to-pay test transactions and compares taxability, tax codes and rates with expected values.",
+      "weakness": "Generic tax regression tool. Its Portuguese product page does not mention Brazil, IBS/CBS, NF-e groups or NCM/CST/cClassTrib logic. The tester still has to supply the expected Brazilian outcomes. This is the closest competitor and the biggest threat (see risks)."
+    },
+    {
+      "name": "Systax",
+      "url": "https://www.systax.com.br/?p=41856",
+      "what_they_do": "Brazilian tax-content and rules engine for ERPs, including IBS/CBS/IS automation content. Says it combines Vertex's global technology with local expertise.",
+      "weakness": "Supplies tax content and rules, not automated validation of a customer's own SAP tax configuration and master data. Paired with Vertex TestSuite, though, it could cover much of this idea."
+    },
+    {
+      "name": "Sovos (Taxrules tax engine, SAP-certified fiscal monitors)",
+      "url": "https://sovos.com/pt-br/wp-content/uploads/sites/4/2026/04/Sovos-Lamina-taxrules-impactos-reforma-tributaria.pdf",
+      "what_they_do": "SAP partner selling tax determination (Taxrules) and NF-e emission/monitoring for SAP-based ERPs. Tells customers to validate in practice whether systems and documents are ready for IBS/CBS, and is the tax engine behind SAP S/4HANA Cloud Public Edition in Brazil.",
+      "weakness": "Built around its own engine and document flow. Customers who keep tax determination in SAP condition records (ECC and on-prem S/4) get no independent check of SAP-calculated outcomes across their master data."
+    },
+    {
+      "name": "SAP (Brazil localisation notes and SAP Document and Reporting Compliance)",
+      "url": "https://www.reformatributaria.com/sap-atualiza-notas-tecnicas-para-adequacao-a-reforma-tributaria-no-brasil/",
+      "what_they_do": "Delivers SAP Notes that add CBS/IBS/IS tax types, tax groups, Nota Fiscal Writer fields and updates to the TAXBRA/RVXBRA/RVABRA procedures, plus a Central Note and Note Analyzer. Also keeps a troubleshooting KBA for reform issues.",
+      "weakness": "SAP delivers code and schema changes. Each customer must still configure tax codes, condition records and NCM/CST mappings and test the results. SAP offers no tool that checks the outcome across the whole master-data estate."
+    },
+    {
+      "name": "Qubittron (Qubi Agent)",
+      "url": "https://sapinsider.org/map/how-brazils-tax-reform-is-creating-urgent-demand-for-sap-automation/",
+      "what_they_do": "SAP-native AI workflow layer for finance, supply chain and payroll, marketed against Brazil tax-reform configuration and testing pain.",
+      "weakness": "A broad automation and agent platform with a waitlist and no named customers. It is not a dedicated tax-outcome test harness with a Brazilian rule oracle."
+    },
+    {
+      "name": "SAP system integrators and Big Four reform practices (e.g. Deloitte, Minsait)",
+      "url": "https://www.reformatributaria.com/de-ambev-a-amazon-59-empresas-aderem-ao-teste-piloto-da-reforma-do-consumo/",
+      "what_they_do": "Run IBS/CBS SAP projects and test cycles with consultant teams. Both firms joined the Receita Federal CBS pilot.",
+      "weakness": "Labour-based, project-bound testing (often spreadsheets) that stops when the project ends, while the rules keep changing until 2033. They are also the most likely channel partners."
+    }
+  ],
+  "buyer": {
+    "role": "Fiscal IT manager / Head of Tax Technology (Gerente de Tecnologia Fiscal), working with the SAP SD/MM tax lead",
+    "budget_owner": "Tax Director (Diretor Tributário) / CFO, often co-funded by the CIO's SAP budget",
+    "pain_in_their_words": "Paraphrased from SAPinsider, Sovos and Softtek commentary: our existing SAP configuration was not built for these rules, so the reform is a huge configuration and testing burden. We export data to spreadsheets, apply the logic by hand and upload it again, which causes errors and version-control problems. Legal, tax and SAP teams work in silos on inconsistent data. From August 2026, NF-e without IBS/CBS can be rejected in production, and SAP has to run the old and new regimes side by side until 2033. SI job ads for S/4HANA SD tax-reform consultants with assignments running to February 2027 show the work is being done by hired consultants, not by a tool."
+  },
+  "mvp": {
+    "scope": [
+      "Read-only extractor (RFC/BAPI, no write access) for SAP ECC 6.0 and S/4HANA on-prem/private cloud: tax codes, SD/MM tax procedures (RVABRA/RVXBRA, TAXBRA/TAXBRJ), condition records, Nota Fiscal Writer tax groups, material NCM, CFOP and CST determination",
+      "Scenario generator that builds test cases from real master-data combinations (material x customer/supplier x plant x CFOP/operation type), sampled to cover every NCM/CST class rather than every record",
+      "Simulation run through SAP's own pricing logic (e.g. sales-order simulate and purchase-order test-run BAPIs), so results reflect the customer's actual configuration",
+      "Expected-value oracle: an IBS/CBS rule pack based on the reform law and regulations, checked against the free official Receita/Serpro reform calculator",
+      "Diff report in Portuguese: wrong or missing NCM/CST/class-code mappings, wrong rates, missing IBSCBS/gIBSUF/gIBSMun/gCBS values, with a fix list per material and customer",
+      "Continuous mode: scheduled re-runs after each SAP note, support package or rule change, with a regression history for auditors"
+    ],
+    "time_to_build": "4-6 months to a pilot-ready SD (outbound) version on ECC/S/4 on-prem; MM (inbound) and continuous mode 2-3 months after that",
+    "team": "1 senior SAP ABAP/integration engineer + 1 backend engineer (rule engine, UI) + 1 Brazilian SAP fiscal (SD/MM tax) consultant as co-founder or part-time partner"
+  },
+  "pricing": {
+    "model": "Annual subscription per SAP production system (tiered by number of CNPJs/company codes), plus a fixed onboarding package; channel price for SI partners who use it as a project accelerator",
+    "range": "BRL 120k-400k per year per production system (about EUR 20k-65k), plus BRL 50k-100k onboarding. This is an estimate, not a market benchmark",
+    "rationale": "No public pricing was found this run for Vertex TestSuite, Sovos Taxrules or Systax; they sell through quotes. The range is pitched well below the consultant cost it replaces: SIs are staffing multi-month S/4HANA tax-reform assignments running into 2027, and SAPinsider cites 1,500+ hours a year of tax-compliance effort. Pricing per production system rather than per document keeps it separate from the per-document fees of emission networks. Validate it in the first 5 discovery calls."
+  },
+  "route_to_market": "Lead with Brazilian SAP system integrators and tax-consulting practices (e.g. Deloitte, Minsait, Meta, Softtek, smaller SAP fiscal boutiques). They already run IBS/CBS test cycles by hand, and a repeatable harness raises their margin and gives them a recurring service through 2033. Sell it to them as a white-label or co-branded accelerator, with a partner revenue share. In parallel, sell directly to large regime-normal companies that joined the Receita Federal CBS pilot, since their tax-tech teams already think in test cases. Add an SAP Store listing after SAP add-on certification to build credibility, but expect little volume from it. A Portuguese-speaking presence in Sao Paulo is required. Sovos/Vertex-style partnerships are an exit route rather than a channel.",
+  "sap_fit": "Direct. It reads the Brazil localisation in SAP ECC 6.0 and S/4HANA (on-prem and private cloud): SD pricing procedures RVABRA/RVXBRA, MM tax procedures TAXBRA/TAXBRJ, tax codes and condition records, Nota Fiscal Writer (J1B*N) tax groups, material master NCM and CFOP/CST determination. These are the objects SAP changed in its reform notes (e.g. 3552901, 3556404, 3569061, 3571837, which customers must check against the SAP Central Note). It runs SAP's own pricing through simulate/test-run BAPIs over RFC, so nothing is posted. Results and the rule pack can be hosted on SAP BTP. It also checks the IBS/CBS values that later flow into the NF-e XML sent through SAP DRC or Sovos/Inventti. S/4HANA Cloud Public Edition is less addressable because tax determination there runs through Sovos/Tax as a Service.",
+  "companies_to_call": [
+    {
+      "name": "Ambev S.A.",
+      "country": "Brazil",
+      "why": "Joined the Receita Federal CBS pilot (Aug 2025 list) and is a published Sovos fiscal-solution customer. A high-volume beverage manufacturer and distributor with complex NCM/CST mixes across many plants and states.",
+      "who_to_ask": "Head of Tax Technology (Gerente de Tecnologia Fiscal)"
+    },
+    {
+      "name": "Gerdau S.A.",
+      "country": "Brazil",
+      "why": "Joined the CBS pilot (Aug 2025 list). A steelmaker with thousands of materials and inbound/outbound flows where IBS/CBS credit outcomes matter. SAP use is prior knowledge; confirm on the first call.",
+      "who_to_ask": "Indirect Tax Director (Diretor de Tributos Indiretos)"
+    },
+    {
+      "name": "Suzano S.A.",
+      "country": "Brazil",
+      "why": "Joined the CBS pilot (Aug 2025 list). A large pulp and paper exporter with multi-state operations, where both export and domestic IBS/CBS treatment must be tested. Known S/4HANA user (prior knowledge; confirm).",
+      "who_to_ask": "Fiscal IT / SAP Tax Solution Lead"
+    },
+    {
+      "name": "WEG (WEG Drives & Controls - Automacao Ltda.)",
+      "country": "Brazil",
+      "why": "A WEG group entity joined the CBS pilot (Aug 2025 list). An industrial manufacturer with a very large material catalogue and many NCM codes, which suits a mapping-and-outcome checker. SAP use is prior knowledge; confirm.",
+      "who_to_ask": "Tax Manager for Indirect Taxes / SAP SD-MM Fiscal Coordinator"
+    },
+    {
+      "name": "Raizen S.A.",
+      "country": "Brazil",
+      "why": "Joined the CBS pilot (Aug 2025 list). Fuel distribution, sugar and ethanol, with special and single-phase regimes that make IBS/CBS outcome testing harder than average. SAP use is prior knowledge; confirm.",
+      "who_to_ask": "Head of Tax Technology (Gerente de Tecnologia Fiscal)"
+    }
+  ],
+  "risks": [
+    "Vertex already sells TestSuite for SAP tax regression testing and is tied to Systax's Brazilian content (Systax says it combines Vertex technology with local expertise; Vertex's acquisition of Systax is prior knowledge, not re-checked). A Brazil IBS/CBS test pack from Vertex would cover most of this idea and could be bundled.",
+    "Timing: CBS charging starts in January 2027, about 7 weeks away. Pilot participants and large firms tested during 2026, and from August 2026 NF-e without IBS/CBS can already be rejected. The go-live wave is mostly handled by SIs, so the product must sell as continuous regression testing through the 2027-2033 transition, which is a weaker urgency story.",
+    "Incumbents in the fiscal flow (Sovos Taxrules/Synchro, Thomson Reuters Mastersaf, Inventti) can add test or check features, and Sovos is the built-in engine for S/4HANA Cloud Public Edition. That shrinks the addressable base to ECC and on-prem/private-cloud S/4.",
+    "SIs may treat their own test scripts as intellectual property and resist a third-party tool, or just copy the approach. Brazilian SAP buyers usually buy through these SIs.",
+    "Rules are still moving (CBS regulation and IBS resolution published in 2026, further SEFAZ technical notes expected), so the rule pack needs constant upkeep. That requires scarce Brazilian SAP fiscal expertise and Portuguese-language support, which is hard for a 1-3 person team based outside Brazil.",
+    "Enterprise security review for RFC access to production SAP systems lengthens sales cycles. Some buyers will only allow it in QA systems, which may hold stale master data.",
+    "Single-country product, so acquirer interest is limited to tax-tech groups (Vertex, Sovos, Thomson Reuters) rather than SAP itself."
+  ],
+  "sources": [
+    {"title": "Vertex - TestSuite automatiza testes de regressao SAP", "url": "https://www.vertexinc.com/pt-br/recursos/biblioteca-de-recursos/testsuite-automatiza-testes-de-regressao-sap"},
+    {"title": "SAPinsider - How Brazil's tax reform is creating urgent demand for SAP automation", "url": "https://sapinsider.org/map/how-brazils-tax-reform-is-creating-urgent-demand-for-sap-automation/"},
+    {"title": "Reformatributaria.com - De Ambev a Amazon, 59 empresas aderem ao teste piloto da reforma do consumo (18 Aug 2025)", "url": "https://www.reformatributaria.com/de-ambev-a-amazon-59-empresas-aderem-ao-teste-piloto-da-reforma-do-consumo/"},
+    {"title": "Reformatributaria.com - Receita publica lista com as 50 empresas do programa piloto da CBS", "url": "https://www.reformatributaria.com/governo/receita-publica-lista-com-as-50-empresas-do-programa-piloto-da-cbs/"},
+    {"title": "Reformatributaria.com - SAP atualiza notas tecnicas para adequacao a reforma tributaria no Brasil", "url": "https://www.reformatributaria.com/sap-atualiza-notas-tecnicas-para-adequacao-a-reforma-tributaria-no-brasil/"},
+    {"title": "SAP KBA 3642384 - Brazil tax reform troubleshooting guide", "url": "https://userapps.support.sap.com/sap/support/knowledge/en/3642384"},
+    {"title": "SAP KBA 3679926 - CBS/IBS in S/4HANA Cloud Public Edition (Sovos engine)", "url": "https://userapps.support.sap.com/sap/support/knowledge/en/3679926"},
+    {"title": "Informativo DBA - ERP SAP e atualizado para suportar CBS, IBS e IS", "url": "https://abad.com.br/wp-content/uploads/2025/07/Informativo-DBA-ERP-SAP-e-atualizado-para-suportar-CBS-IBS-e-IS.pdf"},
+    {"title": "Sovos - Lamina Taxrules impactos reforma tributaria (Apr 2026)", "url": "https://sovos.com/pt-br/wp-content/uploads/sites/4/2026/04/Sovos-Lamina-taxrules-impactos-reforma-tributaria.pdf"},
+    {"title": "Sovos - Reforma Tributaria no Brasil: principais impactos e tendencias para empresas", "url": "https://sovos.com/pt-br/blog/tributos/reforma-tributaria-no-brasil-principais-impactos-e-tendencias-para-empresas/"},
+    {"title": "Sovos - Ambev usa solucao fiscal da Sovos", "url": "https://sovos.com/pt-br/blog/tributos/ambev-usa-solucao-fiscal-sovos/"},
+    {"title": "Systax - Reforma Tributaria e Tecnologia: como a automacao garante conformidade", "url": "https://www.systax.com.br/?p=41856"},
+    {"title": "Jobgether - UltraCon Consultoria: Consultor(a) SAP S/4HANA SD Sales & Delivery Tax Reform", "url": "https://jobgether.com/offer/69f029fdc646310ee39cf41e-14133---consultor-a-sap-s-4hana---sd-sales-delivery-tax-reform"},
+    {"title": "Contabeis - Empresas testam calculo de CBS e IBS na emissao fiscal", "url": "https://www.contabeis.com.br/noticias/75643/empresas-testam-calculo-de-cbs-e-ibs-na-emissao-fiscal/"},
+    {"title": "Baguete - 2027 e um ultimato para quem ainda roda SAP ECC (Systax column)", "url": "https://www.baguete.com.br/noticias/2027-e-um-ultimato-para-quem-ainda-roda-sap-ecc"},
+    {"title": "Reforma Tributaria Brasileira e SAP - Impactos, adaptacoes e detalhamento das SAP Notes (technical guide)", "url": "https://www.reformatributaria.com/wp-content/uploads/2025/08/Reforma-Tributaria-Brasileira-e-SAP-Impactos-Adaptacoes-e-Detalhamento-das-SAP-Notes.pdf"}
+  ]
+}

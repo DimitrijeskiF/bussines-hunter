@@ -1,0 +1,190 @@
+{
+  "id": "sole-trader-tax-threshold-watcher",
+  "title": "Sales-tax limit and regime tracker for sole traders",
+  "one_liner": "A phone app that shows self-employed people how close they are to the sales limit where they must start charging sales tax (GST/QST in Canada, VAT in Europe), predicts when they will cross it, and tells them what to do before it happens.",
+  "competitors": [
+    {
+      "name": "Calcul Taxes Québec | TPS TVQ (iOS)",
+      "url": "https://apps.apple.com/ca/app/calcul-taxes-qu%C3%A9bec-tps-tvq/id1603154795?l=fr-CA",
+      "what_they_do": "French GST/QST and tip calculator aimed at Quebec self-employed people. Free with ads, or CAD 3.99 a month or CAD 33.99 a year; 4.8 stars from about 2.8 thousand ratings (checked this run).",
+      "weakness": "Calculator only: no running total, no CAD 30,000 small-supplier meter, no invoices and no filing reminders. Reviews praise its simplicity and complain about ads, so the paid plan may mostly remove ads; how many people actually pay is unknown."
+    },
+    {
+      "name": "Accountable (Germany, Belgium)",
+      "url": "https://www.accountable.de/",
+      "what_they_do": "Tax and bookkeeping app for German self-employed people: invoices, receipt scanning, VAT and income-tax returns, an AI tax helper. Free plan; paid plans at 9.90, 19.90, 29.90 and 59.90 EUR a month on yearly billing (checked this run).",
+      "weakness": "A full suite: you have to do all your invoicing in it. The skeptic says it warns users near the 25,000 EUR Kleinunternehmer limit, but its home page did not mention this when checked this run. It is the strongest German rival because of its free plan."
+    },
+    {
+      "name": "kostenlose-erechnung.de (Germany)",
+      "url": "https://www.kostenlose-erechnung.de/",
+      "what_they_do": "Online e-invoicing (ZUGFeRD, XRechnung) for freelancers. Free Start plan with 3 invoices a month; Business 9.92 EUR a month; Business Plus 19.08 EUR a month, excluding VAT (checked this run).",
+      "weakness": "Invoicing comes first and it only sees invoices written inside it. The skeptic says its premium plan tracks the 25,000 EUR limit live, but the pricing page did not show this when checked this run."
+    },
+    {
+      "name": "Fiscozen (Italy)",
+      "url": "https://www.fiscozen.it/prezzi/",
+      "what_they_do": "Online accountant for Italian forfettario freelancers, with an app for invoices and tax forecasts. 499 EUR a year (or 49.90 EUR a month) for professionals, 599 EUR a year for craftspeople and traders, VAT included (checked this run).",
+      "weakness": "Costs about 20 times the target price because it bundles a human accountant, and its pricing page does not mention watching the 85,000 and 100,000 EUR limits."
+    },
+    {
+      "name": "QuickBooks, Wave, FreshBooks (Canada)",
+      "what_they_do": "General accounting and invoicing suites used by Canadian small businesses (prices not checked this run).",
+      "weakness": "Heavier and dearer than a sole proprietor wants and not built around the small-supplier test (North America scout). But anyone who already invoices in one of them sees their turnover there."
+    },
+    {
+      "name": "Lexware Office and sevDesk (Germany)",
+      "what_they_do": "Bookkeeping suites for German self-employed people. Paid plans start at about 9 EUR a month in guides the Europe scout saw (not re-checked this run).",
+      "weakness": "Too much for someone who only needs the limit warning; you have to keep all your books inside them."
+    },
+    {
+      "name": "Web threshold calculators (for example yourincomecalculator.com)",
+      "url": "https://yourincomecalculator.com/ca/calculators/hst-registration",
+      "what_they_do": "Free one-off web pages that say whether a sales figure crosses the GST/HST registration limit.",
+      "weakness": "They save no history, do not add up the last four quarters, make no forecast and send no alerts, so the user must remember to come back."
+    },
+    {
+      "name": "Tracker Financier Auto-Entrepreneur by La Fabrique du Net (France)",
+      "what_they_do": "Free browser tool for French micro-entrepreneurs to track turnover (Europe scout).",
+      "weakness": "France only, with no reminders, and the data stays in one browser."
+    },
+    {
+      "name": "freee, Money Forward, Yayoi (Japan)",
+      "what_they_do": "Full bookkeeping and tax-filing apps. Typical sole-proprietor plans cost about 700-1,200 yen a month, per a 2026 comparison article found by the East Asia scout.",
+      "weakness": "Built for filing, not for a simple view of what you would owe under each consumption-tax option. But their free tiers and strong brands make Japan a poor first market."
+    },
+    {
+      "name": "Vyapar, Khatabook, myBillBook (India)",
+      "what_they_do": "Billing and ledger apps for small Indian shops. Paid plans cost about 2,500-3,400 rupees a year (South Asia scout).",
+      "weakness": "They do not read UPI statements, separate personal from business money or warn about GST turnover limits. But Indian traders are price-sensitive and mostly reached offline, so India is not a good first market."
+    },
+    {
+      "name": "Free spreadsheets and bank exports",
+      "what_they_do": "Free; most sole traders add up their sales by hand.",
+      "weakness": "No rules, no four-quarter totals, no forecast and no alerts. This is the main thing users would switch from, so entering income must be easier than in a spreadsheet."
+    }
+  ],
+  "customer": {
+    "who": "Self-employed people whose yearly sales are close to a small-business sales-tax limit (roughly 60-120% of it): freelance designers, writers, translators, coaches, tradespeople, makers and people with a side business. Start with Canada, where every sole proprietor faces the same CAD 30,000 small-supplier limit for GST/HST, plus QST in Quebec. Next come German Kleinunternehmer near 25,000 EUR. Later: Dutch KOR users near 20,000 EUR, Italian forfettari near 85,000-100,000 EUR and UK sole traders near the 90,000 GBP VAT limit. The India and Japan parts of the original idea are left out of version 1 because of weak willingness to pay, offline-only reach and strong local apps.",
+    "where": "Quebec first (Montreal, Quebec City, Gatineau, Sherbrooke), in French and English; then the rest of Canada (Toronto, Vancouver, Calgary, Ottawa) in English; then Germany (Berlin, Hamburg, Munich, Cologne, the Ruhr); later the Netherlands, Italy and the UK. No headcount was sourced. Statistics Canada counts about 2.7 million self-employed Canadians (background knowledge, not checked this run), and only the slice near CAD 30,000 is the core buyer.",
+    "pain_in_their_words": "These are paraphrased from guides, official leaflets and app reviews, not direct forum posts: Reddit could not be opened and the search budget was used up this run. A German government-backed founder leaflet says nobody will warn you, because watching the limit is your own job and not the tax office's. An Italian guide (Money.it, October 2026) says to keep a close eye on turnover during the year: the sale that takes you past 100,000 EUR already carries VAT, and invoices sent after it without VAT must be cancelled and reissued. A Montreal freelancer guide (2026) says the sale that pushes you over 30,000 dollars in a quarter may already be taxable, and you must not put tax numbers on invoices before you register. In India, a vegetable seller whose produce is tax-exempt still got a notice of about 29 lakh rupees based on his UPI receipts (2025 press). Quebec users of a paid tax calculator praise it for being simple and fast, and complain about ads."
+  },
+  "mvp": {
+    "scope": [
+      "Step 0, two weeks before any coding: a French and English landing page for Quebec and other Canadian sole proprietors, collecting paid pre-orders or at least sign-ups, to prove people want the warning on its own (the skeptic's test).",
+      "Canada rules file: the CAD 30,000 small-supplier test for GST/HST, checked both for a single calendar quarter and for the last four quarters, plus QST for Quebec. All texts in French and English, reviewed by a Quebec CPA.",
+      "Easy income entry: type an amount, take a photo of an invoice (read on the phone itself), or import CSV files from Canadian banks and from Stripe, PayPal, Square and Etsy payouts. One tap marks each item as taxable, exempt or personal.",
+      "Meter and forecast: running totals per quarter and for the last four quarters, plus a line such as 'at this pace you pass CAD 30,000 around March', with alerts at about 70%, 85% and 95% of the limit and on crossing it.",
+      "What happens next, in plain language: when to register with Revenu Québec or the Canada Revenue Agency, from which sale tax applies, and what must appear on invoices, with links to the official pages.",
+      "After registration: filing-date reminders, a summary of GST/QST charged, and a simple comparison of regular accounting with the Quick Method (rules to be confirmed by the CPA).",
+      "A year-end PDF and CSV export for the accountant or the tax return.",
+      "A free tier (manual entry and the meter) and a paid tier sold as App Store and Google Play subscriptions.",
+      "After launch, add one country at a time: Germany (25,000 EUR prior-year and 100,000 EUR current-year limits), then the Netherlands (KOR, 20,000 EUR), Italy (forfettario, 85,000 and 100,000 EUR), and possibly the UK (90,000 GBP VAT limit over the last 12 months, and Making Tax Digital income limits of 30,000 GBP from April 2027 and 20,000 GBP from April 2028)."
+    ],
+    "time_to_build": "About 2-3 months for the Canada version (French and English, iPhone and Android), then about 4-6 weeks for each further country, mostly rules, translation and an adviser's review.",
+    "team": "1 cross-platform mobile developer (Flutter or React Native) who also builds the small backend; a part-time founder handling design, French and English copy and community outreach; and a Quebec CPA paid for a few days a year to check the rules and texts (a German tax adviser later for Germany)."
+  },
+  "pricing": {
+    "model": "Free tier plus a monthly subscription and a cheaper yearly plan, sold through the App Store and Google Play in local currency.",
+    "price": "Canada: CAD 2.99 a month or CAD 24.99 a year, about USD 2.15 and USD 1.50 a month at roughly 0.72 USD per CAD (exchange rate not checked this run). Germany and other euro countries later: EUR 2.49 a month or EUR 19.99 a year, VAT included. The free tier gives manual entry and a basic meter for one limit.",
+    "rationale": "The closest paid tool in Quebec, a GST/QST calculator, charges CAD 3.99 a month or CAD 33.99 a year and has about 2.8 thousand ratings. Pricing just below it while offering more (meter, forecast, alerts, filing reminders) is easy to explain. German invoicing and bookkeeping suites start at about 9-10 EUR a month and Fiscozen costs 499 EUR a year, so 2-3 EUR is far below the alternatives for someone who only needs the warning. A yearly plan suits a need that peaks a few times a year (quarter ends, filing season) and lowers cancellations. The free meter brings people in through search and word of mouth. Alerts, the forecast, CSV import, reminders and the accountant export are paid."
+  },
+  "unit_economics": {
+    "cost_per_user": "About USD 0.03-0.05 a month. That covers a small cloud database and backend, free push notifications, invoice photos read on the phone itself, and a few emails. Version 1 uses no AI, no SMS and no paid bank-feed connections (services such as Plaid or Flinks cost more, so they are left out). The bigger costs are the 15% store commission (Apple's and Google's small-business rate; background knowledge, not checked this run) and fixed costs: a yearly rules review by a tax adviser in each country (estimated at CAD 1,000-2,000, not quoted this run) and USD 99 a year for the Apple developer account.",
+    "users_needed": "At CAD 2.99 a month, each user brings in about USD 1.78 after the 15% store fee and running costs, so about 5,600 paying users make USD 10,000 a month. If half pay for the cheaper yearly plan, the average falls to about USD 1.50 and about 6,700 paying users are needed. This assumes Canadian store prices are shown before sales tax, as in the US (not checked this run). In Germany, EUR 2.49 including 19% VAT leaves about EUR 1.73 after VAT, store fee and running costs, so roughly 5,000-5,500 paying users are needed (exchange rate not checked). All figures are before fixed costs and income tax."
+  },
+  "how_to_get_users": "Search is the main channel, because people look for this at clear moments: when they near the limit, at quarter ends and in filing season. (1) App stores: the Quebec GST/QST calculator's 2.8 thousand ratings show that Quebec self-employed people search the French App Store for tax tools. Target French and English terms such as TPS TVQ, petit fournisseur, travailleur autonome, GST HST small supplier and 30k GST. (2) Search engines: publish a free web checker ('Am I still a small supplier?') in French and English that adds up the last four quarters, which the one-off calculators do not do, along with short guides to the rules. The checker then points people to the app. (3) Online communities: answer the recurring GST-registration questions in Canadian and Quebec subreddits honestly, saying who you are, instead of advertising. (4) Partners, at no ad cost: coworking spaces (2727 Coworking in Montreal already writes French tax guides for freelancers), the City of Montreal's PME MTL business hubs and info sessions, Futurpreneur's mentor network for young founders, and freelancer associations such as AJIQ for journalists, which publishes practical resources for members. Offer them a free member code or a co-written guide. (5) Accountants and bookkeepers: give them a free view of their clients' meters and the year-end export, so they recommend the app to clients who keep missing the limit. (6) Timing: push around quarter ends, in January and in the spring tax season. In Germany the same plan uses VGSD's Q&A community and regional groups and the government-backed Gründerplattform, which has about 200,000 visitors a month. In Italy, ACTA, a freelancers' association with a tax advice desk, is a later partner. This works without paid ads because the need is narrow and local, and people describe it with specific search words. It is also discussed in trusted local groups, and freelancers compare notes with each other.",
+  "first_users": [
+    {
+      "name": "r/PersonalFinanceCanada",
+      "where": "Reddit",
+      "why": "Canada's largest personal-finance forum, where people with side businesses and freelancers regularly ask whether and when they must register for GST/HST at CAD 30,000 (background knowledge; Reddit could not be opened this run)."
+    },
+    {
+      "name": "r/Quebec",
+      "where": "Reddit",
+      "why": "The main French-language Quebec community, where self-employed people ask about TPS/TVQ and Revenu Québec. Good for French feedback on the app's wording (background knowledge; not opened this run)."
+    },
+    {
+      "name": "2727 Coworking",
+      "where": "Montreal (Griffintown / Saint-Henri), coworking space and blog",
+      "why": "Serves freelancers and small business owners and already publishes French guides on Quebec freelancer invoices and the CAD 30,000 small-supplier limit, so it is a natural partner for a co-written guide or a member offer.",
+      "url": "https://2727coworking.com/articles/fr/quebec-freelancer-invoice-checklist"
+    },
+    {
+      "name": "PME MTL",
+      "where": "Montreal, six business-support hubs across the island",
+      "why": "The City of Montreal's support network for entrepreneurs runs coaching, financing, info sessions and networking events where new business owners learn the basics, including tax.",
+      "url": "https://pmemtl.com/"
+    },
+    {
+      "name": "Futurpreneur Canada",
+      "where": "Canada-wide, with a Quebec community",
+      "why": "Has supported more than 21,000 young entrepreneurs with startup loans and mentors. First-year founders are exactly the people who cross CAD 30,000 without noticing.",
+      "url": "https://www.futurpreneur.ca/"
+    },
+    {
+      "name": "AJIQ (Association des journalistes indépendants du Québec)",
+      "where": "Quebec, freelancer association",
+      "why": "Its members are freelance journalists paid per piece, whose income creeps towards the CAD 30,000 line. The association already publishes practical resources (rates, fair contracts) and a newsletter where a guide to the tax limit fits.",
+      "url": "https://www.ajiq.qc.ca/"
+    },
+    {
+      "name": "VGSD (Verband der Gründer und Selbstständigen Deutschland)",
+      "where": "Germany, online Q&A community and 21 regional groups",
+      "why": "About 5,300 association members and 15,900 community members (November 2026). Its 'Frag den VGSD' Q&A holds about 3,400 questions, including VAT questions from self-employed people, and partner deals for members already exist.",
+      "url": "https://www.vgsd.de/"
+    },
+    {
+      "name": "Gründerplattform (German economy ministry and KfW)",
+      "where": "Germany, free online founder platform with communities",
+      "why": "About 200,000 visitors and 7,000 new registrations a month. It published the leaflet saying that watching the Kleinunternehmer limits is the founder's own job, and it lists regional advice partners.",
+      "url": "https://gruenderplattform.de/"
+    },
+    {
+      "name": "r/Finanzen",
+      "where": "Reddit",
+      "why": "Germany's largest personal-finance subreddit, where Kleinunternehmer and side-business VAT questions come up (background knowledge; Reddit could not be opened this run)."
+    },
+    {
+      "name": "ZZP Nederland",
+      "where": "Netherlands, association of self-employed professionals",
+      "why": "Its starter guide tells members they can choose the KOR scheme if turnover stays under 20,000 EUR a year, and it offers more than 40 member benefits, so a KOR limit tracker fits as a member deal once the Dutch version launches.",
+      "url": "https://www.zzp-nederland.nl/stap-3-regel-je-administratie-en-belastingen"
+    }
+  ],
+  "risks": [
+    "A feature, not a product: invoicing and bookkeeping apps already see the user's turnover and can add a limit bar at any time. The skeptic says Accountable and kostenlose-erechnung.de already advertise limit alerts (their home pages did not show this when checked this run). Anyone who already invoices in such an app may not pay for a separate meter.",
+    "A small paying group: only people near a limit care, and once they register the meter's main job is done. Filing reminders and the regular-versus-Quick-Method comparison must keep registered users, or cancellations will be high.",
+    "Nobody was found paying for this exact job. The Quebec calculator's ratings may come mostly from free users who see ads, and no one was found paying for a stand-alone limit warning. Run the paid pre-order test before building.",
+    "Wrong rules cost users money: a missed registration means back taxes and penalties. The rules need a yearly adviser review, clear 'information, not tax advice' wording and quick updates. The official Revenu Québec page blocked access this run, so the rule details rest on the scout's reading and a Montreal coworking guide.",
+    "Data entry: if adding income is slower than a spreadsheet, people go back to the spreadsheet. Paid bank-feed connections would break the $1-3 price, so version 1 relies on CSV files, photos and typing.",
+    "Each new country is almost a new product (rules, language, adviser, store listing, communities), so growing to the six countries in the original idea is slow. India and Japan are left out of version 1.",
+    "Apple and Google take 15-30% of each payment, and the Canadian-dollar price is worth more or less as exchange rates move.",
+    "Tax offices could add their own alerts to their online taxpayer accounts (not checked this run)."
+  ],
+  "sources": [
+    {"title": "Calcul Taxes Québec | TPS TVQ, App Store Canada (opened this run)", "url": "https://apps.apple.com/ca/app/calcul-taxes-qu%C3%A9bec-tps-tvq/id1603154795?l=fr-CA"},
+    {"title": "Revenu Québec: Small suppliers (found by the North America scout; blocked when re-opened this run)", "url": "https://www.revenuquebec.ca/en/businesses/consumption-taxes/gsthst-and-qst/registering-for-the-gst-and-qst/small-suppliers/"},
+    {"title": "2727 Coworking: Quebec freelancer invoice checklist, in French (opened this run)", "url": "https://2727coworking.com/articles/fr/quebec-freelancer-invoice-checklist"},
+    {"title": "Your Income Calculator: HST registration calculator (from the North America scout)", "url": "https://yourincomecalculator.com/ca/calculators/hst-registration"},
+    {"title": "selbststaendigkeit.de: Umsatzsteuer bei Kleinunternehmern, updated 8 Nov 2026 (opened this run)", "url": "https://selbststaendigkeit.de/buchhaltung-fuer-gruender/umsatzsteuer-bei-kleinunternehmern/"},
+    {"title": "Gründerplattform leaflet: Kleinunternehmerregelung (from the Europe scout)", "url": "https://gruenderplattform.de/assets/indexable/documents/Merkblatt-Kleinunternehmerregelung.pdf"},
+    {"title": "Gründerplattform home page (opened this run)", "url": "https://gruenderplattform.de/"},
+    {"title": "Money.it: Regime forfettario, cosa succede se superi i 100.000 euro, updated 21 Oct 2026 (opened this run)", "url": "https://www.money.it/regime-forfettario-cosa-succede-se-superi-100000-euro"},
+    {"title": "ZZP Nederland: Stap 3, regel je administratie en belastingen (opened this run)", "url": "https://www.zzp-nederland.nl/stap-3-regel-je-administratie-en-belastingen"},
+    {"title": "Accountable home page and plans (opened this run)", "url": "https://www.accountable.de/"},
+    {"title": "kostenlose-erechnung.de home page and plans (opened this run)", "url": "https://www.kostenlose-erechnung.de/"},
+    {"title": "Fiscozen prices (opened this run)", "url": "https://www.fiscozen.it/prezzi/"},
+    {"title": "GOV.UK: VAT registration, when to register (opened this run)", "url": "https://www.gov.uk/vat-registration/when-to-register"},
+    {"title": "GOV.UK: Check if you're eligible for Making Tax Digital for Income Tax (opened this run)", "url": "https://www.gov.uk/guidance/check-if-youre-eligible-for-making-tax-digital-for-income-tax"},
+    {"title": "VGSD home page (opened this run)", "url": "https://www.vgsd.de/"},
+    {"title": "PME MTL home page (opened this run)", "url": "https://pmemtl.com/"},
+    {"title": "Futurpreneur Canada home page (opened this run)", "url": "https://www.futurpreneur.ca/"},
+    {"title": "AJIQ home page (opened this run)", "url": "https://www.ajiq.qc.ca/"},
+    {"title": "ACTA in rete, Italian freelancers' association (opened this run)", "url": "https://www.actainrete.it/"},
+    {"title": "Business Standard: Karnataka UPI GST notices, July 2025 (from the South Asia scout)", "url": "https://www.business-standard.com/india-news/karnataka-upi-gst-notices-vendors-demand-relief-turn-to-cash-125072300585_1.html"},
+    {"title": "Angel One: UPI transactions lead to Rs 29 lakh GST notice for vegetable seller (from the South Asia scout)", "url": "https://www.angelone.in/news/upi-transactions-lead-to-rs-29-lakh-gst-notice-for-vegetable-seller"},
+    {"title": "Money Forward media: 2-wari and 3-wari consumption-tax explainer, Japan (from the East Asia scout)", "url": "https://media.moneyforward.com/articles/10846"}
+  ]
+}

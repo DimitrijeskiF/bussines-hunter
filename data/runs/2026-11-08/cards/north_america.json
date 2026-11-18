@@ -1,0 +1,122 @@
+{
+  "region": "north_america",
+  "summary": [
+    "North America is a crowded app market. Many obvious ideas (tip trackers, warranty and receipt vaults, eldercare coordination, subscription trackers, HSA receipt vaults, rent collection) already have dozens of small apps, so most are not real gaps.",
+    "The more promising gaps are narrow and tied to a rule or a habit: Quebec sole proprietors who need GST/QST threshold and filing help in French, Canadian snowbirds who must count US days automatically, and parents who get messages from many school apps.",
+    "Proof of willingness to pay is clear. A French-language Quebec tax calculator charges CAD 3.99 a month and has about 2.8 thousand ratings. Many US tip trackers use freemium plus a Pro tier.",
+    "Reddit and Facebook-group evidence was thin. The search tool mostly returned app store pages, vendor blogs and news, so wish evidence here is indirect (news and parent complaints, not forum quotes). The search budget ran out before more lenses could be explored, so this file has 5 cards rather than 6-10."
+  ],
+  "cards": [
+    {
+      "id": "na-01",
+      "title": "One digest for all school apps (messages, events, deadlines)",
+      "problem": "Parents get notices from several school and district platforms (ParentSquare, ClassDojo, Seesaw, Remind, Canvas and district portals). Many have turned off alerts, miss deadlines, and keep no single calendar. Each platform only shows its own messages, and schools do not consolidate them.",
+      "who_feels_it": {"group": "Parents of school-age children in the US and Canada, especially with 2+ children or several schools", "how_many": "ParentSquare alone shows about 53 thousand app store ratings, so its user base is in the millions; no source found for the total number of affected parents"},
+      "gap_type": "missing_everywhere",
+      "why_now": "Schools keep adding edtech: a 2026 report cited about 58 apps recommended or required per school, and a Boston Globe piece from October 2026 reports districts average about 3,000 digital tools.",
+      "lens": ["wishes", "trends"],
+      "evidence": [
+        {"claim": "Parents describe push-notification overload and switching off alerts because of the number of school and kid-activity platforms (Scary Mommy).", "url": "https://www.scarymommy.com/parenting/welcome-back-to-school-push-notification-hell"},
+        {"claim": "Boston Globe, 5 Oct 2026, reports on parents struggling with school edtech apps, platforms and passwords (headline and snippet seen in search; I did not open the full page).", "url": "https://www.bostonglobe.com/2026/10/05/lifestyle/parents-schools-edtech-apps-platforms-passwords/"},
+        {"claim": "A Vermont legislature testimony (Feb 2026) from Internet Safety Labs says schools recommend or require about 58 apps per school on average.", "url": "https://legislature.vermont.gov/Documents/2026/Workgroups/House%20Commerce/Bills/H.650/Witness%20Documents/H.650~Lisa%20LeVasseur~Testimony~2-6-2026.pdf"},
+        {"claim": "A district FAQ notes ParentSquare does not replace the grade portal, Canvas or Seesaw, so consolidation is limited in practice.", "url": "https://www.sthelens.k12.or.us/fs/pages/4395"}
+      ],
+      "existing_tools": [
+        {"name": "ParentSquare, ClassDojo, Remind, Seesaw (US)", "gap": "Each covers only the schools that adopt it; none merges messages from other platforms."},
+        {"name": "Caldzy, Agenda Hero (small indie tools)", "gap": "Aimed at youth-sports calendars; they depend on calendar feeds and do not read school emails or app messages."}
+      ],
+      "subscription_case": "The pain recurs every school week for about 10 months a year. A $2/month price is easy to justify against missed deadlines. Seasonal use is a churn risk, so annual pricing helps.",
+      "countries": ["United States", "Canada"],
+      "solution_idea": "A forwarding address and share-sheet that reads school emails and screenshots, extracts events, deadlines and forms with a small LLM, and shows one weekly digest plus a calendar feed. Per-user AI cost is small because messages are short."
+    },
+    {
+      "id": "na-02",
+      "title": "GST/QST small-supplier threshold and filing tracker for Quebec sole proprietors, in French",
+      "problem": "Quebec self-employed workers must watch a CAD 30,000 small-supplier limit and register for GST and QST in time. They must also remember filing dates. Existing Quebec tools are mostly calculators or generic accounting software. Rules for quarters and the stop-being-small-supplier date are confusing.",
+      "who_feels_it": {"group": "Quebec freelancers, side-hustlers and micro-business owners approaching or just past CAD 30,000 of taxable sales", "how_many": "No sourced count found; Quebec has hundreds of thousands of self-employed workers (unverified, no source)"},
+      "gap_type": "missing_here",
+      "why_now": "Revenu Québec's guidance on small suppliers is detailed and easy to misread, and French-language small-business guides for 2026 are being published. Freelance and gig income is growing.",
+      "lens": ["local_gaps", "paying_already"],
+      "evidence": [
+        {"claim": "Revenu Québec says you are a small supplier only if taxable supplies stay at or below CAD 30,000 in a quarter and in the four quarters before it.", "url": "https://www.revenuquebec.ca/en/businesses/consumption-taxes/gsthst-and-qst/registering-for-the-gst-and-qst/small-suppliers/"},
+        {"claim": "Calcul Taxes Québec (iOS) is aimed at self-employed workers, charges CAD 3.99 per month or CAD 33.99 per year, and has a 4.8 rating from about 2.8 thousand ratings. It does not mention invoicing or threshold tracking.", "url": "https://apps.apple.com/ca/app/calcul-taxes-qu%C3%A9bec-tps-tvq/id1603154795?l=fr-CA"},
+        {"claim": "A 2026 French-language 2727 Coworking article says Revenu Québec generally does not impose a specific invoice format, which leaves room for a simple invoice tool.", "url": "https://2727coworking.com/articles/fr/quebec-freelancer-invoice-checklist"},
+        {"claim": "Third-party threshold calculators exist as web pages, but I found no dedicated French mobile tracker.", "url": "https://yourincomecalculator.com/ca/calculators/hst-registration"}
+      ],
+      "existing_tools": [
+        {"name": "Calcul Taxes Québec (iOS)", "gap": "Tax calculator only; no threshold tracking, no invoicing, no filing reminders."},
+        {"name": "QuickBooks, Wave and similar accounting suites", "gap": "Heavier and pricier than a sole proprietor wants; not built around the small-supplier test."},
+        {"name": "Web threshold calculators (yourincomecalculator.com, canadianmoneyhelp.ca)", "gap": "One-off calculators, no alerts and no history."}
+      ],
+      "subscription_case": "The tax calculator in this niche already charges CAD 3.99 a month with thousands of ratings, so a USD 2-3 plan with alerts and invoices fits. Filing reminders recur monthly or quarterly.",
+      "countries": ["Canada"],
+      "solution_idea": "A French-first mobile app that logs invoices and income, shows progress to the CAD 30,000 limit, sends alerts before registration and filing dates, and exports simple invoices with GST/QST lines."
+    },
+    {
+      "id": "na-03",
+      "title": "Automatic US-day counter and Form 8840 reminder for Canadian snowbirds",
+      "problem": "Canadians who winter in the US must keep their days under the Substantial Presence Test (current year plus one third of last year plus one sixth of the year before) and file Form 8840 to stay non-resident. Current trackers rely on manual entry, so people forget days or miscount. A late filing can cost the exemption.",
+      "who_feels_it": {"group": "Canadian snowbirds and frequent US travellers (retirees and remote workers)", "how_many": "No sourced total found; the topic is covered repeatedly by Canadian and US law firms and media"},
+      "gap_type": "missing_here",
+      "why_now": "Reports in 2025-26 say Canadian snowbirds face more US scrutiny, and a free tracker was launched only in August 2026, which shows the demand is current.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "A law firm explains the one-third and one-sixth formula and tells snowbirds to start counting days.", "url": "https://www.tdslaw.com/resource/attention-snowbirds-start-counting/"},
+        {"claim": "Search results describe a free '49th Parallel Day Tracker' launched August 2026 by a wealth firm, and the SnoBird iOS app; both are described as logging days manually, not detecting them. This is from search result summaries, not pages I opened.", "url": "https://mwm.ai/apps/snobird/985424056"},
+        {"claim": "An article says Canadian snowbirds face more US scrutiny this year and how to avoid breaking the rules.", "url": "https://bccondosandhomes.com/news/blog/why-canadian-snowbirds-face-more-u-s-scrutiny-this-year-and-how-to-avoid-running-afoul-of-rules"},
+        {"claim": "US CBP now offers entry/exit records across the Canada-US border, which a user can check against their own counts.", "url": "https://easyime.com/blog/?p=587"}
+      ],
+      "existing_tools": [
+        {"name": "SnoBird (iOS)", "gap": "Manual day logging, iPhone only."},
+        {"name": "49th Parallel Day Tracker (free, Aug 2026)", "gap": "Lead-generation tool from a wealth firm; unclear whether it detects days automatically or covers filing reminders."},
+        {"name": "Richify Snowbird Day Counter (web)", "gap": "A calculator on a marketing page; no persistent tracking."}
+      ],
+      "subscription_case": "Use is seasonal (October to April), so annual pricing around USD 12-24 suits better. The cost of getting it wrong is high, so willingness to pay is real, but the market is small.",
+      "countries": ["Canada", "United States"],
+      "solution_idea": "A cross-platform app that logs border-area days from background location or photo and calendar imports, computes the 3-year formula, warns at 120 and 150 days, and drafts a Form 8840 reminder."
+    },
+    {
+      "id": "na-04",
+      "title": "Payment chaser for freelancers' unpaid invoices, usable with any invoice",
+      "problem": "Freelancers send invoices from many tools (PDF, Google Docs, email) and chase late payments by hand, which is awkward and easy to forget. Full invoicing suites that include automatic reminders cost more than a solo freelancer wants to pay just for chasing.",
+      "who_feels_it": {"group": "US and Canadian freelancers and one-person service businesses", "how_many": "About 85% of freelancers report late payment at least sometimes (Remote 2025 report, as repeated by secondary sources); no verified count of total freelancers here"},
+      "gap_type": "missing_everywhere",
+      "why_now": "Late payment has become the norm. Bonsai's analysis of 100,000+ freelancers found 29% of invoices were paid at least a day late, and New York and other places have passed freelancer payment laws.",
+      "lens": ["wishes", "trends"],
+      "evidence": [
+        {"claim": "A 2026 statistics roundup reports about 85% of freelancers have invoices paid late at least some of the time and about 21% are paid late or not at all more than half the time (citing Remote's 2025 report; secondary source).", "url": "https://agiled.app/statistics/late-payment-statistics"},
+        {"claim": "A survey summary reports 62% of New York freelance workers have lost wages due to nonpayment.", "url": "https://authorsguild.org/news/survey-finds-62-percent-of-ny-freelance-workers-have-lost-wages-due-to-nonpayment"},
+        {"claim": "Intuit QuickBooks 2025 survey: 47% of 2,487 US small businesses report invoices overdue by more than 30 days (secondary report).", "url": "https://mediapost.com/publications/article/415441/payments-to-agencies-freelancers-increasingly-del.html"}
+      ],
+      "existing_tools": [
+        {"name": "Bonsai, FreshBooks, QuickBooks (US)", "gap": "Reminders come inside bigger paid suites that require you to invoice from their tool."},
+        {"name": "Wave, Invoice Ninja", "gap": "Free invoicing with basic reminders; tied to their invoice format and not built around escalation or local late-payment rules."}
+      ],
+      "subscription_case": "Recurring, direct money value: if it recovers one late invoice a quarter it pays for itself. A USD 2-3 plan fits solo freelancers who will not buy a USD 20+ suite.",
+      "countries": ["United States", "Canada"],
+      "solution_idea": "Forward or photograph any invoice, and the app tracks its due date, sends polite and then firmer reminders from the user's own email or SMS, and adds a late-fee notice. Low cost, with no AI needed beyond reading the invoice."
+    },
+    {
+      "id": "na-05",
+      "title": "Audit-ready records for the new US tips and overtime tax deduction",
+      "problem": "From tax year 2025 through 2028, workers can deduct up to USD 25,000 of qualified tips, plus qualified overtime premium. The burden of proof is on the worker, who should keep daily logs and separate voluntary tips from mandatory service charges. Overtime in particular is awkward because only the premium part qualifies. Many cheap tip trackers exist, but this card is a narrower bet on overtime and proof, so check that gap before building.",
+      "who_feels_it": {"group": "Servers, bartenders, drivers, salon workers and hourly workers with overtime in the US", "how_many": "No sourced count found; the deduction covers tipped occupations on an IRS-final list and any hourly worker with overtime"},
+      "gap_type": "missing_everywhere",
+      "why_now": "Treasury finalised the qualified-tips rules in 2026, and the IRS added separate reporting boxes on W-2 and 1099 forms from the 2026 tax year.",
+      "lens": ["trends", "paying_already"],
+      "evidence": [
+        {"claim": "Law-firm summaries say the 2025-2028 deduction is capped at USD 25,000, and the burden of keeping tip logs, pay stubs and statements falls on the worker.", "url": "https://www.mondaq.com/unitedstates/tax-authorities/1789216/internal-revenue-service-publishes-final-rule-for-no-tax-on-tips-deduction"},
+        {"claim": "Treasury finalised regulations on qualified tips under the One Big Beautiful Bill Act (Mondaq, 2026).", "url": "https://www.mondaq.com/unitedstates/tax-authorities/1773408/treasury-finalizes-regulations-on-qualified-tips-under-the-one-big-beautiful-bill-act"},
+        {"claim": "The 'Qualified Tips' iOS app is built around the deduction with a free tier and a Pro subscription, which shows paid demand but also competition.", "url": "https://apps.apple.com/app/id6778865958"}
+      ],
+      "existing_tools": [
+        {"name": "Qualified Tips (iOS)", "gap": "iPhone only, tips focus; overtime handling unconfirmed."},
+        {"name": "Server44 / Tip Tracker + Pay", "gap": "General tip and shift tracker with a free tier."},
+        {"name": "TipJar, TipStation, TipMax and many others", "gap": "Crowded category; most do not produce a proof pack by pay period."}
+      ],
+      "subscription_case": "Seasonal tax need with a clear dollar benefit; USD 12-24 per year is plausible, but monthly pricing is hard to justify and competition is heavy. Treat this as a weak bet.",
+      "countries": ["United States"],
+      "solution_idea": "A pay-period log that imports pay stubs by photo, splits tips and overtime premium, and exports a tax-time proof pack. Only worth doing if the overtime premium side is confirmed to be missing."
+    }
+  ]
+}

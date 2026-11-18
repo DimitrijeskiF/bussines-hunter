@@ -1,0 +1,134 @@
+{
+  "region": "europe",
+  "summary": [
+    "Europe's clearest recent shocks are rule changes that put the burden on individuals and one-person shops: new German small-business VAT limits (since 2025) where crossing the cap takes effect immediately, DAC7 reporting of Vinted/eBay sellers, e-invoicing mandates (Poland, Germany, Spain), and the EU right to repair (applied from 31 July 2026).",
+    "In most of these the big accounting suites charge roughly 9 EUR a month or more and the state tools are free but bare (no alerts, no notifications), so the opening is a narrow, cheap, local-language companion tool, not a full bookkeeping product.",
+    "Appointment access for foreigners and residents (Spanish extranjeria, Berlin Buergeraemter, Italian Questure) is a recurring pain with only hobbyist, region-specific alert tools. The UK ban on paid driving-test booking services shows regulatory risk: an alert-only product must never book on the user's behalf.",
+    "Search coverage was limited: web search returned few Reddit threads or app-store reviews, so several cards rest on rules, vendor pages and news rather than direct user complaints. Market sizes are mostly unconfirmed and are flagged as such. Treat these as hypotheses to validate, not proven demand."
+  ],
+  "cards": [
+    {
+      "id": "eu-01",
+      "title": "Threshold watcher for micro-business tax limits (DE, IT, NL, FR)",
+      "problem": "One-person businesses on small-business VAT or flat-rate regimes must watch turnover limits themselves, and since 2025 in Germany and in Italy's forfettario regime crossing the 100,000 EUR line takes effect from the very invoice that crosses it, not at year end. Tax offices do not warn them. Existing answers are full bookkeeping suites or one-country calculators.",
+      "who_feels_it": {"group": "Kleinunternehmer in Germany, forfettari in Italy, KOR users in the Netherlands, micro-entrepreneurs in France", "how_many": "No confirmed headcount found in my sources; these are among the largest self-employed groups in each country (likely millions in total, unverified)"},
+      "gap_type": "missing_here",
+      "why_now": "Germany's reformed Kleinunternehmer rules (25,000 EUR prior year, 100,000 EUR current year with immediate effect) apply since 2025.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "Since 2025 German Kleinunternehmer status ends immediately from the sale that crosses 100,000 EUR, and the 25,000 EUR prior-year limit applies (guide, 2025-2026).", "url": "https://selbststaendigkeit.de/buchhaltung-fuer-gruender/umsatzsteuer-bei-kleinunternehmern/"},
+        {"claim": "A German founder platform leaflet states that watching the limits is the entrepreneur's own responsibility, not the tax office's.", "url": "https://gruenderplattform.de/assets/indexable/documents/Merkblatt-Kleinunternehmerregelung.pdf"},
+        {"claim": "In Italy, exceeding 100,000 EUR under the forfettario regime ends it mid-year and VAT applies from the invoice that crossed the line.", "url": "https://www.money.it/regime-forfettario-cosa-succede-se-superi-100000-euro"},
+        {"claim": "Dutch KOR users must deregister immediately once relevant turnover passes 20,000 EUR in a calendar year.", "url": "https://www.zzp-nederland.nl/stap-3-regel-je-administratie-en-belastingen"}
+      ],
+      "existing_tools": [
+        {"name": "Tracker Financier Auto-Entrepreneur by La Fabrique du Net (France)", "gap": "Free browser tool, France only, no reminders or multi-country rules, data stays in the browser"},
+        {"name": "Lexware, Accountable, sevDesk (Germany)", "gap": "Full bookkeeping suites; paid plans start around 9 EUR a month in guides I saw, overkill for someone who only needs the limit warning"}
+      ],
+      "subscription_case": "Anxiety-driven year-round use: a running, forecast-based 'you will hit the limit in X weeks' meter with alerts and country-specific rules updated each year. Rules change yearly, so ongoing updates justify a small subscription. Caveat: free spreadsheets compete, and revenue entry must be very easy (CSV or bank import).",
+      "countries": ["Germany", "Italy", "Netherlands", "France", "Austria"],
+      "solution_idea": "A mobile/web app where the user logs invoices or imports CSV, picks their regime, and gets a forecast meter plus push alerts before each limit, with plain-language 'what happens next' steps per country."
+    },
+    {
+      "id": "eu-02",
+      "title": "Marketplace-seller income and cost log for DAC7 (Vinted, eBay, Kleinanzeigen)",
+      "problem": "Platforms now report sellers with 30 or more sales or about 2,000 EUR a year to tax authorities. Private resellers worry about proving they made no profit, but the report shows only gross turnover, not what they paid. Some sellers report accounts being treated as commercial or payouts held.",
+      "who_feels_it": {"group": "Casual second-hand sellers on Vinted, eBay and similar platforms", "how_many": "Not confirmed; Vinted alone has tens of millions of EU users (not verified in my sources)"},
+      "gap_type": "missing_here",
+      "why_now": "DAC7 platform reporting has been live since 2023 and platforms now send sellers reminders and forms; Poland, Italy, Belgium and Germany have all run explainer coverage.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "Vinted UK states that 30 sales or about 2,000 EUR per calendar year triggers the report, which is a data report, not a tax bill.", "url": "https://www.vinted.co.uk/dac7"},
+        {"claim": "A seller on eBay Germany's community forum describes payouts held and account blocked after the DAC7 report until a tax number was supplied.", "url": "https://community.ebay.de/t5/DAC7-PStTG/Konto-gesperrt-Auszahlung-einbehalten-DAC7/m-p/4933684"},
+        {"claim": "Margeo (French reseller log) notes platform reports show turnover and fees but not cost basis, so sellers should keep purchase records; thresholds apply per platform.", "url": "https://margeoapp.com/en/blog/dac7-explained-online-sellers-europe/"}
+      ],
+      "existing_tools": [
+        {"name": "Margeo (France)", "gap": "Reseller record-keeping with French tax estimates and a free plan; I could not confirm pricing or local-language support for German, Polish or Italian sellers"}
+      ],
+      "subscription_case": "Sellers sell all year; the value is a ready 'my private sales, costs and no-profit proof' export in the January reporting season. Risk: usage may be seasonal and a free tier exists, so a low-priced yearly-style plan may fit better than monthly.",
+      "countries": ["Germany", "Poland", "Italy", "France", "Belgium", "Netherlands", "United Kingdom"],
+      "solution_idea": "A simple per-sale log (price, purchase cost, fees) that imports Vinted/eBay sales exports, tracks the 30-sale and 2,000 EUR counters per platform, and exports a no-profit summary in the user's language."
+    },
+    {
+      "id": "eu-03",
+      "title": "EU right-to-repair and warranty companion (receipts, deadlines, repair-request letters)",
+      "problem": "The EU right to repair has applied since 31 July 2026 and also covers products after the legal guarantee ends, and repair extends the guarantee. Consumers must still find their proof of purchase, know their deadlines and write to manufacturers or sellers; the EU repair platform is not live until 2027.",
+      "who_feels_it": {"group": "Households owning appliances and electronics", "how_many": "Very large (any EU household); paying share unknown"},
+      "gap_type": "missing_everywhere",
+      "why_now": "The directive applied from 31 July 2026, with the Commission and consumer groups publicising new rights; the EU repair platform is announced for 2027.",
+      "lens": ["trends"],
+      "evidence": [
+        {"claim": "European Commission news item of 31 July 2026 says consumers can ask manufacturers to repair technically repairable products, free or at a reasonable price.", "url": "https://commission.europa.eu/news-and-media/news/right-repair-new-consumer-rights-easy-and-attractive-repairs-2026-07-31_en"},
+        {"claim": "Reporting says the rules reach beyond the warranty period and an EU online repair platform should come in 2027.", "url": "https://www.iamexpat.nl/expat-info/dutch-news/eu-right-repair-pushes-manufacturers-repair-devices-even-after-warranty"},
+        {"claim": "BEUC (consumer groups) published guidance on the new rights for longer-lasting products and easier repairs.", "url": "https://www.beuc.eu/news/new-rights-consumers-longer-lasting-products-easier-repairs"}
+      ],
+      "existing_tools": [],
+      "subscription_case": "Weak-to-medium: usage is sporadic (a few products per year). A small subscription is plausible only if bundled with automatic receipt capture from email and renewal-style reminders; a one-off purchase may fit better. I did not find an existing warranty app in my searches, but did not check app stores deeply.",
+      "countries": ["Germany", "France", "Netherlands", "Italy", "Spain", "Poland", "Sweden", "Denmark", "Belgium", "Austria"],
+      "solution_idea": "An app that pulls receipts from email or photos, tracks guarantee and extended-guarantee end dates, and generates a country-specific repair or warranty claim letter in the local language."
+    },
+    {
+      "id": "eu-04",
+      "title": "Appointment-slot alerts for residence, ID and office visits (notify only)",
+      "problem": "Booking a public-office appointment is a lottery: a data analysis cited by netzpolitik.org found two of three appointment requests at Berlin Buergeraemter fail, Spain's extranjeria offers often show no slots, and Italian Questura pickups need bookable slots. Users refresh pages for days; only hobbyist alert tools exist for single cities.",
+      "who_feels_it": {"group": "Expats, students and residents needing residence-card, ID or registration appointments", "how_many": "Not quantified here; millions of non-EU residents plus all residents of cities with scarce slots (unverified)"},
+      "gap_type": "missing_here",
+      "why_now": "Offices are digital-by-appointment; UK regulators banned paid booking/cancellation-finder services in May 2026, showing both demand and a legal line (alert-only avoids it).",
+      "lens": ["wishes", "local_gaps"],
+      "evidence": [
+        {"claim": "Search results describe a free 'Buergerwecker' that emails free Buergeramt slots in Leipzig and Dresden (2026), showing demand and that coverage is regional.", "url": "https://www.l-iz.de/politik/leipzig/2026/08/einfacher-freie-termine-in-den-leipziger-und-dresdner-buergeraemtern-finden-der-buergerwecker-von-jakub-waller-664613"},
+        {"claim": "An open-source Selenium cita-bot exists to catch Spanish extranjeria slots, showing users script this themselves.", "url": "https://github.com/cita-bot/cita-bot"},
+        {"claim": "From 12 May 2026 UK law bans third parties from booking driving tests for others and DVSA removed 17 apps; paid booking services are the risky model.", "url": "https://www.gov.uk/government/news/end-of-the-road-for-unofficial-driving-test-booking-services"}
+      ],
+      "existing_tools": [
+        {"name": "Buergerwecker (Leipzig/Dresden, Germany)", "gap": "Free, only two Saxon cities; user still has to open the city site and book manually"},
+        {"name": "cita-bot (Spain, open source)", "gap": "Script for technical users; may break terms of the official site"}
+      ],
+      "subscription_case": "Urgent need but short-lived per user (until booked), so churn is high; works best as a subscription covering several recurring appointment types (renewals, passport, car registration) or sold with a month-to-month pass. Legal risk: scraping terms and no booking on behalf of users.",
+      "countries": ["Germany", "Spain", "Italy", "Netherlands", "France"],
+      "solution_idea": "A web/push service that watches official slot pages for chosen offices and services in one city list and alerts users instantly with a deep link; no auto-booking."
+    },
+    {
+      "id": "eu-05",
+      "title": "KSeF inbox companion for Polish micro-firms (receive, notify, forward to accountant)",
+      "problem": "Polish businesses, even VAT-exempt ones, must be able to receive structured KSeF invoices. The free Ministry of Finance app lets users view and download invoices, but alerts and auto-download come only in paid accounting software.",
+      "who_feels_it": {"group": "Polish sole traders (JDG) and tiny firms that receive supplier invoices", "how_many": "Not confirmed in my sources; Poland has well over a million active sole proprietorships (unverified)"},
+      "gap_type": "missing_here",
+      "why_now": "KSeF obligations phased in from February and April 2026, with the smallest firms possibly in 2027 (sources conflict on the exact dates).",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "The Ministry of Finance publishes a free browser 'Aplikacja Podatnika KSeF 2.0' to issue, receive and view invoices.", "url": "https://ksef.podatki.gov.pl/aplikacja-podatnika-ksef-20/"},
+        {"claim": "iFirma's overview of KSeF programs for small firms says automatic download and new-invoice notifications come with its paid module; the free e-Mikrofirma app needs manual checking of the KSeF inbox.", "url": "https://www.ifirma.pl/blog/programy-do-obslugi-ksef-przeglad-rozwiazan-dla-malych-firm-jdg-i-freelancerow-2026/"},
+        {"claim": "mBank's schedule lists February 2026 for large firms, April 2026 for others and January 2027 for the smallest firms.", "url": "https://www.mbank.pl/artykuly/ksef-harmonogram/"}
+      ],
+      "existing_tools": [
+        {"name": "Aplikacja Podatnika KSeF 2.0 (Poland, free)", "gap": "Manual checking, no alerts or forwarding to accountant"},
+        {"name": "iFirma KSeF Free, wFirma, Norman (Poland)", "gap": "Tied to full accounting subscriptions"}
+      ],
+      "subscription_case": "Invoices arrive monthly, so an inbox watcher is used continuously. Risk: the official tool is free and software vendors give KSeF modules away to win customers; the real target is firms that only receive invoices and do not need full accounting software.",
+      "countries": ["Poland"],
+      "solution_idea": "A small app that connects to a user's KSeF token, auto-pulls received invoices, shows readable PDFs, pushes notifications and forwards new invoices to the accountant by email."
+    },
+    {
+      "id": "eu-06",
+      "title": "Swiss-German voice-message transcription and summaries",
+      "problem": "Swiss people send voice messages in dialect. WhatsApp's built-in transcription did not list German when tested (2023 to later reporting), and dialect with no standard spelling is hard for generic tools. Existing options are web services or apps with free minutes then in-app purchases.",
+      "who_feels_it": {"group": "Swiss German speakers (and Austrian dialect speakers) using WhatsApp voice messages", "how_many": "Roughly 5 million Swiss German speakers (my estimate, not sourced); paying share unknown"},
+      "gap_type": "missing_here",
+      "why_now": "Voice messages have become a default way of messaging and AI speech models now handle more dialects, but built-in tools skip German.",
+      "lens": ["wishes", "local_gaps"],
+      "evidence": [
+        {"claim": "A test report on WhatsApp's built-in transcription listed only English, Portuguese, Spanish and Russian, so German is missing.", "url": "https://www.nextpit.de/whatsapp-sprachnachrichten-text-umwandeln-anleitung"},
+        {"claim": "A Swiss outlet asked in 2023 how WhatsApp transcription would handle Mundart messages.", "url": "https://www.netzwoche.ch/news/2023-02-17/whatsapp-will-sprachnachrichten-automatisch-transkribieren"},
+        {"claim": "The 'Schweizerdeutsch uebersetzen' iOS app transcribes dialect with a few free minutes then in-app purchases, so a paid competitor already exists.", "url": "https://apps.apple.com/ch/app/schweizerdeutsch-%C3%BCbersetzen/id6446903220"}
+      ],
+      "existing_tools": [
+        {"name": "Schweizerdeutsch uebersetzen (iOS, Switzerland)", "gap": "Credit-style in-app purchases rather than a flat low monthly plan; quality unverified"},
+        {"name": "HappyScribe (Netherlands/Spain)", "gap": "Professional per-minute pricing, around 85 percent accuracy for fast machine option per their page"}
+      ],
+      "subscription_case": "Weak-to-medium: heavy voice-message users would pay for a flat monthly cap, but compute cost per user must be checked and the market is small. Competitor exists, so success needs clearly better dialect accuracy and a share-sheet flow.",
+      "countries": ["Switzerland", "Austria", "Germany"],
+      "solution_idea": "A share-sheet extension: forward a WhatsApp voice message and get a text transcript plus a two-line summary, using a dialect-tuned speech model with a monthly minute cap."
+    }
+  ]
+}

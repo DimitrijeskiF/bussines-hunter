@@ -1,0 +1,138 @@
+{
+  "region": "middle_east",
+  "summary": [
+    "The strongest signal in the Middle East right now is compliance deadlines hitting very small sellers: Saudi Arabia's Phase 2 e-invoicing reaches businesses above SAR 187,500 turnover by 1 February 2027, and the UAE's mandatory e-invoicing reaches all other businesses from 31 March 2027 (pilot from June 2026).",
+    "Existing accounting tools for these rules are priced for companies (roughly SAR 60-140 or AED 99+ per month at the entry level), which leaves a gap for freelancers and occasional earners who would pay $1-3 for invoice-only software.",
+    "Expat paperwork (residency and ID expiry, domestic-worker pay records) is served mostly by government apps and a few English-only trackers, so Arabic-first, family-oriented tools look thin, though the evidence for paid demand is weaker here.",
+    "Education policy is creating a new need: the UAE made daily Arabic lessons compulsory in private kindergartens from the 2025-26 school year, on top of existing mandatory Arabic for non-Arab pupils, and parents report that non-native children struggle.",
+    "Search quality for Hebrew, Turkish and Arabic forums was limited in this run, so Israel and Turkey have only light coverage. Voice-note transcription, remittance comparison and gratuity calculators were checked and dropped as crowded or already free."
+  ],
+  "cards": [
+    {
+      "id": "me-01",
+      "title": "Pocket e-invoicing for UAE freelancers and occasional earners",
+      "problem": "UAE e-invoicing becomes mandatory for most businesses in 2027, and B2B invoices will have to go through the Federal Tax Authority network. Freelancers, side-hustlers and one-person licences who today send a Word or PDF invoice will need a compliant tool, but current accounting products are priced and designed for companies.",
+      "who_feels_it": {"group": "Freelancers, free-zone solo licence holders and occasional earners in the UAE who invoice businesses", "how_many": "No reliable count found; a tax partner quoted by The National says even occasional earners are pulled into the compliance net. Likely hundreds of thousands of freelance and side-income earners, to be validated."},
+      "gap_type": "missing_here",
+      "why_now": "Pilot starts June 2026, all other businesses have an initial deadline of 31 March 2027, with full implementation by 1 July 2027.",
+      "lens": ["trends", "local_gaps", "paying_already"],
+      "evidence": [
+        {"claim": "The National (Dec 2025) reports e-invoicing is mandatory in 2026-27, with a pilot in June 2026 and a 31 March 2027 initial deadline for businesses with revenue under Dh50 million; occasional traders are affected.", "url": "https://www.thenationalnews.com/business/economy/2025/12/07/uae-tax-accidental-businesspeople-wont-survive-shift-to-e-invoicing"},
+        {"claim": "Mazeed, a UAE tool aimed at freelancers and small businesses with an Arabic interface, lists paid packages starting from AED 99 per month.", "url": "https://mazeed.com/blog/self-employed-accounting-software/"}
+      ],
+      "existing_tools": [
+        {"name": "Mazeed (UAE)", "gap": "Paid plans start around AED 99 a month and cover full accounting, VAT and corporate tax; too heavy and costly for someone who only needs to send compliant invoices."},
+        {"name": "Zoho Books (global)", "gap": "Full accounting suite priced for companies; not built around a freelancer's few invoices a month."}
+      ],
+      "subscription_case": "Invoicing is monthly and compliance is mandatory, so people keep the tool as long as they invoice. A $2-3 plan is a fraction of AED 99 and easy to justify for someone sending a few invoices.",
+      "countries": ["United Arab Emirates"],
+      "solution_idea": "A phone-first Arabic and English invoice, receipt and client list app that issues UAE e-invoice-ready documents through a partnered accredited service provider, with a simple income-versus-threshold tracker."
+    },
+    {
+      "id": "me-02",
+      "title": "Arabic-first Fatoora Phase 2 invoicing for Saudi micro-sellers",
+      "problem": "Saudi businesses with more than SAR 187,500 taxable turnover in any year from 2022 to 2025 must integrate with ZATCA's Fatoora platform by 1 February 2027 (Wave 25). Small sellers and freelancers need compliant XML, stamps and QR codes, but the known options are accounting suites aimed at companies.",
+      "who_feels_it": {"group": "Saudi VAT-registered micro-businesses, freelancers and home businesses", "how_many": "One market-research vendor estimates about 1.8 million freelancers in Saudi Arabia with over 250,000 freelance permits; only the VAT-registered share is affected, so size needs validation."},
+      "gap_type": "missing_here",
+      "why_now": "ZATCA announced Wave 25 on 24 July 2026, the first wave to use 2025 revenue, with a 1 February 2027 deadline. Non-compliance fines start at SAR 5,000 per violation according to Qoyod.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "EY reports ZATCA announced the 25th wave on 24 July 2026: taxpayers above SAR 187,500 turnover in 2022-2025 must integrate by 1 February 2027.", "url": "https://taxnews.ey.com/news/2026-1705-saudi-arabia-announces-25th-wave-of-phase-2-e-invoicing-integration"},
+        {"claim": "Qoyod's published entry prices conflict across sources, from SAR 60 per month plus VAT on its own blog to SAR 138 per month on its academy page.", "url": "https://www.qoyod.com/en/blog/e-invoicing/e-invoice-program-costs/"},
+        {"claim": "A Saudi marketplace listing offers a Phase 2 invoicing app at 999 SAR for small business, showing small sellers are buying one-off licences.", "url": "https://sa.opensooq.com/en/search/281969280"}
+      ],
+      "existing_tools": [
+        {"name": "Qoyod (Saudi Arabia)", "gap": "Full accounting product with entry price of roughly SAR 60-140 per month; more than a freelancer needs."},
+        {"name": "FatooraZ (iOS, free)", "gap": "Free and self-declared compliant, but iOS only and little evidence of Arabic-first support or support."},
+        {"name": "Zoho Books (global)", "gap": "Suite for companies, not for a person issuing a few invoices."}
+      ],
+      "subscription_case": "ZATCA compliance is continuous: every invoice must be stamped and reported, so the tool is needed every month. SAR 7-11 (about $2-3) would undercut every named competitor.",
+      "countries": ["Saudi Arabia"],
+      "solution_idea": "A lightweight Arabic mobile app that creates ZATCA-compliant simplified invoices with QR and stamping, handles Hijri/Gregorian dates, and sends them to Fatoora, with WhatsApp sharing for customers."
+    },
+    {
+      "id": "me-03",
+      "title": "Arabic-first family residency and ID expiry tracker for Gulf expats",
+      "problem": "Expats must track visa or iqama, Emirates ID, passport, Ejari, car registration, insurance and driving licence dates, for the whole family. Late renewal costs money, for example Dh20 per day on an Emirates ID after a 30-day grace period (capped at Dh1,000) and reportedly Dh50 per day for visa overstay in the UAE. Government apps give some alerts, but each covers only its own documents.",
+      "who_feels_it": {"group": "Expat workers and families in the UAE and Saudi Arabia, especially those whose employer does not manage renewals for them", "how_many": "Several million expat residents across the Gulf; exact number not confirmed in this run."},
+      "gap_type": "missing_here",
+      "why_now": "UAE overstay fines were reportedly unified at AED 50 per day from 11 February 2026 (unverified against ICP), and visa renewals are now linked with other fines.",
+      "lens": ["wishes", "local_gaps", "paying_already"],
+      "evidence": [
+        {"claim": "Gulf News and PolicyBazaar describe a 30-day grace period and then Dh20 per day (cap Dh1,000) for late Emirates ID renewal; an expired visa also lapses the ID.", "url": "https://gulfnews.com/uae/government/uae-residency-emirates-id-know-the-updates-on-various-violations-and-fines-1.103489199"},
+        {"claim": "The App Store listing for Dubai Reminder shows an English-only, UAE-only tracker with a Pro plan at $12.99 per year, no ratings yet, and no affiliation with government.", "url": "https://apps.apple.com/us/app/-/id6756177345"},
+        {"claim": "Guides on Saudi iqama renewal say the employer is legally responsible but employees are advised to track dates themselves and note that Hijri to Gregorian conversion can shift dates; third-party trackers exist.", "url": "https://www.expirationreminder.com/document-tracking/iqama-saudi-work-permit"}
+      ],
+      "existing_tools": [
+        {"name": "UAEICP and DubaiNow (UAE government)", "gap": "Alerts only for the user's own government documents; no family view and no private documents like insurance or tenancy."},
+        {"name": "Dubai Reminder (UAE)", "gap": "iOS, English only, no Saudi support, and unproven traction."},
+        {"name": "Absher and Muqeem (Saudi government)", "gap": "Official services; not a cross-document family tracker."}
+      ],
+      "subscription_case": "Weak to medium. Documents come due only a few times a year, so a monthly price needs added value such as family vault, fines lookup and renewal checklists. Tracker apps in general see low retention.",
+      "countries": ["United Arab Emirates", "Saudi Arabia"],
+      "solution_idea": "A Arabic, English, Hindi and Urdu reminder app with a per-country renewal checklist, Hijri support, family profiles and a secure scan vault, with fine amounts and required documents pre-filled."
+    },
+    {
+      "id": "me-04",
+      "title": "Arabic practice coach for non-Arab kids in UAE schools",
+      "problem": "Non-Arab pupils in UAE private schools must take Arabic, now starting in kindergarten, but they rarely hear Arabic outside class because English and other languages dominate daily life. Parents report children struggling to keep up and turn to private tutors.",
+      "who_feels_it": {"group": "Expat parents in the UAE with children in private schools, plus parents in other Gulf states", "how_many": "Not quantified in sources found; all private-school non-Arab pupils are affected, likely hundreds of thousands."},
+      "gap_type": "missing_here",
+      "why_now": "UAE made a daily 40-minute Arabic lesson mandatory in private kindergartens from the 2025-26 school year. Gulf parents are increasingly using AI study help, though the adoption claim is from an unsourced blog.",
+      "lens": ["trends", "wishes", "paying_already"],
+      "evidence": [
+        {"claim": "Semafor (25 June 2025) reports private kindergartens in the UAE must teach daily 40-minute Arabic lessons from the next school year.", "url": "https://www.semafor.com/article/06/25/2025/uae-makes-arabic-mandatory-for-kindergarteners"},
+        {"claim": "Gulf News reports foreign private schools must give non-Arab pupils four hours of Arabic a week, and that private tutors are benefiting from the policy.", "url": "https://gulfnews.com/uae/why-non-arab-expats-dont-pick-up-arabic-1.60837061"},
+        {"claim": "Existing kids Arabic apps include Amal (free with in-app purchases), Arabee (UAE) and Lugha, which advertises one subscription for up to four children.", "url": "https://mwm.ai/ko/apps/amal-kids-read-learn-arabic/1517863038"}
+      ],
+      "existing_tools": [
+        {"name": "Amal (kids Arabic app)", "gap": "General early reading app, not tied to UAE ministry curriculum or school homework."},
+        {"name": "Arabee (UAE)", "gap": "Built for unsupervised play; little help with the specific textbook units and worksheets non-native pupils get."},
+        {"name": "Private tutors (UAE)", "gap": "Costly and time-limited versus a cheap daily practice tool."}
+      ],
+      "subscription_case": "School terms run for months and the lessons come daily or weekly, so parents may keep paying through the school year. Families already pay for tutors and apps, making $2-3 an easy add-on.",
+      "countries": ["United Arab Emirates"],
+      "solution_idea": "A mobile practice app aligned to the UAE non-native Arabic syllabus by grade, with short audio-based exercises, speaking checks using on-device recognition, and a parent progress view."
+    },
+    {
+      "id": "me-05",
+      "title": "Simple e-receipt and income tracker for Turkish freelancers",
+      "problem": "Turkish freelancers who are not exempt must issue electronic freelance receipts (e-SMM) and often have income in foreign currency from clients abroad. The main route is a paid accounting program plus per-receipt credits, and rules on foreign-currency service income are confusing.",
+      "who_feels_it": {"group": "Turkish freelancers and remote workers billing foreign clients", "how_many": "Not quantified here; likely several hundred thousand freelancers, to be validated."},
+      "gap_type": "missing_here",
+      "why_now": "Tax authority rulings in 2023-2024 clarify that foreign-currency service income from abroad is professional (serbest meslek) income, which pushes more remote workers into formal reporting.",
+      "lens": ["local_gaps", "wishes"],
+      "evidence": [
+        {"claim": "Paraşüt's official pages list its e-Fatura program at 150 TL plus VAT per month, and sell e-SMM credits separately (100 for 400 TL plus VAT); different pages show different bundle prices.", "url": "https://www.parasut.com/on-muhasebe-fiyatlari/makbuzlu"},
+        {"claim": "A July 2024 tax office ruling summarised on alomaliye.com treats a foreign-currency service fee from abroad as freelance (serbest meslek) income.", "url": "https://www.alomaliye.com/2024/07/30/yurt-disindan-doviz-olarak-elde-edilen-hizmet-bedelinin-serbest-meslek-kazanci-mahiyetinde-olmasi/"},
+        {"claim": "Sovos describes e-SMM as accessible through a private integrator, and the 2025 notice shows the obligation still applies to non-exempt professionals.", "url": "https://sovos.com/tr/kdv/urunler/e-serbest-meslek-makbuzu/"}
+      ],
+      "existing_tools": [
+        {"name": "Paraşüt (Turkey)", "gap": "Full accounting package with e-signature and credit costs; heavy for someone issuing a few receipts."},
+        {"name": "En Kolay Fatura (Turkey)", "gap": "App listing shows e-SMM and e-Arşiv but no clear low price or foreign-currency tracking."}
+      ],
+      "subscription_case": "Medium. Receipts and tax deadlines recur monthly or quarterly. Price is hard to set because Turkish lira inflation affects prices and the integrator costs are fixed fees.",
+      "countries": ["Turkey"],
+      "solution_idea": "A Turkish mobile app that issues e-SMM and e-Arşiv documents via an integrator API, converts foreign-currency income at official rates and shows quarterly tax estimates."
+    },
+    {
+      "id": "me-06",
+      "title": "Household payroll and record book for Saudi domestic worker employers",
+      "problem": "Since 1 January 2026 Saudi households must pay domestic workers through approved electronic channels via Musaned, due at the end of each Hijri month and matching the contract. Employers also have to keep proof of advances, leave and end-of-contract dues, but have no simple record tool.",
+      "who_feels_it": {"group": "Saudi and expat households that employ drivers, housemaids and other domestic workers", "how_many": "Not quantified in sources found; Saudi Arabia has millions of domestic workers, which implies a large number of employer households (to be validated)."},
+      "gap_type": "missing_here",
+      "why_now": "Mandatory electronic salary transfer for all domestic worker employers took full effect on 1 January 2026, after a phased rollout from July 2024.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "Khaleej Times reports Saudi Arabia made electronic salary transfer through approved channels mandatory for domestic workers from 1 January 2026.", "url": "https://www.khaleejtimes.com/world/gulf/saudi-arabia-mandatory-e-salary-domestic-workers-january-1-2026?amp=1"},
+        {"claim": "Gulf News describes the Musaned e-salary system, including wage records, advances and loans to domestic workers, and payment due by Hijri month.", "url": "https://gulfnews.com/world/gulf/saudi/saudi-arabia-to-introduce-mandatory-e-salary-system-for-domestic-workers-1.500386507"}
+      ],
+      "existing_tools": [
+        {"name": "Musaned (Saudi government)", "gap": "Handles contract and transfer, not a private household ledger with reminders, leave balance or end-of-service calculation."}
+      ],
+      "subscription_case": "Weak to medium. Monthly salary dates make the need recurring, but many employers may rely on Musaned and bank apps alone; willingness to pay is unproven.",
+      "countries": ["Saudi Arabia", "United Arab Emirates"],
+      "solution_idea": "An Arabic app with Hijri month pay reminders, advance and leave tracking, contract end dates, and a printable settlement summary; later add the UAE Tadbeer equivalent."
+    }
+  ]
+}

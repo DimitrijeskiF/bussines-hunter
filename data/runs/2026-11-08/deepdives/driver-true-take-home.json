@@ -1,0 +1,173 @@
+{
+  "id": "driver-true-take-home",
+  "title": "True take-home and tax tracker for ride-hail and delivery drivers",
+  "one_liner": "Share a screenshot of your Uber, 99, Gojek or Grab earnings and the app shows what you really keep per hour and per km after platform fees, fuel and car costs, plus your income tax figures in Brazil.",
+  "competitors": [
+    {
+      "name": "GigU (formerly StopClub)",
+      "what_they_do": "Brazilian app that grades each ride offer green, yellow or red against the driver's own minimum per km, per minute and per hour on Uber, 99 and inDrive. It had about 181,000 active users from about 600,000 downloads and more than 70,000 paying subscribers at R$ 12.90 a month (about $2.30) in May 2025, and charged $6.95 a month in the US after a 30-day trial.",
+      "weakness": "It helps before the ride (accept or refuse), not after the week: the sources describe no full ledger of car rental, maintenance and monthly net, and no tax help (its current app was not checked this run). It is Android-only and reads the screen through accessibility tools, which Uber has fought in court."
+    },
+    {
+      "name": "Drivvo",
+      "url": "https://www.drivvo.com",
+      "what_they_do": "Brazilian-made car-cost app with a rideshare mode: one income type per platform, fuel and expense logs, balance and profit per km, monthly summaries. Over 5 million downloads and 4.8 stars from more than 114,000 Google Play reviews. Free plan; Individual $24.90 a year; Pro $4.90 a month or $49.90 a year (prices from its English site; Brazilian real prices not checked).",
+      "weakness": "Every earning is typed in by hand (its FAQ says it cannot import rides from the apps), it is built around the car rather than the platform payout, it shows no real fee percentage, and its rideshare page does not mention carne-leao or the IR return."
+    },
+    {
+      "name": "FinDriver",
+      "what_they_do": "Brazilian iOS app for tracking earnings, expenses and goals, aimed at drivers who work 20 or more hours a week.",
+      "weakness": "No tax helper and no independent reviews found by the scout; its App Store page returned 'not found' on 8 Nov 2026, so it may have been withdrawn (not confirmed)."
+    },
+    {
+      "name": "Rebu",
+      "what_they_do": "Brazilian tool that calculates a driver's earnings and helps pick rides by the driver's own criteria (named in Brazilian press, June 2025; price not found).",
+      "weakness": "Another ride filter like GigU rather than a weekly and monthly ledger; no sign of cost tracking or tax help (not checked this run)."
+    },
+    {
+      "name": "Gridwise",
+      "url": "https://gridwise.io",
+      "what_they_do": "US app that automatically tracks earnings across gig platforms, plus mileage, expenses and receipts, with CSV export for taxes and benchmarking against other drivers in the city. Says it is trusted by over 1 million workers; 14-day free trial, paid plan price not shown on the page.",
+      "weakness": "Built for US platforms, US mileage tax rules and English or Spanish users; nothing for 99, Gojek, Grab or Brazilian and Indonesian tax."
+    },
+    {
+      "name": "Driversnote",
+      "url": "https://www.driversnote.com",
+      "what_they_do": "Mileage log that records trips automatically and produces mileage reports for tax deductions or reimbursement, with a free sign-up and paid plans.",
+      "weakness": "Its regional sites cover North America, Europe, Australia and New Zealand only; Brazil, Mexico, Indonesia, the Philippines and Thailand are not among them, and it does not handle platform payouts or fees."
+    },
+    {
+      "name": "heru (Plan Plataformas Digitales)",
+      "url": "https://www.heru.app",
+      "what_they_do": "Mexican tax service for Uber, DiDi, Rappi and Airbnb workers: SAT registration under the platform regime, monthly filing before the 17th, deduction detection and accountant support, at MXN 249 a month or MXN 189 a month paid yearly.",
+      "weakness": "About ten times the $1-3 target and focused on filing; it does not show daily net pay per hour or per km."
+    },
+    {
+      "name": "Earnings screens inside Uber, 99, Grab and Gojek driver apps",
+      "what_they_do": "Free daily and weekly payout summaries with per-trip earnings.",
+      "weakness": "They show what the platform paid, not what the driver kept after fuel, servicing and car rental, and Indonesian drivers say the numbers do not add up after the 8% rule ('it turns out there is another calculation')."
+    },
+    {
+      "name": "Generic budget and fuel apps (Fuelio, Minhas Economias, Wisecash) and Fuelmeter in Indonesia",
+      "what_they_do": "Free expense, budget or fuel and service logs; 99's own driver blog points drivers to general budgeting apps.",
+      "weakness": "Not built around platform payouts, fee changes or per-km net; everything is typed by hand."
+    }
+  ],
+  "customer": {
+    "who": "Drivers who work 20 or more hours a week on ride-hail and delivery apps: car drivers on Uber, 99 and inDrive in Brazil first, two-wheel ojol drivers on Gojek, Grab and Maxim in Indonesia second, and Uber and DiDi drivers in Mexico later.",
+    "where": "Brazilian capitals first (Sao Paulo, Rio de Janeiro, Belo Horizonte, Brasilia, Porto Alegre, where GigU's data shows drivers gross about R$ 6,400-8,600 a month), then Greater Jakarta and other large Indonesian cities, then Mexico City; Thailand, the Philippines and Vietnam are later options.",
+    "pain_in_their_words": "A month after Indonesia's 8% commission rule, drivers told CNBC Indonesia: 'With an 8% cut my income should have gone up, but it went down. I'm dizzy,' and 'the 8% looked good, but it turns out there is another calculation.' A drivers' union had to work it out by hand: a Rp 15,500 fare left the driver Rp 11,040, about 29% gone, while drivers earn Rp 50,000-100,000 a day against at least Rp 75,000 of running costs. In Brazil the problem is the same in reverse: GigU's own data has the average Sao Paulo driver grossing about R$ 102,800 a year but keeping only about R$ 51,000 after costs, and drivers are told to work out the 60% taxable share and their IR return themselves."
+  },
+  "mvp": {
+    "scope": [
+      "Brazil only, Portuguese, Android first (GigU is Android-only and most drivers in these markets use Android); iOS later",
+      "Screenshot import: the driver shares a screenshot of the Uber, 99 or inDrive daily or weekly earnings screen; text recognition on the phone reads gross pay, trips, hours and km where shown, with one-tap correction and manual entry as a fallback",
+      "Two-tap cost log: fuel (amount or litres plus odometer), weekly car rental or financing, maintenance, insurance and IPVA, phone data and food, with a default per-km wear figure",
+      "Dashboard: net per day, week and month, net per hour and per km, cost per km, platform-by-platform comparison and the real fee percentage where the rider's price is visible",
+      "Weekly goal and summary: how many more hours are needed to reach this week's net target, sent as a push notification",
+      "Brazil tax module: 60% taxable rule, a monthly 'do you owe carne-leao this month?' check with a DARF reminder for higher earners, and a year-end IR report (PDF) with income per platform and the taxable share, clearly labelled as an estimate and checked by an accountant before launch",
+      "A shareable 'what I really kept this week' image for WhatsApp groups (the free growth loop)",
+      "Freemium paywall through Google Play Billing: free = manual entry and the current week; paid = screenshot import, full history, tax report and export",
+      "Deliberately left out: reading ride offers on screen in real time (the GigU approach Uber sued over), logging into platform accounts, and Mexico tax features (platforms already withhold tax there)",
+      "Second step (months 4-5): Indonesian version with Gojek, Grab and Maxim screenshots, motorbike cost defaults and a 'real cut versus 8%' view per order"
+    ],
+    "time_to_build": "About 3 months for the Brazil Android version; 6-8 more weeks for the Indonesian version",
+    "team": "1 full-time Android developer (Kotlin or Flutter), 1 part-time Portuguese-speaking community person who drives or knows drivers, a few paid hours from a Brazilian accountant to check the tax logic; an Indonesian-speaking helper for the second market"
+  },
+  "pricing": {
+    "model": "Freemium monthly subscription through the app store, with a cheaper yearly plan and local-currency prices",
+    "price": "R$ 6.90 a month or R$ 59.90 a year in Brazil (about $1.25); Rp 15,000 a month or Rp 120,000 a year in Indonesia (about $0.90); about MXN 25 a month if Mexico is added",
+    "rationale": "Brazilian drivers already pay: GigU had more than 70,000 paying subscribers at R$ 12.90 a month in May 2025, and Drivvo sells a $24.90 a year plan (about $2 a month). Pricing below GigU positions the app as its partner (GigU decides which ride to take, this app shows what the week really earned), and near Drivvo's cheapest paid plan but with no typing. A free tier is needed because Drivvo's free plan and the platforms' own screens cost nothing, so the paywall sits on what nobody gives away: automatic import and the tax report. The yearly plan fits Brazil's IR season (March to May) and limits churn after it. Indonesia needs a much lower local price because drivers keep about Rp 50,000-200,000 a day; heru's MXN 249 a month shows Mexican workers pay for tax filing, but not at this price point for a tracker. Exchange rates are approximate and were not re-checked this run."
+  },
+  "unit_economics": {
+    "cost_per_user": "About $0.02-0.05 a month per active user: screenshot reading runs on the phone with free on-device text recognition, a small cloud model handles only screens it cannot parse (well under $0.01 per user), plus storage, backup and push notifications. No SMS. The larger cost is the app store's 15% subscription fee (about $0.19 on a $1.25 plan) and VAT where the store adds it (Indonesia, Mexico).",
+    "users_needed": "About 10,000 paying users for $10,000 a month if most are in Brazil at R$ 6.90 (about $1.02 kept per user after store fee and running cost), or about 15,000 if most are in Indonesia at Rp 15,000 (about $0.67 kept after VAT, store fee and running cost). For scale, GigU alone had more than 70,000 paying drivers in Brazil in May 2025. Free users add roughly $0.01 each, so 100,000 free users cost about $1,000 a month."
+  },
+  "how_to_get_users": "Start in Brazil, where drivers have already shown they pay for a driver tool, and add Indonesia second, where no localised tracker was found and the 8% rule has drivers asking where their money went. Users can be found without paid ads in five ways. (1) App store search in local language ('controle de ganhos motorista', 'lucro por km Uber 99', 'imposto de renda motorista de aplicativo'; 'catatan pendapatan ojol' in Indonesia), knowing that Drivvo and FinDriver compete for the same Brazilian words, so the store listing must lead with 'no typing: just share a screenshot'. (2) Search engines: free web calculators for 'how much do I really earn per km' and 'do app drivers have to declare IR?' Brazilian press publishes this question every IR season, so the search demand exists. (3) The shareable weekly 'what I really kept' image, which drivers post into the WhatsApp and Facebook groups where they already compare earnings; every share carries the app link. (4) Partnerships with driver organisations: Indonesia's SPAI and Garda Indonesia are fighting over the real size of the platform cut, so a free group plan plus an anonymous, opt-in 'real cut' summary they can use in negotiations gives them a reason to recommend the app; in Brazil, driver associations and airport waiting lots offer the same in-person reach. (5) Word of mouth and creators: free yearly plans for driver YouTubers and TikTokers in exchange for an honest review, and one free month for each paying driver referred. This works without ads because drivers are a tight, talkative group that spends hours waiting together and swapping tips; GigU reached about 600,000 downloads in Brazil, growth this run's scorer credits mainly to word of mouth.",
+  "first_users": [
+    {
+      "name": "Serikat Pekerja Angkutan Indonesia (SPAI)",
+      "where": "Indonesia, ojol drivers' union",
+      "why": "The union already calculates the real cut by hand (a Rp 15,500 fare leaving the driver Rp 11,040, about 29% gone) to argue against the 8% headline; an app that does this for every member gives them proof and gives the founder a ready audience."
+    },
+    {
+      "name": "Garda Indonesia",
+      "where": "Indonesia, ojol drivers' association",
+      "why": "It says platforms offset the 8% cut through fares, service fees, order allocation and harder incentives and wants audits; anonymous, opt-in real-cut figures from the app would serve that campaign."
+    },
+    {
+      "name": "Ojol base camps and waiting shelters",
+      "where": "Greater Jakarta and other large Indonesian cities (physical meeting points; specific spots not checked this run)",
+      "why": "Drivers wait together between orders for long stretches; a two-minute demo with their own earnings screenshot is the quickest way to win the first users, and one convinced driver shows the rest of the group."
+    },
+    {
+      "name": "r/indonesia",
+      "where": "Reddit",
+      "why": "Indonesia's main general subreddit, a place to post the free 'real cut versus 8%' calculator while the commission debate is in the news (driver threads not checked this run)."
+    },
+    {
+      "name": "AMASP (Associacao dos Motoristas de Aplicativo de Sao Paulo)",
+      "where": "Sao Paulo, Brazil, app drivers' association (its website did not open securely on 8 Nov 2026, so not checked this run)",
+      "why": "Sao Paulo drivers gross the most (about R$ 102,800 a year in GigU's data) and are closest to owing monthly income tax, so a free year for members in exchange for a mention reaches the best-paying segment."
+    },
+    {
+      "name": "App-driver waiting lots at Guarulhos and Congonhas airports",
+      "where": "Sao Paulo, Brazil (physical; not checked this run)",
+      "why": "Drivers queue there with little to do but use their phones, which suits a QR-code card and a live demo of the screenshot import."
+    },
+    {
+      "name": "City Facebook and WhatsApp groups for Uber, 99 and inDrive drivers",
+      "where": "Facebook and WhatsApp, Brazil (search 'motoristas de aplicativo' plus the city name; group names not checked this run)",
+      "why": "Drivers trade earnings screenshots, fuel prices and per-km targets in these groups every day; the app's weekly 'what I really kept' image spreads there for free."
+    },
+    {
+      "name": "Portuguese-language YouTube and TikTok channels about driving for apps",
+      "where": "YouTube and TikTok, Brazil (specific channels not checked this run)",
+      "why": "Driver tools in Brazil spread mainly by word of mouth, and these creators' comment sections are where drivers compare per-km pay; a free year for an honest review is barter, not paid advertising."
+    },
+    {
+      "name": "r/brasil",
+      "where": "Reddit",
+      "why": "Brazil's main general subreddit, a place to share a free 'do app drivers need to declare IR?' calculator during IR season, when Brazilian press shows the question comes up every year (driver threads not checked this run)."
+    },
+    {
+      "name": "Union Nacional de Trabajadores por Aplicacion (UNTA)",
+      "where": "Mexico, app workers' union (not checked this run)",
+      "why": "Mexico's 2026 platform-worker reform put drivers' pay in the news; a union audience is the cheapest way to test a third market once the Brazil and Indonesia versions work."
+    }
+  ],
+  "risks": [
+    "The basic tracker is not missing in Brazil: Drivvo (Brazilian, over 5 million downloads, free plan, rideshare mode with profit per km) and GigU (over 70,000 paying drivers) already cover much of it. Without no-typing import and the tax report, drivers have no reason to switch, so the product must win on those two things.",
+    "Screenshot layouts change: every redesign of the Uber, 99, Gojek or Grab earnings screen can break the import, which means steady maintenance work. Staying with screenshots the driver chooses to share keeps the app clear of the real-time screen reading that Uber took GigU to court over (a search summary said a Brazilian court sided with GigU; the article could not be opened).",
+    "The tax hook is smaller than it looks: Brazil exempts monthly income up to R$ 5,000 from 2026, with a phase-out to R$ 7,350 (Monitor Mercantil, Jan 2026). With 60% of gross taxable, monthly carne-leao matters only for drivers grossing above about R$ 8,300 a month (about the Sao Paulo full-time average). The yearly IR return still applies to most full-time drivers (2026 rule: taxable income above R$ 35,584 a year, per a search summary of Band, not opened). Thresholds change yearly and wrong figures could cost users fines, so an accountant must check the logic.",
+    "Indonesian drivers may not pay: they keep about Rp 50,000-200,000 a day and their real complaint is the platform cut, which an app cannot change. Expect low conversion there and treat it as the second market.",
+    "Platforms or regulators could make the fee breakdown clearer: Indonesia's transport ministry is already explaining 'platform fees', and unions are pushing for transparency, which would remove the 'real cut' angle.",
+    "Funded incumbents can copy the gap: GigU raised about $5 million and Drivvo has a huge user base; either could add screenshot import or an IR report within months.",
+    "Seasonal churn: interest in the tax report peaks in Brazil's IR season (March to May), so the yearly plan and the weekly summary must carry the rest of the year.",
+    "Not checked this run (search budget ran out): GigU's current Brazilian price and whether it now has a monthly ledger, Drivvo's prices in reais, whether FinDriver is still live, Play Store reviews of any Indonesian driver tracker, ojol driver counts, and the Brazilian and Mexican community names listed above."
+  ],
+  "sources": [
+    {"title": "The Brazilian Report: GigU, Uber and the gig economy (May 2025)", "url": "https://newsletters.brazilian.report/p/gigu-uber-gig-economy"},
+    {"title": "The Rideshare Guy: Say Hello to GigU and Its New Cherry-Picking Tool (updated July 2025)", "url": "https://therideshareguy.com/say-hello-to-gigu-and-its-new-cherry-picking-tool/"},
+    {"title": "Tribuna de Minas: Ferramentas alertam motoristas sobre corrida que vale a pena aceitar (June 2025)", "url": "https://tribunademinas.com.br/colunas/maistendencias/ferramentas-alertam-motoristas-sobre-corrida-que-vale-a-pena-aceitar/"},
+    {"title": "Portal do Transito: Ainda vale a pena ser motorista de aplicativo? Levantamento de startup revela ganhos (Jan 2025)", "url": "https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/ainda-vale-a-pena-ser-motorista-de-aplicativo-levantamento-de-startup-revela-ganhos-em-diversas-capitais/amp/"},
+    {"title": "Drivvo home page", "url": "https://www.drivvo.com"},
+    {"title": "Drivvo for rideshare drivers", "url": "https://www.drivvo.com/en/rideshare-drivers/"},
+    {"title": "Drivvo pricing", "url": "https://www.drivvo.com/en/pricing/"},
+    {"title": "Gridwise home page", "url": "https://gridwise.io"},
+    {"title": "Driversnote home page", "url": "https://www.driversnote.com"},
+    {"title": "heru: Plan Plataformas Digitales", "url": "https://www.heru.app"},
+    {"title": "FinDriver on the Brazilian App Store (search result; page returned not found on 8 Nov 2026)", "url": "https://apps.apple.com/br/app/findriver/id6748662034"},
+    {"title": "99 blog: Controle de despesas para motoristas de app (search result; page could not be opened)", "url": "https://99app.com/blog/99pay/controle-de-despesas-motoristas-de-app/"},
+    {"title": "detikFinance: Driver ojol teriak pendapatan tak naik karena potongan aplikator masih 20% (Jul 2026)", "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8565704/driver-ojol-teriak-pendapatan-tak-naik-karena-potongan-aplikator-masih-20"},
+    {"title": "CNBC Indonesia: Curhat tak terduga driver ojol sebulan setelah komisi naik jadi 92% (Aug 2026)", "url": "https://cnbcindonesia.com/tech/20260805151032-37-756798/curhat-tak-terduga-driver-ojol-sebulan-setelah-komisi-naik-jadi-92"},
+    {"title": "Katadata: Kemenhub ungkap alasan tak semua uang yang dibayar konsumen jadi pendapatan ojol (Aug 2026)", "url": "https://katadata.co.id/digital/startup/6a88487d2a523/kemenhub-ungkap-alasan-tak-semua-uang-yang-dibayar-konsumen-jadi-pendapatan-ojol"},
+    {"title": "Bisnis.com: Potongan 8% belum efektif genjot pendapatan driver ojol (Jul 2026; search result)", "url": "https://ekonomi.bisnis.com/read/20260727/98/1991360/potongan-8-belum-efektif-genjot-pendapatan-driver-ojol-mengapa"},
+    {"title": "Bisnis.com: Potongan Grab-Gojek turun jadi 8% (1 Jul 2026)", "url": "https://teknologi.bisnis.com/read/20260701/266/1984787/potongan-grab-gojek-turun-jadi-8-begini-dampak-yang-dirasakan-driver-ojol"},
+    {"title": "Monitor Mercantil: Isencao de IR beneficia motoristas de aplicativo (Jan 2026)", "url": "https://monitormercantil.com.br/isencao-de-ir-beneficia-motoristas-de-aplicativo/"},
+    {"title": "Band: IR 2026, motorista de aplicativo precisa declarar? (search result, not opened)", "url": "https://www.band.com.br/economia/noticias/ir-2026-motorista-de-aplicativo-precisa-declarar-veja-o-passo-a-passo-202604011511"},
+    {"title": "Portal do Transito: IRPF 2026, motorista de aplicativo precisa declarar? Entenda como funciona", "url": "https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/curiosidades/irpf-2026-motorista-de-aplicativo-precisa-declarar-entenda-como-funciona/"},
+    {"title": "BNews: Aplicativo que salva motoristas de prejuizo vira alvo da Uber na Justica (search result; page could not be opened)", "url": "https://www.bnews.com.br/noticias/crime-e-justica-bahia/aplicativo-que-salva-motoristas-de-prejuizo-vira-alvo-da-uber-na-justica-veja-como-funciona-o-app.html"},
+    {"title": "The Logistics World: Mexico platform-work reform dates and IMSS figures", "url": "https://thelogisticsworld.com/planeacion-estrategica/ya-hay-fechas-para-la-puesta-en-marcha-de-la-reforma-que-regula-el-trabajo-en-plataformas-digitales"}
+  ]
+}

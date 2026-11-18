@@ -1,0 +1,202 @@
+{
+  "id": "school-app-digest",
+  "title": "One weekly digest for all school apps",
+  "one_liner": "Forward your school emails, PDFs and app screenshots to one address and get one short weekly list of what is coming up, what is due and what to sign, plus a calendar that fills itself.",
+  "competitors": [
+    {
+      "name": "Ohai",
+      "url": "https://www.ohai.ai/how-it-works/",
+      "what_they_do": "AI household assistant (launched 2024, 6 million dollars seed funding) that pulls dates and closures out of forwarded emails, school newsletters, PDFs and photos into a family calendar and reminders. Free basic tier; Premium from about $9.99 a month according to a third-party comparison (not confirmed on Ohai's own site this run, which redirected).",
+      "weakness": "Broad whole-household assistant priced at about 4 times the target; its own how-it-works page lists school and sports calendar sync as coming soon. A parent who only wants the school part pays for meal plans and lists they may not need."
+    },
+    {
+      "name": "Student Guardian (iOS)",
+      "url": "https://apps.apple.com/app/id6756404037",
+      "what_they_do": "Connects to Gmail or Outlook, filters trusted school senders, summarises newsletters and announcements, flags due dates and shows a calendar. Free with Premium at $3.99 a month or $29.99 a year.",
+      "weakness": "iPhone and iPad only, by a single developer, and has too few ratings to show a score. Needs full mailbox access, and does not read app screenshots or PDFs from other sources."
+    },
+    {
+      "name": "BackpackBuddy",
+      "url": "https://backpackbuddy.pages.dev/",
+      "what_they_do": "Reads emails from chosen teacher addresses in Gmail, adds homework, events and deadlines to Google Calendar, sends a daily digest and saves permission slips to Google Drive. $49.90 a year (1 child), $89.90 (3 children), $149.90 (unlimited); 7-day free trial.",
+      "weakness": "Gmail and Google Calendar only, priced at $4-12 a month equivalent, and does not cover messages locked inside ClassDojo, Seesaw or Remind."
+    },
+    {
+      "name": "SchoolChat",
+      "url": "https://schoolchat-landing.pages.dev/",
+      "what_they_do": "Merges school WhatsApp groups and forwarded school emails into one AI daily digest with to-dos and events, filterable by child. $10 a month, $99 a year or $199 lifetime, up to 5 family members.",
+      "weakness": "Price is 4-5 times the target, and it is built around WhatsApp groups, which matter more to UK and international parents than to most US parents."
+    },
+    {
+      "name": "SchoolDigest",
+      "url": "https://www.producthunt.com/products/schooldigest-ai-powered-email-assistant",
+      "what_they_do": "Forward school emails and get summaries, action items and calendar events sorted by child; installs as a web app. Free. Launched on Product Hunt in early 2026.",
+      "weakness": "Side project with 3 upvotes and no reviews; free with no visible business model, so it may not be maintained. It does show the forwarding approach works and costs little."
+    },
+    {
+      "name": "TLDR Parents",
+      "url": "https://www.producthunt.com/products/tldr-parents",
+      "what_they_do": "Forward school and activity emails to get summaries, calendar events, links and forms pulled out, plus task tools. Launched July 2024; the founder said it was free and would stay free for early sign-ups.",
+      "weakness": "Current pricing and activity not confirmed this run; a free indie tool that, like the others, only sees what is emailed."
+    },
+    {
+      "name": "Cozi (Gold and Max)",
+      "url": "https://www.cozi.com/compare-plans/",
+      "what_they_do": "Long-running family calendar and lists app. Gold is the ad-free tier at about $39 a year; Max adds AI event import and costs about $79.99 a year (third-party price trackers, not Cozi's own price page).",
+      "weakness": "A general family calendar where school import is an add-on in the most expensive plan; no weekly school digest and no grouping by child and school."
+    },
+    {
+      "name": "Skylight Calendar Plus (Sidekick)",
+      "what_they_do": "Wall-calendar maker whose $79 a year Calendar Plus plan includes Sidekick, which turns forwarded emails, PDFs and photos into calendar events. Screens from $149.99 (third-party comparison).",
+      "weakness": "Tied to a hardware screen and priced for families who already bought one; not a cheap stand-alone option."
+    },
+    {
+      "name": "Gemini in Gmail",
+      "url": "https://support.google.com/mail/answer/14355636",
+      "what_they_do": "Google demoed a parent asking Gemini to catch up on emails from a child's school (I/O 2024), and Gmail shows an Add to calendar button when it spots an event. Requires a paid Google AI plan or Workspace add-on.",
+      "weakness": "On-demand only: the parent has to ask, nothing is grouped by child or sent as a weekly list, and events land only on the primary calendar. Availability in late 2026 not re-checked this run. Biggest long-term threat if Google makes it automatic and free."
+    },
+    {
+      "name": "Google Classroom guardian email summaries",
+      "url": "https://support.google.com/edu/classroom/answer/6388136?hl=en",
+      "what_they_do": "Free daily or weekly emails to guardians about a student's Classroom work, if the school or teacher invites the guardian.",
+      "weakness": "Covers only Google Classroom, depends on the school turning it on, and skips everything sent through ParentSquare, ClassDojo, Seesaw or district email."
+    },
+    {
+      "name": "ParentSquare, ClassDojo, Remind and Seesaw built-in settings",
+      "url": "https://www.poplarbluffschools.net/families/parent_square",
+      "what_they_do": "Free. ParentSquare can bundle a day's posts into one digest around 6 pm; ClassDojo lets a parent choose email instead of push notifications.",
+      "weakness": "Each digest covers only its own platform. A district FAQ notes ParentSquare does not replace the grade portal, Canvas or Seesaw, so parents still juggle several streams."
+    },
+    {
+      "name": "Apple Intelligence notification summaries",
+      "what_they_do": "Free on newer iPhones; condenses stacks of notifications from each app into a short line (background knowledge, not re-checked this run).",
+      "weakness": "Summaries are per app and short-lived; they do not pull out deadlines, forms or money owed, do not build a calendar and do not cover email PDFs."
+    }
+  ],
+  "customer": {
+    "who": "Parents of school-age children in the US and Canada who get notices from several platforms, especially working parents with 2 or more children or schools, separated parents in two households, and parents with ADHD or of children with IEPs, for whom forms and deadlines are hardest to track.",
+    "where": "Across the United States and Canada, wherever districts layer ParentSquare, ClassDojo, Seesaw, Remind, Canvas, Schoology and district email; the Boston Globe found it acute in Boston suburbs such as Newton and Charlestown. UK parents describe the same overload on Mumsnet (Tapestry, ClassDojo, Arbor, ParentPay, ParentMail, WhatsApp), which makes the UK a plausible second market. Canada-specific parent communities were not found this run.",
+    "pain_in_their_words": "Parents say they have given up keeping up: a Newton mother of four told the Boston Globe she just blocks it out because she cannot keep up, a Charlestown mother of three said she is losing control, and another mother said the overload means parents end up knowing nothing. A Scary Mommy writer says many parents have checked out and switched off all alerts, yet she lives with a nagging worry about missing something important. A parenting newsletter writer says there are not 40 school communication apps but more like 400, and every activity now wants waivers signed in the app. In a Yahoo and Censuswide survey of over 2,000 US parents (2024), parents got about four child-related emails a day, 62% had missed an important event or detail in their inbox, 29% found school email more stressful than work email and 71% felt like bad parents when they missed something. UK parents on Mumsnet call the number of school apps ridiculous and say details conflict between channels."
+  },
+  "mvp": {
+    "scope": [
+      "Weeks 1-2: a one-page site with the pitch and a $2.49 pre-order or paid waitlist, posted in parent communities, to test whether parents pay for a school-only digest (the skeptic's test)",
+      "A private forwarding address per family, with a 2-minute setup guide: a Gmail or Outlook filter that auto-forwards school senders, and guides to switch ClassDojo, ParentSquare and Remind from push to email delivery so their messages reach the same inbox",
+      "Upload or share screenshots and PDFs (newsletters, flyers, app messages) from the phone; a web app first, then a thin iOS and Android app with a share sheet in month 3",
+      "Small-model extraction of events, deadlines, forms to sign, things to bring and money to pay, tagged by child and school, each item linked back to the original message so the parent can check it",
+      "A Sunday-evening weekly digest by email (and push in the app), plus an optional short note the evening before anything due",
+      "A subscribable calendar feed (ICS) that works in Google, Apple and Outlook calendars, so no calendar login or permissions are needed",
+      "Send the digest to a second adult (co-parent, grandparent, nanny)",
+      "Free plan for 1 child with the weekly digest; paid plan for more children, the calendar feed, the evening-before alert and the second recipient"
+    ],
+    "time_to_build": "About 2-3 months: 2 weeks for the landing-page test, 6 weeks for the email-forwarding web app and digest, 3-4 weeks for the mobile share-sheet app and billing",
+    "team": "1 full-stack developer who can also ship a simple React Native or Flutter app, plus a part-time designer or marketer, ideally a parent active in school groups"
+  },
+  "pricing": {
+    "model": "Freemium subscription with a free 1-child plan, a monthly plan and a cheaper school-year plan",
+    "price": "$2.49 a month or $19.99 a year (CAD 2.99 a month or CAD 24.99 a year in Canada; about GBP 1.99 a month if testing the UK)",
+    "rationale": "School-specific tools charge more: Student Guardian $3.99 a month or $29.99 a year, BackpackBuddy $49.90-149.90 a year, SchoolChat $10 a month, and Ohai Premium about $9.99 a month; family organisers with AI import run about $79 a year (Cozi Max, Skylight Calendar Plus). Free indie tools (SchoolDigest, TLDR Parents) exist, so a free plan is needed to compete, and the paid plan must clearly add more children, the calendar feed and the second recipient. A yearly plan priced like 8 months fits the school-year rhythm, lowers summer cancellations and reduces card fees on web sign-ups."
+  },
+  "unit_economics": {
+    "cost_per_user": "About $0.10-0.15 a month per paying family: roughly 80-100 school emails plus a few screenshots or PDFs a month through a small AI model (about $0.04-0.06 at current small-model token prices; background knowledge, not re-checked this run), inbound and outbound email about $0.01-0.02, and hosting and database about $0.03-0.05. App store fees of 15% (small-business rate; background knowledge) cost more than everything else combined.",
+    "users_needed": "About 5,100 paying families for $10,000 a month at $2.49 monthly through the app stores (about $1.97 kept per user after the 15% fee and running cost), or about 7,900 if most choose the $19.99 yearly plan (about $1.27 kept per month)."
+  },
+  "how_to_get_users": "Search first: write one how-to page per platform answering what parents already search for (how to get ParentSquare messages by email, how to switch ClassDojo to email, how to put school events into Google Calendar), each ending with the forwarding setup; and use plain app store terms such as school email, school calendar and school newsletter. Time launches for back-to-school (August and September) and the January restart, when overload peaks. Build sharing into the product: every weekly digest has a footer inviting the reader to set up their own, the co-parent or grandparent copy reaches a second household, and room parents and PTO volunteers can get the paid plan free if they forward a class version of the digest to their class. Reach PTO and PTA leaders through PTO Today's community, parenting newsletter writers who have written about app overload (Ashlee Gadd's Substack, Scary Mommy contributors, the Boston-area NAPS team quoted in the Boston Globe) and ADHD parenting communities (ADDitude). In Reddit parent groups, answer threads about school email overload as a parent and follow each group's self-promotion rules. A Product Hunt launch brings early-adopter parents and feedback. No paid ads are needed because the pain is searchable, seasonal and spreads naturally between parents of the same class.",
+  "first_users": [
+    {
+      "name": "r/workingmoms",
+      "where": "Reddit (about 171 thousand members according to a third-party subreddit tracker; Reddit itself could not be opened this run)",
+      "why": "Working mothers discuss carrying the school admin load and juggling school tasks around work; the core paying group for a time-saving digest"
+    },
+    {
+      "name": "r/Mommit",
+      "where": "Reddit (subreddit page not opened this run)",
+      "why": "Large mothers' community where back-to-school logistics, forms and notification overload come up every August and September"
+    },
+    {
+      "name": "r/Parenting",
+      "where": "Reddit (not checked this run)",
+      "why": "The largest general parenting subreddit; school communication threads appear here, a good place to ask how parents track school deadlines"
+    },
+    {
+      "name": "r/daddit",
+      "where": "Reddit (not checked this run)",
+      "why": "Fathers, often the second parent who misses school emails sent to the other parent, are a natural fit for the second-recipient feature"
+    },
+    {
+      "name": "PTO and PTA Leaders and Volunteers Facebook group (run by PTO Today)",
+      "where": "Facebook closed group, linked to the PTO Today site and magazine",
+      "why": "Parent group leaders discuss which communication apps to use; room parents and PTO officers could forward a class digest and spread the tool to every family in a class",
+      "url": "https://www.ptotoday.com/pto-today-articles/text-messaging-apps-for-ptos-and-ptas"
+    },
+    {
+      "name": "School-specific parent subreddits and Facebook groups (example: the Enloe High School parents subreddit, Raleigh, North Carolina)",
+      "where": "Reddit and Facebook, one group per school or district",
+      "why": "Parents of the same school share the same mix of apps, so one setup guide written for that school (which senders to forward) is immediately useful to everyone in the group",
+      "url": "https://enloenews.org/8557/showcase/please-help-the-2026-enloe-parents-subreddit/"
+    },
+    {
+      "name": "Readers of the Too Many Apps; Too Little Time post (Ashlee Gadd's Substack)",
+      "where": "Substack newsletter and comment section",
+      "why": "The post about 400 school communication apps drew 57 comments from mothers who share the frustration; a newsletter sponsorship or guest post reaches exactly this audience",
+      "url": "https://ashleegadd.substack.com/p/too-many-apps-too-little-time"
+    },
+    {
+      "name": "ADDitude magazine community (ADHD parents)",
+      "where": "Website, newsletter and reader blogs",
+      "why": "Parents with ADHD write about struggling with school forms and permission slips; for them an automatic list of what is due solves a real daily problem and they are likelier to pay",
+      "url": "https://www.additudemag.com/reviews/post/adhd-mom-forms-permission-slip/"
+    },
+    {
+      "name": "Product Hunt (parenting and productivity launches)",
+      "where": "Product Hunt",
+      "why": "TLDR Parents, SchoolDigest and ParentWrap all launched here; tech-savvy parents who try new tools early and give feedback gather around these launches",
+      "url": "https://www.producthunt.com/products/tldr-parents"
+    },
+    {
+      "name": "Mumsnet Primary education board",
+      "where": "Mumsnet forum (UK)",
+      "why": "UK parents list more than 15 school apps and channels and complain about conflicting details; a cheap test of a second market once the US version works",
+      "url": "https://www.mumsnet.com/talk/primary/4894358-how-many-apps-does-your-school-have"
+    }
+  ],
+  "risks": [
+    "Big tech can make it free: Gemini in Gmail already summarises school emails on request and offers an Add to calendar button, Apple summarises notifications, and Google Classroom sends free guardian summaries. If Google makes a weekly school roundup automatic for all Gmail users, a paid digest loses most of its value.",
+    "The field is crowded and some rivals are free: SchoolDigest, TLDR Parents, Student Guardian, BackpackBuddy, SchoolChat, Skoolit, Ario and ParentWrap, plus broader tools such as Ohai, Cozi Max and Skylight Sidekick. Standing out on price alone is thin; the product must be clearly simpler and more reliable.",
+    "Coverage has holes: messages inside ClassDojo, Seesaw and Remind are only visible if the parent switches them to email or takes a screenshot, so the one-digest promise depends on parents doing setup work.",
+    "A wrong or missed date breaks trust instantly: one missed field-trip deadline caused by the app is worse than no app, so every item must link to its source and extraction must be checked carefully.",
+    "Seasonal use: the need drops in July and August, so monthly subscribers may cancel every summer; the yearly plan has to carry the business.",
+    "Willingness to pay is unproven: nobody in the evidence says they would pay, the only paid school-only apps found have no visible ratings, and indie rivals give similar features away. Run the paid landing-page test before building.",
+    "Privacy and trust: parents forward messages about their children's health, behaviour and grades. A small company must store little, delete quickly and explain this clearly. Reading mailboxes directly through Gmail access would trigger Google's security review for restricted data (background knowledge, not re-checked this run), which is why the MVP uses forwarding instead.",
+    "Single-region evidence: the card covers only the US and Canada, and the Canadian side was not checked; the UK pain on Mumsnet is from 2023."
+  ],
+  "sources": [
+    {"title": "Scary Mommy: Welcome Back To School... and Push Notification Hell (Aug 2024)", "url": "https://www.scarymommy.com/parenting/welcome-back-to-school-push-notification-hell"},
+    {"title": "Boston Globe: parents, schools, edtech apps, platforms and passwords (5 Oct 2026)", "url": "https://www.bostonglobe.com/2026/10/05/lifestyle/parents-schools-edtech-apps-platforms-passwords/"},
+    {"title": "Motherly: almost a third of parents say school emails are more stressful than their work inbox (Yahoo and Censuswide survey, 2024)", "url": "https://mother.ly/?p=238954"},
+    {"title": "Vermont legislature testimony, Internet Safety Labs (Feb 2026)", "url": "https://legislature.vermont.gov/Documents/2026/Workgroups/House%20Commerce/Bills/H.650/Witness%20Documents/H.650~Lisa%20LeVasseur~Testimony~2-6-2026.pdf"},
+    {"title": "St Helens School District ParentSquare FAQ", "url": "https://www.sthelens.k12.or.us/fs/pages/4395"},
+    {"title": "Too Many Apps; Too Little Time (Ashlee Gadd, Aug 2025)", "url": "https://ashleegadd.substack.com/p/too-many-apps-too-little-time"},
+    {"title": "Mumsnet: How many apps does your school have (Sep 2023)", "url": "https://www.mumsnet.com/talk/primary/4894358-how-many-apps-does-your-school-have"},
+    {"title": "Ohai: How it works", "url": "https://www.ohai.ai/how-it-works/"},
+    {"title": "Ohai.ai (Wikipedia)", "url": "https://en.wikipedia.org/wiki/Ohai.ai"},
+    {"title": "Carly blog: Ohai alternatives (prices for Ohai, Cozi, Skylight, Hearth)", "url": "https://www.usecarly.com/blog/ohai-alternatives/"},
+    {"title": "Student Guardian on the App Store", "url": "https://apps.apple.com/app/id6756404037"},
+    {"title": "BackpackBuddy landing page", "url": "https://backpackbuddy.pages.dev/"},
+    {"title": "SchoolChat landing page", "url": "https://schoolchat-landing.pages.dev/"},
+    {"title": "SchoolDigest on Product Hunt", "url": "https://www.producthunt.com/products/schooldigest-ai-powered-email-assistant"},
+    {"title": "TLDR Parents on Product Hunt", "url": "https://www.producthunt.com/products/tldr-parents"},
+    {"title": "Cozi: compare plans", "url": "https://www.cozi.com/compare-plans/"},
+    {"title": "Cozi in-app purchase prices (App Pricing Lab)", "url": "https://www.apppricinglab.com/iap/apple/407108860"},
+    {"title": "Google: Collaborate with Gemini in Gmail", "url": "https://support.google.com/mail/answer/14355636"},
+    {"title": "9to5Google: Gmail Add to calendar with Gemini (Mar 2025)", "url": "https://9to5google.com/2025/03/10/gmail-add-to-calendar/"},
+    {"title": "Google Classroom: guardian email summaries", "url": "https://support.google.com/edu/classroom/answer/6388136?hl=en"},
+    {"title": "Poplar Bluff Schools: ParentSquare (daily digest setting)", "url": "https://www.poplarbluffschools.net/families/parent_square"},
+    {"title": "PTO Today: text messaging apps for PTOs and PTAs", "url": "https://www.ptotoday.com/pto-today-articles/text-messaging-apps-for-ptos-and-ptas"},
+    {"title": "GummySearch: r/workingmoms", "url": "https://gummysearch.com/r/workingmoms"},
+    {"title": "Enloe News: the 2026 Enloe parents subreddit", "url": "https://enloenews.org/8557/showcase/please-help-the-2026-enloe-parents-subreddit/"},
+    {"title": "ADDitude: ADHD mom, forms and permission slips", "url": "https://www.additudemag.com/reviews/post/adhd-mom-forms-permission-slip/"},
+    {"title": "Skoolit (coming-soon page)", "url": "https://skoolit-landing.pages.dev/sitemap.xml"}
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "verdicts": [
+    {
+      "id": "einvoice-master-data-preflight",
+      "verdict": "weakened",
+      "sap_builds_it_risk": "medium",
+      "incumbents": [
+        "SAP Document and Reporting Compliance (DRC): XRechnung/ZUGFeRD output with Peppol validation and HTML preview before sending",
+        "Sovos, Edicom, Avalara (compliance networks, also strong in Mexico and Chile)",
+        "German SAP partners selling e-Rechnung projects and add-ons (PIKON, abat, Uniorg, LeverX, SNI Technology)",
+        "Seeburger, xSuite, Esker (German SAP e-invoicing add-ons; prior knowledge, not re-checked this run)"
+      ],
+      "reasons": [
+        "Timing: the German issuing deadline for firms above EUR 800k is 1 Jan 2027, under two months from now. A 9-18 month enterprise sales cycle means the main wave is already handled by SAP DRC and partner projects. The 2028 wave covers very small firms that rarely run SAP.",
+        "SAP DRC already validates German e-invoices at document level (Peppol validation, preview before sending). Only the upstream master-data check is uncovered, and it is a feature SAP, its partners or the networks could add. The official KoSIT validator for EN 16931 is also free.",
+        "Three countries with different rule sets (Germany, Mexico SAT catalogs, Chile SII transport data) is a heavy rule-maintenance load for a 1-3 person team, and each market has strong local providers.",
+        "Evidence is mostly vendor blogs (banqup, Edicom, Sovos, Lookuptax). No source shows SAP customers paying for master-data pre-checks as a separate product."
+      ],
+      "what_would_change_my_mind": "Evidence that many SAP customers get e-invoices rejected after go-live because of master data (e.g. high Peppol or SAT rejection rates), and that SAP DRC customers buy separate data-quality add-ons. Narrowing to one country, such as Mexico's ongoing SAT catalog changes, would also help."
+    },
+    {
+      "id": "ibs-cbs-sap-tax-test-harness",
+      "verdict": "weakened",
+      "sap_builds_it_risk": "medium",
+      "incumbents": [
+        "Sovos (publishes IBS/CBS mandatory-test checklists; owns Synchro, acquired 2021, prior knowledge)",
+        "Thomson Reuters ONESOURCE / Mastersaf (prior knowledge, not re-checked this run)",
+        "Systax (tax content engine for SAP)",
+        "SAP DRC plus SAP notes for the new NF-e fields and tax schemas",
+        "Big Four and SAP partner consulting practices running reform projects"
+      ],
+      "reasons": [
+        "Brazilian SAP tax is dominated by entrenched local tax-tech firms (Sovos/Synchro, Mastersaf, Systax) that already sit in the SAP fiscal flow and are adding IBS/CBS testing. Sovos already publishes a 'mandatory tests' checklist for the reform.",
+        "Timing: CBS charging starts January 2027, and most large companies have been testing in the 2026 test year (CBS 0.9%, IBS 0.1%). New tooling bought now would land after go-live. The continuous-check angle through 2033 is the only lasting hook.",
+        "Selling to Brazilian heads of tax requires local presence, Portuguese-language support and trust with SAP system integrators. That is hard for a 1-3 person team outside Brazil.",
+        "Evidence is three sources (an SAP-notes guide, a Systax column, a consultancy note). They show the work is needed but do not show that buyers lack a tool."
+      ],
+      "what_would_change_my_mind": "Interviews with Brazilian fiscal-IT managers saying incumbents only test document emission and not SAP tax-condition outcomes across master data, plus an SI partner willing to resell it."
+    },
+    {
+      "id": "cbam-sap-import-connector",
+      "verdict": "killed",
+      "sap_builds_it_risk": "high",
+      "incumbents": [
+        "SAP CBAM declarants solution (announced June 2026, built on SAP Sustainability Footprint Management and SAP Green Ledger)",
+        "PwC Carbon Border Manager CBAM module (listed on SAP Store)",
+        "Detaysoft CBAM Reporting (SAP-integrated)",
+        "Tanso CBAM software",
+        "SupplyOn CBAM"
+      ],
+      "reasons": [
+        "SAP ships this natively. In June 2026 SAP announced an end-to-end CBAM declarant solution that covers data collection and mapping, emissions and cost calculation, CBAM liability accounting (available now in Green Ledger), certificate asset management, cash-impact forecasting and declaration generation (coming soon).",
+        "SAP's solution pulls import records and CN codes from SAP GTS and collects supplier emissions data (Excel ingestion, SAP Sustainability Data Exchange). That is exactly the connector proposed here.",
+        "Several SAP-integrated third-party tools (PwC on SAP Store, Detaysoft, Tanso, SupplyOn) already cover mid-size importers, and EY is running webinars on CBAM with SAP SFM. Little room is left for a new small entrant.",
+        "Evidence for the idea was only two advisory articles on deadlines, with no buyer-gap evidence."
+      ],
+      "what_would_change_my_mind": "Evidence that SAP's 'coming soon' declaration features slip past the 30 Sept 2027 first declaration deadline, or that SAP prices them out of reach for mid-size importers on ECC who cannot use SFM or Green Ledger."
+    },
+    {
+      "id": "ecc-migration-data-readiness",
+      "verdict": "killed",
+      "sap_builds_it_risk": "high",
+      "incumbents": [
+        "SAP Readiness Check and Custom Code Migration app (free with SAP maintenance)",
+        "SAP Business Transformation Center / Signavio Process Insights (prior knowledge)",
+        "Syniti (acquired by Capgemini, 2024; prior knowledge)",
+        "SNP / Kyano (Carlyle-backed; prior knowledge)",
+        "Precisely Automate Studio / Data360 Analyze (markets S/4HANA migration data de-risking)",
+        "Natuvion, smartShift, Panaya",
+        "SAP Store partner tools (Hiker Move, Visionsoft Haneya remediation tool)"
+      ],
+      "reasons": [
+        "SAP already gives the core of this away. SAP Readiness Check analyses system compatibility, add-ons, data volume and custom code usage, and the Custom Code Migration tool covers unused or incompatible Z code. The 'readiness score' half of the idea is native and free.",
+        "The data-cleanup half is a crowded, well-funded category: Syniti (now Capgemini), SNP, Precisely, Natuvion and others sell exactly master-data profiling and cleansing for S/4 migrations, often bundled with the SI doing the project.",
+        "Late migrators buy through system integrators that already have their preferred toolsets. A 1-3 person team would need SI partnerships and security reviews before the Dec 2027 deadline, and the window closes as projects finish.",
+        "Evidence is two Register articles about deadline slippage and budget overruns. They show the migration is painful, but not that a tool gap exists."
+      ],
+      "what_would_change_my_mind": "A sharply narrower wedge that SAP and the funded players ignore (for example a fixed-price self-service tool for small ECC customers that SIs will not serve), with proof that such customers pay for software rather than services."
+    },
+    {
+      "id": "data-act-cloud-exit-manager",
+      "verdict": "weakened",
+      "sap_builds_it_risk": "low",
+      "incumbents": [
+        "AI contract lifecycle tools that can run custom clause playbooks (Icertis, Sirion, Luminance, Ironclad; SAP Ariba Contracts / SAP CLM)",
+        "Law-firm offerings (SKW Schwarz Cloud Switching Addendum, Deloitte Legal, Hogan Lovells Data Act toolkit)",
+        "CISPE Cloud Switching Framework (industry self-compliance framework)"
+      ],
+      "reasons": [
+        "The legal duty sits with cloud providers, not customers. Switching rights and the ban on switching charges from 12 Jan 2027 apply by law whatever the contract says, so buyers have little reason to pay for a scanner. Provider-side frameworks (CISPE) and law-firm addenda already address the contract wording.",
+        "Data Act clause review is one more playbook for existing AI contract tools, which enterprises already own. That makes it a feature, not a product.",
+        "It fits the SAP goal badly: the tool helps customers leave SAP RISE and other clouds, so SAP has no reason to resell or acquire it. SAP is also unlikely to build it, hence the low risk score.",
+        "Evidence is two law-firm articles about the rules. Neither shows enterprise buyers struggling or paying for exit-readiness tooling."
+      ],
+      "what_would_change_my_mind": "Evidence that procurement teams are actively renegotiating cloud contracts under the Data Act and cannot do it with their existing contract tools, or a buyer other than SAP (e.g. a hyperscaler or CLM vendor) showing interest in acquiring such a tool."
+    },
+    {
+      "id": "vsme-supplier-esg-requests",
+      "verdict": "killed",
+      "sap_builds_it_risk": "high",
+      "incumbents": [
+        "osapiens (SAP-integrated ESG platform that already markets a VSME offering; large 2025 funding round, prior knowledge)",
+        "EcoVadis and IntegrityNext (supplier sustainability data collection at scale; prior knowledge)",
+        "Tanso (VSME content and supplier tooling)",
+        "SAP Ariba Supplier Lifecycle and Performance questionnaires and SAP Sustainability Data Exchange (native SAP supplier data collection)"
+      ],
+      "reasons": [
+        "A dominant, funded, SAP-connected incumbent already sells this. osapiens markets VSME supplier collection, and the card's own evidence is osapiens' VSME page. EcoVadis and IntegrityNext already own supplier ESG questionnaires at scale for large buyers.",
+        "SAP covers the workflow natively: Ariba SLP runs supplier questionnaires from the vendor master, and SAP Sustainability Data Exchange handles supplier sustainability data. 'Enforcing the value-chain cap' is a rule set any of them can add, not a stand-alone product.",
+        "The rules are still moving. Taylor Wessing and Forvis Mazars (May 2026) describe VSME being replaced by a new voluntary standard ('VS'), and sources disagree on when the cap binds. A product built around 'VSME' risks being outdated at launch.",
+        "Omnibus I cut CSRD scope to firms above 1,000 employees and EUR 450m turnover, which shrinks the buyer pool sharply."
+      ],
+      "what_would_change_my_mind": "Evidence that large in-scope companies are being challenged for over-asking suppliers under the cap and that osapiens, EcoVadis and Ariba do not enforce the new standard's limits, with a buyer willing to pay for a narrow add-on."
+    },
+    {
+      "id": "split-payment-cash-simulator",
+      "verdict": "weakened",
+      "sap_builds_it_risk": "medium",
+      "incumbents": [
+        "Big Four and tax advisory firms modelling working-capital impact for large clients",
+        "Brazilian fintech and fiscal-API vendors with split-payment content and calculators (Tecnospeed, Jettax, Cora)",
+        "Sovos, Thomson Reuters Mastersaf (reform tooling; prior knowledge)",
+        "SAP S/4HANA Brazil localisation, which must add split-payment handling once rules are fixed"
+      ],
+      "reasons": [
+        "No forcing date: split payment will not start in January 2027 and no new date has been set. Treasurers rarely buy software for an undated rule, and one article links further changes to the 2026 elections.",
+        "A one-off cash-impact model is consulting or spreadsheet work. Advisers and free calculators already publish 'how to calculate split payment in cash flow' guides, so recurring software revenue is doubtful until the mechanism is live.",
+        "Once the date is fixed, SAP must support split payment in FI payment processing for Brazil, and reporting on its cash effect is a natural part of that update.",
+        "Evidence covers the delay only (three sources). Nothing shows a large SAP treasury team asking for this tool."
+      ],
+      "what_would_change_my_mind": "An official split-payment start date with technical specs, plus treasurers at large SAP users saying their banks and SAP will not give them per-customer and per-supplier cash forecasts."
+    },
+    {
+      "id": "colombia-payroll-dian-reconciliation",
+      "verdict": "weakened",
+      "sap_builds_it_risk": "high",
+      "incumbents": [
+        "SAP HCM / eDocument localisation for Colombian electronic payroll (an SAP knowledge base article on DIAN electronic payroll exists, content not verified this run)",
+        "Sovos (Colombian e-payroll transmission)",
+        "Softland, Buk, Mercans (payroll software with DIAN e-payroll)",
+        "SERES / ACH Colombia e-payroll service",
+        "Carvajal Tecnologia y Servicios, The Factory HKA (Colombian e-document providers; prior knowledge)"
+      ],
+      "reasons": [
+        "The mandate has been live since 2021-2022, so large SAP employers solved transmission years ago through SAP localisation or a provider. Status tracking per document (accepted or rejected, CUNE) is normally part of those tools.",
+        "No new forcing function: the only 2026 items are a draft resolution and a single-source DIAN concept that actually reduces the penalty risk for late transmission.",
+        "The market is small: multi-entity Colombian employers on SAP HCM or SuccessFactors payroll are a narrow niche, which makes a 1-3 person team's sales cost hard to recover.",
+        "Evidence is thin, as the card itself admits (one Sovos blog, one single-source Softland post, one opinion piece)."
+      ],
+      "what_would_change_my_mind": "A confirmed new DIAN payroll obligation for 2027 (e.g. the monthly accumulation resolution being adopted), or payroll managers at large SAP employers reporting recurring rejected payroll documents their current provider does not resolve."
+    }
+  ]
+}

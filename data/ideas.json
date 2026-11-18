@@ -1,0 +1,261 @@
+{
+  "runs": [
+    "2026-11-08"
+  ],
+  "ideas": {
+    "driver-true-take-home": {
+      "title": "True take-home and tax tracker for ride-hail and delivery drivers",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 56.9,
+          "rank": 1,
+          "status": "top"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "fake-payment-checker": {
+      "title": "Real-payment checker and daily cash ledger for micro-sellers",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 56.9,
+          "rank": 2,
+          "status": "top"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "sole-trader-tax-threshold-watcher": {
+      "title": "Sales-tax limit and regime tracker for sole traders",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 52.7,
+          "rank": 3,
+          "status": "top"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "savings-circle-ledger": {
+      "title": "No-custody ledger for rotating savings groups (ajo, chama, arisan, paluwagan, hui)",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 49.1,
+          "rank": 4,
+          "status": "top"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "school-app-digest": {
+      "title": "One weekly digest for all school apps",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 49.1,
+          "rank": 5,
+          "status": "top"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "marketplace-profit-checker": {
+      "title": "Settlement-file profit checker for small marketplace sellers",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 48.7,
+          "rank": 6,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "freelancer-foreign-income-tax-ledger": {
+      "title": "Foreign-income tax ledger for freelancers paid from abroad",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 47.6,
+          "rank": 7,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "platform-seller-tax-tracker": {
+      "title": "Tax companion for people who sell or earn through online platforms",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 46.0,
+          "rank": 8,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "uae-arabic-practice-for-kids": {
+      "title": "Arabic homework practice for non-Arab kids in UAE schools",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 43.8,
+          "rank": 9,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "family-scam-shield": {
+      "title": "Family scam shield for older parents",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 43.6,
+          "rank": 10,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "paylater-due-date-tracker": {
+      "title": "One due-date list for all paylater and instalment plans",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 43.6,
+          "rank": 11,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "micro-e-invoicing-app": {
+      "title": "Phone-first e-invoicing for micro-sellers under new mandates",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 42.9,
+          "rank": 12,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "side-earner-year-round-tax-records": {
+      "title": "Year-round records for side earners' annual tax return",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 41.0,
+          "rank": 13,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "dialect-voice-note-transcriber": {
+      "title": "Dialect voice-note transcriber for WhatsApp (Swiss German, Darija, Egyptian Arabic)",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "score": 40.1,
+          "rank": 14,
+          "status": "candidate"
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "late-payment-chaser": {
+      "title": "Late-payment chaser for freelancers and small suppliers, with local legal deadlines",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "status": "excluded",
+          "why": "Killed by the skeptic: Automatic payment reminders are a free, standard feature of tools these users can already get. In India, Khatabook and OkCredit send free WhatsApp and SMS dues reminders to millions of small sellers. In the US and Canada, Zoho Invoice and Square Invoices are free and send automatic reminders. A freelancer who wants chasing can switch to one of them at no cost. The only new piece, the local legal clock (India's 45-day rule, Japan's Freelance Act), is a small feature. India's rule covers only Udyam-registered micro and small manufacturers and service providers, not traders, and suppliers often avoid citing it for fear of losing the client. The evidence is secondary late-payment statistics; nothing shows freelancers paying for a separate chaser. Caveat: the web search budget ran out before I could re-check the current free plans of Zoho Invoice and Square; those details come from background knowledge. Khatabook's and OkCredit's free reminders are long-standing core features."
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "official-letter-explainer": {
+      "title": "Photo explainer for official letters, for foreign residents in Japan",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "status": "excluded",
+          "why": "Killed by the skeptic: Free AI assistants already do the core job: a user can photograph a letter in ChatGPT, Gemini or Google Lens and ask, in their own language, what it says, what to do and by when. These are the same vision models the app would use, and they cost the user nothing. The card's own evidence says residents already use AI translation and still worry. A paid wrapper on the same models does not fix that trust gap. The extras (calendar reminder, saved inbox) are thin and partly free already; Gemini can add calendar events on Android. Most foreign residents are young, phone-heavy workers and students who are price-sensitive and already use these free tools, and letters with real deadlines arrive a few times a year, not every month."
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "kenya-hustler-compliance": {
+      "title": "Monthly SHA and eTIMS companion for Kenya's self-employed",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "status": "excluded",
+          "why": "Killed by the skeptic: The target users mostly do not pay even the compulsory SHA contribution: only about 1 in 6 of 32 million registered people contribute (Capital FM, Aug 2026). A group that skips a mandatory health payment is very unlikely to pay a voluntary monthly app fee. For the self-employed, SHA sets the amount through its own means test (minimum KES 300 a month under the 2024 regulations; background knowledge, not re-checked this run). The app cannot work out the true amount from M-Pesa income, and users can already see and pay their assessed amount free by USSD and paybill. Reading M-Pesa SMS needs Google Play's restricted SMS permission, which requires a policy exception that can be withdrawn. The evidence is three news items about complaints, with nothing showing anyone would pay for clarity."
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "appointment-slot-alerts": {
+      "title": "Appointment-slot alerts for residence, ID and office visits (notify only)",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "status": "excluded",
+          "why": "Killed by the skeptic: The need is one-off: it ends the day the slot is booked, which contradicts a monthly subscription. The scout and the cluster both admit churn will be high. Free tools already cover the biggest pain points: All About Berlin runs a free Anmeldung appointment finder for Berlin, Buergerwecker covers Leipzig and Dresden, and cita-bot is free for Spain. Official sites throttle automated checking: the Berlin tool says it can make only one request every three minutes, so a paid service cannot promise faster alerts, and scraping may break site terms. Regulators are hostile to slot services: the UK banned paid driving-test booking services in May 2026, and similar crackdowns could follow elsewhere."
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "household-employer-pay-records": {
+      "title": "Pay records and reminders for households and one-person employers",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "status": "excluded",
+          "why": "Killed by the skeptic: Saudi side: the mandatory Musaned e-salary system itself records wages, advances and loans and is built around the Hijri-month deadline, so the official channel already keeps the proof this app would offer. Australia side: Payroller has a free Lite plan for running pay for one person on mobile, calculates super each pay run, offers one-click SuperStream payment through Beam and says it is ready for Payday Super. That covers the micro-employer case at zero or near-zero cost. The cluster itself says willingness to pay is unproven, and the evidence is only rule-change news. Two unrelated markets (Saudi households and Australian micro-employers) with different languages and rules double the build for a small payoff."
+        }
+      ],
+      "last_seen": "2026-11-08"
+    },
+    "gulf-family-document-expiry-tracker": {
+      "title": "Family residency and ID expiry tracker for Gulf expats",
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "run": "2026-11-08",
+          "status": "excluded",
+          "why": "Killed by the skeptic: There is no monthly need: each document comes due once every one to several years, so a family has only a few renewal events a year. The scout rated the subscription case weak to medium. The only competitor found charges $12.99 a year (about $1 a month) and has no ratings, which shows both the price ceiling and the lack of pull. Government apps already send renewal alerts for the documents that carry fines (ICP and DubaiNow in the UAE; Absher, which covers dependents, in Saudi Arabia), and a free phone calendar covers the rest. The 'why now' fine change is itself marked unverified."
+        }
+      ],
+      "last_seen": "2026-11-08"
+    }
+  }
+}

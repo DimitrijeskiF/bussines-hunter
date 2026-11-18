@@ -1,0 +1,141 @@
+{
+  "region": "southeast_asia_oceania",
+  "summary": [
+    "The strongest pattern is rules changing for informal earners: Indonesia capped ride-hailing commission at 8% on 1 July 2026, Vietnam ended flat-rate tax for household businesses on 1 Jan 2026 and made platforms withhold tax from sellers (July 2025), Indonesia and the Philippines have marketplace withholding rules, and Thailand ordered a marketplace fee cut starting 1 Dec 2026. Each change leaves millions of gig workers and online sellers unsure what they actually earn or owe.",
+    "Tax and invoice tools for freelancers are crowded in Australia and New Zealand (Xero, MYOB Solo, Rounded, Hnry, Sole), so those markets look like a price gap more than a missing product. The better gaps are in Southeast Asia and in narrow jobs, such as showing a driver's true net pay or matching marketplace payouts.",
+    "Group savings circles (arisan, paluwagan, hui) run mostly on WhatsApp and paper in Indonesia, the Philippines and Vietnam. I found only small, thinly reviewed apps for them.",
+    "Limits of this run: the web search budget ran out partway through, so I could not confirm user counts for ojol drivers or paylater users, or check app store reviews directly. Several cards say which numbers are unverified. Local-language searches were done in Indonesian, Vietnamese and Thai."
+  ],
+  "cards": [
+    {
+      "id": "sea-01",
+      "title": "True take-home tracker for ride-hailing and delivery drivers",
+      "problem": "Indonesian motorbike taxi drivers were promised an 8% commission from 1 July 2026, but union leaders say extra application and insurance fees plus changed fares and incentives keep the real cut near 29% on a sample trip. Drivers report earning Rp 50,000-100,000 a day against about Rp 75,000 of running costs, and have no easy way to see what they really keep after fees, fuel and servicing.",
+      "who_feels_it": {"group": "Two-wheel ride-hailing drivers (Gojek, Grab, Maxim) in Indonesia, with the same pattern for drivers in Thailand, the Philippines and Vietnam", "how_many": "Not confirmed in this run; Indonesian ride-hailing drivers are widely reported in the millions (I could not retrieve a sourced figure)"},
+      "gap_type": "missing_here",
+      "why_now": "The 8% commission rule began 1 July 2026 and drivers say the numbers do not add up, so there is a live argument about real net pay.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "Gojek, Grab and Maxim applied the 8% commission to two-wheel rides from 1 July 2026 (Bisnis.com, 1 Jul 2026).", "url": "https://teknologi.bisnis.com/read/20260701/266/1984787/potongan-grab-gojek-turun-jadi-8-begini-dampak-yang-dirasakan-driver-ojol"},
+        {"claim": "A driver union says a Rp 15,500 fare leaves the driver Rp 11,040 after app, insurance and the 8% cut, about 29% total; daily income stays Rp 50,000-100,000 against about Rp 75,000 minimum costs (detikFinance, Jul 2026).", "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8565704/driver-ojol-teriak-pendapatan-tak-naik-karena-potongan-aplikator-masih-20"},
+        {"claim": "Bisnis.com ran a piece on 3 Jul 2026 headlined that drivers say they are confused by the 8% commission (page could not be opened, headline only).", "url": "https://teknologi.bisnis.com/read/20260703/266/1985273/biaya-komisi-gojek-grab-8-berlaku-driver-ojol-mengaku-bingung"}
+      ],
+      "existing_tools": [
+        {"name": "Fuelmeter and similar fuel/service loggers (Indonesia)", "gap": "Log fuel and servicing only; do not combine platform income, fees and incentives into daily net pay."},
+        {"name": "Driversnote, DRIVR (Australia)", "gap": "Built for Australian tax logbooks, not Indonesian or Thai platform fee structures."}
+      ],
+      "subscription_case": "Drivers check earnings daily and every rupiah matters; a $1-2 monthly price that shows true net per day, cost per km and service reminders is small next to the roughly Rp 450,000 a month the commission change is said to be worth.",
+      "countries": ["Indonesia", "Thailand", "Philippines", "Vietnam"],
+      "solution_idea": "A lightweight Bahasa Indonesia app where the driver enters or screenshot-imports each day's platform payout, fuel and costs, and sees net per hour, per km and per month, with the real fee percentage per trip. Add Thai and Tagalog later."
+    },
+    {
+      "id": "sea-02",
+      "title": "Marketplace-withheld tax companion for micro sellers and freelancers",
+      "problem": "Marketplaces in several countries now withhold tax from small sellers' payouts. Sellers must keep the right certificates, work out what is already paid, and avoid paying twice. Existing help is spread across blogs, spreadsheets and pricey apps.",
+      "who_feels_it": {"group": "Online sellers on Shopee, Lazada, TikTok Shop and freelancers in the Philippines, Indonesia and Vietnam", "how_many": "Vietnam: about 100,000 business households and individuals paid e-commerce tax through the portal in the first five months of 2025; other countries not sized in this run"},
+      "gap_type": "missing_here",
+      "why_now": "Vietnam's platform withholding began 1 July 2025; Indonesia's PMK 37/2025 made marketplaces withhold 0.5% income tax from sellers, with rollout reported in 2026; the Philippines has withheld 1% on half of platform remittances since 2024; Vietnam ended flat-rate tax for household businesses on 1 Jan 2026.",
+      "lens": ["trends", "local_gaps", "paying_already"],
+      "evidence": [
+        {"claim": "Vietnam Decree 117/2025 requires e-commerce platforms with payment functions to withhold and pay VAT and personal income tax for sellers from 1 July 2025; sellers must still issue invoices.", "url": "https://vietnamnews.vn/economy/1720550/platforms-to-help-online-sellers-pay-taxes-from-july-1.html"},
+        {"claim": "Indonesia's PMK 37/2025 appoints marketplaces to collect 0.5% income tax from domestic sellers; sources differ on the turnover threshold and the rollout date, which DJP was still preparing (2025-2026 coverage).", "url": "https://www.pajak.com/pajak/shopee-hingga-tiktok-shop-jadi-pemungut-pajak-djp-ingatkan-penjual-harus-punya-npwp/"},
+        {"claim": "Philippines RR 16-2023: platforms withhold 1% on half of gross remittances to sellers above PHP 500,000 a year and issue Form 2307, which the seller uses as a credit.", "url": "https://www.tripleiconsulting.com/what-philippine-rr-16-2023-withholding-tax-online-sellers/"},
+        {"claim": "Philippine freelancer tax apps exist but are pricier than the target: Symph's tool lists 2307 and official receipts in a PHP 499 a month Pro tier.", "url": "https://finance-freelancer-tools.landing.symph.co/"},
+        {"claim": "Vietnam ended flat-rate tax for household businesses from 1 Jan 2026, and several vendors now offer free filing software, which sets a price ceiling for any new tool.", "url": "https://www.meinvoice.vn/tin-tuc/33465/xoa-bo-thue-khoan-ho-kinh-doanh/"}
+      ],
+      "existing_tools": [
+        {"name": "Taxtrackr and Symph freelancer app (Philippines)", "gap": "Cover 8% tax and 2307 for freelancers but not marketplace payout withholding per platform; Symph's tier is priced well above $3."},
+        {"name": "MISA, Sapo, KiotViet free household-business software (Vietnam)", "gap": "Free, but tied to shops and POS; not a simple phone tool for solo online sellers and no cross-platform withholding tracker."},
+        {"name": "Klik46 and OnlinePajak (Indonesia)", "gap": "Focus on paying and filing the 0.5% final tax; none found that tracks marketplace-withheld amounts against turnover."}
+      ],
+      "subscription_case": "Tax deadlines come monthly or quarterly, so a reminder plus running tally earns its keep; at about $2 it is below the price of a single accountant question.",
+      "countries": ["Philippines", "Indonesia", "Vietnam", "Thailand"],
+      "solution_idea": "A phone app where sellers upload marketplace payout statements or enter payouts, and it shows tax already withheld, stored 2307-style certificates, turnover against thresholds and the next deadline, using one rules file per country."
+    },
+    {
+      "id": "sea-03",
+      "title": "Group savings circle manager for arisan, paluwagan and hui",
+      "problem": "Rotating savings groups mostly run in WhatsApp chats and notebooks with no written agreement. Organisers chase payments, track whose turn it is, and members worry about fraud. The few dedicated apps found are small, local-only or tied to buying goods.",
+      "who_feels_it": {"group": "Members and organisers of arisan (Indonesia), paluwagan (Philippines) and hui/ho (Vietnam)", "how_many": "Not sized in this run; I found no participation survey in the sources opened"},
+      "gap_type": "missing_here",
+      "why_now": "Instant e-wallet payments (GCash, Maya, GoPay, bank QR) make collecting contributions easy but leave the record-keeping in chats; online arisan fraud is a recurring news topic.",
+      "lens": ["wishes", "local_gaps"],
+      "evidence": [
+        {"claim": "A village study found online arisan commonly runs over WhatsApp without a valid written agreement.", "url": "https://rama.unimal.ac.id/id/eprint/12634/2/Abstrak.pdf"},
+        {"claim": "Arisan NAYA lists in-app payment of dues and Bank Jago has a Kantong Arisan feature; a student prototype of an arisan app had no reminders, chat or member history.", "url": "https://apps.apple.com/id/app/naya/id1663402017"},
+        {"claim": "Vietnam's 'So Hui' app keeps data on the device only and is free with purchases; 'CashMate' markets a Philippine digital paluwagan tracker.", "url": "https://apps.apple.com/us/app/id6752617071"},
+        {"claim": "CashMate's own page describes a Digital Paluwagan and Expense Tracker for the Philippines (marketing claim, not independently checked).", "url": "https://cashmate-landing-new.pages.dev/philippines"}
+      ],
+      "existing_tools": [
+        {"name": "Arisan NAYA, Arisan Mapan, Kantong Arisan Jago (Indonesia)", "gap": "Tied to a payment provider or a goods-purchase scheme; no neutral organiser tool with WhatsApp reminders."},
+        {"name": "Chamasoft (Kenya)", "gap": "Proves demand for group-savings software elsewhere, but is not localised for these countries."}
+      ],
+      "subscription_case": "Organisers run groups for months or years and are the ones who feel the pain, so they would pay about $2 a month, or each member could pay a few cents.",
+      "countries": ["Indonesia", "Philippines", "Vietnam", "Malaysia"],
+      "solution_idea": "A group ledger with a draw or turn schedule, payment confirmation by screenshot, auto reminders by WhatsApp link, and a shareable history page, localised per country."
+    },
+    {
+      "id": "sea-04",
+      "title": "Per-order profit and payout checker for Thai marketplace sellers",
+      "problem": "Shopee, Lazada and TikTok Shop fees change often. Thailand's Commerce Ministry has agreed a six-month cut from 1 December 2026 that excludes ad fees. Sellers have only static calculators and spreadsheets and no simple way to check actual payouts against fees and costs per order.",
+      "who_feels_it": {"group": "Thai individual and company sellers on Shopee, Lazada and TikTok Shop", "how_many": "About 1.2 million sellers (1.02 million individuals and 180,000 companies) per PPTV, as relayed by Relevant Audience"},
+      "gap_type": "missing_here",
+      "why_now": "Fee agreement announced 28 Oct 2026; lower rates apply from 1 Dec 2026 to 31 May 2027, then rates are reassessed, so sellers need to see the effect on their margin.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "From 1 Dec 2026 to 31 May 2027 eligible sellers pay fees at 1 Jan 2026 levels; top rates fall from 19.26% to 13.91% on Shopee, 17.50% to 11.60% on Lazada and 21.94% to 17.66% on TikTok Shop; ads excluded.", "url": "https://www.relevantaudience.com/ecommerce-marketing/shopee-lazada-tiktok-shop-gp-fee-cut-thailand/"},
+        {"claim": "Flowaccount publishes a Thai-language guide to 2026 seller fees on all three platforms, showing sellers look for this information.", "url": "https://flowaccount.com/blog/commission-fees-ecommerce-shopee-lazada-tiktok/"},
+        {"claim": "Existing options are separate fee calculators with editable assumptions; one says its results are estimates, not final invoices.", "url": "https://ecomcalctools.com/tiktok/shop-fee-calculator-thailand/"}
+      ],
+      "existing_tools": [
+        {"name": "Shopee, Lazada and TikTok Shop fee calculators (Thailand)", "gap": "Planning estimates only; do not reconcile real payout statements."},
+        {"name": "Flowaccount (Thailand)", "gap": "A full accounting product; I could not confirm that a $1-3 tier for micro sellers exists."}
+      ],
+      "subscription_case": "Small sellers watch margins every week, and fee rule changes force repeated recalculation, so a $2 tool that stays current is easy to justify.",
+      "countries": ["Thailand", "Indonesia", "Philippines", "Vietnam"],
+      "solution_idea": "Upload the platform's payout CSV, add cost per item, and see profit per order after commission, shipping and vouchers, with fee tables updated centrally. Indonesia was not checked for existing free tools such as BigSeller, so verify before building."
+    },
+    {
+      "id": "sea-05",
+      "title": "Paylater and instalment due-date tracker for Indonesian users",
+      "problem": "Indonesians use several paylater services (Shopee, GoPay, Kredivo and others) with different due dates, such as the 11th for SPayLater and month-end for GoPayLater. A late payment attracts a penalty and can show up on the credit record, which can block other credit. The standard advice found is to keep your own calendar or spreadsheet, and I found no dedicated tool that combines them.",
+      "who_feels_it": {"group": "Young urban Indonesian paylater users with several active instalments", "how_many": "Not confirmed in this run (OJK data could not be retrieved before the search budget ran out)"},
+      "gap_type": "missing_here",
+      "why_now": "Paylater use and 'galbay' (defaulting) coverage keep growing; 2026 articles explain how one missed payment can lead to rejection elsewhere.",
+      "lens": ["wishes", "trends"],
+      "evidence": [
+        {"claim": "CNBC Indonesia summarises late-payment penalty rules for SPayLater, GoPayLater and Kredivo (Jul 2024).", "url": "https://www.cnbcindonesia.com/market/20240712114220-17-554048/catat-ini-aturan-denda-telat-bayar-spay-later-gopay-later-kredivo"},
+        {"claim": "A 2026 article warns that defaulting on one paylater can be flagged in the credit-record system and lead other lenders to reject you.", "url": "https://desakarangbendo.id/berita-pinjaman-online/021901569/awas-galbay-ini-cara-menggunakan-paylater-agar-tidak-masuk-daftar-hitam-slik-ojk-2026/"},
+        {"claim": "Kontan's MomsMoney explains how to pay Shopee Paylater before the due date to avoid fines, showing the need is real.", "url": "https://momsmoney.kontan.co.id/news/cara-bayar-shopee-paylater-sebelum-jatuh-tempo-bebas-beban-cicilan"}
+      ],
+      "existing_tools": [
+        {"name": "Built-in reminders in each paylater app (Indonesia)", "gap": "Each app only shows its own debt; there is no combined monthly total or ordering of what to pay first."},
+        {"name": "General expense trackers", "gap": "Not built around paylater cycles, penalties or debt payoff order."}
+      ],
+      "subscription_case": "A single avoided late fee (5% a month on the overdue total, per one source) covers many months of a $1 subscription.",
+      "countries": ["Indonesia", "Philippines"],
+      "solution_idea": "A manual-entry or notification-reading Android app that lists every instalment, shows total due per week and month, warns before due dates and suggests a payoff order. Requires a legal check on reading notifications."
+    },
+    {
+      "id": "sea-06",
+      "title": "Cheap super payment tool for Australian micro-employers after the free clearing house closed",
+      "problem": "The ATO's free Small Business Superannuation Clearing House closed on 1 July 2026, and Payday Super now requires super to reach the fund within seven days of each payday. Employers with one or two staff, such as cafes, tradies, and families with carers, must use payroll software, a commercial clearing house or a fund portal, and I found no pricing for these.",
+      "who_feels_it": {"group": "Australian sole traders and households that employ one to three people", "how_many": "Not sized in this run; the SBSCH was open to employers with fewer than 20 staff or under AUD 10 million turnover, but I found no user count"},
+      "gap_type": "missing_here",
+      "why_now": "SBSCH closed 1 July 2026 and Payday Super began the same day, so these employers have just been forced into new systems.",
+      "lens": ["trends", "paying_already"],
+      "evidence": [
+        {"claim": "The SBSCH closed on 1 July 2026; the ATO points employers to payroll software, tax professionals or the SuperStream product register.", "url": "https://www.ato.gov.au/businesses-and-organisations/super-for-employers/payday-super/payday-super-resources/how-to-transition-from-the-small-business-superannuation-clearing-house"},
+        {"claim": "From 1 July 2026 employers must ensure super is received by the fund within seven days of payday.", "url": "https://hallandwilcox.com.au/news/payday-super-starts-1-july-2026-what-employers-need-to-do-now/"},
+        {"claim": "Xero says the SBSCH was free and lists fund clearing houses, commercial providers and payroll software as the three replacements; it gives no prices and says its own plans include auto super.", "url": "https://www.xero.com/au/guides/sbsch-closure/"}
+      ],
+      "existing_tools": [
+        {"name": "Xero, MYOB, Employment Hero payroll (Australia)", "gap": "Full payroll products; owners with a single casual or carer may find them heavy for the need, and I could not confirm prices."},
+        {"name": "Fund employer portals such as AustralianSuper", "gap": "Often manual entry, and only for members of that fund."}
+      ],
+      "subscription_case": "Super is due every payday and penalties apply for missing it, so a small monthly fee for a simple pay-and-remind tool replaces a free service people lost. Price sensitivity is unproven because I found no competitor pricing.",
+      "countries": ["Australia", "New Zealand"],
+      "solution_idea": "A mobile tool for micro-employers that records each pay, calculates super, sends payment through a SuperStream-compliant partner, and keeps a seven-day reminder and proof record. Check partner fees first, since they could break a $3 price."
+    }
+  ]
+}

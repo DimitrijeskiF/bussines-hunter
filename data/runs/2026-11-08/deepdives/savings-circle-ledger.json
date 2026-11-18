@@ -1,0 +1,195 @@
+{
+  "id": "savings-circle-ledger",
+  "title": "No-custody ledger for rotating savings groups (ajo, chama, arisan, paluwagan, hui)",
+  "one_liner": "A simple app that keeps a shared record of who has paid and whose turn it is in your paluwagan, arisan, ajo, chama or hui group, and helps you remind members, without ever touching the money.",
+  "competitors": [
+    {
+      "name": "Chamasoft (Kenya)",
+      "url": "https://chamasoft.com",
+      "what_they_do": "Online bookkeeping for investment chamas: member contribution accounts, invoices, statements, payment reminders, loans, projects and M-Pesa payment prompts. Free plan; paid plan Ksh 1,000 a month or Ksh 2,800 a quarter (the yearly price is unclear on its page), with SMS bundles. Google Play rating 3.9.",
+      "weakness": "Built for investment groups with loans, bank accounts and projects, so it is heavy for a simple rotation. The paid plan costs about $7-8 a month, far above what a volunteer organiser will pay, and it is aimed at Kenya."
+    },
+    {
+      "name": "Sổ Hụi: Quản Lý Hụi 4.0 (Vietnam, iPhone)",
+      "url": "https://apps.apple.com/us/app/id6752617071",
+      "what_they_do": "A hụi notebook: several groups, contributions, who took the pot, profit or loss per round, with data kept on the phone only. Free, with Pro at $0.99 a month, $2.99 a year or $6.99 once.",
+      "weakness": "A private notebook for one person. Members cannot see or confirm anything, so it does not fix the trust problem. No ratings yet. Its prices show how low the price ceiling in this category is."
+    },
+    {
+      "name": "Sổ Hụi 4.0 and other Vietnamese hụi apps (Android)",
+      "url": "https://play.google.com/store/apps/details?id=com.phanmemtotnhat.mobile_sohui",
+      "what_they_do": "At least three hụi ledgers on Google Play (Sổ Hụi 4.0 rated 4.7, 'Sổ Hụi - Hụi Sống, Hụi Chết' and another 'Sổ Hụi'). Prices and install counts could not be read this run.",
+      "weakness": "They look like record books for the organiser alone, with no shared member page (not confirmed this run)."
+    },
+    {
+      "name": "KittyRota - Ajo & Esusu Ledger (Nigeria)",
+      "url": "https://play.google.com/store/apps/details?id=digital.dzine.kittyrota",
+      "what_they_do": "A Google Play app that calls itself an ajo and esusu ledger, the closest match to this idea found. Features and price could not be read this run.",
+      "weakness": "No rating shown in search, so it is probably very small. It shows the Nigerian gap is being tried but not won. Install it and test it before building."
+    },
+    {
+      "name": "AjoMoney (Nigeria)",
+      "what_they_do": "A group savings app that collects and pays out the money itself, with daily, weekly or monthly rotations and access to credit. Google Play rating 3.7. The App Store link cited earlier in this run returned 'not found' on 8 Nov 2026.",
+      "weakness": "It holds the money, which needs licences and asks members to trust a company instead of their own organiser. Groups that already pay each other by bank transfer or mobile money do not need it."
+    },
+    {
+      "name": "Other Nigerian ajo apps (My Ajo App, Ajo 360, EsusuHive, Ajo by lescodes, Pack Ajo)",
+      "url": "https://play.google.com/store/search?q=ajo%20esusu&c=apps",
+      "what_they_do": "A mix of money-holding savings apps and simple trackers on Google Play. EsusuHive is rated 4.3; the others show no rating. Prices not checked.",
+      "weakness": "Small and scattered; none shows many ratings, so no one owns the category yet."
+    },
+    {
+      "name": "Indonesian arisan apps (Digi Arisan, Buku Arisan, Arisan by Selada MK, Arisan Digital: Kocok & Iuran, Kocokan, ArisanPro, Arisanesia and others)",
+      "url": "https://play.google.com/store/search?q=arisan&c=apps",
+      "what_they_do": "More than 15 Google Play apps to record dues and run the draw ('kocok'), several rated 4.5 to 5.0. Prices not checked.",
+      "weakness": "Very crowded, mostly organiser notebooks and draw spinners. Standing out in Indonesia will be hard, so it is a poor first market."
+    },
+    {
+      "name": "Bank Jago Kantong Arisan (Indonesia) and Stanbic Chama App (Kenya)",
+      "what_they_do": "Free group-savings features inside bank apps. Stanbic Chama App is rated 4.0 on Google Play.",
+      "weakness": "Every member must bank there and the bank holds the money, so groups that pay across different banks and wallets are left out."
+    },
+    {
+      "name": "CashMate (Philippines)",
+      "url": "https://cashmate-landing-new.pages.dev/philippines",
+      "what_they_do": "A free Android and iPhone app marketed as a 'Digital Paluwagan & Expense Tracker', claiming thousands of Filipino users.",
+      "weakness": "Its page describes personal savings goals and expense tracking, not a shared group ledger with turn order or member confirmation."
+    },
+    {
+      "name": "Ghana susu apps (SusuConnect, SusuWallet, Susumate)",
+      "url": "https://play.google.com/store/search?q=susu%20savings%20group&c=apps",
+      "what_they_do": "Small Google Play apps for susu savings. Details not read this run.",
+      "weakness": "Unproven and probably small; some may follow the susu-collector model (one person collects daily) rather than a rotating group."
+    },
+    {
+      "name": "Ajo on Celo (blockchain project)",
+      "url": "https://www.karmahq.org/project/ajo-1/about",
+      "what_they_do": "Savings groups run by smart contracts, aimed at Nigeria, Kenya, Ghana and South Africa, with Paystack and MoonPay for putting money in.",
+      "weakness": "Crypto wallets and money transfers into them are a big hurdle for ordinary groups, and the project still has to handle the money."
+    },
+    {
+      "name": "Other trackers named by this run's scorer (RoscaApp, Rounds, Tontine Money Pool Tracker, JoinSusu, Suki PaluwaganPal)",
+      "what_they_do": "Further record-keeping apps for rotating savings, RoscaApp reportedly free and Tontine Money Pool Tracker with WhatsApp reminders.",
+      "weakness": "Not re-checked this run; check whether any has real traction before building."
+    },
+    {
+      "name": "WhatsApp group plus notebook or Google Sheets",
+      "what_they_do": "Free; what most groups use today.",
+      "weakness": "No turn tracker or reminders, anyone with edit rights can change a sheet, and the notebook stays with one person, which is exactly where disputes start."
+    }
+  ],
+  "customer": {
+    "who": "Organisers of rotating savings groups, usually unpaid volunteers (often women) who run a group of 10-30 people. They are called the arisan 'owner', the paluwagan head, the ajo coordinator, the chama treasurer or the chủ hụi. Members are the second user and the main source of new organisers. Filipino, Nigerian and Vietnamese workers abroad who run groups with co-workers or family are a smaller but better-paying segment.",
+    "where": "The Philippines (paluwagan, including Filipino workers abroad in Hong Kong, Singapore and the Gulf), Indonesia (arisan), Nigeria (ajo, esusu), Kenya (chama, merry-go-round), Ghana (susu), Vietnam (hụi) and Malaysia (kutu). Big cities such as Manila, Jakarta, Lagos, Nairobi, Accra and Ho Chi Minh City are the likely smartphone-first starting points (typical examples, not sourced this run).",
+    "pain_in_their_words": "In a village study from Aceh, Indonesia, arisan members say the group ran on WhatsApp with nothing in writing, and then their pot came late, came with money deducted by the organiser, or never came at all. Disputes ended up in front of the village head, and the researcher's advice to organisers was more openness and a better record system. A team building a Nigerian ajo project describes the same thing: missed payments, fraud and no transparency, because everything rests on one collector and manual records. Chamasoft sells itself as the cure for treasurers' complicated spreadsheets. Limit of this run: Reddit, Nairaland and app-store review pages could not be opened, so there are no direct forum quotes. Collect 15-20 organiser stories in the first two weeks."
+  },
+  "mvp": {
+    "scope": [
+      "Weeks 1-2, before coding: a one-page sign-up site in the launch language plus 15-20 organiser interviews to confirm they would pay about $1.50 a month. This is the skeptic's open question.",
+      "Organiser Android app: create a group, set the amount, how often people pay (daily, weekly, monthly) and the turn order (a fixed list or a recorded random draw, the 'kocok').",
+      "Members join through an invite link in their phone browser, with no app to install. They agree to be listed, then tap 'I paid' with their mobile-money or e-wallet reference (M-Pesa code, GCash reference) and an optional screenshot.",
+      "The organiser confirms each payment, and each payout to the person whose turn it is gets recorded and confirmed by that person.",
+      "A shared history page and a PDF statement for each cycle, with a time-stamped change log so nobody can quietly edit past entries.",
+      "Reminders the organiser sends with one tap through the phone's share menu (WhatsApp, Messenger, Viber, Zalo or SMS), so messages cost nothing. Messenger and Viber matter in the Philippines and Zalo in Vietnam.",
+      "A free tier for one group of up to 12 members, and a paid plan through Google Play for more groups, bigger groups, PDF statements and late-fee tracking.",
+      "One country and language at launch (suggested: the Philippines, in English and Filipino). No handling of money, no bank or wallet connections, and no iPhone app until the Android version proves demand."
+    ],
+    "time_to_build": "About 2-3 months: 2 weeks of interviews and a sign-up page, then 8-10 weeks to build and test with 10-20 real groups.",
+    "team": "1 full-stack mobile developer (Flutter or React Native with a hosted database), plus a part-time local partner in the launch country who runs or joins groups and handles support and community outreach. Design can come from a ready-made design kit."
+  },
+  "pricing": {
+    "model": "Free tier for one small group, paid organiser plan by month or year, with the option to test a one-off pass per cycle",
+    "price": "$1.49 a month or $11.99 a year for the organiser, sold at local Google Play prices (roughly PHP 85, KES 190 or IDR 24,000 a month at late-2025 exchange rates, not re-checked; set lower where incomes are lower)",
+    "rationale": "Sổ Hụi in Vietnam charges $0.99 a month, $2.99 a year or $6.99 once for a private notebook, and Chamasoft charges Ksh 1,000 a month (about $7-8) for full investment-group bookkeeping after a free plan. $1.49 sits between the two for a shared, member-confirmed record. Split across a 20-member group it is under 10 US cents a person, which the organiser can build into the group's rules. A free tier is required because nearly every rival has one, and because free groups are the marketing: each one shows the app to 10-30 members. A yearly plan or a pass for a whole cycle (for example $4.99 for a 10-month cycle) fits how groups think about time, so test it against the monthly plan."
+  },
+  "unit_economics": {
+    "cost_per_user": "About $0.05-0.10 a month per paying organiser, covering the database, hosting, small compressed screenshots and the free organisers each payer carries. Push notifications and tap-to-share reminders are free. Automated WhatsApp Business messages are charged per message by Meta, and from 1 Oct 2026 replies that used to be free are charged too, so they stay out of the base plan. On top of this, Google Play and Apple keep 15% of subscriptions (background knowledge, not re-checked).",
+    "users_needed": "About 8,500-9,500 paying organisers at $1.49 a month to earn $10,000 a month after the 15% store fee, local sales tax on digital services and running costs, or about 13,000-14,500 if most choose the $11.99 yearly plan. With 10-30 members per group, that means roughly 100,000-250,000 people using the shared pages."
+  },
+  "how_to_get_users": "Growth is built into the product. Every group's history page and reminder message reaches 10-30 members, many of whom run or join other groups, so each page carries a 'Start your own group free' link and the organiser recruits the next organisers for you. App store search works because people already search the local word: Google Play searches for 'paluwagan', 'arisan', 'ajo', 'chama' and 'sổ hụi' all return small apps, so a well-named app in the local language can rank. The 'paluwagan' results looked thin, with only two tiny apps of that name (searched from outside the Philippines, so local results may differ), which is why the Philippines is the suggested first market. On search engines, free tools draw people in: a paluwagan or arisan draw spinner, a printable ledger template and a group-rules template, each saving into the app. Spinner apps such as Pengundi Arisan and Arisan Spin Online show that people look for draw tools. On TikTok and Facebook, short videos on running a fair group and avoiding an organiser who runs off with the money fit a topic people already talk about. Partnerships with neighbourhood and women's groups can bring in whole groups at once with a free community tier: PKK groups in Indonesia, women groups and table-banking trainers in Kenya, church and market groups in Nigeria and Ghana, and associations of Filipino workers abroad. Paid ads are not needed because the buyer (the organiser) brings in the users (the members), and both live in a few dense online and local communities.",
+  "first_users": [
+    {
+      "name": "r/phinvest",
+      "where": "Reddit (Philippines)",
+      "why": "The main Filipino personal-finance community, where group-savings schemes such as paluwagan come up. A good place to recruit interviewees for the suggested first market. Not opened this run because Reddit blocks the research tool."
+    },
+    {
+      "name": "Communities of Filipino workers abroad (OFW groups) in Hong Kong, Singapore and the Gulf",
+      "where": "Facebook groups and weekend meet-ups",
+      "why": "Workers abroad often run paluwagan with co-workers, earn in stronger currencies and already use apps to send money home, so $1-2 a month is easier for them. Background knowledge; no specific group checked."
+    },
+    {
+      "name": "Kaskus",
+      "where": "Indonesian forum",
+      "url": "https://m.kaskus.co.id/",
+      "why": "Indonesia's largest forum, with communities on money and family life where arisan rules and online-arisan fraud get discussed. The site opened, but arisan threads were not checked this run."
+    },
+    {
+      "name": "PKK women's groups and RT/RW neighbourhood meetings",
+      "where": "Local associations across Indonesia",
+      "why": "A monthly arisan is a standing part of many PKK and neighbourhood meetings, so one demo to a community leader can reach many groups. A free community tier is an easy partnership offer. Background knowledge."
+    },
+    {
+      "name": "Lowyat.NET Finance, Business and Investment House",
+      "where": "Malaysian forum",
+      "url": "https://forum.lowyat.net",
+      "why": "Malaysia's big forum has an active finance board with an eWallet & Mobile Payment section. Malaysians call rotating savings 'kutu', so it is a cheap place to test the idea in English. Kutu threads were not checked this run."
+    },
+    {
+      "name": "Nairaland Business section",
+      "where": "Nigerian forum",
+      "why": "Nigeria's biggest forum, where ajo, esusu and thrift collection are discussed, along with worries about collectors who disappear. Background knowledge; the site blocked the research tool this run."
+    },
+    {
+      "name": "r/Nigeria",
+      "where": "Reddit (Nigeria and the diaspora)",
+      "why": "Mixes Nigerians at home and abroad. Members in the UK and US who run ajo with family can pay in pounds or dollars and are good early testers. Not opened this run."
+    },
+    {
+      "name": "r/Kenya",
+      "where": "Reddit (Kenya)",
+      "why": "Chamas and merry-go-rounds are a common topic among young Kenyan professionals, the group most likely to swap the treasurer's notebook for an app. Not opened this run."
+    },
+    {
+      "name": "Kenyan women groups and table-banking groups linked to the Women Enterprise Fund",
+      "where": "Local associations in Kenya",
+      "why": "The government fund works through registered women groups, which run regular contributions, so a free record tool for groups is a natural partnership pitch. Background knowledge; the fund's website did not load this run."
+    },
+    {
+      "name": "Hụi groups on Zalo and Facebook",
+      "where": "Zalo and Facebook groups (Vietnam)",
+      "why": "Vietnamese hụi is organised mostly through Zalo and Facebook rather than WhatsApp, and the paid Sổ Hụi apps show organisers there already pay about $1 a month, which makes this the best place to test pricing. Background knowledge; no specific group checked."
+    }
+  ],
+  "risks": [
+    "Organisers may not pay. They are usually unpaid volunteers, the WhatsApp-plus-notebook habit is free and trusted, Chamasoft has a free plan, and Sổ Hụi's $0.99 a month shows how low the price ceiling is. Get paid sign-ups or firm promises from organisers before building.",
+    "The category is crowded with small apps: more than 15 arisan recorders in Indonesia, at least three hụi apps in Vietnam, several ajo and esusu ledgers in Nigeria (including KittyRota), several chama apps in Kenya and susu apps in Ghana. None dominates, but the edge has to be the shared record that members confirm themselves, not a better notebook.",
+    "Banks and wallets can offer it free. Bank Jago's Kantong Arisan and Stanbic's Chama App already exist, and if GCash, M-Pesa or GoPay add a group ledger, a paid stand-alone app loses.",
+    "Messaging costs. Meta charges per WhatsApp Business message and, from 1 Oct 2026, also charges replies that used to be free. Automated reminders to every member could eat most of the fee, so the plan relies on tap-to-share reminders, which feel less automatic.",
+    "Consent and privacy. The organiser would be entering other people's names, phone numbers and payment history. Members must join and agree through their own link, or the app breaks the no-tracking-without-consent rule and data-protection laws in Nigeria, Kenya, Indonesia and the Philippines.",
+    "Misuse and legal drift. A dishonest organiser could use a neat ledger to look trustworthy, and any step towards holding, guaranteeing or paying out money would turn the app into a regulated financial service. Stay strictly record-only and never show 'verified' badges.",
+    "Paying is hard in cash-heavy markets. Many organisers have no card, so in-app payment depends on Google Play accepting local e-wallets or mobile-credit billing in each country (not checked this run).",
+    "Spreading across seven countries and five traditions would stretch a 1-3 person team. Each needs its own language, rules (bidding in Vietnamese hụi, interest and fines in chamas), messaging app and support."
+  ],
+  "sources": [
+    {"title": "Chamasoft website: features and pricing (Free, Ksh 1,000 a month, Ksh 2,800 a quarter)", "url": "https://chamasoft.com"},
+    {"title": "Chamasoft on the App Store (Ireland)", "url": "https://apps.apple.com/ie/app/chamasoft/id1489712788"},
+    {"title": "Sổ Hụi: Quản Lý Hụi 4.0 on the App Store (Pro $0.99 a month, $2.99 a year, $6.99 once)", "url": "https://apps.apple.com/us/app/id6752617071"},
+    {"title": "Meta for Developers: WhatsApp Business Platform pricing (per-message pricing, changes from 1 Oct 2026)", "url": "https://developers.facebook.com/docs/whatsapp/pricing"},
+    {"title": "CashMate: Digital Paluwagan & Expense Tracker (Philippines page)", "url": "https://cashmate-landing-new.pages.dev/philippines"},
+    {"title": "Ajo project page on Karma (problems of manual ajo groups, target markets)", "url": "https://www.karmahq.org/project/ajo-1/about"},
+    {"title": "Universitas Malikussaleh thesis abstract: breach of contract in online arisan, Paloh Lada village", "url": "https://rama.unimal.ac.id/id/eprint/12634/2/Abstrak.pdf"},
+    {"title": "Google Play search results: paluwagan", "url": "https://play.google.com/store/search?q=paluwagan&c=apps"},
+    {"title": "Google Play search results: arisan", "url": "https://play.google.com/store/search?q=arisan&c=apps"},
+    {"title": "Google Play search results: chama", "url": "https://play.google.com/store/search?q=chama&c=apps"},
+    {"title": "Google Play search results: ajo esusu", "url": "https://play.google.com/store/search?q=ajo%20esusu&c=apps"},
+    {"title": "Google Play search results: sổ hụi", "url": "https://play.google.com/store/search?q=s%E1%BB%95%20h%E1%BB%A5i&c=apps"},
+    {"title": "Google Play search results: susu savings group", "url": "https://play.google.com/store/search?q=susu%20savings%20group&c=apps"},
+    {"title": "KittyRota - Ajo & Esusu Ledger on Google Play (title only; details did not load)", "url": "https://play.google.com/store/apps/details?id=digital.dzine.kittyrota"},
+    {"title": "Sổ Hụi 4.0 on Google Play (title only; details did not load)", "url": "https://play.google.com/store/apps/details?id=com.phanmemtotnhat.mobile_sohui"},
+    {"title": "Lowyat.NET forum (Finance, Business and Investment House)", "url": "https://forum.lowyat.net"},
+    {"title": "Kaskus (Indonesian community forum)", "url": "https://m.kaskus.co.id/"},
+    {"title": "AjoMoney on the App Store, cited by the Africa scout (returned 'not found' on 8 Nov 2026)", "url": "https://apps.apple.com/in/app/ajomoney/id1587583677"},
+    {"title": "Arisan NAYA on the App Store, cited by the Southeast Asia scout (returned 'not found' on 8 Nov 2026)", "url": "https://apps.apple.com/id/app/naya/id1663402017"}
+  ]
+}

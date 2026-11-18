@@ -1,0 +1,134 @@
+{
+  "id": "einvoice-master-data-preflight",
+  "title": "E-invoice pre-flight checker for SAP master data",
+  "one_liner": "Scans your SAP customer, material and delivery data against German e-invoice rules (and later Mexican and Chilean ones) and gives you a fix list before invoices are rejected, not after.",
+  "competitors": [
+    {
+      "name": "SAP Document and Reporting Compliance (DRC)",
+      "url": "https://www.sap.com/germany/products/financial-management/document-reporting-compliance.html",
+      "what_they_do": "SAP's own e-document product, built on the eDocument framework and run from the eDocument cockpit. It generates XRechnung/ZUGFeRD and Peppol documents, monitors them and lets users correct individual e-documents. Partners report an HTML preview before sending.",
+      "weakness": "Checks happen one document at a time, after billing. A missing field shows up as an error on that one document, for example message EDOCUMENT_DE 005 when no Leitweg-ID is maintained in the source document header. Nothing scans the whole customer and material master ahead of go-live and produces a prioritised fix list. SAP knowledge base articles on business-partner party ID types and seller contact e-mail (BT-43) failures suggest master-data errors are a common support topic."
+    },
+    {
+      "name": "Canigom XRechnung Cockpit (SAP BTP partner solution)",
+      "url": "https://www.sap.com/italy/products/financial-management/partners/canigom-gmbh-xrechnung-cockpit.html",
+      "what_they_do": "Partner app listed on sap.com for managing, converting and sending XRechnung files on SAP BTP.",
+      "weakness": "Handles document conversion and sending for Germany only. It does not report on source master-data quality. It does show that the BTP partner-listing route works for a small German e-invoicing vendor."
+    },
+    {
+      "name": "ecosio (e-invoicing and Peppol network)",
+      "url": "https://ecosio.com/en/blog/how-to-validate-an-xrechnung/",
+      "what_they_do": "Validates outgoing XRechnung files against the format rules, holds back failed invoices and sends a status message with error details to the ERP.",
+      "weakness": "Reactive: errors are found only once an invoice exists, so each one is fixed in SAP by hand. It does not catch problems that pass format validation but still bounce at the customer, such as a missing buyer reference or PO number, or a vendor missing from the buyer's master data."
+    },
+    {
+      "name": "Sovos / Edicom (compliance networks for Germany, Mexico and Chile)",
+      "url": "https://edicomgroup.com/blog/germany-b2b-electronic-invoice",
+      "what_they_do": "Global e-invoicing networks covering transmission, clearance and archiving. Both are strong in Mexico (CFDI, Carta Porte) and Chile (DTE, dispatch guides). Sovos already publishes guidance on Chile's new transport-data fields.",
+      "weakness": "They are paid for transmission and documents, not for fixing source data in SAP. Sovos and Edicom could still add a data-readiness module because they already map every field."
+    },
+    {
+      "name": "Nagarro SAP add-on for VAT ID checks",
+      "url": "https://nagarro.com/hubfs/ERP%20SAP/Factsheets/2023_Ust-ID_DE.pdf",
+      "what_they_do": "SAP add-on that checks German VAT IDs in master data and documents automatically when relevant fields are created or changed.",
+      "weakness": "Checks VAT IDs only, not the full set of EN 16931 / XRechnung fields (buyer reference, Leitweg-ID, addresses, bank data, units, tax categories). It does show that SAP customers buy master-data checking add-ons."
+    },
+    {
+      "name": "xSuite (SAP invoice add-on)",
+      "url": "https://e3mag.com/wp-content/uploads/2017/01/d-xSuite-eDNA-Fact-Sheet.pdf",
+      "what_they_do": "SAP-embedded invoice processing. Its factsheet notes that SAP has no dedicated field for the Leitweg-ID, so the add-on maintains it.",
+      "weakness": "Focuses on document processing (mainly inbound) rather than auditing outbound master data across all customers."
+    }
+  ],
+  "buyer": {
+    "role": "Order-to-Cash / Finance IT process owner (SAP FI-SD), usually running the e-invoicing or DRC project",
+    "budget_owner": "CFO through the Finance IT or e-invoicing project budget. In larger groups the Head of Tax co-signs.",
+    "pain_in_their_words": "Job ads from German SAP shops say that from 2027 nothing runs without e-invoices, and they are hiring DRC consultants on fixed two-year contracts to get there. Practitioner guides say invoice failures usually start with incomplete ERP data or outdated customer master data, or a mapping rule that drops information. They also say an invoice can pass the free KoSIT validator and still bounce because the buyer reference or PO number is missing, or because the bank details changed. In SAP the problem appears one invoice at a time as a cockpit error (for example 'document-specific Leitweg-ID not maintained'), so AR teams fix issues invoice by invoice instead of cleaning the data once."
+  },
+  "mvp": {
+    "scope": [
+      "Read-only extractor for ECC and S/4HANA (ABAP report or RFC/OData via BTP) covering customer master / business partner, addresses, VAT IDs, bank data, Leitweg-ID or buyer-reference custom fields, and open orders and billing documents",
+      "German rule pack: EN 16931 / XRechnung and ZUGFeRD business rules mapped to SAP fields, plus content checks under German VAT law (Section 14 UStG), such as VAT ID format, Leitweg-ID check digit, mandatory buyer reference for public-sector customers, unit codes and tax categories",
+      "Readiness score by company code and customer group, with an exportable fix list (Excel / Fiori-style list) assigned to master-data owners",
+      "Delta monitor that re-checks new and changed customers daily so errors do not return after go-live",
+      "Optional dry run: build sample XRechnung files from real billing documents and run them through the open KoSIT validator rules to confirm the master-data findings",
+      "Phase 2 (not in MVP): Mexico pack that compares each new SAT catalog release with material and customer data (tariff fractions, Carta Porte fields), then Chile transport-data checks on deliveries"
+    ],
+    "time_to_build": "4-6 months for the German pack. Mexico would add about 3 months.",
+    "team": "1 ABAP/BTP developer, 1 backend developer for the rule engine and UI, and 1 part-time SAP SD/FI e-invoicing consultant (ideally a former DRC project lead) for rules and pilots"
+  },
+  "pricing": {
+    "model": "Annual subscription per SAP production system, tiered by number of active customers, plus an optional fixed-price readiness scan sold through partners. Each extra country pack is an add-on subscription.",
+    "range": "EUR 15k-50k per year for the German pack (mid-size to large SAP customers). EUR 8k-15k one-off readiness scan. EUR 10k-25k per year for each extra country pack. These are estimates.",
+    "rationale": "No public price list for comparable SAP add-ons was found in this run, so the range is an estimate, not a benchmark. The anchors are: (a) buyers already pay for narrow SAP master-data check add-ons such as Nagarro's VAT ID check; (b) e-invoicing go-live is currently bought as DRC consulting projects, with firms hiring full-time and fixed-term DRC consultants, so a tool priced well below one consultant-year is easy to justify; (c) a one-off scan gives partners an easy entry product to bundle into DRC projects, and the delta monitor creates recurring revenue. Validate the price in the first 5 calls."
+  },
+  "route_to_market": "Sell through German SAP partners that are running DRC and e-Rechnung projects now (PIKON, abat, valantic, consenso, Arvato Systems, mindsquare, Fink IT-Solutions). Position it as a project accelerator: the partner runs the scan in week 1 and the client keeps the delta monitor. Direct enterprise sales to German firms are too slow for the 2027 wave. Partners already have the projects and the trust, and abat and PIKON also work in Mexico, which opens the second country pack. Once there are 3-5 reference customers, list it as a BTP partner solution on the SAP Store/sap.com, as Canigom does with its XRechnung Cockpit. SAP DRC is the obvious integration and co-sell anchor: the tool feeds clean data into DRC rather than replacing it.",
+  "sap_fit": "Sits in front of SAP Document and Reporting Compliance (eDocument framework / EDOC_COCKPIT) in ECC 6.0 and S/4HANA. It reads SD billing (billing header and items, output determination), customer master or S/4 business partner (general, company-code and sales-area data, addresses, tax numbers, bank details), custom Leitweg-ID or buyer-reference fields, and open sales orders. Delivery: a namespaced read-only ABAP add-on, or a BTP app using RFC/OData through Cloud Connector. The Mexico pack would read material master tariff codes, SAP GTS customs data and Mexican localisation fields and compare them with SAT catalogs. The Chile pack would read SD/LE deliveries before the DTE is issued. All checks are read-only, which shortens the client's security review.",
+  "companies_to_call": [
+    {
+      "name": "Beiersdorf AG (Beiersdorf Shared Services, Hamburg)",
+      "country": "Germany",
+      "why": "Advertised a fixed-term (two-year) full-time 'SAP DRC eInvoice Consultant' role in Hamburg, listed around June 2026, asking for SAP DRC eDocument framework experience and country-specific e-invoicing rules. That shows a large in-house SAP e-invoicing rollout under deadline pressure across many countries.",
+      "who_to_ask": "Head of Order-to-Cash / Global Process Owner Finance (Shared Services)"
+    },
+    {
+      "name": "Friedhelm Loh Group (Haiger; parent of Rittal and others)",
+      "country": "Germany",
+      "why": "Advertised an 'SAP Inhouse Consultant (m/f/d) Document and Reporting Compliance (DRC)' for its SAP FI/CO team covering DRC and global invoicing, with SD and e-invoicing implementation experience required. The posting page now returns 404, so it may be filled. It is a large German manufacturer issuing B2B invoices from SAP and in scope for 1 Jan 2027.",
+      "who_to_ask": "Head of SAP FI/CO (Finance IT)"
+    },
+    {
+      "name": "August Storck KG",
+      "country": "Germany",
+      "why": "Publishes supplier e-invoice guides (at least two versions), so it already runs a structured e-invoicing programme. As a large confectionery maker invoicing German retailers, it must issue structured e-invoices from 1 Jan 2027. SAP use was not verified in this run, so confirm the ERP on the call.",
+      "who_to_ask": "Head of Accounts Receivable / Finance IT"
+    },
+    {
+      "name": "PIKON Deutschland AG (SAP partner, channel validation)",
+      "country": "Germany",
+      "why": "Channel partner, not an end buyer. PIKON markets a fully automated end-to-end XRechnung process in SAP Document Compliance and runs SAP DRC projects in Mexico (CFDI 4.0, CFDI Traslado with the foreign-trade complement). It sees master-data failures across many clients in both target countries and is the most likely reseller.",
+      "who_to_ask": "Head of SAP DRC / e-invoicing practice"
+    },
+    {
+      "name": "abat AG (SAP partner, channel validation)",
+      "country": "Germany",
+      "why": "Channel partner, not an end buyer. abat publishes guidance on electronic invoices with SAP DRC and hires SAP SD consultants in Mexico. It can confirm how often DRC go-lives stall on master data and whether it would bundle a pre-flight scan into projects in Germany and Mexico.",
+      "who_to_ask": "Head of SAP Finance / DRC competence centre"
+    }
+  ],
+  "risks": [
+    "Timing: the German issuing deadline for firms above EUR 800k is 1 Jan 2027, about 7 weeks away. Most large firms have already staffed DRC projects (see the Beiersdorf and Loh ads), so the product must be sold as reducing rejections after go-live plus continuous monitoring, not as a go-live tool.",
+    "SAP or its partners could add this as a feature: DRC already validates per document, and SAP could add a master-data readiness report. Partners such as PIKON or abat could build their own scan scripts as project accelerators instead of reselling.",
+    "Feature, not product: a German-only rule pack could be judged too small (one report inside SAP). The product needs the delta monitor and at least a second country (Mexico SAT catalog changes) to be a real product.",
+    "Free substitutes: the KoSIT validator and network-side validation (ecosio, Sovos, Edicom) already catch format errors at no extra cost. The value depends on the issues those miss: buyer references, PO numbers, outdated master data.",
+    "No evidence yet of paid demand: this run found no public rejection-rate statistics and no customer paying for a stand-alone master-data pre-check for e-invoicing.",
+    "Rule-maintenance load: EN 16931/XRechnung/ZUGFeRD versions keep changing (ZUGFeRD 2.4 in 2026, with 2.5 reported), Mexico's SAT changed customs catalogs twice in 2026, and Chile's SII rules are new. A 1-3 person team must keep up with all of them.",
+    "Enterprise friction: an ABAP add-on or BTP app touching customer master data needs security review and possibly SAP certification, which slows the first deals."
+  ],
+  "sources": [
+    {"title": "SAP Document and Reporting Compliance (SAP Germany product page)", "url": "https://www.sap.com/germany/products/financial-management/document-reporting-compliance.html"},
+    {"title": "Canigom XRechnung Cockpit on SAP BTP (sap.com partner listing)", "url": "https://www.sap.com/italy/products/financial-management/partners/canigom-gmbh-xrechnung-cockpit.html"},
+    {"title": "SAP error message EDOCUMENT_DE 005: document-specific Leitweg-ID not maintained", "url": "https://www.michaelmanagement.com/sap-error-messages/de/edocument_de/edocument_de005"},
+    {"title": "SAP KBA 3721709 (DRC Germany, business partner party ID types)", "url": "https://userapps.support.sap.com/sap/support/knowledge/en/3721709"},
+    {"title": "SAP KBA 3719648 (DRC Germany, seller contact e-mail BT-43)", "url": "https://userapps.support.sap.com/sap/support/knowledge/en/3719648"},
+    {"title": "Germany e-invoicing errors (Cygnet): master data as the root cause", "url": "https://www.cygnet.one/de/blog/germany-e-invoicing-errors/"},
+    {"title": "How XRechnung validation works in Germany (invoices that pass KoSIT but still bounce)", "url": "https://kaleji.pages.dev/posts/how-xrechnung-validation-works-in-germany"},
+    {"title": "ecosio: How to validate an XRechnung", "url": "https://ecosio.com/en/blog/how-to-validate-an-xrechnung/"},
+    {"title": "xSuite eDNA factsheet (no dedicated SAP field for Leitweg-ID)", "url": "https://e3mag.com/wp-content/uploads/2017/01/d-xSuite-eDNA-Fact-Sheet.pdf"},
+    {"title": "Nagarro SAP add-on factsheet: VAT ID check in master data and documents", "url": "https://nagarro.com/hubfs/ERP%20SAP/Factsheets/2023_Ust-ID_DE.pdf"},
+    {"title": "Edicom: Germany B2B electronic invoice", "url": "https://edicomgroup.com/blog/germany-b2b-electronic-invoice"},
+    {"title": "banqup: Germany's B2B e-invoicing 2027 roadmap", "url": "https://www.banqup.com/resources/guides/germany-s-b2b-e-invoicing-2027-roadmap"},
+    {"title": "Fink IT-Solutions job ad: (Junior) SAP Consultant SAP DRC / e-invoicing", "url": "https://www.get-in-it.de/jobsuche/p305731"},
+    {"title": "freelancermap project: SAP E-Invoicing technician/developer (DRC, XRechnung, ZUGFeRD, Peppol)", "url": "https://www.freelancermap.com/project/sap-e-invoicing-techniker-entwickler-m-w-d"},
+    {"title": "Friedhelm Loh Group job ad: SAP Inhouse Consultant DRC", "url": "https://career.friedhelm-loh-group.com/en/young-graduates_professionals/offer/sap-inhouse-consultant-m-f-d-docume/c80e5d2b-25a7-49df-be46-4e0678b5df51"},
+    {"title": "Beiersdorf job ad: SAP DRC eInvoice Consultant (ZipRecruiter, June 2026)", "url": "https://www.ziprecruiter.de/jobs/543245901-sap-drc-einvoice-consultant-all-genders-bei-beiersdorf"},
+    {"title": "Beiersdorf careers: SAP DRC eInvoice Consultant", "url": "https://www.beiersdorf.com/career/jobs/7871b0e801ae09852a0baaff27fb17be"},
+    {"title": "August Storck KG supplier e-invoice guide", "url": "https://www.storck.com/fileadmin/static/Lieferanten/Downloads/August-Storck-KG-Leitfaden-Lieferanten-E-Rechnung.pdf"},
+    {"title": "PIKON: E-invoicing in Germany, status and overview", "url": "https://www.pikon.com/de/blog/e-invoicing-in-deutschland-status-und-ueberblick/"},
+    {"title": "PIKON: Mexico SAP solution for CFDI Traslado compliance", "url": "https://www.pikon.com/en/blog/mexico-sap-solution-to-achieve-compliance-to-cfdi-traslado/"},
+    {"title": "abat: Electronic invoices with SAP DRC", "url": "https://www.abat.de/en/knowledge/blog/2024/electronic-invoices-with-sap-drc"},
+    {"title": "abat job ad: SAP SD Consultant, Mexico", "url": "https://www.abat.de/en/jobs/mexico/sap-sd-consultant-mfd"},
+    {"title": "Norman: XRechnung vs ZUGFeRD (ZUGFeRD 2.4 and 2.5 versions)", "url": "https://norman.finance/de/blog/xrechnung-zugferd-unterschied"},
+    {"title": "Thomson Reuters regulatory updates Mexico (SAT customs catalog changes 2026)", "url": "https://europe.thomsonreuters.com/pl/compliance/regulatory-updates/mexico"}
+  ]
+}

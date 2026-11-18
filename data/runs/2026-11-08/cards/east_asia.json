@@ -1,0 +1,135 @@
+{
+  "region": "east_asia",
+  "summary": [
+    "East Asia's best gaps this run come from tax and legal rules that changed recently and push ordinary freelancers and side-job earners into paperwork, not from missing consumer apps. Japan has the most active rule changes: the Freelance Act (Nov 2024), the end of the 2-wari invoice tax relief in 2026 with a weaker 3-wari successor, and ledger-keeping rules for side income.",
+    "In Korea, the 3.3% withholding refund market is dominated by apps that take a 10-20% cut of the refund, and nobody sells a cheap flat-fee tool that tracks expenses all year. Korean one-person online sellers are buying Excel margin calculators on Kmong, a sign that a small subscription app is missing.",
+    "Japan now has 4.12 million foreign residents, and reports describe people struggling to read official notices in Japanese. This is a large and growing group that needs a lightweight notice explainer.",
+    "Search coverage was uneven: several of the search calls returned thin results and the search tool was rate-limited once, so Taiwan, Hong Kong and China are weakly covered. Treat those as unexplored. No earlier ideas file existed, so all cards are new."
+  ],
+  "cards": [
+    {
+      "id": "ea-01",
+      "title": "Consumption-tax planner for invoice-registered sole proprietors (Japan)",
+      "problem": "Sole proprietors who registered for the invoice system use the 2-wari special rule (pay 20% of sales tax). It ends for 2026 filings and a weaker 3-wari rule applies for 2027 and 2028 only. They must now decide each year between 3-wari, simplified tax and general tax, which needs their sales and taxable expenses tracked monthly. Full accounting tools are heavy for them.",
+      "who_feels_it": {"group": "Japanese freelancers and one-person shops that registered as invoice-issuers with annual taxable sales under 10 million yen", "how_many": "Not sized with a source here. Registered former tax-exempt businesses run to the hundreds of thousands, but this needs checking."},
+      "gap_type": "missing_here",
+      "why_now": "The 2-wari special rule ends with the 2026 tax year and a 3-wari successor was created in the FY2026 tax reform, raising the tax by 1.5 times for the same sales.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "Search results from Japanese tax media describe the 2-wari rule as ending with the period that includes 30 Sep 2026, and a new 3-wari rule for 2027 and 2028 only, for sole proprietors with base-period sales of 10 million yen or less. These come from private explainers, not the tax office.", "url": "https://media.moneyforward.com/articles/10846"},
+        {"claim": "The same search surfaced a second explainer covering the 3-wari change and the choice between 3-wari, simplified tax and general tax.", "url": "https://www.all-senmonka.jp/moneyizm/news/316125/"},
+        {"claim": "A 2026 comparison article puts typical sole-proprietor accounting-app plans at about 700-1,200 yen a month.", "url": "https://www.onamae.com/business/article/305802/"}
+      ],
+      "existing_tools": [
+        {"name": "freee / Money Forward / Yayoi (Japan)", "gap": "Full bookkeeping suites. They are priced at or above this range and are built for filing, not for a simple what-will-I-owe-under-each-option view during the year."}
+      ],
+      "subscription_case": "The need returns every month while sales are logged, and the 3-wari years (2027-2028) give a reason to stay subscribed. A low-priced tool for people who find freee too big is plausible, but it competes with free tiers.",
+      "countries": ["Japan"],
+      "solution_idea": "A mobile app where users enter monthly sales and taxable purchases, see projected tax under 3-wari, simplified and general tax, and get a reminder before the filing deadline. It also exports a summary for the tax-return software."
+    },
+    {
+      "id": "ea-02",
+      "title": "Simple side-income ledger for salaried workers in Japan (resale, gigs, freelance)",
+      "problem": "Salaried people with side income from Mercari-style resale or gigs have to keep sales and expense records. Since the October 2022 guidance change, keeping books is the main factor in whether the income counts as business income. Most bookkeeping apps assume a full business. Resale-focused apps exist but do not cover mixed income like gigs and freelance.",
+      "who_feels_it": {"group": "Japanese office workers with side jobs or resale income", "how_many": "A doda survey from August 2023 found 8.4% of 15,000 workers do a side job now. A July 2025 Job Soken survey of 357 people found 39.2% have done one. Applying 8.4% to Japan's workforce would give several million, but this is not a sourced figure."},
+      "gap_type": "missing_here",
+      "why_now": "Companies allow side jobs more often. Mynavi found 72.5% of firms permitted them in 2025, up 1.7 points. Side-income bookkeeping now affects how the tax office classifies income.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "Yayoi explains that after the October 2022 revision, the old 3 million yen guideline for side income was dropped and keeping books became the key factor.", "url": "https://www.yayoi-kk.co.jp/shinkoku/oyakudachi/fukugyo-300man/"},
+        {"claim": "Mynavi reported in September 2025 that 72.5% of firms permit side jobs, up 1.7 points.", "url": "https://career-research.mynavi.jp/reserch/20250930_101865/"},
+        {"claim": "Sellerbook is listed on the Japanese App Store as a flea-market sales manager covering Mercari, Rakuma and Yahoo Auctions, with a 4.6 rating.", "url": "https://apps.apple.com/JP/app/id1155107559"}
+      ],
+      "existing_tools": [
+        {"name": "Sellerbook (Japan)", "gap": "Built around flea-market resale; I could not confirm support for gig or freelance income, or what its paid tier costs."},
+        {"name": "freee / Money Forward personal plans (Japan)", "gap": "Aimed at full filing, more than a salaried worker with a small side income needs."}
+      ],
+      "subscription_case": "Records are needed all year and the tax export once a year, so people can pay a small monthly fee. A competitor may be good enough on a free tier, so demand for payment is unproven.",
+      "countries": ["Japan"],
+      "solution_idea": "A lightweight ledger for sales, costs and receipt photos across several income sources, with a year-end summary in the format used on the tax return and a reminder for the filing period."
+    },
+    {
+      "id": "ea-03",
+      "title": "Year-round expense and deduction tracker for Korean 3.3% freelancers",
+      "problem": "Korean freelancers and part-timers have 3.3% withheld on pay and must file income tax every May. Refund apps (Samjeomsam, Toss Save-it, 1-bun) only help at filing time and take a commission of roughly 10-20% of the refund. Nothing flat-priced helps people collect expenses and deductions through the year so the May refund is bigger and the free Hometax filing is easy.",
+      "who_feels_it": {"group": "Korean freelancers, gig workers and part-timers paid with 3.3% withholding", "how_many": "Not sized with a source here. Anyone with any freelance income must file, according to Korean tax guides, and the group is in the millions, but this needs a source."},
+      "gap_type": "missing_here",
+      "why_now": "Complaints about refund-app commissions have run for years and were reported again in 2025, and free Hometax filing helpers from the tax office exist, which lowers the barrier for a tool that prepares the data.",
+      "lens": ["wishes", "paying_already"],
+      "evidence": [
+        {"claim": "A 2025 Korean news item reports a user who paid a 17% fee to a refund app and felt it was unfair.", "url": "https://kbmaeil.com/article/20250706500017"},
+        {"claim": "A 2024 Korean article states that checking the refund is free but a 10-20% fee applies to actually claiming it, and names Samjeomsam, Toss Save-it and 1-bun as tax-tech apps.", "url": "https://economist.co.kr/article/view/ecn202406200005"},
+        {"claim": "A 2026 guide explains that the 3.3% rate ignores expenses and deductions, so including them often lowers the final tax, and that Hometax filing is free.", "url": "https://wikidocs.net/blog/@Insight_Lab/22657/"}
+      ],
+      "existing_tools": [
+        {"name": "Samjeomsam, Toss Save-it, 1-bun (Korea)", "gap": "They work on the annual refund only and charge a percentage commission. They do not collect expenses during the year."},
+        {"name": "Hometax / Sontax (Korea, National Tax Service)", "gap": "Free but a filing portal, not a year-round expense or deduction organiser."}
+      ],
+      "subscription_case": "A flat fee of about $2 a month beats a percentage cut for people with a bigger refund, and expense logging is a monthly habit. May is a clear annual moment to convert users.",
+      "countries": ["South Korea"],
+      "solution_idea": "A phone app that reads receipts and card/payment notifications, tags work expenses, estimates the refund as the year goes on, and exports a ready list for Hometax filing."
+    },
+    {
+      "id": "ea-04",
+      "title": "Official-notice explainer for foreign residents in Japan",
+      "problem": "Foreign residents get letters and notices from ward offices, tax and pension offices in difficult Japanese, with deadlines. Reports describe people signing documents without being sure what they say and still feeling unsure after using AI translation. General translators give text, not what to do and by when.",
+      "who_feels_it": {"group": "Foreign residents of Japan, including permanent residents, workers and students", "how_many": "4,125,395 at the end of 2025, up 9.5% on the year (Immigration Services Agency, via Nippon.com)"},
+      "gap_type": "missing_everywhere",
+      "why_now": "The foreign population passed 4 million for the first time in 2025 and keeps growing. LLM vision now makes reading a photographed letter cheap.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "The foreign resident count reached a record 4,125,395 at the end of 2025, up 356,418 on the year (March 2026 report).", "url": "https://www.nippon.com/en/news/yjj2026032700900"},
+        {"claim": "A January 2026 Japanese news item reports anxiety about signing documents without understanding them, and that AI translation did not fully remove the worry.", "url": "https://material.human.sankei.co.jp/news/2026/20260104.html"},
+        {"claim": "The Japanese government plans subsidies for staff helping foreign residents at ward counters, which shows official channels are stretched.", "url": "https://asianews.network/?p=267352"}
+      ],
+      "existing_tools": [
+        {"name": "Google Translate / DeepL camera translation (global)", "gap": "Literal translation only. No explanation of what the letter requires, deadlines, which office to contact, or a reminder."},
+        {"name": "Government multilingual guides (Japan)", "gap": "Static general information, not tied to the user's own letter."}
+      ],
+      "subscription_case": "Every household gets letters every month (tax, insurance, pension, school, utilities), and mistakes cost real money. About $2 a month with a monthly scan cap fits the cost of the vision model.",
+      "countries": ["Japan"],
+      "solution_idea": "Photograph a letter and get a short plain-language summary in the user's language, what action is needed, the deadline, and a calendar reminder. Add a saved inbox of past letters. Cap monthly scans to control costs."
+    },
+    {
+      "id": "ea-05",
+      "title": "Freelance Act order-terms and payment-deadline tool (Japan)",
+      "problem": "Since 1 Nov 2024 the Freelance Act requires clients to state the work, pay amount, payment date and other terms in writing or electronically. Payment is due within 60 days of delivery according to one source. Both freelancers and small clients who have employees are covered. Free templates exist, but small clients and freelancers have no simple tool that tracks each job's terms and payment due dates.",
+      "who_feels_it": {"group": "Japanese freelancers and the small businesses and individuals who hire them", "how_many": "Not sized with a source here"},
+      "gap_type": "missing_here",
+      "why_now": "The law took effect in November 2024 and government enforcement of warnings and corrective orders began, so small clients now need a habit of documenting every job.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "The Freelance Act took effect on 1 Nov 2024 and requires clients to show scope, deliverables, pay and payment date in writing or electronically.", "url": "https://www.legal500.com/developments/?p=45290"},
+        {"claim": "A Money Forward guide updated January 2026 says the clients covered include individuals with employees, that terms can go by email or chat, and that it offers a free order-form template.", "url": "https://biz.moneyforward.com/contract/basic/16213/"}
+      ],
+      "existing_tools": [
+        {"name": "Money Forward free order template and cloud contract (Japan)", "gap": "Templates and a contract suite for companies. Nothing found that tracks job terms and the 60-day payment date for solo clients and freelancers."},
+        {"name": "freee / Misoca invoicing (Japan)", "gap": "Focused on invoices after the work, not on order terms and legal due dates before it."}
+      ],
+      "subscription_case": "Every new job needs terms and a payment check. Value is weaker than in the other cards because free templates cover the one-off need, so this may only work as a feature of a wider tool.",
+      "countries": ["Japan"],
+      "solution_idea": "A mobile app that turns a chat message into a compliant order notice by filling the required fields, sends it, and tracks each job with a payment due-date alert and late-payment record for the freelancer."
+    },
+    {
+      "id": "ea-06",
+      "title": "Settlement-file profit calculator for Korean one-person online sellers",
+      "problem": "Sellers on Smartstore, Coupang and similar marketplaces need profit per product after fees, ad costs, returns, shipping and VAT. Instead of an app they buy Excel templates on Kmong or use a free web calculator. Fee rules change (a June 2025 revamp is mentioned) and Excel files break when settlement file formats change.",
+      "who_feels_it": {"group": "Korean one-person online sellers on Smartstore, Coupang, 11st and similar", "how_many": "Not sized with a source here"},
+      "gap_type": "missing_everywhere",
+      "why_now": "Marketplace fee schedules changed in 2025, and sellers now run several channels at once.",
+      "lens": ["paying_already", "wishes"],
+      "evidence": [
+        {"claim": "Kmong sellers offer Excel files where the user pastes the marketplace settlement file and gets net profit per product after fees, ad, return, shipping and packing costs.", "url": "https://kmong.com/gig/851278"},
+        {"claim": "A free web margin calculator for Smartstore, Coupang and 11st exists, but its fee rates follow the June 2025 revamp and may be stale.", "url": "https://demoday.co.kr/tools/smartstore-margin"},
+        {"claim": "A Kmong multichannel dashboard template targets sellers who want to avoid expensive settlement programs.", "url": "https://kmong.com/gig/752258"}
+      ],
+      "existing_tools": [
+        {"name": "Kmong Excel templates (Korea)", "gap": "Manual paste, break when file formats change, one-off purchase with no updates."},
+        {"name": "Demoday margin calculator (Korea)", "gap": "Free web calculator for a single sale price. It does not process the settlement files or track profit over time."}
+      ],
+      "subscription_case": "Fee schedules and file formats change, so a subscription pays for updates. Monthly settlement is a regular need. Sellers who already pay for Excel files show some willingness to pay, though the files I saw are one-off sales.",
+      "countries": ["South Korea"],
+      "solution_idea": "A web app where the seller uploads marketplace settlement files and sees profit per product and per month, with fee tables kept up to date. Keep the first version to Smartstore and Coupang."
+    }
+  ]
+}

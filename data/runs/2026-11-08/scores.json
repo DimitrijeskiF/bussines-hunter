@@ -1,0 +1,264 @@
+{
+  "scores": [
+    {
+      "id": "sole-trader-tax-threshold-watcher",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 3, "why": "Turnover builds every month and filings recur, but the acute worry is felt mainly by traders nearing a limit, not by everyone every week."},
+        "audience_size":      {"score": 3, "why": "Sole traders in six regimes (Germany, Italy, Netherlands, Quebec, India, Japan) add up to millions, but only those near a limit feel the pain, each country is a separate localised product, and no headcount is sourced."},
+        "willingness_to_pay": {"score": 4, "why": "Calcul Taxes Quebec charges CAD 3.99 a month with about 2.8 thousand ratings, German suites charge about 9 EUR a month, and Italian forfettari pay online accountants such as Fiscozen about 450-600 EUR a year partly for turnover monitoring."},
+        "competition_gap":    {"score": 3, "why": "No dedicated multi-country limit tracker was found, but bookkeeping suites, online accountants (Fiscozen monitors turnover), free calculators and spreadsheets each cover part of the need."},
+        "buildability":       {"score": 4, "why": "A ledger with CSV import and one yearly rules file per country is a small app and a one-country version fits in three months, while bank and UPI statement parsing per country adds work."},
+        "cheap_to_run":       {"score": 4, "why": "Mostly stored figures and alerts, so cost is tiny unless the near-automatic income entry the card asks for relies on paid bank-feed connectors."},
+        "cheap_reach":        {"score": 3, "why": "The Quebec app shows a niche tax app can grow through app store search, but German and Italian search terms are dominated by bookkeeping suites and Indian traders need local offline channels."}
+      }
+    },
+    {
+      "id": "freelancer-foreign-income-tax-ledger",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 3, "why": "Payouts arrive monthly and proof must be kept, but the real pressure peaks at yearly filing and when tax notices arrive."},
+        "audience_size":      {"score": 3, "why": "Probably one to a few million freelancers paid from abroad across Nigeria, Pakistan and Argentina, but no card gives a sourced count and Argentine exporters are a small share of 1.84 million monotributistas."},
+        "willingness_to_pay": {"score": 2, "why": "No evidence that freelancers in these markets pay a subscription for tax records; the only paid tool found (Moniebook at 6,000-8,500 naira) targets businesses, and the African scout calls these markets price sensitive."},
+        "competition_gap":    {"score": 4, "why": "Scouts in all three countries found only fee-comparison blogs, generic bookkeeping and official monitors, with nothing built around CBN rates, the Pakistani bank-channel test or monotributo caps."},
+        "buildability":       {"score": 3, "why": "The ledger is simple, but sources disagree on the core rules (Section 65F, whether export dollars count toward the monotributo cap), so getting the compliance logic right per country is the hard part."},
+        "cheap_to_run":       {"score": 5, "why": "Manual or forwarded entries, stored exchange rates and receipt photos cost almost nothing per user."},
+        "cheap_reach":        {"score": 3, "why": "Freelancers are online and FBR notices and Nigerian penalties drive searches, but no card shows a specific community channel or app store demand."}
+      }
+    },
+    {
+      "id": "micro-e-invoicing-app",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 4, "why": "Every invoice or receipt must go through the system, so anyone trading uses it at least monthly, and shops issuing Egyptian e-receipts use it daily."},
+        "audience_size":      {"score": 3, "why": "Five countries with different systems, each with hundreds of thousands to low millions of affected freelancers and micro-sellers (UAE freelancers, Saudi sellers above SAR 187,500, Polish sole traders), none sized with a source."},
+        "willingness_to_pay": {"score": 4, "why": "Small sellers already pay far more (Qoyod SAR 60-140 a month, Mazeed AED 99, Parasut 150 TL plus receipt credits, one-off SAR 999 licences), although free state tools and free apps like FatooraZ set a floor."},
+        "competition_gap":    {"score": 3, "why": "The gap is price and simplicity rather than a missing product: accounting suites, free state apps (KSeF app, e-Mikrofirma, FatooraZ) and vendors giving modules away all compete."},
+        "buildability":       {"score": 2, "why": "Each country needs its own certified integration (ZATCA onboarding and stamping, a UAE accredited service provider, Egyptian approved software, a Turkish integrator), which is slow for a small team even for one country."},
+        "cheap_to_run":       {"score": 2, "why": "Integrator and service-provider fees are charged per document (Parasut sells 100 e-SMM credits for 400 TL), which can eat most of a $2-3 price."},
+        "cheap_reach":        {"score": 3, "why": "Deadlines create search spikes and accountants can refer clients, but established vendors already compete for the same e-invoicing keywords."}
+      }
+    },
+    {
+      "id": "platform-seller-tax-tracker",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 3, "why": "Mexican sellers face monthly filings, but EU DAC7 sellers feel it once a year and Philippine thresholds are annual, so frequency is mixed."},
+        "audience_size":      {"score": 3, "why": "Millions sell on these platforms, but those actually facing withholding or reporting are a subset (about 100,000 Vietnamese sellers paid via the portal in five months of 2025), spread over many countries."},
+        "willingness_to_pay": {"score": 3, "why": "Heru in Mexico has charged about 200 pesos a month for gig and platform tax help and Symph charges PHP 499 a month, so payment exists but at higher prices and is unproven at $1-3."},
+        "competition_gap":    {"score": 2, "why": "Mexico, the lead market, already has Heru, which integrates Uber, Rappi and Mercado Libre data; the Philippines has Taxtrackr and Symph, Vietnam has free filing software and Margeo serves EU resellers."},
+        "buildability":       {"score": 3, "why": "Parsing payout and retention files for each platform and country plus rules files is steady work; a one-country version is feasible but file formats vary and change."},
+        "cheap_to_run":       {"score": 5, "why": "Uploaded files and stored certificates cost almost nothing per user."},
+        "cheap_reach":        {"score": 3, "why": "Seller forums and groups exist and DAC7 reports create January searches, but no card shows a proven free channel."}
+      }
+    },
+    {
+      "id": "late-payment-chaser",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 3, "why": "Invoices go out monthly and about 85% of freelancers are paid late at least sometimes, but chasing is needed only when a payment is overdue."},
+        "audience_size":      {"score": 4, "why": "Freelancers and small suppliers in the US, Canada, India and Japan number in the tens of millions, though cards give no verified total and many already invoice from tools with reminders."},
+        "willingness_to_pay": {"score": 3, "why": "Freelancers pay for invoicing suites and chaser tools at $9-49 a month, but nothing shows they pay for a standalone chaser at $1-3."},
+        "competition_gap":    {"score": 2, "why": "Free invoicing tools with reminders (Wave, Invoice Ninja, Invoicely) and many new indie chasers (Past Due, Invoke, ChaseFlow, PayMeSwift) crowd the US; only the India 45-day and Japan Freelance Act angles look open."},
+        "buildability":       {"score": 4, "why": "Invoice reading, due-date tracking and scheduled email or SMS reminders are simple; WhatsApp sending needs Business API templates."},
+        "cheap_to_run":       {"score": 4, "why": "Email is nearly free and a few SMS or WhatsApp utility messages a month stay well under $0.50."},
+        "cheap_reach":        {"score": 3, "why": "Freelancer communities and late-payment searches exist, but those keywords are contested by funded invoicing brands."}
+      }
+    },
+    {
+      "id": "driver-true-take-home",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 5, "why": "Drivers work and watch earnings daily, fees and per-km pay change often, and Brazilian drivers also face a monthly carne-leao deadline."},
+        "audience_size":      {"score": 4, "why": "Several million ride-hail and delivery drivers across Brazil, Mexico, Indonesia and neighbours, though the only sourced figure is 237,627 Mexican platform workers with IMSS access."},
+        "willingness_to_pay": {"score": 3, "why": "Brazilian drivers use GigU (formerly StopClub), which has a paid tier (4.90 EUR a month in Portugal), and Heru charged Mexican gig workers about 200 pesos a month, but Indonesian drivers netting Rp 50,000-100,000 a day are very price sensitive."},
+        "competition_gap":    {"score": 3, "why": "Brazil is already served by GigU and FinDriver and Mexico by Heru, but no localised net-pay tracker was found for Indonesian, Thai or Philippine drivers."},
+        "buildability":       {"score": 4, "why": "Screenshot or PDF import, cost logging and simple tax sums make a small app, as long as it avoids the real-time ride filtering that drew an Uber lawsuit against GigU."},
+        "cheap_to_run":       {"score": 4, "why": "On-device or cheap OCR of a daily screenshot plus stored figures keeps cost well under $0.50."},
+        "cheap_reach":        {"score": 4, "why": "Drivers cluster in WhatsApp groups, base camps and YouTube channels, and GigU's fast word-of-mouth growth in Brazil shows the channel works."}
+      }
+    },
+    {
+      "id": "savings-circle-ledger",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 4, "why": "Contributions fall due weekly or monthly and organisers chase payments every cycle."},
+        "audience_size":      {"score": 4, "why": "Rotating savings groups are widespread in Nigeria, Kenya, Ghana, Indonesia, the Philippines and Vietnam with very many members, though organisers, who would pay, are an unsized smaller group."},
+        "willingness_to_pay": {"score": 2, "why": "Only Chamasoft shows paid tiers, for investment groups; the card itself flags the small ticket size and free-tier competition."},
+        "competition_gap":    {"score": 2, "why": "Many record-keeping apps already exist, including RoscaApp (free), Rounds, Tontine Money Pool Tracker with WhatsApp reminders, JoinSusu, Suki PaluwaganPal, CashMate and So Hui, even if none dominates."},
+        "buildability":       {"score": 4, "why": "A no-custody ledger with turn order, confirmation links and a shareable history page is simple, plus per-country localisation."},
+        "cheap_to_run":       {"score": 4, "why": "Data is tiny and link-based WhatsApp reminders are free, but API-sent messages to every member would add per-message cost."},
+        "cheap_reach":        {"score": 4, "why": "Each organiser brings in a whole group through invite and history links, giving a built-in free spread."}
+      }
+    },
+    {
+      "id": "marketplace-profit-checker",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 4, "why": "Settlements arrive weekly to monthly and sellers watch margins often, with Thai fee changes on 1 Dec 2026 and a reassessment after 31 May 2027."},
+        "audience_size":      {"score": 3, "why": "About 1.2 million Thai sellers (sourced) plus unsized Korean one-person sellers."},
+        "willingness_to_pay": {"score": 3, "why": "Korean sellers buy Excel settlement templates on Kmong, but as one-off purchases, and free calculators exist."},
+        "competition_gap":    {"score": 2, "why": "BigSeller's free plan already gives per-order profit reports for Shopee, Lazada and TikTok Shop up to 1,500 orders a month, and free fee calculators exist in both countries."},
+        "buildability":       {"score": 4, "why": "Parsing settlement files for two or three marketplaces and keeping fee tables current is manageable for a small team."},
+        "cheap_to_run":       {"score": 5, "why": "Spreadsheet-style file processing costs almost nothing per user."},
+        "cheap_reach":        {"score": 3, "why": "Seller groups and Naver cafes exist and the fee cut is in the news, but no card shows a proven free channel and ERP vendors already market there."}
+      }
+    },
+    {
+      "id": "fake-payment-checker",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 5, "why": "Shops take wallet payments all day, so checking each one and closing the till is a daily task."},
+        "audience_size":      {"score": 4, "why": "Yape had about 9 million users in 2023 and Nequi and Daviplata about 14 million each, plus Brazil's Pix merchants, giving millions of micro-merchants."},
+        "willingness_to_pay": {"score": 3, "why": "The money case is clear (one avoided fake S/ 100 payment pays for months), but nobody was found paying for such a tool yet."},
+        "competition_gap":    {"score": 4, "why": "Yape's security code and sound work only inside Yape, and the only third-party tools found (NotiYape forwarding, Pago Voz Pro with about 1,400 installs) are tiny; nothing combines wallets with screenshot checking."},
+        "buildability":       {"score": 4, "why": "An Android notification reader for Yape and Plin with on-device matching fits three months; supporting many Brazilian bank apps and their changing notification formats is the ongoing work."},
+        "cheap_to_run":       {"score": 5, "why": "Everything runs on the phone from notifications, so server cost is near zero."},
+        "cheap_reach":        {"score": 3, "why": "Press coverage of fake yapeos and word of mouth among shopkeepers help, but micro-merchants are reached mostly offline and no channel is proven."}
+      }
+    },
+    {
+      "id": "official-letter-explainer",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 3, "why": "Households get official mail regularly, but letters that truly need explaining (tax, pension, insurance) come a few times a year rather than weekly."},
+        "audience_size":      {"score": 3, "why": "About 4.1 million foreign residents in Japan (sourced), fewer households, and many long-term residents read Japanese."},
+        "willingness_to_pay": {"score": 2, "why": "No evidence anyone pays monthly for this; the closest apps are freemium and free AI chat apps already explain photographed letters."},
+        "competition_gap":    {"score": 2, "why": "xPlainly already explains letters in 22 languages with deadlines and calendar export, Billingual targets bills in Japan, and ChatGPT or Gemini camera input does much of this free."},
+        "buildability":       {"score": 4, "why": "A vision-model call plus a reminder and a saved inbox is quick to build, with accuracy on dense Japanese forms the main testing job."},
+        "cheap_to_run":       {"score": 4, "why": "With a cheap vision model and the planned monthly scan cap, a few letters per user cost a few cents."},
+        "cheap_reach":        {"score": 3, "why": "Foreign-resident communities in Japan are active online, but the cards give no channel evidence."}
+      }
+    },
+    {
+      "id": "school-app-digest",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 4, "why": "School notices and deadlines come every week for about 10 months a year, with summer churn."},
+        "audience_size":      {"score": 4, "why": "US and Canadian parents of school-age children number in the tens of millions, but the card has no sourced count of parents who struggle."},
+        "willingness_to_pay": {"score": 3, "why": "The card gives no evidence of parents paying for this, so payment at $1-3 for a digest is unproven."},
+        "competition_gap":    {"score": 2, "why": "Several AI school-email digest tools have already launched or are in early access (SchoolDigest, Student Guardian, BackpackBuddy, TLDR Parents, Ario, Skoolit)."},
+        "buildability":       {"score": 5, "why": "Email forwarding, small-model extraction and a calendar feed can be shipped in weeks, as the indie competitors show."},
+        "cheap_to_run":       {"score": 4, "why": "School messages are short, so small-model extraction costs cents per family per month."},
+        "cheap_reach":        {"score": 3, "why": "Parent groups and back-to-school season give channels, but the same channels are now contested by many lookalike apps."}
+      }
+    },
+    {
+      "id": "kenya-hustler-compliance",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 4, "why": "SHA contributions are due monthly and eTIMS invoicing applies to sales."},
+        "audience_size":      {"score": 3, "why": "About 32 million registered with SHA but only about 5 million contribute, and the self-employed who would use an app are one slice of a single country."},
+        "willingness_to_pay": {"score": 1, "why": "Five in six registered Kenyans do not even pay the SHA contribution, the official paybill, USSD and eTIMS Lite are free, and free web calculators exist."},
+        "competition_gap":    {"score": 3, "why": "No combined SHA, eTIMS and M-Pesa tool was found, but each piece is covered free by official channels and calculator sites."},
+        "buildability":       {"score": 3, "why": "A reminder-and-estimate version is simple, but M-Pesa SMS reading runs into Google Play SMS-permission rules and real eTIMS invoicing needs KRA integration."},
+        "cheap_to_run":       {"score": 5, "why": "On-device SMS parsing and reminders cost almost nothing."},
+        "cheap_reach":        {"score": 3, "why": "Confusion about SHA drives searches and Swahili social channels exist, but informal traders are hard to reach without field work."}
+      }
+    },
+    {
+      "id": "family-scam-shield",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 3, "why": "Scam messages reach seniors often, but the cards give no weekly frequency and use depends on the senior forwarding each one."},
+        "audience_size":      {"score": 4, "why": "Brazil's large senior population (44% victims or targets of scams per Febraban) plus Mexico and Argentina gives tens of millions of potential users, with adult children as payers."},
+        "willingness_to_pay": {"score": 2, "why": "No evidence of Brazilians paying for scam checks; GolpeZero's price is unknown and free AI assistants already answer is-this-a-scam questions."},
+        "competition_gap":    {"score": 3, "why": "GolpeZero checks pasted messages and WhatsApp's Scam Alert is coming, but no family-alert flow for seniors was found."},
+        "buildability":       {"score": 4, "why": "A share target or WhatsApp number with a cheap text model and a family notification is simple, though WhatsApp Business API approval is a dependency."},
+        "cheap_to_run":       {"score": 4, "why": "Text-only checks cost a fraction of a cent each; voice replies and WhatsApp template messages add a little."},
+        "cheap_reach":        {"score": 3, "why": "Scam news is constant and adult children are reachable on social media, but no channel is proven."}
+      }
+    },
+    {
+      "id": "side-earner-year-round-tax-records",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 2, "why": "Expense logging can be monthly, but the felt pain is the yearly filing moment, and the card itself flags seasonal churn."},
+        "audience_size":      {"score": 4, "why": "Millions of Japanese side-jobbers, Korean 3.3% earners and US tipped workers, though each group is sized only loosely."},
+        "willingness_to_pay": {"score": 3, "why": "Koreans pay 10-20% refund commissions and Qualified Tips sells a Pro tier, so people pay, but per refund or yearly rather than monthly."},
+        "competition_gap":    {"score": 2, "why": "All three markets are crowded: Samjeomsam, Toss and free Hometax in Korea, freee, Money Forward and Sellerbook in Japan, and many US tip trackers."},
+        "buildability":       {"score": 4, "why": "A one-country ledger with receipt photos and a filing export is simple to ship."},
+        "cheap_to_run":       {"score": 4, "why": "Receipt OCR and stored records stay well under $0.50 a month."},
+        "cheap_reach":        {"score": 2, "why": "Filing-season search is dominated by heavily marketed refund apps and accounting suites, so free reach would be hard."}
+      }
+    },
+    {
+      "id": "paylater-due-date-tracker",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 4, "why": "Instalments fall due every month and a late one brings a penalty."},
+        "audience_size":      {"score": 3, "why": "Paylater is widespread among young Indonesians, but the card could not confirm how many juggle several services."},
+        "willingness_to_pay": {"score": 2, "why": "Users juggling paylater are short of cash and no paid tracker was found; the case rests only on avoided 5% late fees."},
+        "competition_gap":    {"score": 2, "why": "Each paylater app already sends its own reminders (Shopee notifies 10 days ahead), and free budgeting and bill-reminder apps can hold a combined list."},
+        "buildability":       {"score": 4, "why": "Manual entry is trivial; reading notifications per lender is more work and needs the legal check the card mentions."},
+        "cheap_to_run":       {"score": 5, "why": "A local due-date list with notifications costs almost nothing."},
+        "cheap_reach":        {"score": 3, "why": "Indonesian personal-finance content and Play Store search could work, but there is no evidence of demand for this tool."}
+      }
+    },
+    {
+      "id": "dialect-voice-note-transcriber",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 4, "why": "Heavy voice-note users receive messages daily, and people already pay Fiverr transcribers and buy credits in a Swiss dialect app."},
+        "audience_size":      {"score": 3, "why": "Swiss German, Darija and Egyptian Arabic have tens of millions of speakers, but those who need notes as text are an unsized subset."},
+        "willingness_to_pay": {"score": 3, "why": "The Swiss dialect app sells credits and Fiverr sellers charge for Darija transcription, but Moroccan and Egyptian users are price sensitive."},
+        "competition_gap":    {"score": 3, "why": "A paid Swiss competitor exists and WhatsApp's transcription language list keeps growing, while Darija and Egyptian dialect look unserved."},
+        "buildability":       {"score": 3, "why": "The share-sheet app is easy, but usable accuracy on unwritten dialects needs model tuning beyond a typical three-month app build."},
+        "cheap_to_run":       {"score": 2, "why": "Speech-to-text is paid per minute, so heavy users can exceed $0.50 a month unless a tight minute cap and self-hosted models are used."},
+        "cheap_reach":        {"score": 3, "why": "App store searches such as Schweizerdeutsch uebersetzen exist and the share sheet sits inside WhatsApp, but no strong channel is shown."}
+      }
+    },
+    {
+      "id": "appointment-slot-alerts",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 2, "why": "The need is urgent but ends once the slot is booked, so most users need it only once or twice a year."},
+        "audience_size":      {"score": 3, "why": "Many residents and expats need these appointments each year (two of three Berlin requests fail), but no count is sourced."},
+        "willingness_to_pay": {"score": 4, "why": "CitaPing reportedly charges from 9.90 EUR for Spanish slot alerts and resellers sell citas for 30-500 EUR, though as one-off payments."},
+        "competition_gap":    {"score": 3, "why": "Free single-city tools (Buergerwecker, cita-bot), paid CitaPing and Telegram channels exist, but no multi-country alert service was found."},
+        "buildability":       {"score": 2, "why": "Each city and office needs its own watcher against captchas and bot protection, with legal risk from site terms."},
+        "cheap_to_run":       {"score": 3, "why": "Polling cost is shared per office rather than per user, but proxies and anti-bot workarounds add steady cost."},
+        "cheap_reach":        {"score": 4, "why": "High-intent searches and expat forums make free reach realistic, as the open-source cita-bot and press coverage of Buergerwecker show."}
+      }
+    },
+    {
+      "id": "household-employer-pay-records",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 3, "why": "Pay is due monthly or each payday, but Musaned and banks already handle the payment, so the record-keeping pain is light."},
+        "audience_size":      {"score": 3, "why": "Millions of domestic workers imply many Saudi and UAE employer households, plus Australian micro-employers, but none is sized."},
+        "willingness_to_pay": {"score": 2, "why": "The card itself says willingness to pay is unproven, and the closed Australian clearing house was free."},
+        "competition_gap":    {"score": 2, "why": "Musaned already keeps wage records, advances and loans, and Australian payroll software and fund portals cover super."},
+        "buildability":       {"score": 3, "why": "A Saudi record app is simple, but Australian super payments need a SuperStream partner, making this two unrelated products."},
+        "cheap_to_run":       {"score": 3, "why": "The ledger is cheap, but partner fees for super payments could break a $3 price, as the card warns."},
+        "cheap_reach":        {"score": 2, "why": "Two unrelated audiences (Gulf households and Australian micro-employers) split the marketing effort, and no channel evidence is given."}
+      }
+    },
+    {
+      "id": "uae-arabic-practice-for-kids",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 4, "why": "Arabic lessons run daily or weekly through the school year, so the practice need is weekly."},
+        "audience_size":      {"score": 2, "why": "Non-Arab pupils in UAE private schools are hundreds of thousands at most, in one country."},
+        "willingness_to_pay": {"score": 4, "why": "UAE parents pay private tutors, and Arabits already charges AED 99.9 a year or $4.99 a month for ministry-aligned non-native Arabic."},
+        "competition_gap":    {"score": 2, "why": "Alef Education's Arabits is already aligned to the UAE ministry framework for Arabic as an additional language, Abjadiyat follows ministry standards for young children, and Amal, Arabee and Lugha compete."},
+        "buildability":       {"score": 3, "why": "The app shell is simple, but grade-by-grade syllabus content and children's Arabic speech checks take real content work."},
+        "cheap_to_run":       {"score": 5, "why": "Prebuilt content and on-device speech checks cost almost nothing per user."},
+        "cheap_reach":        {"score": 3, "why": "Class WhatsApp groups and parent communities could spread it, but no channel evidence is given."}
+      }
+    },
+    {
+      "id": "gulf-family-document-expiry-tracker",
+      "hard_filter": {"rejected": false, "reason": null},
+      "checks": {
+        "pain_frequency":     {"score": 1, "why": "Documents come due only a few times a year, as the card itself says."},
+        "audience_size":      {"score": 3, "why": "Several million Gulf expats, but many have employers handle renewals and no count is confirmed."},
+        "willingness_to_pay": {"score": 2, "why": "The only paid tracker found charges $12.99 a year and has no ratings yet."},
+        "competition_gap":    {"score": 2, "why": "Government apps (UAEICP, DubaiNow, Absher, Muqeem) already alert for their own documents, and Dubai Reminder and generic reminder apps cover the rest."},
+        "buildability":       {"score": 4, "why": "Reminders, family profiles, Hijri dates and a scan vault are simple, though the vault needs security care."},
+        "cheap_to_run":       {"score": 5, "why": "Reminders and encrypted document storage cost almost nothing."},
+        "cheap_reach":        {"score": 3, "why": "Large expat Facebook and WhatsApp groups exist, but a rarely opened reminder app gets little word of mouth."}
+      }
+    }
+  ]
+}

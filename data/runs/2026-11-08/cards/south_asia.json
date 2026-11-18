@@ -1,0 +1,115 @@
+{
+  "region": "south_asia",
+  "summary": [
+    "Search tools were rate-limited and most results were vendor pages, so evidence is thinner than ideal. Cards below rely on news and official-rule coverage where possible.",
+    "The strongest theme is compliance fear among small earners: UPI-based GST notices to small traders in India (2025), the DPDP data rules that become enforceable in 2027, and Pakistan's tightening rules for freelancer foreign income.",
+    "Indian small-business tools such as Vyapar and Khatabook already prove shopkeepers pay for software, but they charge about 2,500-3,400 rupees a year and focus on billing, leaving cheap single-purpose tools unserved.",
+    "Crowded areas I checked and rejected: gig-worker earnings trackers (free apps like KitnaBana and DhanRakh exist), khata ledgers (OkCredit, Khatabook), Bangladesh f-commerce order tools (many local vendors), and WhatsApp medicine reminders (TextMyPill from 99 rupees a month).",
+    "Bangladesh and Sri Lanka were barely covered because of search limits and deserve a follow-up."
+  ],
+  "cards": [
+    {
+      "id": "sa-01",
+      "title": "UPI turnover watch for small traders (GST threshold alerts)",
+      "problem": "Small shopkeepers and service providers in India receive mixed personal and business UPI money. In 2025 several states sent GST notices based on UPI receipts above 40 lakh rupees (goods) or 20 lakh (services), and traders were surprised because they never tracked yearly totals or exempt-goods sales. Nothing simple separates personal from business UPI credits, tracks the running total against the thresholds and warns early.",
+      "who_feels_it": {"group": "Small traders, vendors and service providers who take UPI payments", "how_many": "Millions of UPI-accepting micro merchants; exact count not confirmed in sources. The notice wave hit thousands in Karnataka alone and other states were reported to follow."},
+      "gap_type": "missing_everywhere",
+      "why_now": "The July 2025 Karnataka notice row made UPI-based tax scrutiny a mainstream fear, and data matching is expanding.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "Karnataka's tax department issued notices from UPI data covering 2021-22 to 2024-25 to traders above the turnover threshold, causing protests in July 2025.", "url": "https://www.business-standard.com/india-news/karnataka-upi-gst-notices-vendors-demand-relief-turn-to-cash-125072300585_1.html"},
+        {"claim": "A vegetable seller received a roughly 29 lakh rupee notice; thresholds are 40 lakh for goods and 20 lakh for services, and exempt goods are not taxable.", "url": "https://www.angelone.in/news/upi-transactions-lead-to-rs-29-lakh-gst-notice-for-vegetable-seller"},
+        {"claim": "A CA warned in July 2025 that small businesses should avoid mixing personal inflows with business receipts and keep records of digital sales.", "url": "https://www.businesstoday.in/latest/economy/story/ca-flags-gst-risk-for-high-upi-payments-small-businesses-should-be-cautious-484916-2025-07-16"}
+      ],
+      "existing_tools": [
+        {"name": "Vyapar / Khatabook / myBillBook (India)", "gap": "Billing and ledger apps; they do not import UPI statements, classify personal vs business credits, or warn on GST turnover thresholds, and paid plans cost far more than $1-3 a month."}
+      ],
+      "subscription_case": "Fear of a tax notice recurs every month, and a running total plus year-end record pack is something a trader would keep paying about 50-150 rupees a month for.",
+      "countries": ["India"],
+      "solution_idea": "A mobile app that reads UPI statement SMS or PDF exports, lets the user tag credits as personal, exempt or taxable in one tap, shows turnover vs thresholds, and exports a year-wise proof pack in Hindi and English."
+    },
+    {
+      "id": "sa-02",
+      "title": "Tax and bank-proof ledger for Pakistani freelancers",
+      "problem": "Pakistani freelancers must receive foreign income through approved banks (guides cite an 80% test) and keep bank credit advices, withholding certificates and PRCs to qualify for the 0.25% or 1% export tax rates. FBR is cross-checking bank data and sending notices. Freelancers track this in scattered screenshots and spreadsheets and rely on blog guides that disagree with each other.",
+      "who_feels_it": {"group": "Pakistani freelancers and IT exporters paid via Payoneer, banks and platforms", "how_many": "Hundreds of thousands of freelancers; no sourced figure found, needs confirming."},
+      "gap_type": "missing_here",
+      "why_now": "The 2026-27 budget reportedly extended the 0.25% rate to 2029, and FBR has been issuing bulk notices to freelancers who did not declare foreign income.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "FBR planned bulk notices to registered non-filers and filers who did not declare foreign income, and went after Payoneer-routed income.", "url": "https://www.geo.tv/latest/338963-fbr-uncovers-rs60-billion-overseas-transactions-mega-scam"},
+        {"claim": "A 2026 guide says PSEB-registered freelancers pay 0.25% and others 1%, with an 80% approved-bank-channel condition; sources disagree on Section 65F details.", "url": "https://cssprep.com.pk/freelancer-income-tax-pakistan/"},
+        {"claim": "A 2026-27 guide says the 0.25% rate was extended to 2029 and advises monthly reconciliation of withholding certificates to a ledger.", "url": "https://www.toolsfluent.com/blog/freelancer-tax-pakistan-2026-guide"}
+      ],
+      "existing_tools": [
+        {"name": "Generic bookkeeping tools (Beancount, QuickBooks, Wave)", "gap": "Not built around PSEB, 154A, PRC and the 80% bank-channel test; English-only and aimed at accountants."},
+        {"name": "Bank freelancer accounts (ABL and others, Pakistan)", "gap": "Give accounts, not a ledger that tracks compliance conditions or prepares filing data."}
+      ],
+      "subscription_case": "Income arrives monthly and the compliance proof must be kept all year; about 300-500 PKR a month is small next to tax stakes.",
+      "countries": ["Pakistan"],
+      "solution_idea": "An app where freelancers log each foreign receipt, attach bank advice and certificate photos, see the share received via approved banks, and get a filing-ready summary, with Urdu and English UI."
+    },
+    {
+      "id": "sa-03",
+      "title": "DPDP compliance starter pack for tiny businesses",
+      "problem": "India's DPDP Rules were notified on 14 November 2025 and main obligations become enforceable around 13 May 2027. They apply to any entity handling personal data regardless of size, so clinics, tutors, coaching classes, boutiques and freelancers who hold customer phone numbers need a consent notice, a withdrawal route and a record. Enterprise tools exist; nothing cheap and simple serves one-person shops.",
+      "who_feels_it": {"group": "Small shops, coaching centres, freelancers and online sellers collecting customer contact data", "how_many": "Millions of micro and small businesses in India; no precise figure sourced."},
+      "gap_type": "missing_here",
+      "why_now": "Rules were notified in November 2025 with an 18-month transition ending May 2027, so awareness and fear will peak through 2026-27.",
+      "lens": ["trends"],
+      "evidence": [
+        {"claim": "DPDP Rules 2025 apply to any entity processing digital personal data of people in India, with no small-business exemption, per a December 2025 legal summary.", "url": "https://www.roedl.com/en/insights/indias-dpdpa-2023-activates-with-2025-rules-revolutionizing-data-privacy-enforcement/"},
+        {"claim": "Entrepreneur India discussed the impact of the DPDP Rules on SMEs and the cost burden they face.", "url": "https://india.entrepreneur.com/news-and-trends/india-pushes-for-digital-privacy-with-dpdp-rules-2025-key/499704"},
+        {"claim": "KPMG published guidance on implementing the DPDP Rules in November 2025, showing the advisory market targets large firms.", "url": "https://assets.kpmg.com/content/dam/kpmgsites/in/pdf/2025/11/dpdp-rules-2025-guidance-to-dpdp-act-implementation.pdf"}
+      ],
+      "existing_tools": [
+        {"name": "Consultancy and enterprise DPDP platforms (Tsaaro and similar, India)", "gap": "Priced and designed for companies; no self-serve tool for a one-person business in Hindi."}
+      ],
+      "subscription_case": "Weak to medium: demand may be a one-time rush. A monthly plan works only if it adds a consent log, request handling and updates as rules change. Risk: demand is deadline-driven.",
+      "countries": ["India"],
+      "solution_idea": "A generator for privacy notices and consent QR codes in Hindi and English, plus a simple log of consents and deletion requests the owner can show if asked."
+    },
+    {
+      "id": "sa-04",
+      "title": "45-day payment chaser for micro and small suppliers",
+      "problem": "Since April 2024, Section 43B(h) makes buyers lose the tax deduction if they do not pay registered micro and small suppliers within 45 days (15 days without a written agreement). Small suppliers rarely know the rule or track due dates, and awkward chasing damages client relationships. Tools exist inside Tally and big accounting suites, not for the small supplier who needs a polite WhatsApp nudge with the legal clock.",
+      "who_feels_it": {"group": "Udyam-registered micro and small manufacturers, traders and service suppliers who sell on credit to bigger buyers", "how_many": "Millions of registered MSMEs in India; exact number not sourced here."},
+      "gap_type": "missing_here",
+      "why_now": "The rule took effect on 1 April 2024 and an industry body has lobbied to keep it, so it is stable and increasingly discussed.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "Section 43B(h), effective 1 April 2024, bars buyers from deducting unpaid MSME dues beyond 45 days (15 without a written agreement).", "url": "https://www.cashfree.com/blog/msme-45-days-payment-rule-section-43bh-explained/"},
+        {"claim": "SME Chamber asked the Finance Minister to continue the 45-day rule, showing small suppliers rely on it.", "url": "https://yourstory.com/smbstory/continue-45-day-msme-payment-rule-industry-body-fm-nirmala-sitharaman"},
+        {"claim": "TallyPrime added features for overdue MSME bills, but it serves buyers and accountants rather than suppliers.", "url": "https://tallysolutions.com/tally/streamlining-compliance-and-payments-to-msmes/"}
+      ],
+      "existing_tools": [
+        {"name": "TallyPrime 4.1 (India)", "gap": "Buyer-side compliance in a desktop accounting suite, not a supplier-side chaser."},
+        {"name": "Vyapar / myBillBook (India)", "gap": "Send payment reminders but are not built around the 45-day legal clock and are priced as yearly accounting plans."}
+      ],
+      "subscription_case": "Recovering one delayed invoice outweighs a year of fees; invoices recur monthly, so about 100 rupees a month is easy to justify. Caveat: only registered MSMEs are covered, which limits the audience.",
+      "countries": ["India"],
+      "solution_idea": "A lightweight invoice tracker where the user enters buyer and due date, then sends scheduled WhatsApp or SMS reminders citing the 43B(h) deadline and exports a formal notice and MSME Samadhaan complaint draft."
+    },
+    {
+      "id": "sa-05",
+      "title": "Low-price daily poster maker for micro shops in regional languages",
+      "problem": "Indian small shops post festival and offer posters on WhatsApp status and Instagram. Leading apps charge about 499-799 rupees a month or 2,299-4,499 a year, which is too high for tiny shops, and one leader draws reviews about bugs and poor support. A cheaper, reliable tool could win the long tail of street-level shops.",
+      "who_feels_it": {"group": "Kirana owners, salons, tailors, tutors and home sellers who advertise on WhatsApp", "how_many": "One app aggregator lists 265K+ users for a single poster app; market is several million small sellers (estimate, not sourced)."},
+      "gap_type": "missing_here",
+      "why_now": "Proven paid demand already exists and UPI AutoPay on Google Play makes tiny recurring payments easy in India.",
+      "lens": ["paying_already", "local_gaps"],
+      "evidence": [
+        {"claim": "Brands.live (Festival Poster) sells monthly plans of roughly 499-799 rupees and annual plans of 2,299-4,499 rupees, with Hindi, Marathi, Tamil and other languages.", "url": "https://apps.apple.com/in/app/brands.live/id1565767273"},
+        {"claim": "Festival Poster Maker and Video offers a 2,299 rupee yearly unlock, with logo-once templating and mixed reviews about bugs.", "url": "https://apps.apple.com/IN/app/id1554065069"},
+        {"claim": "Google Play supports UPI Autopay for subscriptions in India, easing small recurring payments.", "url": "https://blog.google/intl/en-in/products/platforms/now-pay-for-subscriptions-via-upi-on-google-play/"}
+      ],
+      "existing_tools": [
+        {"name": "Brands.live, Festival Poster Maker, Easy Brand (India)", "gap": "Priced for larger businesses and bundled with video; reliability complaints."},
+        {"name": "Ready To Post (India)", "gap": "Free tier means weak monetisation and likely ad-heavy; shows price pressure."}
+      ],
+      "subscription_case": "Posting is weekly or daily and festival-driven; 49-99 rupees a month fits tiny shops. Risk: crowded market with free competitors, so this is a pricing and quality play.",
+      "countries": ["India"],
+      "solution_idea": "A template app with one-time shop profile, auto-added festival and local-event posters in 8+ Indian languages, one-tap WhatsApp share, at a cheap monthly price via UPI AutoPay."
+    }
+  ]
+}

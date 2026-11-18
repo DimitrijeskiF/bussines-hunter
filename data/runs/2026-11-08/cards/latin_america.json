@@ -1,0 +1,145 @@
+{
+  "region": "latin_america",
+  "summary": [
+    "The strongest gaps in Latin America sit where instant payments (Pix, Yape, Plin, Nequi) and fast-changing tax rules meet very large groups of micro-sellers, freelancers and gig workers.",
+    "Fake payment proofs are a documented, repeated pain for small merchants in Peru, Colombia and Brazil, and the wallet apps mostly answer with awareness tips rather than a merchant tool.",
+    "Mexico's 2026 tax changes (higher withholding on platform sales, SAT real-time access to platform data) and the IMSS rules for app workers create a monthly paperwork need that general accounting tools handle only in part.",
+    "Brazil has about 17 million MEIs and a huge pool of app drivers who must handle monthly carne-leao or DAS duties, but I found few dedicated, well-reviewed tools; the official tools are free, so any product must be much simpler or automatic.",
+    "Limits of this run: the shared web search budget ran out partway through, so I could not verify app-store reviews, Reddit threads or user counts for the last candidates (CNH instructors, bodega ledgers). Competitor strength for several cards is therefore only partly checked."
+  ],
+  "cards": [
+    {
+      "id": "la-01",
+      "title": "Real-payment checker and daily cash ledger for micro-sellers (fake Yape / Pix receipts)",
+      "problem": "Small sellers (bodegas, market stalls, food vendors, online sellers) get fooled by fake or edited payment receipts sent by WhatsApp or shown in person, and have to open their bank or wallet app each time to be sure. Many wallet apps did not notify the receiver clearly, so people trust screenshots. Scheduled-Pix and fake-bank-app variants add to it.",
+      "who_feels_it": {"group": "Micro-merchants and online sellers who accept Yape, Plin, Nequi, Daviplata or Pix", "how_many": "Yape had about 9 million users by 2023 and Nequi and Daviplata about 14 million each (Rest of World, Feb 2023); Datafolha-based press estimates about 24 million Brazilians were victims of Pix or boleto fraud between July 2024 and June 2025"},
+      "gap_type": "missing_here",
+      "why_now": "Fake-receipt generators and AI image editing make forgeries cheap, and Pix, Yape and Plin payments are now the default way to pay in small shops.",
+      "lens": ["wishes", "local_gaps"],
+      "evidence": [
+        {"claim": "Rest of World (16 Feb 2023): fake-receipt scams grew in Peru and Colombia; Yape said it got up to 30 scam reports a day; merchants often rely on customer screenshots because receiver notification was weak.", "url": "https://restofworld.org/2023/fake-receipts-scammers-digital-shoplifting/es/"},
+        {"claim": "Peruvian press covers repeated cases of bodegueros hit by fake Yape payments, and Yape launched a security code feature against fake yapeos (headline-level confirmation only).", "url": "https://www.peru-retail.com/yape-lanza-codigo-de-seguridad-para-evitar-yapeos-falsos-como-funciona/"},
+        {"claim": "Brazilian guides for merchants say fake Pix receipts, scheduled-Pix tricks and counterfeit bank apps are common, and the only safe check is the merchant's own statement.", "url": "https://www.nuvemshop.com.br/blog/pix-falso/"},
+        {"claim": "About 24 million Brazilians were victims of Pix or boleto fraud between July 2024 and June 2025, per a press report on a Datafolha and Forum survey (original report not opened).", "url": "https://agorarn.com.br/economia/brasil-tem-24-milhoes-de-vitimas-de-golpes-digitais-e-pix-falso-prejuizo-chega-a-r-29-bilhoes/"}
+      ],
+      "existing_tools": [
+        {"name": "Yape security code (Peru)", "gap": "Works only inside Yape and mostly for in-person checks; does not combine Yape, Plin and bank transfers or keep a daily ledger"},
+        {"name": "Bank and wallet apps themselves", "gap": "Each shows only its own credits; no single running list of confirmed incoming payments across apps"},
+        {"name": "Bank POS / QR terminals", "gap": "Cost money per transaction and need a terminal; many stalls do not use them"}
+      ],
+      "subscription_case": "A seller who avoids one fake S/ 100 payment a month already earns back $1-3, and the daily-sales ledger is used every day, so the habit and the payment recur.",
+      "countries": ["Peru", "Colombia", "Brazil"],
+      "solution_idea": "Android app that reads incoming payment notifications (with permission), keeps a confirmed-payments list across wallets, speaks or flags each real credit, and lets the seller paste or share a customer's screenshot to see if a matching confirmed payment exists. Daily cash-close summary on top."
+    },
+    {
+      "id": "la-02",
+      "title": "Mexico platform-seller tax tracker (retention certificates, ISR and IVA credit)",
+      "problem": "People who sell through Mercado Libre, Amazon, Temu, Uber, DiDi or Airbnb in Mexico now face higher platform withholding (ISR for individuals rose from 1% to 2.5% from 2026) and must keep RFC data right, download monthly retention certificates and credit the withheld IVA and ISR in their filings, or they pay twice.",
+      "who_feels_it": {"group": "Mexican individuals who sell or earn through digital platforms, many of them part-time", "how_many": "No reliable count found; as an indicator, 237,627 platform workers were reported with IMSS access by June 2026, and Mercado Libre alone has a large seller base"},
+      "gap_type": "missing_everywhere",
+      "why_now": "The 2026 tax package raised retention rates and the SAT gets online access to platform transaction data under art. 30-B CFF.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "El Contribuyente (19 Nov 2025): from 2026 ISR withholding on individuals selling on platforms rises from 1% to 2.5%, and 100% IVA withholding applies if there is no valid RFC.", "url": "https://www.elcontribuyente.mx/2025/11/en-2026-vender-en-plataformas-digitales-sera-mas-caro-habra-nuevas-retenciones/"},
+        {"claim": "Mercado Pago guidance says only sellers with RFC and Constancia de Situacion Fiscal loaded can download the monthly retention certificate needed to credit withholdings.", "url": "https://www.mercadopago.com.mx/blog/ventajas-mercado-pago-regimen-resico"},
+        {"claim": "Alegra blog says art. 30-B CFF gives the SAT real-time online access to platform transaction data, including seller RFC and CURP.", "url": "https://blog.alegra.com/mexico/sat-plataformas-digitales-vigilancia/"},
+        {"claim": "An accountant warns that forgetting to credit withheld IVA on the monthly form leads to paying the same tax twice.", "url": "https://praxiumconsultores.com/blog/retenciones-de-amazon-y-mercado-libre-como-acreditarlas"}
+      ],
+      "existing_tools": [
+        {"name": "Alegra (Colombia/Mexico)", "gap": "Full accounting suite aimed at businesses and priced above $3; not a simple platform-income tracker"},
+        {"name": "Facturama / other CFDI tools", "gap": "Focus on issuing invoices, not on matching platform payouts and retention certificates"},
+        {"name": "SAT portal", "gap": "Exact forms, no reminders or running estimate of tax owed"}
+      ],
+      "subscription_case": "The need returns every month (provisional filings), and a mistake costs real money, so a small monthly fee is easy to justify.",
+      "countries": ["Mexico"],
+      "solution_idea": "A simple app where the seller connects or uploads platform payout and retention files, sees monthly income, withheld ISR and IVA, estimated tax and credit, gets reminders before the 17th, and exports figures ready to type into the SAT form."
+    },
+    {
+      "id": "la-03",
+      "title": "App-driver real profit and monthly tax tracker (Brazil carne-leao, Mexico IMSS era)",
+      "problem": "Uber, 99, DiDi and delivery drivers must work out true profit after fuel and car costs, and in Brazil must record income monthly in carne-leao (with a 40% deduction rule for drivers) or pay DAS as MEI. Official tools are forms, not driver-friendly trackers.",
+      "who_feels_it": {"group": "Ride-hail and delivery drivers in Brazil and Mexico", "how_many": "No sourced total found; both countries have very large driver bases and Mexico had 237,627 platform workers with IMSS access by June 2026"},
+      "gap_type": "missing_here",
+      "why_now": "Mexico's platform-worker law took effect in 2026 and Brazilian fuel price rises led 99 and Uber to adjust per-km pay in 2026, so drivers are watching margins and paperwork closely.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "2026 Brazilian press explains that app drivers must calculate and pay income tax themselves via carne-leao, with a 40% deduction; the monthly threshold cited is R$ 1,903.98 (figure may be outdated).", "url": "https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/curiosidades/irpf-2026-motorista-de-aplicativo-precisa-declarar-entenda-como-funciona/"},
+        {"claim": "Brazilian press (2026) says 99 raised pay per km by 5% after fuel price rises, showing margins move often.", "url": "https://garagem360.com.br/?p=156149"},
+        {"claim": "Mexico: reform in force from Jan 2026, with 237,627 platform workers with IMSS access by end of June 2026, per a trade press report.", "url": "https://thelogisticsworld.com/planeacion-estrategica/ya-hay-fechas-para-la-puesta-en-marcha-de-la-reforma-que-regula-el-trabajo-en-plataformas-digitales"}
+      ],
+      "existing_tools": [
+        {"name": "FinDriver (Brazil, App Store)", "gap": "Tracks earnings, costs and goals; I found no independent reviews and no tax filing helper"},
+        {"name": "Carne-Leao Web (Receita Federal)", "gap": "Official form tool; no import from platform statements, no reminders"},
+        {"name": "Driversnote / Everlance style apps (US/Europe)", "gap": "Built around US/EU tax and mileage rules, English UI, no carne-leao, DAS or SAT logic"}
+      ],
+      "subscription_case": "Weekly profit checks and a monthly tax deadline give a recurring reason to open the app; a driver who avoids one fine or finds one unprofitable ride pattern recovers $1-3.",
+      "countries": ["Brazil", "Mexico"],
+      "solution_idea": "Mobile app that imports weekly earnings reports (PDF or screenshot OCR), logs fuel and costs, shows profit per hour and km, and produces the monthly carne-leao figure and DARF reminder in Brazil, and a simple SAT/IMSS summary in Mexico."
+    },
+    {
+      "id": "la-04",
+      "title": "Family scam shield for older parents (paste-or-forward check, WhatsApp, Pix)",
+      "problem": "Older relatives in Brazil get fake Receita, INSS and relative-in-trouble messages with Pix requests. Adults want a simple way to forward a suspicious message to a checker and get a clear answer, plus an alert to a family member.",
+      "who_feels_it": {"group": "Adult children of seniors and seniors themselves, Brazil first", "how_many": "Febraban 2025 survey: 39% of Brazilians were victims of or targeted by financial scams, 44% among seniors; 24 million Pix or boleto fraud victims in a year per Datafolha-based press"},
+      "gap_type": "missing_here",
+      "why_now": "AI-written scam messages are rising and WhatsApp's own Scam Alert was reported as still in early testing and not yet in Brazil.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "Febraban survey (June 2025) via press: 39% of Brazilians victims or targeted by financial scams, the highest since 2021, 44% among seniors.", "url": "https://seucreditodigital.com.br/golpes-em-contas-39-brasileiros-vitimas/"},
+        {"claim": "Olhar Digital (4 Mar 2026): the fake 'CPF cancelled' scam on WhatsApp uses AI to build believable messages and Pix payment links.", "url": "https://olhardigital.com.br/2026/03/04/seguranca/golpe-do-cpf-cancelado-no-whatsapp-saiba-como-se-proteger/"},
+        {"claim": "A GolpeZero app exists on the Brazilian App Store, analysing pasted texts, links and audio with AI; pricing and image support not confirmed.", "url": "https://apps.apple.com/br/app/golpezero/id6754057548"}
+      ],
+      "existing_tools": [
+        {"name": "GolpeZero (Brazil)", "gap": "Needs the user to copy and paste; unclear price; not built for a family-alert flow"},
+        {"name": "ChatGPT with Malwarebytes link check", "gap": "General purpose, English-first, needs the senior to use a chatbot"},
+        {"name": "WhatsApp Scam Alert", "gap": "Reported in early testing and not available in Brazil"}
+      ],
+      "subscription_case": "Family plan at about $2 a month paid by the adult child as peace of mind; risk is competition from free AI chat and big platforms, so differentiation must be the family alert and senior-friendly flow.",
+      "countries": ["Brazil", "Mexico", "Argentina"],
+      "solution_idea": "A share-target app and WhatsApp number: the senior forwards a message, gets a one-line verdict in plain Portuguese with a voice reply, and a linked family member gets a notification on risky cases. Cheap text-only model per check."
+    },
+    {
+      "id": "la-05",
+      "title": "Argentine freelancer export-income and monotributo limit tracker (multi-currency)",
+      "problem": "Argentine freelancers who bill clients abroad (Factura E, USD) are unsure whether and how dollar income counts toward their monotributo category cap, risk exclusion by ARCA, and need to convert and track income in several currencies and wallets. Sources contradict each other on the cap treatment.",
+      "who_feels_it": {"group": "Argentine monotributista freelancers working for foreign clients (tech, design, translation, marketing)", "how_many": "No sourced figure; ARCA reported about 1.84 million monotributistas recategorised in one cycle, of which a small share are exporters"},
+      "gap_type": "missing_here",
+      "why_now": "BCRA Communication A 8330 (18 Sep 2025) removed the annual cap and forced-sale rules for service exporters, so more freelancers hold and move dollars freely.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "A professional-accounting blog reports BCRA Communication A 8330 of 18 Sep 2025 removed the USD 36,000 annual cap for service exporters.", "url": "https://blogdelcontador.com.ar/news-46223-freelancers-ahora-podran-cobrar-en-dolares-del-exterior-sin-limites-y-sin-obligacion-de-liquidarlos-a-pesos"},
+        {"claim": "Global66 warns that dollars received from abroad count toward the annual monotributo limit and ARCA can exclude the taxpayer, while Contablix says documented export income does not add to the cap: sources disagree.", "url": "https://contablix.ar/blog/monotributo-freelancers-digitales-instructores-2026"},
+        {"claim": "ARCA's own Monitor de Facturacion shows a bar of billing against the category limit for monotributistas, but does not handle multi-wallet or multi-currency income.", "url": "https://web.cpcecba.org.ar/?p=53246"}
+      ],
+      "existing_tools": [
+        {"name": "ARCA Monitor de Facturacion (Argentina)", "gap": "Only counts what was invoiced; no forecast, no multi-currency or payment-wallet view"},
+        {"name": "YoFacturo (Argentina)", "gap": "Invoicing and alerts focused; pricing likely above $3 and not centered on exporters"},
+        {"name": "DolarApp, Global66, Belo", "gap": "Receive money, but do not track tax category headroom"}
+      ],
+      "subscription_case": "Used monthly, with semester recategorisation deadlines; avoiding a wrong category or exclusion is worth more than $2 a month to a freelancer.",
+      "countries": ["Argentina"],
+      "solution_idea": "A web and mobile tracker that imports invoices and wallet statements, converts at the right rate, shows category headroom over the last 12 months with projection and recategorisation reminders, and flags the dollar-income rules with links to ARCA."
+    },
+    {
+      "id": "la-06",
+      "title": "Independent driving-instructor business app (Brazil, CNH without driving school)",
+      "problem": "Brazil's Contran Resolution 1.020/2025 (Dec 2025) ended the driving-school monopoly and created accredited independent instructors, with the minimum practical lessons cut from 20 hours to 2. New solo instructors need scheduling, student records, hour logs, receipts and Pix billing, and learners need to find and verify them.",
+      "who_feels_it": {"group": "Newly accredited independent instructors and their students", "how_many": "No instructor count confirmed in this run; the CNH market is millions of candidates a year (not sourced)"},
+      "gap_type": "missing_everywhere",
+      "why_now": "The rule change is new (Dec 2025) so no entrenched tool exists yet, and instructors are one-person businesses.",
+      "lens": ["trends"],
+      "evidence": [
+        {"claim": "Press (2026) says Contran Resolution 1.020/2025 created the accredited independent instructor and removed mandatory driving school, with the theory exam still run by Detran.", "url": "https://portaldeprefeitura.com.br/noticia/detalhe/cnh-sem-autoescola-saiba-as-regras-para-instrutor-autonomo/605998/"},
+        {"claim": "Reports say the CNH can cost up to 80% less without mandatory driving school, which boosts demand for cheap instructors.", "url": "https://movimentoeconomico.com.br/governo-federal/2025/12/01/sem-autoescola-obrigatoria-tirar-cnh-vai-custar-ate-80-menos/"},
+        {"claim": "A guide on becoming an independent instructor in 2026 exists, showing demand from people entering the trade.", "url": "https://autopapo.com.br/noticia/cnh-2026-instrutor-de-transito-autonomo/"}
+      ],
+      "existing_tools": [
+        {"name": "Generic scheduling and billing tools (Calendly, Asaas, InfinitePay)", "gap": "Not built around the CNH process, hour logs or student progress"},
+        {"name": "Government CNH app (CNH do Brasil)", "gap": "Covers free theory content only, not instructor business tools"}
+      ],
+      "subscription_case": "An instructor with 10-30 students a month can easily pay about $3, but the market size is unconfirmed and the rules are still settling, so this is a riskier card.",
+      "countries": ["Brazil"],
+      "solution_idea": "Instructor app with student list, lesson booking, hours log, Pix payment links with reminders, and a public profile page showing accreditation number for students to find and trust them."
+    }
+  ]
+}

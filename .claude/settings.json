@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Edit(./data/**)",
+      "Bash(python3 scripts/hunt.py *)"
+    ]
+  }
+}

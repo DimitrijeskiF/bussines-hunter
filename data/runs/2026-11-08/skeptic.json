@@ -1,0 +1,397 @@
+{
+  "verdicts": [
+    {
+      "id": "sole-trader-tax-threshold-watcher",
+      "verdict": "weakened",
+      "big_tech_risk": "low",
+      "incumbents": [
+        "Accountable (Germany; app says it notifies users nearing the 25,000 EUR Kleinunternehmer limit)",
+        "kostenlose-erechnung.de (Germany; live tracking of the 25,000 EUR limit in its Premium plan, free plan with 3 invoices a month)",
+        "Calcul Taxes Quebec (Canada; CAD 3.99 a month, calculator only)",
+        "Fiscozen and other forfettario services (Italy)",
+        "freee, Money Forward, Yayoi (Japan)",
+        "Vyapar, Khatabook, myBillBook (India)",
+        "Free spreadsheets"
+      ],
+      "reasons": [
+        "In Germany the limit warning is already a feature of invoicing apps: Accountable advertises an alert when users near the 25,000 EUR limit, and kostenlose-erechnung.de sells live limit tracking. Anyone who already invoices in an app sees their turnover there, so a separate meter is a feature, not a product.",
+        "Only people close to a limit need it. Most sole traders are far below or far above it, so the paying group in each country is a thin slice.",
+        "Six unrelated rule sets (Quebec, Germany, Italy, Netherlands, India, Japan) in five languages means six products to keep legally accurate every year. The Japan evidence rests on private explainers, not the tax office.",
+        "The India part is weak: the UPI notice wave of July 2025 was a one-off enforcement event, and small vegetable sellers who got notices are unlikely to pay a monthly app fee.",
+        "The best evidence is Quebec, where a CAD 3.99 a month calculator has about 2.8 thousand ratings, so a French-language Quebec app is the most defensible place to start."
+      ],
+      "what_would_change_my_mind": "Evidence that many Quebec or German sole traders invoice outside apps (Word, PDF) and would pay for a limit alert on its own, for example paid sign-ups from a single-country landing page."
+    },
+    {
+      "id": "freelancer-foreign-income-tax-ledger",
+      "verdict": "weakened",
+      "big_tech_risk": "low",
+      "incumbents": [
+        "Meezan Bank app linked with Payoneer (Pakistan; generates e-PRC tax documents for Payoneer receipts)",
+        "FBR IRIS portal and Tax Asaan app (Pakistan, free)",
+        "ARCA Monitor de Facturacion (Argentina, free)",
+        "Cleva, Raenest, Grey dollar-receiving apps (Nigeria; hold every payout and publish tax guides)",
+        "Free calculators such as wakatax (Nigeria) and spreadsheets"
+      ],
+      "reasons": [
+        "In Pakistan banks are already building this for free: Payoneer and Meezan Bank are linked so the bank app generates tax documents (e-PRC) for each receipt, and the 0.25% or 1% tax is withheld at source by the bank, so filing is already simple.",
+        "In Nigeria the dollar-receiving apps (Cleva, Raenest, Grey) already hold each payout with date and amount and are writing tax guides; adding a free yearly tax statement is an easy move for them.",
+        "Guides openly say a simple spreadsheet works, and the need peaks once a year at filing time (31 March in Nigeria, 30 September in Pakistan), so many users will cancel between filings.",
+        "Sources disagree on core rules in all three countries (Section 65F credit in Pakistan, whether export income counts toward the monotributo cap, which CBN rate to use), so the app carries liability for wrong figures, and three countries means three rulebooks.",
+        "Plus side: these users earn in dollars and often hold dollar cards, so paying $2-3 a month is practical."
+      ],
+      "what_would_change_my_mind": "Evidence that Nigerian or Pakistani freelancers already pay accountants for this, or that Cleva, Raenest and Payoneer partner banks will not add tax statements."
+    },
+    {
+      "id": "micro-e-invoicing-app",
+      "verdict": "weakened",
+      "big_tech_risk": "low",
+      "incumbents": [
+        "GIB e-Arsiv portal (Turkey; free e-SMM receipts)",
+        "Aplikacja Podatnika KSeF and e-Mikrofirma (Poland, free)",
+        "FatooraZ (Saudi Arabia, free iOS app)",
+        "Qoyod (Saudi Arabia, about SAR 60-140 a month)",
+        "Wafeq (UAE; says e-invoicing is included in its plans at no extra cost)",
+        "Mazeed (UAE, from AED 99 a month)",
+        "Parasut (Turkey, 150 TL a month plus e-SMM credits)",
+        "Zoho Books (global)"
+      ],
+      "reasons": [
+        "Free state tools already exist in two of the five countries: Turkey's GIB portal issues e-SMM receipts for free, and Poland has the free KSeF taxpayer app plus free e-Mikrofirma, so the paid value there is only alerts and convenience.",
+        "UAE e-invoicing must go through accredited service providers (ASPs). Vendor estimates put an ASP subscription at about AED 2,000-10,000 a year for small firms. A solo founder cannot easily become an ASP, and a partner's cost per user could exceed a $2-3 price. One source also claims ASPs must give the first 100 e-invoices a year free (not verified), which would undercut the idea.",
+        "Saudi Wave 25 covers firms above SAR 187,500 turnover (about USD 50,000). These are not micro-sellers; they already pay SAR 60-140 a month, and the free FatooraZ app exists for very small ones.",
+        "Five countries means five certified integrations (ZATCA onboarding, UAE Peppol via an ASP, Egypt ETA, a Turkish integrator, KSeF), each with its own certification and security demands. That is a heavy build for a $2-3 product.",
+        "The need itself is well evidenced (deadlines, fines, competitor prices), especially in the UAE; the risk is cost and certification, not demand."
+      ],
+      "what_would_change_my_mind": "A UAE ASP or Saudi integrator quote for white-label API access at under about $0.50 per user a month, and confirmation that there is no free-100-invoices rule in the UAE."
+    },
+    {
+      "id": "platform-seller-tax-tracker",
+      "verdict": "weakened",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "Mercado Libre and Mercado Pago monthly retention certificates (Mexico)",
+        "SAT portal and the optional final-withholding (pago definitivo) regime (Mexico, free)",
+        "Symph freelancer tool (Philippines, PHP 499 a month Pro tier)",
+        "Taxtrackr (Philippines)",
+        "MISA, Sapo, KiotViet free filing software (Vietnam)",
+        "Margeo (France; reseller log with a free plan)",
+        "Alegra (Mexico; full accounting)"
+      ],
+      "reasons": [
+        "In Mexico, individuals with platform income up to 300,000 pesos a year can choose to treat the platform withholding as final (pago definitivo): no monthly provisional filings and often no annual return. For most part-time sellers there is nothing to credit and no risk of paying twice, which removes the core pitch.",
+        "Sellers above that cap, and Philippine sellers above PHP 500,000, are serious businesses that usually use an accountant or full accounting software. They are a smaller group and expect more than a $2 app.",
+        "For EU DAC7, private sellers of used goods usually owe no tax; the need is reassurance once a year in January, which is seasonal and weak for a monthly plan.",
+        "The marketplaces (Mercado Libre, Shopee, Lazada) hold all the data and already issue certificates; they can add a free tax summary to the seller centre at any time.",
+        "Four regions with different regimes, and Indonesia's PMK 37/2025 threshold and start date are still unclear in the sources."
+      ],
+      "what_would_change_my_mind": "Evidence that a large share of Mexican or Philippine platform sellers are above the final-withholding caps and do their own filings without an accountant."
+    },
+    {
+      "id": "late-payment-chaser",
+      "verdict": "killed",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "Khatabook and OkCredit (India; free WhatsApp and SMS payment reminders)",
+        "Vyapar, myBillBook (India; reminders in yearly plans)",
+        "Paytm for Business ledger (India)",
+        "Zoho Invoice (free invoicing with payment reminders)",
+        "Square Invoices (US and Canada; free plan with automatic reminders)",
+        "Wave, Invoice Ninja (free invoicing)",
+        "freee, Misoca (Japan)"
+      ],
+      "reasons": [
+        "Automatic payment reminders are a free, standard feature of tools these users can already get. In India, Khatabook and OkCredit send free WhatsApp and SMS dues reminders to millions of small sellers. In the US and Canada, Zoho Invoice and Square Invoices are free and send automatic reminders. A freelancer who wants chasing can switch to one of them at no cost.",
+        "The only new piece, the local legal clock (India's 45-day rule, Japan's Freelance Act), is a small feature. India's rule covers only Udyam-registered micro and small manufacturers and service providers, not traders, and suppliers often avoid citing it for fear of losing the client.",
+        "The evidence is secondary late-payment statistics; nothing shows freelancers paying for a separate chaser.",
+        "Caveat: the web search budget ran out before I could re-check the current free plans of Zoho Invoice and Square; those details come from background knowledge. Khatabook's and OkCredit's free reminders are long-standing core features."
+      ],
+      "what_would_change_my_mind": "Evidence that freelancers who invoice outside apps refuse to switch tools yet would pay $2-3 a month just for chasing, for example paid sign-ups from a forward-your-invoice landing page."
+    },
+    {
+      "id": "driver-true-take-home",
+      "verdict": "weakened",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "StopClub and GigU (Brazil; driver apps with ride-profit tools)",
+        "FinDriver (Brazil)",
+        "Carne-Leao Web (Brazil, free)",
+        "Earnings dashboards inside Uber, 99, Grab and Gojek",
+        "Fuelmeter (Indonesia)"
+      ],
+      "reasons": [
+        "Brazil raised its income-tax exemption to R$ 5,000 a month from 2026 (Lei 15.270/2025; background knowledge, not re-checked this run). A driver taxed on 60% of gross owes no carne-leao until roughly R$ 8,300 gross a month, so the monthly tax feature helps few drivers.",
+        "In Mexico, platforms withhold income tax as a final payment for workers under 300,000 pesos a year and register drivers with IMSS themselves, so a SAT and IMSS summary adds little.",
+        "Brazil already has driver apps such as StopClub and GigU that show ride profitability, and the platforms show earnings per trip; the scout's competitor check for Brazil was thin.",
+        "Indonesian ojol drivers earn about Rp 50,000-100,000 a day, often below running costs, so even $1 a month is a hard sell, and their real complaint is platform fees, which an app cannot change.",
+        "The evidence is news about commission rules, not drivers asking for a tracker."
+      ],
+      "what_would_change_my_mind": "Evidence that Brazilian or Indonesian drivers already pay for a tracking app (a paid tier with many ratings) and that StopClub and GigU do not show net profit per km and per month."
+    },
+    {
+      "id": "savings-circle-ledger",
+      "verdict": "weakened",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "Chamasoft (Kenya; free plan and paid tiers)",
+        "Bank Jago Kantong Arisan (Indonesia; free inside a bank app)",
+        "Arisan NAYA, Arisan Mapan (Indonesia)",
+        "AjoMoney, Esusu (Nigeria; apps that hold the money)",
+        "So Hui (Vietnam)",
+        "CashMate (Philippines)",
+        "WhatsApp groups plus notebooks or shared spreadsheets"
+      ],
+      "reasons": [
+        "Today's workaround (a WhatsApp group plus a notebook or shared sheet) is free and trusted. The organiser is usually a volunteer who does not charge members, so a monthly fee is a hard ask.",
+        "Free options already exist on both continents: Chamasoft has a free plan in Kenya, and Bank Jago's Kantong Arisan is free inside a bank app. If M-Pesa, GCash or GoPay add a group ledger, a paid stand-alone tool loses.",
+        "Automated WhatsApp reminders cost money: the WhatsApp Business API charges per template message, so 20 members with a few reminders each a month can eat most of a $2 fee. The cheap path is manual tap-to-send links, which weakens the automation pitch.",
+        "Seven countries and five savings traditions are claimed, but the evidence is a few app listings and one village study, with no market size or sign of willingness to pay."
+      ],
+      "what_would_change_my_mind": "Evidence that organisers already pay for a tool, for example Chamasoft paid-tier uptake, or organiser interviews showing they would pay about $2 a month."
+    },
+    {
+      "id": "marketplace-profit-checker",
+      "verdict": "weakened",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "BigSeller (Southeast Asia; multichannel seller tool with a free tier and profit reports; not re-checked this run)",
+        "Zort (Thailand)",
+        "Shopee, Lazada and TikTok Shop seller-centre income reports",
+        "Free fee calculators (ecomcalctools, Demoday)",
+        "Kmong Excel templates (South Korea; one-off purchase)",
+        "Korean multichannel seller tools (Sabangnet, PlayAuto)"
+      ],
+      "reasons": [
+        "Multichannel tools such as BigSeller already serve Thai Shopee, Lazada and TikTok Shop sellers with a free tier and order profit reports (the Southeast Asia scout flagged this as unchecked). The seller centres also show payout breakdowns, so only cost-of-goods entry is missing.",
+        "The Thai trigger is temporary: the fee cut runs from 1 Dec 2026 to 31 May 2027, so the recalculation need is a one-off spike.",
+        "Korean sellers show willingness to pay only as one-off Excel purchases; a subscription must beat a template bought once.",
+        "Settlement file formats change without notice; keeping parsers current for five marketplaces in two countries is constant work for $2 a seller."
+      ],
+      "what_would_change_my_mind": "Confirmation that BigSeller's free tier lacks per-order profit after fees, and evidence that Korean template buyers would pay monthly for automatic updates."
+    },
+    {
+      "id": "fake-payment-checker",
+      "verdict": "weakened",
+      "big_tech_risk": "high",
+      "incumbents": [
+        "Yape security code and receiver notifications (Peru)",
+        "Instant credit notifications in bank and wallet apps (Yape, Plin, Nequi, Daviplata, Pix banks)",
+        "Mercado Pago, InfinitePay, PagBank merchant apps (Brazil)",
+        "Bank POS and QR terminals"
+      ],
+      "reasons": [
+        "The wallets are already acting: Yape launched a security code against fake payments, and in Brazil bank and merchant apps (Mercado Pago, InfinitePay, PagBank) push an instant Pix credit notification. One wallet update can remove most of the need.",
+        "The product depends on reading other apps' notifications on Android. Wallets can change or hide notification text at any time, and merchants may not trust a third-party app that reads their banking notifications.",
+        "Only the cross-wallet list is new. The fake-receipt evidence is partly from 2023 (Rest of World) and press headlines, and nothing shows merchants want to pay for a checker rather than just look at their own app.",
+        "Plus side: the habit is daily, the money at risk is clear, and Google Play allows notification access for this kind of app."
+      ],
+      "what_would_change_my_mind": "Merchant interviews or a small pilot in Lima showing bodegueros still get fooled despite wallet notifications and would pay about S/ 5-10 a month."
+    },
+    {
+      "id": "official-letter-explainer",
+      "verdict": "killed",
+      "big_tech_risk": "high",
+      "incumbents": [
+        "ChatGPT free tier (photo upload and explanation in any language)",
+        "Google Gemini and Google Lens (free; photograph a document and ask about it)",
+        "Google Translate and DeepL camera translation",
+        "Municipal multilingual help desks and guides (Japan)"
+      ],
+      "reasons": [
+        "Free AI assistants already do the core job: a user can photograph a letter in ChatGPT, Gemini or Google Lens and ask, in their own language, what it says, what to do and by when. These are the same vision models the app would use, and they cost the user nothing.",
+        "The card's own evidence says residents already use AI translation and still worry. A paid wrapper on the same models does not fix that trust gap.",
+        "The extras (calendar reminder, saved inbox) are thin and partly free already; Gemini can add calendar events on Android.",
+        "Most foreign residents are young, phone-heavy workers and students who are price-sensitive and already use these free tools, and letters with real deadlines arrive a few times a year, not every month."
+      ],
+      "what_would_change_my_mind": "Evidence that a specific group (for example Vietnamese or Nepali technical trainees) cannot or will not use ChatGPT or Gemini and would pay for a guided, checked service, possibly with human review."
+    },
+    {
+      "id": "school-app-digest",
+      "verdict": "weakened",
+      "big_tech_risk": "high",
+      "incumbents": [
+        "Ohai (US; scans school newsletters, emails, PDFs and photos into calendar items and reminders; free tier, Premium from $9.99 a month)",
+        "Skylight calendar email and flyer import",
+        "Gemini in Gmail and automatic Google Calendar events",
+        "Apple Intelligence notification summaries",
+        "ParentSquare, ClassDojo, Remind and Seesaw in-app digests"
+      ],
+      "reasons": [
+        "The gap is not 'missing everywhere': Ohai already scans school newsletters, emails, PDFs and photos and turns dates and deadlines into calendar items and reminders, with a free tier, and other family-organiser apps import forwarded emails too.",
+        "Google (Gemini in Gmail, automatic calendar events) and Apple (notification summaries) are adding summaries to the inbox and notifications parents already use, for free.",
+        "Messages inside ClassDojo, Seesaw and Remind are locked in those apps. The product can only read what is emailed or screenshotted, so the single-digest promise will have holes.",
+        "Use is seasonal (school year), and the evidence is one parenting article, one news headline and app-count statistics, with no parent saying they would pay."
+      ],
+      "what_would_change_my_mind": "Evidence that parents find Ohai-style apps too expensive or too broad and would pay $2 for a school-only digest, for example strong paid conversion on a narrow landing page."
+    },
+    {
+      "id": "kenya-hustler-compliance",
+      "verdict": "killed",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "SHA USSD service and portal (Kenya, free; shows the assessed contribution)",
+        "M-Pesa paybill and Safaricom M-Pesa app (Kenya)",
+        "KRA eTIMS Lite (Kenya, free)",
+        "FlowWise (Kenya)"
+      ],
+      "reasons": [
+        "The target users mostly do not pay even the compulsory SHA contribution: only about 1 in 6 of 32 million registered people contribute (Capital FM, Aug 2026). A group that skips a mandatory health payment is very unlikely to pay a voluntary monthly app fee.",
+        "For the self-employed, SHA sets the amount through its own means test (minimum KES 300 a month under the 2024 regulations; background knowledge, not re-checked this run). The app cannot work out the true amount from M-Pesa income, and users can already see and pay their assessed amount free by USSD and paybill.",
+        "Reading M-Pesa SMS needs Google Play's restricted SMS permission, which requires a policy exception that can be withdrawn.",
+        "The evidence is three news items about complaints, with nothing showing anyone would pay for clarity."
+      ],
+      "what_would_change_my_mind": "Evidence that Kenyan traders already pay agents or cyber cafes every month for KRA and SHA tasks at more than about $1."
+    },
+    {
+      "id": "family-scam-shield",
+      "verdict": "weakened",
+      "big_tech_risk": "high",
+      "incumbents": [
+        "Meta AI inside WhatsApp (Brazil, Portuguese; free; can be asked about a forwarded message)",
+        "WhatsApp's own scam warnings (rolling out)",
+        "Google Messages and Android scam detection",
+        "GolpeZero (Brazil App Store; AI check of texts, links and audio)",
+        "ChatGPT and Gemini free tiers",
+        "Bank anti-fraud alerts"
+      ],
+      "reasons": [
+        "The core check is free inside the app seniors already use: Meta AI is built into WhatsApp in Brazil, and WhatsApp and Android keep adding scam warnings. Meta and Google have strong reasons to make this a default.",
+        "GolpeZero already offers AI checks of pasted texts, links and audio in Brazil.",
+        "Seniors must remember to forward before acting. The costliest scams (fake relative, fake bank call) often happen by phone and under time pressure, where a forward-to-check flow does not help.",
+        "Plus side: an adult child paying about R$ 10 a month for a family-alert plan is a believable model, the cost per check is tiny, and the scam statistics (Febraban: 44% of seniors hit or targeted) are solid."
+      ],
+      "what_would_change_my_mind": "Evidence that WhatsApp's scam alert and Meta AI do not cover forwarded-message checks in Brazil, plus paid sign-ups from adult children for the family alert."
+    },
+    {
+      "id": "side-earner-year-round-tax-records",
+      "verdict": "weakened",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "Yayoi online plan for simple (white) returns (Japan; free plan; background knowledge)",
+        "freee and Money Forward free tiers (Japan)",
+        "Sellerbook (Japan)",
+        "Samjeomsam, Toss, 1-bun (South Korea; 10-20% refund commission)",
+        "Hometax free filing (South Korea)",
+        "Qualified Tips, Server44 and many other tip trackers (US)"
+      ],
+      "reasons": [
+        "Japan: free bookkeeping plans already exist for the simple white returns most side earners file (Yayoi offers a free online plan; freee and Money Forward have free tiers).",
+        "Korea: Hometax filing is free and the tax office has pushed its own refund services after commission complaints (background knowledge, not re-checked this run), and Toss, a super app, can cut or drop its commission whenever it wants.",
+        "US: tip trackers are crowded, and from the 2026 tax year employers report qualified tips on W-2 forms, which reduces the worker's own record-keeping.",
+        "Three countries with unrelated rules and a strongly seasonal need (filing once a year) make a monthly plan prone to cancellation."
+      ],
+      "what_would_change_my_mind": "Evidence from Korea that freelancers with large refunds prefer a flat monthly fee over commission apps, for example paid pre-sign-ups before the May filing season."
+    },
+    {
+      "id": "paylater-due-date-tracker",
+      "verdict": "weakened",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "Due-date reminders inside each paylater app (SPayLater, GoPayLater, Kredivo, Akulaku)",
+        "Finku (Indonesia; personal finance app with 1M+ users and a free plan)",
+        "Google Calendar and spreadsheets"
+      ],
+      "reasons": [
+        "Each paylater app already sends due-date reminders. The only new value is the combined total, which a free calendar, a spreadsheet or a general finance app such as Finku (1M+ users, free plan) can cover.",
+        "Target users are young people juggling several debts, the most price-sensitive group there is. A $1 subscription to track debt they already struggle to pay is a hard sell, and the app does nothing to reduce the debt.",
+        "Reading other apps' notifications for credit data needs a legal check (the card says so) and is fragile; with manual entry only, most of the appeal goes.",
+        "The evidence is three general articles about penalties; none shows people asking for a combined tracker."
+      ],
+      "what_would_change_my_mind": "Evidence that many users miss payments despite in-app reminders and would pay through GoPay or Google Play for a combined view."
+    },
+    {
+      "id": "dialect-voice-note-transcriber",
+      "verdict": "weakened",
+      "big_tech_risk": "high",
+      "incumbents": [
+        "WhatsApp built-in voice message transcription (language list growing)",
+        "Apple iOS speech transcription",
+        "Schweizerdeutsch uebersetzen (Switzerland; free minutes, then in-app purchases)",
+        "HappyScribe",
+        "Transcriber for WhatsApp",
+        "Fiverr human transcribers (Morocco)"
+      ],
+      "reasons": [
+        "WhatsApp, Apple and Google keep adding transcription languages, and general speech models (OpenAI, Google) keep improving on dialects. One update could cover Swiss German or Egyptian Arabic for free.",
+        "A paid Swiss competitor already exists, so the Swiss market (about 5 million speakers) needs clearly better accuracy, which is unproven.",
+        "In Morocco and Egypt willingness and ability to pay a monthly app fee is low, and Darija models exist only as research checkpoints; hosting a tuned model needs GPUs, which raises cost per user.",
+        "The evidence is thin: one 2023 Swiss article, one test report and one Fiverr listing, with no user count or paid demand beyond the existing competitor."
+      ],
+      "what_would_change_my_mind": "A blind test on real voice notes showing a tuned model clearly beats WhatsApp, Apple and the Swiss competitor, plus Swiss users paying CHF 2-3 a month."
+    },
+    {
+      "id": "appointment-slot-alerts",
+      "verdict": "killed",
+      "big_tech_risk": "low",
+      "incumbents": [
+        "All About Berlin Anmeldung appointment finder (Berlin; free, donations welcome)",
+        "Buergerwecker (Leipzig and Dresden; free)",
+        "cita-bot (Spain; free open-source script)"
+      ],
+      "reasons": [
+        "The need is one-off: it ends the day the slot is booked, which contradicts a monthly subscription. The scout and the cluster both admit churn will be high.",
+        "Free tools already cover the biggest pain points: All About Berlin runs a free Anmeldung appointment finder for Berlin, Buergerwecker covers Leipzig and Dresden, and cita-bot is free for Spain.",
+        "Official sites throttle automated checking: the Berlin tool says it can make only one request every three minutes, so a paid service cannot promise faster alerts, and scraping may break site terms.",
+        "Regulators are hostile to slot services: the UK banned paid driving-test booking services in May 2026, and similar crackdowns could follow elsewhere."
+      ],
+      "what_would_change_my_mind": "Evidence that people need such appointments several times a year and keep paying, or an official API that allows alerts legally."
+    },
+    {
+      "id": "household-employer-pay-records",
+      "verdict": "killed",
+      "big_tech_risk": "low",
+      "incumbents": [
+        "Musaned e-salary (Saudi Arabia; wage records, advances and loans, Hijri-month payment)",
+        "Payroller (Australia; free Lite plan for one employee on mobile, one-click SuperStream, Payday Super ready)",
+        "Beam super clearing house (Australia)",
+        "Xero, MYOB, Employment Hero payroll (Australia)",
+        "Saudi bank apps"
+      ],
+      "reasons": [
+        "Saudi side: the mandatory Musaned e-salary system itself records wages, advances and loans and is built around the Hijri-month deadline, so the official channel already keeps the proof this app would offer.",
+        "Australia side: Payroller has a free Lite plan for running pay for one person on mobile, calculates super each pay run, offers one-click SuperStream payment through Beam and says it is ready for Payday Super. That covers the micro-employer case at zero or near-zero cost.",
+        "The cluster itself says willingness to pay is unproven, and the evidence is only rule-change news.",
+        "Two unrelated markets (Saudi households and Australian micro-employers) with different languages and rules double the build for a small payoff."
+      ],
+      "what_would_change_my_mind": "Evidence that Saudi households face disputes or fines that Musaned records do not prevent (for example end-of-service sums) and would pay for that piece alone."
+    },
+    {
+      "id": "uae-arabic-practice-for-kids",
+      "verdict": "weakened",
+      "big_tech_risk": "low",
+      "incumbents": [
+        "Arabee (UAE)",
+        "Lamsa (kids' Arabic learning app)",
+        "Amal (free with in-app purchases)",
+        "Lugha (one subscription for up to four children)",
+        "Alef Education Arabic products (UAE; background knowledge)",
+        "Private tutors"
+      ],
+      "reasons": [
+        "Kids' Arabic apps are a crowded category (Arabee, Lamsa, Amal, Lugha), and UAE edtech such as Alef Education already works with the national curriculum. Matching every private school's chosen textbook is heavy content work.",
+        "On-device speaking checks for children's Arabic pronunciation are technically hard and a weak spot of current speech models.",
+        "The market is one country's non-Arab private-school pupils (size not sourced), and parents who pay for tutors may see a $2-3 app as low value rather than a tutor substitute.",
+        "The evidence is a policy change and one Gulf News article; nothing shows parents asking for a syllabus-aligned app in particular."
+      ],
+      "what_would_change_my_mind": "Evidence that parents or schools want practice tied to specific textbook units, for example school partnerships or a waiting list from UAE parent groups."
+    },
+    {
+      "id": "gulf-family-document-expiry-tracker",
+      "verdict": "killed",
+      "big_tech_risk": "medium",
+      "incumbents": [
+        "Absher (Saudi Arabia; shows dependents' documents and sends renewal reminders; background knowledge)",
+        "UAEICP, UAE Pass, DubaiNow (UAE government apps)",
+        "Dubai Reminder (UAE; $12.99 a year, no ratings)",
+        "Generic expiry-reminder apps and phone calendars"
+      ],
+      "reasons": [
+        "There is no monthly need: each document comes due once every one to several years, so a family has only a few renewal events a year. The scout rated the subscription case weak to medium.",
+        "The only competitor found charges $12.99 a year (about $1 a month) and has no ratings, which shows both the price ceiling and the lack of pull.",
+        "Government apps already send renewal alerts for the documents that carry fines (ICP and DubaiNow in the UAE; Absher, which covers dependents, in Saudi Arabia), and a free phone calendar covers the rest.",
+        "The 'why now' fine change is itself marked unverified."
+      ],
+      "what_would_change_my_mind": "Evidence that Gulf families pay monthly for a broader household-admin bundle (fines lookup, renewals handled for them)."
+    }
+  ]
+}

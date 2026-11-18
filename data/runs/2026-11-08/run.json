@@ -1,0 +1,22 @@
+{
+  "run_id": "2026-11-08",
+  "date": "2026-11-08",
+  "theme": null,
+  "quick": false,
+  "regions": [
+    "north_america",
+    "latin_america",
+    "europe",
+    "middle_east",
+    "africa",
+    "south_asia",
+    "east_asia",
+    "southeast_asia_oceania"
+  ],
+  "failed_regions": [],
+  "failed_deepdives": [],
+  "max_clusters": 20,
+  "started_at": "2026-11-08T17:52:19",
+  "finished_at": "2026-11-08T18:25:47",
+  "pdf": "/Users/filipdimitrijevski/Desktop/Business Hunter/2026-11-08 Hunt Report.pdf"
+}

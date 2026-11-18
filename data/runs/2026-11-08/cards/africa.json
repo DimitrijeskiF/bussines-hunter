@@ -1,0 +1,144 @@
+{
+  "region": "africa",
+  "summary": [
+    "The strongest pattern in Africa right now is new tax and compliance rules reaching people who never kept records: Nigeria's tax reform (in force 1 Jan 2026), Kenya's eTIMS invoicing and SHA health contributions, Egypt's e-receipt and Morocco's coming e-invoicing. Most existing tools are priced for registered businesses, not for individuals or one-person shops.",
+    "Mobile money and WhatsApp are the real data sources (M-Pesa, MoMo, bank transfer alerts), so the best products turn messages and statements into records without any bank integration.",
+    "Local-language and dialect gaps are real but harder to prove: Moroccan Darija and Egyptian Arabic voice notes are poorly served by WhatsApp's own transcription, and no dedicated paid tool was found.",
+    "Willingness to pay is the main risk. Existing tools charge about 4,500 to 8,500 naira a month and analysts describe Nigerian small businesses as price sensitive, so ideas aimed at individuals with a clear money-saving or penalty-avoiding payoff (freelancers, side hustlers) look safer than ideas aimed at market traders.",
+    "Exam prep, school fees and basic debt-book apps are crowded; those were deliberately not proposed. Search tools returned mostly vendor pages and little Reddit or forum content, so wishes-lens evidence is thin and several cards lean on news and regulation instead."
+  ],
+  "cards": [
+    {
+      "id": "af-01",
+      "title": "Freelancer tax ledger for Nigeria's 2026 tax law",
+      "problem": "Since 1 Jan 2026 Nigerian freelancers and remote workers paid by foreign platforms must self-assess tax on profit, keep receipts, convert foreign income at the official CBN rate on the date received, and file even if they owe nothing, with fixed monthly penalties. Most have no system for this and use spreadsheets or nothing.",
+      "who_feels_it": {"group": "Nigerian freelancers, remote workers and side hustlers paid in dollars or via platforms", "how_many": "Not sized by a source I found; a GeoPoll survey cited by africa.com (data from 2017) found 44.4% of young Nigerians had a side hustle, so likely several million people with some freelance income"},
+      "gap_type": "missing_here",
+      "why_now": "Nigeria Tax Act took effect 1 Jan 2026 with penalties for non-registration and non-filing.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "Cleva guide (29 Dec 2025): first 800,000 naira tax-free but registration and annual filing still required; foreign income converted at official CBN rate on receipt date; expense receipts needed; penalties 100,000 naira first month of non-filing.", "url": "https://www.getcleva.com/blog/nigeria-tax-reform-2026-everything-freelancers-and-remote-workers-need-to-know"},
+        {"claim": "Nairametrics (6 Feb 2026) lists practical record-keeping steps small businesses should take under the new Nigeria Tax Act.", "url": "https://nairametrics.com/2026/02/06/nigeria-tax-act-2025-practical-steps-small-businesses-should-take-now/"},
+        {"claim": "Search found only fee-comparison blogs for receiving dollars, no tool that tracks income by currency and rate for tax purposes.", "url": "https://www.getcleva.com/blog/best-digital-platforms-for-freelancers-to-receive-usd-in-nigeria"}
+      ],
+      "existing_tools": [
+        {"name": "Moniebook by Moniepoint (Nigeria)", "gap": "Bookkeeping add-on for businesses at 6,000-8,500 naira a month (Dec 2025), tied to POS terminals; not built for individual freelancers paid in foreign currency."},
+        {"name": "Kippa (Nigeria)", "gap": "Reported to have moved away from core bookkeeping; aimed at shops, no freelancer tax logic found."},
+        {"name": "Wave, QuickBooks, spreadsheets", "gap": "No Nigerian rate-on-date conversion, WHT credit or state tax authority workflow."}
+      ],
+      "subscription_case": "Income and receipts accumulate every month and a missed filing costs 100,000+ naira, so a small monthly fee for an always-ready annual return pack is easy to justify; tax-season spikes risk churn so annual-in-monthly framing matters.",
+      "countries": ["Nigeria", "Ghana"],
+      "solution_idea": "Mobile app where users log or forward platform payouts and bank alerts, auto-convert at stored CBN rates, tag deductible expenses with receipt photos, and export a self-assessment summary. Rates and thresholds should be configurable because sources disagree."
+    },
+    {
+      "id": "af-02",
+      "title": "Kenya hustler compliance companion (SHA, eTIMS, M-Pesa income)",
+      "problem": "Kenya's informal workers are told to pay SHA health contributions monthly and traders are pushed onto eTIMS invoicing, but the rules confuse people: income-based SHA rates were marketed as a flat small amount, rates are disputed, status takes days to update, and most do not contribute. No simple tool tells a self-employed person what they owe, when, and whether it posted.",
+      "who_feels_it": {"group": "Self-employed Kenyans, jua kali workers, dukas and Eastleigh traders", "how_many": "Capital FM (Aug 2026) reports about 32 million registered for SHA as of 31 July 2026 but only about 5 million active contributors; KRA says about 680,000 businesses onboarded on eTIMS and more than 1.3 million use its simplified systems"},
+      "gap_type": "missing_here",
+      "why_now": "SHA replaced NHIF in 2024 and KRA stepped up eTIMS enforcement in 2026, including targeting Eastleigh in April 2026.",
+      "lens": ["trends", "wishes"],
+      "evidence": [
+        {"claim": "Capital FM (Aug 2026): 32.18 million Kenyans registered with SHA as of 31 July 2026 but only about 1 in 6 actively contributing.", "url": "https://capitalfm.africa/only-1-in-6-sha-members-actively-contributing-despite-32m-registration/"},
+        {"claim": "July 2026 People Daily piece on growing complaints that SHA rates do not match actual income and how to appeal.", "url": "https://peopledaily.digital/news/how-to-appeal-your-sha-contributions-if-you-believe-the-amount-is-too-high/amp"},
+        {"claim": "TechTrends Kenya (17 May 2026): registration, filing and payment described as very complicated for small operators; Eastleigh traders struggle to get eTIMS invoices for expense claims.", "url": "https://techtrendske.co.ke/2026/05/17/kra-etims-informal-sector-tax-drive/"}
+      ],
+      "existing_tools": [
+        {"name": "KRA eTIMS Lite (Kenya)", "gap": "Official USSD/web invoicing only; no calendar of obligations, no combined SHA, tax and income view."},
+        {"name": "FlowWise (Kenya)", "gap": "Personal finance app for M-Pesa users; not built around SHA or eTIMS obligations."},
+        {"name": "Safaricom M-Pesa app", "gap": "Basic categorisation only."}
+      ],
+      "subscription_case": "Obligations recur monthly (SHA) and each filing period; reminders plus an M-Pesa-based income estimate save penalties and queue time. Risk: official channels are free, so value must come from clarity and automation.",
+      "countries": ["Kenya"],
+      "solution_idea": "Android app that reads M-Pesa messages to estimate monthly income, calculates SHA due, reminds with a ready paybill, keeps an eTIMS invoice log and exports KRA-ready summaries; English and Swahili."
+    },
+    {
+      "id": "af-03",
+      "title": "Light Arabic e-receipt and invoice app for Egyptian micro-merchants",
+      "problem": "Egypt's tax authority requires registered businesses to issue e-receipts (QR-coded, via approved software or POS) with fines up to 50,000 EGP per violation according to a vendor guide, and e-invoicing/e-receipt compliance is a condition for the simplified accounting system. Existing Egyptian accounting platforms are built for companies; micro-merchants and freelancers need something cheap and phone-only.",
+      "who_feels_it": {"group": "Egyptian small shops, freelancers and micro-businesses that are tax-registered", "how_many": "Not found with a source; Egypt has millions of micro and small enterprises, needs verification"},
+      "gap_type": "missing_here",
+      "why_now": "Law 157 of 2025 and a March 2026 statement tie benefits to e-invoice and e-receipt compliance, and the rollout reaches smaller taxpayers.",
+      "lens": ["trends", "local_gaps"],
+      "evidence": [
+        {"claim": "Egyptian Tax Authority statement reported by Ahram (8 Mar 2026): e-invoice and e-receipt compliance is a condition for benefiting from the accounting system.", "url": "https://gate.ahram.org.eg/News/5544514.aspx"},
+        {"claim": "Wafeq guide says e-receipts apply to all sales including small ones, via approved software or POS, with fines up to 50,000 EGP (vendor source, not verified against a decree).", "url": "https://www.wafeq.com/ar-eg/%D8%A7%D9%84%D8%B6%D8%B1%D8%A7%D8%A6%D8%A8-%D9%88%D8%A7%D9%84%D8%A5%D9%82%D8%B1%D8%A7%D8%B1%D8%A7%D8%AA/%D9%85%D9%86%D8%B8%D9%88%D9%85%D8%A9-%D8%A7%D9%84%D8%A7%D9%8A%D8%B5%D8%A7%D9%84-%D8%A7%D9%84%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%89"},
+        {"claim": "Daftra publishes Egyptian e-invoice guidance; e-invoicing rollout finished in phases by 15 Dec 2022, showing the market is served by full accounting suites.", "url": "https://www.daftra.com/blog/?p=7769"}
+      ],
+      "existing_tools": [
+        {"name": "Daftra (Egypt)", "gap": "Full accounting suite, likely priced above $3 for a micro seller."},
+        {"name": "Wafeq", "gap": "Business accounting platform; not aimed at one-person shops."},
+        {"name": "BNB Dafatery (Egypt)", "gap": "Debt and installment ledger, no confirmed tax e-receipt compliance."}
+      ],
+      "subscription_case": "Receipts are needed every sale, so use is daily; a small fee that avoids fines is plausible. Uncertainty: whether small taxpayers are legally forced yet, and whether ETA-approved integration requires heavy certification.",
+      "countries": ["Egypt"],
+      "solution_idea": "Arabic-first phone app for tiny sellers that creates compliant e-receipts and invoices by submitting through the tax authority's API, with simple sales and tax summary."
+    },
+    {
+      "id": "af-04",
+      "title": "Darija and Egyptian Arabic voice note transcriber for WhatsApp",
+      "problem": "People in Morocco and Egypt send long WhatsApp voice notes in dialect (Darija, Egyptian). WhatsApp's own transcription supports limited languages and no source confirmed dialect accuracy; general apps list only Modern Standard Arabic or generic Arabic. Freelancers and shop owners who take orders and instructions by voice need them as text.",
+      "who_feels_it": {"group": "WhatsApp-heavy workers, freelancers and small sellers in Morocco and Egypt", "how_many": "Not sized by a source I found; WhatsApp is dominant in both countries (unverified here)"},
+      "gap_type": "missing_here",
+      "why_now": "Open dialect speech models and datasets such as Darija DODa fine-tunes now exist; WhatsApp added transcription in Nov 2024 but with limited languages.",
+      "lens": ["wishes", "local_gaps"],
+      "evidence": [
+        {"claim": "WhatsApp rolled out voice message transcription in Nov 2024 for a limited set of languages (Techweez).", "url": "https://techweez.com/2024/11/22/whatsapp-rolls-out-transcription-feature-for-voice-messages/"},
+        {"claim": "Researchers published a Darija speech recognition model fine-tuned on the DODa dataset, showing the technology is feasible but not packaged as a consumer product.", "url": "https://huggingface.co/nadiamallouk/wav2vec2-darija"},
+        {"claim": "A Fiverr freelancer sells human Darija WhatsApp-voice-note transcription, evidence people pay for this but via manual service.", "url": "https://www.fiverr.com/ezzougari_hamza/transcribe-moroccan-darija-audio-to-text"}
+      ],
+      "existing_tools": [
+        {"name": "WhatsApp built-in transcription", "gap": "Language list limited; Android support narrower; no confirmed Darija."},
+        {"name": "Transcriber for WhatsApp (app)", "gap": "Lists Arabic but dialect accuracy unverified."},
+        {"name": "Fiverr human transcribers", "gap": "Manual, slow, costly per note."}
+      ],
+      "subscription_case": "Used weekly or daily by people with many voice notes; price must cover speech-to-text cost per minute, so a monthly minute cap is needed. Cost risk and accuracy are the main questions.",
+      "countries": ["Morocco", "Egypt"],
+      "solution_idea": "Share-to-app transcription for WhatsApp voice notes using a fine-tuned open speech model on cheap GPU batches, with text summary and copy to chat; capped monthly minutes."
+    },
+    {
+      "id": "af-05",
+      "title": "Rotating savings and contribution group ledger (ajo, esusu, chama) for WhatsApp groups",
+      "problem": "Millions run rotating savings groups on WhatsApp and paper. Existing apps either hold money (AjoMoney, Esusu) or are built around Kenyan investment-group bookkeeping (Chamasoft). Group admins lack a simple, no-custody tool for turn order, contribution tracking, reminders and a trusted record to settle disputes.",
+      "who_feels_it": {"group": "Group admins and members of ajo, esusu, susu and chama groups", "how_many": "Not sized with a source; Wikipedia and local press describe chamas as widespread in Kenya, ajo/esusu in Nigeria and susu in Ghana"},
+      "gap_type": "missing_here",
+      "why_now": "Blockchain-based Ajo projects and fintech apps are targeting this, showing demand, but trust and mismanagement remain a problem for manual groups.",
+      "lens": ["local_gaps", "paying_already"],
+      "evidence": [
+        {"claim": "AjoMoney (Nigeria) offers rotating group savings with daily, weekly or monthly rotations and credit access (App Store listing).", "url": "https://apps.apple.com/in/app/ajomoney/id1587583677"},
+        {"claim": "Chamasoft is a bookkeeping app for investment groups with a free plan and paid tiers; app stores describe M-Pesa payment prompts and reconciliation.", "url": "https://apps.apple.com/ie/app/chamasoft/id1489712788"},
+        {"claim": "Ajo project page says manual trust-based groups are vulnerable to mismanagement and that its target markets are Nigeria, Kenya, Ghana and South Africa.", "url": "https://www.karmahq.xyz/project/ajo-1/about"}
+      ],
+      "existing_tools": [
+        {"name": "Chamasoft (Kenya)", "gap": "Investment-group accounting focus; heavier than a simple rotation tracker."},
+        {"name": "AjoMoney / Esusu app (Nigeria)", "gap": "Custody and financial product model, needs licences and trust."},
+        {"name": "WhatsApp groups and spreadsheets", "gap": "No reminders, no dispute-proof record."}
+      ],
+      "subscription_case": "Admins pay monthly or per group to avoid chasing members; the group can split a $1-3 fee. Risk: free tier competition and small ticket size.",
+      "countries": ["Nigeria", "Kenya", "Ghana"],
+      "solution_idea": "Record-keeping only (no money held): admin creates a cycle, members confirm contributions by link, bot sends WhatsApp reminders and a shareable ledger; supports mobile money references."
+    },
+    {
+      "id": "af-06",
+      "title": "Cheap WhatsApp order tracker for informal online sellers",
+      "problem": "Sellers on WhatsApp and Instagram lose track of orders, payments awaiting and repeat customers. Free WhatsApp Business labels help but are manual; paid Nigerian tools exist at around the top of the $1-3 range or above.",
+      "who_feels_it": {"group": "Nigerian and Kenyan WhatsApp and Instagram sellers", "how_many": "Chatdaddy articles claim 51 to 90 million WhatsApp users in Nigeria (conflicting, vendor sources); sellers are a subset"},
+      "gap_type": "missing_here",
+      "why_now": "Payment links (Paystack, Flutterwave) and WhatsApp business features now make order-to-payment flows possible for tiny sellers.",
+      "lens": ["paying_already", "local_gaps"],
+      "evidence": [
+        {"claim": "Orie Lite is listed for Nigerian sellers at 4,500 naira a month to track WhatsApp orders, showing some willingness to pay but at the top of the price band.", "url": "https://orie-landing.pages.dev/help.html"},
+        {"claim": "Buvvo, a WhatsApp sales assistant for Nigerian vendors, launched on Product Hunt, indicating active competition.", "url": "https://www.producthunt.com/products/buvvo"},
+        {"claim": "A Condia guide recommends WhatsApp Business labels like Awaiting payment as the free tracking workaround.", "url": "https://thecondia.com/sell-on-whatsapp-business/"}
+      ],
+      "existing_tools": [
+        {"name": "Orie Lite (Nigeria)", "gap": "4,500 naira a month, above a $1-3 price for many micro sellers."},
+        {"name": "Buvvo, MySalesCat (Nigeria)", "gap": "Aim at full sales automation and store features, heavier and likely pricier."},
+        {"name": "WhatsApp Business labels (free)", "gap": "Manual, no payment tracking or customer history."}
+      ],
+      "subscription_case": "Orders happen daily so use is high, but Nigerian SMEs are described as price sensitive and a free workaround exists, so this is the weakest willingness-to-pay case in this file.",
+      "countries": ["Nigeria", "Kenya", "Ghana"],
+      "solution_idea": "Android overlay or share-to-app that turns a chat message into an order card, tracks paid or unpaid and sends one-tap payment reminders; works offline and syncs later."
+    }
+  ]
+}

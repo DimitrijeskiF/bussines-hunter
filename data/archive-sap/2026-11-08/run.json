@@ -1,0 +1,20 @@
+{
+  "run_id": "2026-11-08",
+  "date": "2026-11-08",
+  "theme": null,
+  "quick": false,
+  "regions": [
+    "north_america",
+    "latin_america",
+    "europe",
+    "middle_east",
+    "africa",
+    "south_asia",
+    "east_asia",
+    "southeast_asia_oceania"
+  ],
+  "failed_regions": [],
+  "failed_deepdives": [],
+  "max_clusters": 20,
+  "started_at": "2026-11-08T17:19:15"
+}
