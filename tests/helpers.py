@@ -94,3 +94,20 @@ def make_rubric(top_n=2, penalty=0.85, weights=None):
         "weakened_penalty": penalty,
         "weights": weights or {key: 1.0 for key in CHECKS + ["multi_region"]},
     }
+
+
+# ---------------------------------------------------------------- launch plan builders
+
+def make_ranked_item(idea_id="offline-tickets", rank=1, top=True, title="Offline bus tickets", score=81.5):
+    """An entry of ranked.json: the cluster plus rank, score, checks and the skeptic's verdict."""
+    item = make_cluster(idea_id, title=title)
+    item.update({"rank": rank, "top": top, "score": score, "verdict": "survives",
+                 "checks": {key: {"score": 4, "why": "reason"} for key in CHECKS + ["multi_region"]},
+                 "skeptic": make_verdict(idea_id)})
+    return item
+
+
+def make_run_entry(run_id, finished_at, ranked=(), excluded=()):
+    """A run as plan.py loads it: run id, folder, finish time and the content of ranked.json."""
+    return {"run_id": run_id, "run_dir": f"/tmp/runs/{run_id}", "finished_at": finished_at,
+            "ranked": {"top_n": 5, "weakened_penalty": 0.85, "ranked": list(ranked), "excluded": list(excluded)}}
