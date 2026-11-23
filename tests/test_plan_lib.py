@@ -548,5 +548,56 @@ class PlanCliEndToEndTest(unittest.TestCase):
         self.assertIn("not a plan folder", out.stdout + out.stderr)
 
 
+class AgentExamplesTest(unittest.TestCase):
+    """The JSON example in each planning agent's file must pass the script's own checks."""
+    AGENTS = ROOT / ".claude" / "agents"
+    NAMES = ("product-planner", "design-planner", "build-planner", "sales-planner",
+             "money-planner", "plan-critic", "plan-lead")
+
+    def example(self, name):
+        text = (self.AGENTS / f"{name}.md").read_text(encoding="utf-8")
+        blocks = re.findall(r"```json\n(.*?)```", text, re.S)
+        self.assertEqual(len(blocks), 1, name)
+        return json.loads(blocks[0])
+
+    def test_examples_validate(self):
+        idea = "offline-bus-tickets"
+        product = self.example("product-planner")
+        self.assertEqual(plan.validate_product(product, idea), [])
+        stages = plan.stage_ids(product)
+        self.assertEqual(stages, ["prove-demand", "pilot", "paid-version"])
+        parts = {"design": "design-planner", "build": "build-planner", "sales": "sales-planner",
+                 "money": "money-planner"}
+        docs = {name: self.example(agent) for name, agent in parts.items()}
+        for name, doc in docs.items():
+            self.assertEqual(plan.PART_VALIDATORS[name](doc, idea, stages), [], name)
+        critic = self.example("plan-critic")
+        self.assertEqual(plan.validate_critic(critic, idea), [])
+        self.assertEqual(plan.validate_roadmap(self.example("plan-lead"), idea, stages,
+                                               critic=critic, money=docs["money"]), [])
+
+    def test_front_matter(self):
+        for name in self.NAMES:
+            text = (self.AGENTS / f"{name}.md").read_text(encoding="utf-8")
+            self.assertTrue(text.startswith(f"---\nname: {name}\n"), name)
+            self.assertIn("Used by the /launch-plan pipeline.", text, name)
+            self.assertIn("model: inherit", text, name)
+            self.assertIn("search refused: yes|no", text, name)
+            self.assertIn("never a private person", text, name)
+        self.assertIn("tools: Read, Write\n", (self.AGENTS / "plan-lead.md").read_text(encoding="utf-8"))
+
+    def test_skill_runs_every_command(self):
+        skill = (ROOT / ".claude" / "skills" / "launch-plan" / "SKILL.md").read_text(encoding="utf-8")
+        for needle in ("plan.py start --raw", "validate-profile", "validate product", "validate parts",
+                       "validate money", "validate critic", "plan.py fixes", "validate roadmap",
+                       "plan.py finalize", "--skip-invalid", "new session"):
+            self.assertIn(needle, skill)
+
+    def test_hunt_points_to_the_new_command(self):
+        hunt_skill = (ROOT / ".claude" / "skills" / "hunt" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("/launch-plan", hunt_skill)
+        self.assertIn("/launch-plan", (ROOT / "CLAUDE.md").read_text(encoding="utf-8"))
+
+
 if __name__ == "__main__":
     unittest.main()

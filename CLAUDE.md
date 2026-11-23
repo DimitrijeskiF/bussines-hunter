@@ -14,6 +14,9 @@ and point to the PDF; never ask them to open other files.
 
 - `/hunt [theme] [--regions europe,africa] [--quick]` runs the full pipeline
   (see `.claude/skills/hunt/SKILL.md`).
+- `/launch-plan [rank or idea id] [notes] [--fresh]` turns one ranked idea into a staged
+  Launch Plan PDF (see `.claude/skills/launch-plan/SKILL.md`). Run it in a new session:
+  a hunt uses up most of a session's web searches.
 - Weekly unattended runs: `scripts/run_weekly.sh`, scheduled by
   `scripts/install_schedule.sh` (macOS launchd; not installed by default).
 - Tests: `python3 -m unittest discover -s tests`.
@@ -25,8 +28,12 @@ and point to the PDF; never ask them to open other files.
   `exclusions.toml`.
 - `scripts/hunt.py`: deterministic steps (new-run, validate, rank, finalize).
   `scripts/hunt_lib.py` holds the logic; `scripts/report.css` styles the PDF.
+- Launch plans: agents product-planner, design-planner, build-planner, sales-planner,
+  money-planner, plan-critic, plan-lead. `scripts/plan.py` holds the deterministic steps
+  (start, validate, fixes, finalize); `plan_lib.py` the checks, `plan_report.py` the PDF.
 - `data/`: runtime only. `runs/<date>/` holds agent output, `ideas.json` tracks ideas
-  across runs, `logs/` holds weekly-run logs.
+  across runs, `logs/` holds weekly-run logs, `plans/<plan_id>/` holds launch plans and
+  `founder.json` the owner's profile answers.
 
 ## History
 
