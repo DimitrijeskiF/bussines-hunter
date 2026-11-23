@@ -179,7 +179,7 @@ def _design(doc, stages):
     names = [[_e(n.get("name")), _e(n.get("why"))] for n in _rows(doc, "names")]
     return ("<h3>Principles</h3>" + _bullets(_items(doc, "principles"))
             + "<h3>Name ideas</h3>" + _table(["Name", "Why"], names)
-            + f'<h3>Look</h3><p>{_e(look.get("tone"))} Font: {_e(look.get("font"))}.</p>'
+            + f'<h3>Look</h3><p>{_e(look.get("tone"))}</p><p class="note">Font: {_e(look.get("font"))}</p>'
             + ('<ul class="swatches">' + "".join(colors) + "</ul>" if colors else "")
             + '<h3>Screens</h3><div class="screens">' + "".join(screens) + "</div>"
             + "<h3>A new user's first two minutes</h3>" + _numbered(_items(doc, "first_two_minutes"))

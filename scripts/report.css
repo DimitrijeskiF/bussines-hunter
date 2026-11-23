@@ -73,7 +73,7 @@ ol { margin: 0 0 6px; padding-left: 20px; }
 .screens { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; margin: 6px 0 10px; }
 .screen { border: 1.5px solid #1d2129; border-radius: 6px; padding: 7px 9px; break-inside: avoid; }
 .screen.phone { width: 150px; border-radius: 14px; min-height: 210px; }
-.screen.wide { width: 100%; }
+.screen.wide { flex: 1 1 45%; }
 .screen h4 { color: #1d2129; }
 .screen .elements { list-style: none; padding-left: 0; margin: 4px 0; }
 .screen .elements li { border: 1px dashed #c9cdd4; border-radius: 4px; padding: 2px 6px; margin: 3px 0; font-size: 8.5pt; }

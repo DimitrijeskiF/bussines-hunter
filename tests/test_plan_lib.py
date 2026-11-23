@@ -14,9 +14,9 @@ sys.path.insert(0, str(ROOT / "tests"))
 import hunt_lib as lib  # noqa: E402
 import plan_lib as plan  # noqa: E402
 import plan_report as report_lib  # noqa: E402
-from helpers import (PLAN_STAGES, make_build, make_critic, make_design, make_money,  # noqa: E402
-                     make_product, make_profile, make_ranked_item, make_roadmap, make_run_entry,
-                     make_sales)
+from helpers import (PLAN_STAGES, make_build, make_critic, make_deepdive, make_design,  # noqa: E402
+                     make_money, make_product, make_profile, make_ranked_item, make_roadmap,
+                     make_run_entry, make_sales)
 
 
 class ParsePlanArgsTest(unittest.TestCase):
@@ -358,6 +358,194 @@ class RenderPlanTest(unittest.TestCase):
         html = report_lib.render_plan_html(self.report(design=design))
         self.assertNotIn("url(x)\"", html)
         self.assertEqual(html.count('class="swatch"'), 1)
+
+
+@unittest.skipUnless(lib.find_browser(), "no Chrome-based browser installed")
+class PlanCliEndToEndTest(unittest.TestCase):
+    """Runs the real plan CLI against a fake finished hunt (no agents), from start to PDF."""
+    IDEA = "offline-tickets"
+
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.data = Path(tmp.name) / "data"
+        self.out = Path(tmp.name) / "Desktop"
+        self.env = {**os.environ, "BH_DATA_DIR": str(self.data), "BH_OUTPUT_DIR": str(self.out)}
+        run_dir = self.data / "runs" / "2026-11-23"
+        self.write(run_dir / "run.json", {"run_id": "2026-11-23", "date": "2026-11-23",
+                                          "finished_at": "2026-11-23T14:00:00"})
+        self.write(run_dir / "ranked.json", {
+            "ranked": [make_ranked_item(self.IDEA, 1),
+                       make_ranked_item("study-buddy", 2, top=False, title="Study buddy")],
+            "excluded": [{"id": "old-idea", "title": "Old idea", "why": "Killed by the skeptic"}]})
+        self.write(run_dir / "deepdives" / f"{self.IDEA}.json", make_deepdive(self.IDEA))
+
+    def write(self, path, doc):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(doc), encoding="utf-8")
+
+    def read(self, path):
+        return json.loads(Path(path).read_text(encoding="utf-8"))
+
+    def cli(self, *args):
+        return subprocess.run([sys.executable, str(ROOT / "scripts" / "plan.py"), *args],
+                              capture_output=True, text=True, env=self.env, cwd=ROOT)
+
+    def ok(self, *args):
+        out = self.cli(*args)
+        self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
+        return out.stdout
+
+    def ready(self, raw="1"):
+        self.write(self.data / "founder.json", make_profile())
+        status = json.loads(self.ok("start", "--raw", raw))
+        self.assertEqual(status["status"], "ready", status)
+        return Path(status["plan_dir"]), status
+
+    def write_parts(self, plan_dir, **docs):
+        for name, doc in docs.items():
+            target = plan_dir / f"{name}.json" if name in ("critic", "roadmap") else plan_dir / "parts" / f"{name}.json"
+            self.write(target, doc)
+
+    def test_start_statuses(self):
+        status = json.loads(self.ok("start", "--raw", ""))
+        self.assertEqual(status["status"], "pick_idea")
+        self.assertEqual([i["id"] for i in status["ideas"]], [self.IDEA])
+
+        status = json.loads(self.ok("start", "--raw", "1"))
+        self.assertEqual(status["status"], "profile_missing")
+        self.assertEqual(len(status["questions"]), 6)
+        self.assertFalse((self.data / "plans").exists())
+
+        self.write(self.data / "founder.json", make_profile())
+        self.assertIn("OK profile", self.ok("validate-profile"))
+
+        status = json.loads(self.ok("start", "--raw", "study-buddy"))
+        self.assertEqual((status["status"], status["idea_id"]), ("needs_deepdive", "study-buddy"))
+
+        out = self.cli("start", "--raw", "old-idea")
+        self.assertEqual(out.returncode, 1)
+        self.assertIn("Killed by the skeptic", out.stdout + out.stderr)
+        self.assertFalse((self.data / "plans").exists())
+
+        plan_dir, status = self.ready("[1] web only")
+        self.assertIsNone(status["builds_on"])
+        given = self.read(plan_dir / "input.json")
+        self.assertEqual(given["notes"], "web only")
+        self.assertIsNone(given["previous"])
+        self.assertEqual(given["deepdive"]["id"], self.IDEA)
+        self.assertEqual(given["founder"]["country"], "Kenya")
+        self.assertEqual(given["idea"]["rank"], 1)
+
+    def test_invalid_profile_is_reported(self):
+        self.write(self.data / "founder.json", {"builder": "Me"})
+        out = self.cli("validate-profile")
+        self.assertEqual(out.returncode, 1)
+        self.assertIn("goal", out.stdout)
+
+    def test_full_plan_produces_pdf(self):
+        plan_dir, _ = self.ready()
+        self.assertEqual(self.cli("validate", "parts", str(plan_dir)).returncode, 1)  # no product yet
+        self.write_parts(plan_dir, product=make_product())
+        self.assertIn("OK product", self.ok("validate", "product", str(plan_dir)))
+
+        self.write_parts(plan_dir, design=make_design(), sales=make_sales(), build={"id": self.IDEA})
+        out = self.cli("validate", "parts", str(plan_dir))
+        self.assertEqual(out.returncode, 1)
+        self.assertIn("ERROR build", out.stdout)
+        self.assertIn("SKIPPED build", self.ok("validate", "parts", str(plan_dir), "--skip-invalid"))
+
+        self.write_parts(plan_dir, money=make_money(), critic=make_critic(), roadmap=make_roadmap())
+        for stage in ("money", "critic", "roadmap"):
+            self.assertIn(f"OK {stage}", self.ok("validate", stage, str(plan_dir)))
+
+        fixes = json.loads(self.ok("fixes", str(plan_dir)))  # the critic names build, which was left out
+        self.assertEqual(fixes, {"fixes": {}, "order": []})
+        self.assertEqual(list((plan_dir / "parts").glob("*.before-fix.json")), [])
+
+        result = json.loads(self.ok("finalize", str(plan_dir)))
+        self.assertTrue(Path(result["pdf"]).read_bytes().startswith(b"%PDF"))
+        self.assertEqual((result["verdict"], result["left_out"]), ("caution", ["build"]))
+        self.assertEqual(len(result["stages"]), 3)
+        self.assertEqual(len(result["this_week"]), 3)
+        self.assertIn("Launch Plan - Offline bus tickets", Path(result["pdf"]).name)
+
+        again = json.loads(self.ok("finalize", str(plan_dir)))
+        self.assertEqual(again["pdf"], result["pdf"])
+        self.assertEqual(len(list(self.out.glob("*.pdf"))), 1)
+
+    def test_fix_round_keeps_earlier_version(self):
+        plan_dir, _ = self.ready()
+        critic = make_critic()
+        critic["problems"][0]["fix_in"] = ["build", "money"]
+        self.write_parts(plan_dir, product=make_product(), design=make_design(), build=make_build(),
+                         sales=make_sales(), money=make_money(), critic=critic)
+        fixes = json.loads(self.ok("fixes", str(plan_dir)))
+        self.assertEqual(fixes["order"], [["build"], ["money"]])
+        self.assertRegex(fixes["fixes"]["build"][0], "^c1: ")
+        self.assertTrue((plan_dir / "parts" / "build.before-fix.json").exists())
+
+        self.write_parts(plan_dir, build={"id": self.IDEA})  # the "fixed" version is broken
+        self.assertEqual(self.cli("validate", "parts", str(plan_dir)).returncode, 1)
+        self.assertIn("KEPT build", self.ok("validate", "parts", str(plan_dir), "--skip-invalid"))
+        self.assertIn("OK build", self.ok("validate", "parts", str(plan_dir)))
+        state = self.read(plan_dir / "plan.json")
+        self.assertEqual((state["kept_earlier"], state["left_out"]), (["build"], []))
+
+    def test_second_plan_builds_on_first_unless_fresh(self):
+        first_dir, first = self.ready()
+        self.write_parts(first_dir, product=make_product())
+        first_pdf = json.loads(self.ok("finalize", str(first_dir)))["pdf"]
+
+        second_dir, second = self.ready()
+        self.assertTrue(second["plan_id"].endswith("-2"), second["plan_id"])
+        self.assertEqual(second["builds_on"], first["plan_id"])
+        previous = self.read(second_dir / "input.json")["previous"]
+        self.assertEqual(previous["parts"]["product"]["id"], self.IDEA)
+        self.assertIsNone(previous["roadmap"])
+        self.write_parts(second_dir, product=make_product())
+        second_pdf = json.loads(self.ok("finalize", str(second_dir)))["pdf"]
+        self.assertNotEqual(second_pdf, first_pdf)
+        self.assertTrue(second_pdf.endswith(" (2).pdf"), second_pdf)
+
+        _, third = self.ready("1 --fresh")
+        self.assertIsNone(third["builds_on"])
+
+    def test_unfinished_plan_is_not_built_on(self):
+        self.ready()  # started, never finalized
+        _, second = self.ready()
+        self.assertIsNone(second["builds_on"])
+
+    def test_stop_plan_and_missing_roadmap(self):
+        plan_dir, _ = self.ready()
+        self.write_parts(plan_dir, product=make_product(), roadmap=make_roadmap(verdict="stop", resolved=()))
+        self.assertIn("OK roadmap", self.ok("validate", "roadmap", str(plan_dir)))
+        result = json.loads(self.ok("finalize", str(plan_dir)))
+        self.assertEqual((result["verdict"], result["this_week"]), ("stop", []))
+
+        plan_dir, _ = self.ready("1 --fresh")
+        self.write_parts(plan_dir, product=make_product(), roadmap={"id": self.IDEA})
+        self.assertEqual(self.cli("validate", "roadmap", str(plan_dir)).returncode, 1)
+        self.assertIn("SKIPPED roadmap", self.ok("validate", "roadmap", str(plan_dir), "--skip-invalid"))
+        result = json.loads(self.ok("finalize", str(plan_dir)))
+        self.assertIsNone(result["verdict"])
+        self.assertIn("roadmap", result["left_out"])
+
+    def test_roadmap_start_blocked_by_budget(self):
+        plan_dir, _ = self.ready()
+        money = make_money()
+        money["budget_check"]["fits"] = False
+        self.write_parts(plan_dir, product=make_product(), money=money,
+                         roadmap=make_roadmap(verdict="start", resolved=()))
+        self.assertIn("OK money", self.ok("validate", "money", str(plan_dir)))
+        out = self.cli("validate", "roadmap", str(plan_dir))
+        self.assertEqual(out.returncode, 1)
+        self.assertIn("budget", out.stdout)
+
+    def test_not_a_plan_folder(self):
+        out = self.cli("finalize", str(self.data))
+        self.assertEqual(out.returncode, 1)
+        self.assertIn("not a plan folder", out.stdout + out.stderr)
 
 
 if __name__ == "__main__":
