@@ -1,0 +1,86 @@
+# The eight regions the hunt covers. One scout agent runs per region.
+# "hints" point the scout at the kinds of everyday gaps worth checking first.
+# They are starting points, not facts: the scout must verify everything.
+
+[[region]]
+id = "north_america"
+name = "North America"
+countries = ["United States", "Canada"]
+languages = ["English", "French"]
+hints = """
+Largest app market and highest willingness to pay, so it is mostly a source of proof:
+products people already pay small subscriptions for, which may be missing elsewhere.
+Also look for unmet wishes on Reddit and in app store reviews ("is there an app that...")."""
+
+[[region]]
+id = "latin_america"
+name = "Latin America"
+countries = ["Brazil", "Mexico", "Argentina", "Chile", "Colombia", "Peru"]
+languages = ["Portuguese", "Spanish"]
+hints = """
+Huge smartphone and WhatsApp use, instant payments such as Pix in Brazil, many
+freelancers and micro-businesses, and $1-3 is a natural price here. Look for tools that
+exist in English only, or that do not work with local payments, documents or habits."""
+
+[[region]]
+id = "europe"
+name = "Europe"
+countries = ["Germany", "Austria", "Switzerland", "France", "United Kingdom", "Netherlands",
+             "Belgium", "Italy", "Spain", "Poland", "Sweden", "Denmark", "Norway", "Finland"]
+languages = ["German", "French", "Spanish", "Italian", "Dutch", "Polish", "Swedish", "English"]
+hints = """
+Many languages and small countries that big app makers ignore, new consumer rights and
+digital rules that create everyday hassles, lots of freelancers. Check whether popular
+US apps work poorly in local languages or with local systems."""
+
+[[region]]
+id = "middle_east"
+name = "Middle East"
+countries = ["Saudi Arabia", "United Arab Emirates", "Qatar", "Kuwait", "Bahrain", "Oman",
+             "Turkey", "Israel", "Jordan"]
+languages = ["Arabic", "Turkish", "Hebrew", "English"]
+hints = """
+Young, mobile-first population, Arabic-language gaps in many apps and AI tools, large
+expatriate workforces with their own everyday problems (paperwork, sending money home,
+staying in touch, learning the local language)."""
+
+[[region]]
+id = "africa"
+name = "Africa"
+countries = ["Nigeria", "Kenya", "South Africa", "Egypt", "Morocco", "Ghana", "Rwanda", "Ethiopia"]
+languages = ["English", "French", "Arabic", "Portuguese", "Swahili"]
+hints = """
+Mobile money (M-Pesa and others) instead of cards, low-cost Android phones, patchy and
+expensive data, so offline-first and lightweight apps win. Very large numbers of informal
+micro-businesses and traders. $1-3 a month is a realistic price if it saves money or time."""
+
+[[region]]
+id = "south_asia"
+name = "South Asia"
+countries = ["India", "Pakistan", "Bangladesh", "Sri Lanka"]
+languages = ["English", "Hindi"]
+hints = """
+Hundreds of millions of new internet users, UPI payments in India make tiny recurring
+payments easy, many languages poorly served by apps and AI, huge numbers of students,
+gig workers and shop owners."""
+
+[[region]]
+id = "east_asia"
+name = "East Asia"
+countries = ["Japan", "South Korea", "Taiwan", "China", "Hong Kong"]
+languages = ["Japanese", "Korean", "Chinese"]
+hints = """
+Very advanced app habits, and a source of proven ideas (super-app features, study tools,
+small-business tools) that are missing elsewhere. China is hard to enter: treat it as a
+source of ideas to copy into other regions."""
+
+[[region]]
+id = "southeast_asia_oceania"
+name = "Southeast Asia + Oceania"
+countries = ["Singapore", "Indonesia", "Malaysia", "Thailand", "Vietnam", "Philippines",
+             "Australia", "New Zealand"]
+languages = ["English", "Indonesian", "Malay", "Thai", "Vietnamese"]
+hints = """
+Mobile-first, super apps such as Grab and Gojek, many languages, large numbers of online
+sellers and gig workers. Australia and New Zealand pay well and show what people already
+pay small subscriptions for."""

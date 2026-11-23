@@ -1,0 +1,31 @@
+# How ideas are scored and ranked.
+#
+# Every idea is a digital subscription that ordinary people or tiny businesses
+# anywhere in the world would pay $1-3 a month for. At that price a product needs
+# a very large audience, almost no running cost per user, and a way to find users
+# without paying for ads, so those checks carry extra weight.
+
+top_n = 5                 # how many ideas get a deep dive
+weakened_penalty = 0.85   # score multiplier when the skeptic says "weakened"
+
+# The 8 checks, each scored 1-5. "multi_region" is computed automatically
+# from how many regions an idea was seen in; the scorer agent scores the rest.
+[checks]
+pain_frequency     = "How often people feel the problem (5 = every week, so they keep paying every month)"
+audience_size      = "How many people or tiny businesses worldwide could use it (5 = tens of millions)"
+willingness_to_pay = "Evidence that people already pay $1-3 a month for this or something similar"
+competition_gap    = "How open the market is (5 = nobody solves it well, or nobody in the countries that need it)"
+buildability       = "Whether 1-3 people can ship a first version within about 3 months"
+cheap_to_run       = "Whether running cost per user (servers, AI, SMS, support) stays well under $0.50 a month"
+cheap_reach        = "Whether users can be found without paid ads: app stores, search, word of mouth, communities"
+multi_region       = "How many regions show the same problem (computed automatically)"
+
+[weights]
+pain_frequency = 1.2
+audience_size = 1.5
+willingness_to_pay = 1.3
+competition_gap = 1.0
+buildability = 1.0
+cheap_to_run = 1.3
+cheap_reach = 1.3
+multi_region = 1.0

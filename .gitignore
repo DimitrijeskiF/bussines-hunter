@@ -1,0 +1,10 @@
+# Runtime output. Your own hunt results, idea history and logs stay on your machine.
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local-only settings and OS clutter
+.claude/settings.local.json
+.DS_Store
