@@ -204,3 +204,37 @@ def make_money(idea_id="offline-tickets", stages=PLAN_STAGES):
                   for topic in ("Company form", "Tax", "Personal data")],
         "not_checked": [],
     }
+
+
+def make_critic(idea_id="offline-tickets", verdict="needs_fixes", problems=None):
+    if problems is None:
+        problems = [
+            {"id": "c1", "parts": ["build", "sales"], "problem": "Build plans SMS only; sales promises WhatsApp.",
+             "fix": "Use SMS in both until stage 3.", "fix_in": ["build"]},
+            {"id": "c2", "parts": ["product"], "problem": "Stage 2 has no measurable result.",
+             "fix": "Give it a number of paying riders.", "fix_in": []},
+        ]
+    return {
+        "id": idea_id, "verdict": verdict, "verdict_why": "Two points need work.", "problems": problems,
+        "weak_assumptions": [{"assumption": "One in five trial riders pays", "why_weak": "No evidence yet",
+                              "how_to_test": "Ask for payment in stage 1"}],
+        "missing": [], "biggest_risk": "Riders will not pay.", "not_checked": [],
+    }
+
+
+def make_roadmap(idea_id="offline-tickets", stages=PLAN_STAGES, verdict="caution", resolved=("c1", "c2")):
+    stop = verdict == "stop"
+    return {
+        "id": idea_id, "verdict": verdict, "verdict_why": "The first stage is cheap; the rest depends on it.",
+        "summary": "Start with a hand-run SMS timetable for 20 riders.",
+        "stages": [] if stop else [
+            {"stage": stage, "duration": "3 weeks", "cost": "30 EUR",
+             "steps": ["Talk to 20 riders", "Ask for payment"],
+             "success_signal": "10 riders pay", "stop_if": "Fewer than 3 riders pay"} for stage in stages],
+        "this_week": [] if stop else ["Visit two stops", "Print posters", "Draft the first SMS"],
+        "what_would_change_this": ["A bus company agrees to share its timetable"] if stop else [],
+        "decisions_for_you": [{"question": "Start in one city or two?", "options": ["One", "Two"],
+                               "suggestion": "One"}],
+        "resolved": [{"problem_id": pid, "resolution": "Settled in the roadmap."} for pid in resolved],
+        "open_risks": ["Riders will not pay."], "not_checked": [],
+    }

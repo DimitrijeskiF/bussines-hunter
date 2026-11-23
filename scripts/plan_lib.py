@@ -11,6 +11,9 @@ import hunt_lib as lib
 
 PARTS = ["product", "design", "build", "sales", "money"]
 FIXABLE = ["design", "build", "sales", "money"]  # parts the critic may send back for fixes
+CRITIC_VERDICTS = {"holds", "needs_fixes", "broken"}
+ROADMAP_VERDICTS = {"start", "caution", "stop"}
+PROBLEM_ID = re.compile(r"^c[1-9][0-9]*$")
 SCREEN_KINDS = {"phone", "page", "document"}
 HEX_COLOR = re.compile(r"^#[0-9A-Fa-f]{6}$")
 PROFILE_QUESTIONS = [
@@ -301,3 +304,109 @@ def validate_money(doc, idea_id, stages):
 
 PART_VALIDATORS = {"design": validate_design, "build": validate_build,
                    "sales": validate_sales, "money": validate_money}
+
+
+# ---------------------------------------------------------------- critic and roadmap
+
+def _choice(obj, key, path, allowed, errors):
+    value = obj.get(key)
+    if not (isinstance(value, str) and value in allowed):
+        errors.append(f"{path}.{key}: must be one of {', '.join(sorted(allowed))}, got {value!r}")
+
+
+def _names(item, key, path, allowed, errors, min_len=0):
+    """A list of names, each drawn from `allowed`."""
+    for value in lib._list(item, key, path, errors, min_len):
+        if not (isinstance(value, str) and value in allowed):
+            errors.append(f"{path}.{key}: {value!r} is not one of {', '.join(allowed)}")
+
+
+def validate_critic(doc, idea_id):
+    errors = []
+    if not _common(doc, idea_id, errors):
+        return errors
+    _choice(doc, "verdict", "file", CRITIC_VERDICTS, errors)
+    lib._text(doc, "verdict_why", "file", errors)
+    seen = set()
+    for path, problem in _objects(doc, "problems", "file", errors, ("id", "problem", "fix")):
+        problem_id = problem.get("id")
+        if lib._is_text(problem_id):
+            if not PROBLEM_ID.match(problem_id):
+                errors.append(f"{path}.id: must look like c1, c2, ..., got {problem_id!r}")
+            if problem_id in seen:
+                errors.append(f"{path}.id: duplicate problem id {problem_id!r}")
+            seen.add(problem_id)
+        _names(problem, "parts", path, PARTS, errors, min_len=1)
+        # Product problems go to the plan lead: changing the stages would invalidate every other part.
+        _names(problem, "fix_in", path, FIXABLE, errors)
+    _objects(doc, "weak_assumptions", "file", errors, ("assumption", "why_weak", "how_to_test"), min_len=1)
+    lib._text_list(doc, "missing", "file", errors)
+    lib._text(doc, "biggest_risk", "file", errors)
+    return errors
+
+
+def validate_roadmap(doc, idea_id, stages, critic=None, money=None):
+    """`critic` and `money` are passed only when those files are valid."""
+    errors = []
+    if not _common(doc, idea_id, errors):
+        return errors
+    _choice(doc, "verdict", "file", ROADMAP_VERDICTS, errors)
+    lib._text(doc, "verdict_why", "file", errors)
+    lib._text(doc, "summary", "file", errors)
+    verdict = doc.get("verdict")
+
+    rows = _objects(doc, "stages", "file", errors, ("duration", "cost", "success_signal", "stop_if"))
+    for path, row in rows:
+        lib._text_list(row, "steps", path, errors, min_len=2)
+    this_week = lib._text_list(doc, "this_week", "file", errors)
+    change = lib._text_list(doc, "what_would_change_this", "file", errors)
+    if verdict == "stop":
+        if doc.get("stages"):
+            errors.append("file.stages: must be empty when the verdict is stop")
+        if doc.get("this_week"):
+            errors.append("file.this_week: must be empty when the verdict is stop")
+        if not change:
+            errors.append("file.what_would_change_this: needs at least 1 item when the verdict is stop")
+    else:
+        got = [row.get("stage") for _, row in rows]
+        if got != list(stages):
+            errors.append(f"file.stages: needs exactly one entry per product stage, in order "
+                          f"({', '.join(stages)}); got {got!r}")
+        if len(this_week) < 3:
+            errors.append(f"file.this_week: needs at least 3 item(s), has {len(this_week)}")
+
+    for path, decision in _objects(doc, "decisions_for_you", "file", errors, ("question", "suggestion")):
+        lib._text_list(decision, "options", path, errors, min_len=2)
+    resolved = _objects(doc, "resolved", "file", errors, ("problem_id", "resolution"))
+    lib._text_list(doc, "open_risks", "file", errors, min_len=1)
+
+    if isinstance(critic, dict):
+        done = {item.get("problem_id") for _, item in resolved if isinstance(item.get("problem_id"), str)}
+        problems = critic.get("problems") if isinstance(critic.get("problems"), list) else []
+        for problem in problems:
+            problem_id = problem.get("id") if isinstance(problem, dict) else None
+            if problem_id and problem_id not in done:
+                errors.append(f"file.resolved: critic problem {problem_id} has no resolution")
+        if verdict == "start" and critic.get("verdict") == "broken":
+            errors.append("file.verdict: cannot be start while the critic says the plan is broken")
+    if isinstance(money, dict) and verdict == "start":
+        check = money.get("budget_check")
+        if isinstance(check, dict) and check.get("fits") is False:
+            errors.append("file.verdict: cannot be start while the plan does not fit the founder's "
+                          "budget and hours (money budget_check.fits is false)")
+    return errors
+
+
+def critic_fixes(critic, available=FIXABLE):
+    """Fix lines per part, for the parts in `available` that the critic sent back."""
+    fixes = {}
+    if not isinstance(critic, dict) or not isinstance(critic.get("problems"), list):
+        return fixes
+    for problem in critic["problems"]:
+        if not isinstance(problem, dict) or not isinstance(problem.get("fix_in"), list):
+            continue
+        line = f"{problem.get('id')}: {problem.get('problem')} Fix: {problem.get('fix')}"
+        for part in problem["fix_in"]:
+            if isinstance(part, str) and part in available and line not in fixes.setdefault(part, []):
+                fixes[part].append(line)
+    return {part: fixes[part] for part in FIXABLE if part in fixes}

@@ -13,8 +13,9 @@ sys.path.insert(0, str(ROOT / "tests"))
 
 import hunt_lib as lib  # noqa: E402
 import plan_lib as plan  # noqa: E402
-from helpers import (PLAN_STAGES, make_build, make_design, make_money, make_product,  # noqa: E402
-                     make_profile, make_ranked_item, make_run_entry, make_sales)
+from helpers import (PLAN_STAGES, make_build, make_critic, make_design, make_money,  # noqa: E402
+                     make_product, make_profile, make_ranked_item, make_roadmap, make_run_entry,
+                     make_sales)
 
 
 class ParsePlanArgsTest(unittest.TestCase):
@@ -203,6 +204,77 @@ class ValidatePartsTest(unittest.TestCase):
             self.assertEqual(plan.stage_ids(bad), [])
             for name, validator in plan.PART_VALIDATORS.items():
                 self.assertTrue(validator(bad, "offline-tickets", PLAN_STAGES), name)
+
+
+class ValidateCriticTest(unittest.TestCase):
+    def test_valid_critic(self):
+        self.assertEqual(plan.validate_critic(make_critic(), "offline-tickets"), [])
+
+    def test_product_cannot_be_sent_back_for_fixes(self):
+        doc = make_critic()
+        doc["problems"][1]["fix_in"] = ["product"]
+        self.assertRegex("\n".join(plan.validate_critic(doc, "offline-tickets")), "fix_in")
+
+    def test_bad_verdict_ids_and_parts(self):
+        doc = make_critic(verdict="fine")
+        doc["problems"][1]["id"] = "c1"
+        doc["problems"][0]["parts"] = ["marketing"]
+        errors = "\n".join(plan.validate_critic(doc, "offline-tickets"))
+        for word in ("verdict", "duplicate", "marketing"):
+            self.assertIn(word, errors)
+
+    def test_no_problems_is_fine(self):
+        self.assertEqual(plan.validate_critic(make_critic(verdict="holds", problems=[]), "offline-tickets"), [])
+
+
+class ValidateRoadmapTest(unittest.TestCase):
+    def check(self, doc, **kw):
+        return "\n".join(plan.validate_roadmap(doc, "offline-tickets", PLAN_STAGES, **kw))
+
+    def test_valid_roadmap(self):
+        self.assertEqual(self.check(make_roadmap(), critic=make_critic(), money=make_money()), "")
+
+    def test_every_critic_problem_must_be_resolved(self):
+        self.assertIn("c2", self.check(make_roadmap(resolved=("c1",)), critic=make_critic()))
+        self.assertEqual(self.check(make_roadmap(resolved=())), "")  # no valid critic: nothing to cover
+
+    def test_stages_must_match_product(self):
+        doc = make_roadmap()
+        doc["stages"].reverse()
+        self.assertIn("stages", self.check(doc))
+
+    def test_stop_has_no_roadmap_and_says_what_would_change_it(self):
+        self.assertEqual(self.check(make_roadmap(verdict="stop")), "")
+        doc = make_roadmap(verdict="stop")
+        doc["this_week"] = ["Call three managers"]
+        self.assertIn("this_week", self.check(doc))
+        doc = make_roadmap(verdict="stop")
+        doc["what_would_change_this"] = []
+        self.assertIn("what_would_change_this", self.check(doc))
+
+    def test_start_is_blocked_by_broken_critic_or_budget(self):
+        doc = make_roadmap(verdict="start")
+        self.assertIn("broken", self.check(doc, critic=make_critic(verdict="broken")))
+        money = make_money()
+        money["budget_check"]["fits"] = False
+        self.assertIn("budget", self.check(doc, money=money))
+        self.assertEqual(self.check(make_roadmap(verdict="caution"), critic=make_critic(verdict="broken")), "")
+
+    def test_wrong_shapes_give_errors_not_crashes(self):
+        for bad in (None, [], "x", {"stages": "x", "resolved": [1], "decisions_for_you": {"q": 1}, "problems": "x"}):
+            self.assertTrue(plan.validate_roadmap(bad, "offline-tickets", PLAN_STAGES, critic=make_critic()))
+            self.assertTrue(plan.validate_critic(bad, "offline-tickets"))
+            self.assertEqual(plan.critic_fixes(bad), {})
+
+
+class CriticFixesTest(unittest.TestCase):
+    def test_lines_grouped_by_part(self):
+        fixes = plan.critic_fixes(make_critic())
+        self.assertEqual(list(fixes), ["build"])
+        self.assertRegex(fixes["build"][0], r"^c1: .+ Fix: .+")
+
+    def test_left_out_parts_are_skipped(self):
+        self.assertEqual(plan.critic_fixes(make_critic(), available=["design", "sales"]), {})
 
 
 if __name__ == "__main__":
