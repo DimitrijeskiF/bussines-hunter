@@ -308,6 +308,33 @@ class PdfTest(unittest.TestCase):
             self.assertTrue(pdf_path.read_bytes().startswith(b"%PDF"))
 
 
+class PdfHangTest(unittest.TestCase):
+    """A headless browser sometimes hangs. Uses a fake browser, so no Chrome is needed."""
+    HANGS_ONCE = ('#!/bin/sh\nmarker="$(dirname "$0")/called"\n'
+                  'for arg in "$@"; do case "$arg" in --print-to-pdf=*) out="${arg#--print-to-pdf=}";; esac; done\n'
+                  'if [ ! -e "$marker" ]; then : > "$marker"; exec sleep 30; fi\n'
+                  "printf '%%PDF-1.4 fake' > \"$out\"\n")
+    ALWAYS_HANGS = "#!/bin/sh\nexec sleep 30\n"
+
+    def print_with(self, tmp, script):
+        browser = Path(tmp) / "fake-browser"
+        browser.write_text(script, encoding="utf-8")
+        browser.chmod(0o755)
+        html_path = Path(tmp) / "r.html"
+        html_path.write_text("<html><body>Hello</body></html>", encoding="utf-8")
+        return lib.print_pdf(html_path, Path(tmp) / "out" / "r.pdf", str(browser), timeout=1)
+
+    def test_hung_browser_is_retried_once(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            pdf_path = self.print_with(tmp, self.HANGS_ONCE)
+            self.assertTrue(pdf_path.read_bytes().startswith(b"%PDF"))
+
+    def test_browser_that_always_hangs_gives_a_clean_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(RuntimeError, "did not finish within 1 second"):
+                self.print_with(tmp, self.ALWAYS_HANGS)
+
+
 @unittest.skipUnless(lib.find_browser(), "no Chrome-based browser installed")
 class CliEndToEndTest(unittest.TestCase):
     """Runs the real CLI against a fake run (no agents), from new-run to PDF."""
