@@ -96,7 +96,8 @@ ideas.
 
 Reply in plain, short language: the top ideas (rank, title, score) and the PDF path.
 Mention any region or deep dive that failed. Do not paste JSON, and do not ask the user
-to open any file other than the PDF.
+to open any file other than the PDF. End with one line: to plan one of these, open a new
+session and type /launch-plan and its rank.
 
 ## Rules
 

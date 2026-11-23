@@ -714,17 +714,24 @@ def find_browser():
     return None
 
 
-def print_pdf(html_path, pdf_path, browser):
+def print_pdf(html_path, pdf_path, browser, timeout=180):
     if not browser:
         raise RuntimeError("No Chrome-based browser found; install Google Chrome to create PDFs.")
     html_path, pdf_path = Path(html_path).resolve(), Path(pdf_path)
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory() as profile:
-        result = subprocess.run(
-            [browser, "--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check",
-             "--no-pdf-header-footer", f"--user-data-dir={profile}",
-             f"--print-to-pdf={pdf_path}", html_path.as_uri()],
-            capture_output=True, text=True, timeout=180)
-    if not pdf_path.exists() or not pdf_path.read_bytes()[:4] == b"%PDF":
-        raise RuntimeError(f"PDF was not created. Browser output:\n{result.stderr[-2000:]}")
-    return pdf_path
+    output = ""
+    for _attempt in range(2):  # a headless browser now and then hangs; a second try gets past it
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as profile:
+            try:
+                result = subprocess.run(
+                    [browser, "--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check",
+                     "--no-pdf-header-footer", f"--user-data-dir={profile}",
+                     f"--print-to-pdf={pdf_path}", html_path.as_uri()],
+                    capture_output=True, text=True, timeout=timeout)
+            except subprocess.TimeoutExpired:
+                output = f"the browser did not finish within {timeout} second(s)"
+                continue
+            output = result.stderr[-2000:]
+        if pdf_path.exists() and pdf_path.read_bytes()[:4] == b"%PDF":
+            return pdf_path
+    raise RuntimeError(f"PDF was not created. Browser output:\n{output}")
