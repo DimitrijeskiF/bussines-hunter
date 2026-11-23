@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "tests"))
 
 import hunt_lib as lib  # noqa: E402
 import plan_lib as plan  # noqa: E402
+import plan_report as report_lib  # noqa: E402
 from helpers import (PLAN_STAGES, make_build, make_critic, make_design, make_money,  # noqa: E402
                      make_product, make_profile, make_ranked_item, make_roadmap, make_run_entry,
                      make_sales)
@@ -275,6 +276,88 @@ class CriticFixesTest(unittest.TestCase):
 
     def test_left_out_parts_are_skipped(self):
         self.assertEqual(plan.critic_fixes(make_critic(), available=["design", "sales"]), {})
+
+
+class RenderPlanTest(unittest.TestCase):
+    def report(self, **overrides):
+        report = {"plan_id": "2026-11-24-offline-tickets", "date_label": "24 November 2026",
+                  "title": "<script>alert(1)</script> Offline tickets", "one_liner": "Tickets without data.",
+                  "source_run": "2026-11-23", "previous": None, "notes": None, "founder": make_profile(),
+                  "product": make_product(), "design": make_design(), "build": make_build(),
+                  "sales": make_sales(), "money": make_money(), "critic": make_critic(),
+                  "roadmap": make_roadmap(), "left_out": [], "kept_earlier": []}
+        report.update(overrides)
+        return report
+
+    def test_has_every_section_in_order(self):
+        html = report_lib.render_plan_html(self.report())
+        positions = [html.index(f">{name}<") for name in (
+            "Summary", "Roadmap", "Decisions for you", "Product", "Design", "Build", "Sales",
+            "Money and legal", "What the critic found", "Your profile and sources")]
+        self.assertEqual(positions, sorted(positions))
+        self.assertIn("Start, with caution", html)
+        self.assertIn("Confirm legal and tax points with a local professional", html)
+
+    def test_escapes_agent_text_and_unsafe_links(self):
+        build = make_build()
+        build["sources"] = [{"title": "Bad", "url": "javascript:alert(1)"}]
+        html = report_lib.render_plan_html(self.report(build=build))
+        self.assertNotIn("<script>", html)
+        self.assertNotIn('href="javascript:', html)
+
+    def test_stop_verdict_has_no_roadmap_or_checklist(self):
+        html = report_lib.render_plan_html(self.report(roadmap=make_roadmap(verdict="stop")))
+        self.assertIn("Do not start", html)
+        self.assertIn("What would change this", html)
+        self.assertNotIn(">Roadmap<", html)
+        self.assertNotIn('class="checklist"', html)
+        self.assertIn("What the planners worked out, for reference", html)
+
+    def test_missing_roadmap_shows_no_verdict(self):
+        html = report_lib.render_plan_html(self.report(roadmap=None, left_out=["roadmap"]))
+        self.assertIn("No verdict: the plan lead did not finish", html)
+        self.assertIn("The critic's verdict", html)
+        self.assertNotIn(">Roadmap<", html)
+        self.assertNotIn(">Summary<", html)
+
+    def test_missing_parts_do_not_crash_and_are_named(self):
+        html = report_lib.render_plan_html(self.report(
+            design=None, money=None, critic=None, roadmap=None, left_out=["design", "money", "critic", "roadmap"]))
+        self.assertIn("Left out of this plan", html)
+        self.assertIn("Money and legal", html)
+
+    def test_lean_documents_do_not_crash(self):
+        lean = {"id": "offline-tickets", "not_checked": []}
+        html = report_lib.render_plan_html(self.report(
+            product=lean, design=lean, build=lean, sales=lean, money=lean, critic=lean, roadmap=lean))
+        self.assertIn("Launch Plan", html)
+
+    def test_not_checked_is_printed_and_summarised(self):
+        sales = make_sales()
+        sales["not_checked"] = ["Prices of two rivals"]
+        html = report_lib.render_plan_html(self.report(sales=sales))
+        self.assertIn("Some points could not be checked in: Sales", html)
+        self.assertIn("Prices of two rivals", html)
+
+    def test_kept_earlier_and_previous_plan_are_mentioned(self):
+        html = report_lib.render_plan_html(self.report(
+            kept_earlier=["build"], previous={"plan_id": "2026-11-23-offline-tickets", "date_label": "23 November 2026"}))
+        self.assertIn("Kept from before the critic", html)
+        self.assertIn("23 November 2026", html)
+
+    def test_screens_swatches_and_stage_names(self):
+        html = report_lib.render_plan_html(self.report())
+        self.assertIn('class="screen phone"', html)
+        self.assertIn('class="screen wide"', html)
+        self.assertIn('class="swatch"', html)
+        self.assertIn("Stage 1: prove-demand", html)
+
+    def test_bad_hex_is_not_put_into_a_style(self):
+        design = make_design()
+        design["look"]["colors"][0]["hex"] = "red;background:url(x)"
+        html = report_lib.render_plan_html(self.report(design=design))
+        self.assertNotIn("url(x)\"", html)
+        self.assertEqual(html.count('class="swatch"'), 1)
 
 
 if __name__ == "__main__":

@@ -50,3 +50,34 @@ th { background: #f5f6f8; font-weight: 600; border-bottom: 1px solid #c9cdd4; }
 .region { break-inside: avoid; }
 .sources { font-size: 8.5pt; }
 .pagebreak { break-before: page; }
+
+/* Launch Plan */
+.verdict { border-radius: 6px; padding: 9px 12px; margin: 8px 0 10px; border-left: 5px solid #5d6470; background: #f5f6f8; break-inside: avoid; }
+.verdict .label { display: block; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.04em; color: #5d6470; }
+.verdict strong { font-size: 15pt; }
+.verdict p { margin: 3px 0 0; }
+.verdict.start { border-left-color: #217a46; background: #e9f7ef; }
+.verdict.caution { border-left-color: #d9822b; background: #fff6e5; }
+.verdict.stop { border-left-color: #c0392b; background: #fdecea; }
+.reference { margin-top: 14px; color: #5d6470; }
+.stage { border: 1px solid #dfe2e7; border-radius: 6px; padding: 8px 11px; margin: 8px 0; break-inside: avoid; }
+.stage-head { display: flex; align-items: baseline; gap: 8px; }
+.stage-head h3 { margin: 0; flex: 1; }
+.stage-head .rank { color: #2f6fdb; font-weight: 700; font-size: 13pt; }
+ol { margin: 0 0 6px; padding-left: 20px; }
+.checklist { list-style: none; padding-left: 0; }
+.checklist li { padding-left: 20px; position: relative; margin: 3px 0; }
+.checklist li::before { content: ""; position: absolute; left: 0; top: 2px; width: 10px; height: 10px; border: 1.5px solid #1d2129; border-radius: 2px; }
+.swatches { list-style: none; padding-left: 0; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; border: 1px solid #c9cdd4; margin-right: 6px; vertical-align: -1px; }
+.screens { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; margin: 6px 0 10px; }
+.screen { border: 1.5px solid #1d2129; border-radius: 6px; padding: 7px 9px; break-inside: avoid; }
+.screen.phone { width: 150px; border-radius: 14px; min-height: 210px; }
+.screen.wide { width: 100%; }
+.screen h4 { color: #1d2129; }
+.screen .elements { list-style: none; padding-left: 0; margin: 4px 0; }
+.screen .elements li { border: 1px dashed #c9cdd4; border-radius: 4px; padding: 2px 6px; margin: 3px 0; font-size: 8.5pt; }
+.screen .action { background: #2f6fdb; color: #fff; border-radius: 4px; padding: 3px 6px; font-size: 8.5pt; font-weight: 600; text-align: center; margin: 4px 0 0; }
+.notchecked { border: 1px dashed #d9822b; border-radius: 6px; padding: 6px 10px; margin: 8px 0; font-size: 9pt; break-inside: avoid; }
+.notchecked h4 { color: #a35a00; }
+td ul:last-child, td ol:last-child { margin-bottom: 0; }
