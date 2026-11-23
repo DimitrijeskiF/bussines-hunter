@@ -13,7 +13,8 @@ sys.path.insert(0, str(ROOT / "tests"))
 
 import hunt_lib as lib  # noqa: E402
 import plan_lib as plan  # noqa: E402
-from helpers import make_ranked_item, make_run_entry  # noqa: E402
+from helpers import (PLAN_STAGES, make_build, make_design, make_money, make_product,  # noqa: E402
+                     make_profile, make_ranked_item, make_run_entry, make_sales)
 
 
 class ParsePlanArgsTest(unittest.TestCase):
@@ -90,6 +91,118 @@ class PreviousPlanAndPdfNameTest(unittest.TestCase):
         self.assertEqual(name, "2026-11-24 Launch Plan - Fee ledger bmanagersb управители.pdf")
         self.assertEqual(plan.pdf_name("2026-11-24", "X", {"2026-11-24 Launch Plan - X.pdf"}),
                          "2026-11-24 Launch Plan - X (2).pdf")
+
+
+class ValidateProfileTest(unittest.TestCase):
+    def test_valid_profile(self):
+        self.assertEqual(plan.validate_profile(make_profile()), [])
+
+    def test_missing_answer_and_number_are_reported(self):
+        doc = make_profile()
+        del doc["goal"]
+        doc["hours_per_week"] = 10
+        errors = "\n".join(plan.validate_profile(doc))
+        self.assertIn("goal", errors)
+        self.assertIn("hours_per_week", errors)
+
+    def test_extra_is_optional(self):
+        doc = make_profile()
+        doc["extra"] = None
+        self.assertEqual(plan.validate_profile(doc), [])
+
+    def test_six_questions_in_order(self):
+        self.assertEqual([field for field, _ in plan.PROFILE_QUESTIONS],
+                         ["builder", "hours_per_week", "budget_six_months", "country", "languages", "goal"])
+
+
+class ValidateProductTest(unittest.TestCase):
+    def test_valid_product(self):
+        doc = make_product()
+        self.assertEqual(plan.validate_product(doc, "offline-tickets"), [])
+        self.assertEqual(plan.stage_ids(doc), PLAN_STAGES)
+
+    def test_first_stage_must_not_build_software(self):
+        doc = make_product()
+        doc["stages"][0]["needs_software"] = True
+        self.assertRegex("\n".join(plan.validate_product(doc, "offline-tickets")), "prove demand")
+
+    def test_stage_count_ids_and_booleans(self):
+        doc = make_product(stages=["a", "b"])
+        self.assertTrue(plan.validate_product(doc, "offline-tickets"))
+        doc = make_product()
+        doc["stages"][1]["id"] = doc["stages"][0]["id"]
+        self.assertRegex("\n".join(plan.validate_product(doc, "offline-tickets")), "duplicate")
+        doc = make_product()
+        doc["stages"][1]["needs_software"] = "yes"
+        self.assertTrue(plan.validate_product(doc, "offline-tickets"))
+
+    def test_wrong_id_and_missing_not_checked(self):
+        doc = make_product()
+        del doc["not_checked"]
+        errors = "\n".join(plan.validate_product(doc, "other-idea"))
+        self.assertIn("other-idea", errors)
+        self.assertIn("not_checked", errors)
+
+
+class ValidatePartsTest(unittest.TestCase):
+    MAKERS = {"design": make_design, "build": make_build, "sales": make_sales, "money": make_money}
+
+    def test_valid_parts(self):
+        for name, maker in self.MAKERS.items():
+            self.assertEqual(plan.PART_VALIDATORS[name](maker(), "offline-tickets", PLAN_STAGES), [], name)
+
+    def test_unknown_stage_is_reported(self):
+        for name, maker in self.MAKERS.items():
+            errors = plan.PART_VALIDATORS[name](maker(), "offline-tickets", ["only-this"])
+            self.assertTrue(errors, name)
+
+    def test_per_stage_must_cover_every_stage_in_order(self):
+        for name in ("build", "sales", "money"):
+            doc = self.MAKERS[name]()
+            doc["per_stage"].pop()
+            self.assertRegex("\n".join(plan.PART_VALIDATORS[name](doc, "offline-tickets", PLAN_STAGES)),
+                             "per_stage", name)
+
+    def test_design_rules(self):
+        doc = make_design()
+        doc["look"]["colors"][0]["hex"] = "blue"
+        doc["screens"][0]["kind"] = "tablet"
+        errors = "\n".join(plan.validate_design(doc, "offline-tickets", PLAN_STAGES))
+        self.assertIn("hex", errors)
+        self.assertIn("kind", errors)
+        doc = make_design()
+        doc["screens"] = doc["screens"][:3]
+        self.assertTrue(plan.validate_design(doc, "offline-tickets", PLAN_STAGES))
+
+    def test_sales_needs_support_and_keeping_customers(self):
+        doc = make_sales()
+        del doc["support"]
+        doc["keeping_customers"] = doc["keeping_customers"][:1]
+        errors = "\n".join(plan.validate_sales(doc, "offline-tickets", PLAN_STAGES))
+        self.assertIn("support", errors)
+        self.assertIn("keeping_customers", errors)
+
+    def test_money_rules(self):
+        doc = make_money()
+        doc["budget_check"]["fits"] = "yes"
+        doc["legal"] = doc["legal"][:2]
+        errors = "\n".join(plan.validate_money(doc, "offline-tickets", PLAN_STAGES))
+        self.assertIn("fits", errors)
+        self.assertIn("legal", errors)
+
+    def test_unsafe_source_link_is_reported(self):
+        doc = make_build()
+        doc["sources"] = [{"title": "x", "url": "javascript:alert(1)"}]
+        self.assertTrue(plan.validate_build(doc, "offline-tickets", PLAN_STAGES))
+
+    def test_wrong_shapes_give_errors_not_crashes(self):
+        for bad in (None, [], "text", 7, {"stages": "x", "screens": [1, "a"], "per_stage": {"a": 1},
+                                          "look": [], "budget_check": 3, "tools": [None]}):
+            self.assertTrue(plan.validate_profile(bad))
+            self.assertTrue(plan.validate_product(bad, "offline-tickets"))
+            self.assertEqual(plan.stage_ids(bad), [])
+            for name, validator in plan.PART_VALIDATORS.items():
+                self.assertTrue(validator(bad, "offline-tickets", PLAN_STAGES), name)
 
 
 if __name__ == "__main__":

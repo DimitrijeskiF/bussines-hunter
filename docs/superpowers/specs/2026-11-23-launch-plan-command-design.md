@@ -243,6 +243,10 @@ that may be empty. "text" means a non-empty string. `sources` is an optional lis
 - `first_30_days`: at least 4 of `{when, action}`.
 - `scripts`: at least 2 of `{use, text_local, text_english}`.
 - `partners`: at least 3 of `{name, why}` plus optional `url`.
+- `support`: text. Who answers customers, through which channel, and how fast.
+- `keeping_customers`: at least 2 of `{reason_to_leave, what_we_do}`. A $1-3
+  subscription lives on customers who stay, so the plan names why they would cancel
+  and what is done about each reason.
 - `sources`.
 
 **`parts/money.json`**
@@ -372,7 +376,7 @@ Sections, in order:
 7. Build: approach, tools table, work per stage, running costs, the brief for the
    developer.
 8. Sales: pitch (English and local), price steps, channels, targets per stage, the
-   first 30 days, sample texts, partners.
+   first 30 days, sample texts, partners, customer support and how customers are kept.
 9. Money and legal: assumptions, start costs, the per-stage table, break-even, budget
    check, legal checklist.
 10. What the critic found: each problem with how it was resolved, weak assumptions with
@@ -412,7 +416,8 @@ never overwrites an earlier plan's PDF.
 
 ### Other changes
 
-- `.claude/settings.json`: allow `Bash(python3 scripts/plan.py *)`.
+- `.claude/settings.json`: allowing `Bash(python3 scripts/plan.py *)` is a permission
+  change, so it is offered to the owner at hand-over and made only with their OK.
 - `CLAUDE.md`: add the command, the new agents and `data/plans/` to Running and Layout.
 - Small change to `/hunt`: its last step adds one line to the chat summary, "To plan one
   of these, open a new session and type /launch-plan and its rank."

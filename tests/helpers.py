@@ -111,3 +111,96 @@ def make_run_entry(run_id, finished_at, ranked=(), excluded=()):
     """A run as plan.py loads it: run id, folder, finish time and the content of ranked.json."""
     return {"run_id": run_id, "run_dir": f"/tmp/runs/{run_id}", "finished_at": finished_at,
             "ranked": {"top_n": 5, "weakened_penalty": 0.85, "ranked": list(ranked), "excluded": list(excluded)}}
+
+
+PLAN_STAGES = ["prove-demand", "pilot", "paid-version"]
+
+
+def make_profile():
+    return {"builder": "Me alone; I cannot code", "hours_per_week": "10", "budget_six_months": "2,000 EUR",
+            "country": "Kenya", "languages": "English, Swahili", "goal": "Side income"}
+
+
+def make_product(idea_id="offline-tickets", stages=PLAN_STAGES):
+    return {
+        "id": idea_id,
+        "positioning": "For daily commuters without data: tickets and timetables that work offline.",
+        "first_market": {"where": "Nairobi", "who": "Minibus commuters", "why": "Deep dive found the most demand here."},
+        "stages": [{"id": stage, "name": f"Stage {i}: {stage}", "goal": "Learn whether riders pay.",
+                    "needs_software": i > 1, "what_users_get": ["A weekly timetable by SMS"],
+                    "left_out": ["Ticket sales"], "done_when": "20 riders pay for a second month"}
+                   for i, stage in enumerate(stages, start=1)],
+        "questions_for_users": ["How do you check routes today?", "What did you pay last month?",
+                                "Who decides which app you use?"],
+        "not_checked": [],
+    }
+
+
+def make_design(idea_id="offline-tickets", stages=PLAN_STAGES):
+    return {
+        "id": idea_id,
+        "principles": ["Works on a cheap Android phone", "One action per screen"],
+        "names": [{"name": f"Name {i}", "why": "Short and easy to say"} for i in range(1, 4)],
+        "look": {"tone": "Friendly and plain", "font": "System font",
+                 "colors": [{"name": "Blue", "hex": "#2F6FDB", "use": "Buttons"},
+                            {"name": "Ink", "hex": "#1d2129", "use": "Text"}]},
+        "screens": [{"name": f"Screen {i}", "kind": kind, "stage": stages[0], "purpose": "Show today's routes",
+                     "elements": ["Title", "List of routes"], "main_action": "Pick a route"}
+                    for i, kind in enumerate(["page", "document", "phone", "phone"], start=1)],
+        "first_two_minutes": ["Open the link", "Pick your route"],
+        "language_notes": ["English and Swahili, left to right"],
+        "not_checked": [],
+    }
+
+
+def make_build(idea_id="offline-tickets", stages=PLAN_STAGES):
+    return {
+        "id": idea_id,
+        "approach": "A hand-run SMS list first, then a small web app.",
+        "why_this_way": "The founder cannot code and has 10 hours a week.",
+        "tools": [{"name": "Google Sheets", "used_for": "Rider list", "cost": "Free", "url": "https://sheets.google.com"}],
+        "per_stage": [{"stage": stage, "work": ["Set up the rider list"], "who": "Founder",
+                       "duration": "3 weeks", "one_time_cost": "0"} for stage in stages],
+        "running_costs": [{"item": "SMS", "monthly_cost": "15 EUR"}],
+        "running_cost_total": "About 15 EUR a month",
+        "developer_brief": ["Works offline", "SMS fallback", "No app store in stage 2"],
+        "risks": ["SMS prices change"],
+        "not_checked": [],
+    }
+
+
+def make_sales(idea_id="offline-tickets", stages=PLAN_STAGES):
+    return {
+        "id": idea_id,
+        "pitch": "Your bus times, even without data.",
+        "pitch_local": {"language": "Swahili", "text": "Ratiba ya basi, hata bila data."},
+        "price_steps": [{"stage": stages[0], "price": "Free", "why": "Proves interest first"}],
+        "channels": [{"name": f"Channel {i}", "how": "Posters at stops", "cost": "10 EUR", "expected": "20 riders"}
+                     for i in range(1, 4)],
+        "per_stage": [{"stage": stage, "target": "20 riders", "actions": ["Talk to riders at two stops"]}
+                      for stage in stages],
+        "first_30_days": [{"when": f"Week {i}", "action": "Visit one stop"} for i in range(1, 5)],
+        "scripts": [{"use": "First message", "text_local": "Habari", "text_english": "Hello"},
+                    {"use": "Follow-up", "text_local": "Asante", "text_english": "Thank you"}],
+        "partners": [{"name": f"Commuter group {i}", "why": "Riders gather here"} for i in range(1, 4)],
+        "support": "The founder answers by WhatsApp within a day.",
+        "keeping_customers": [{"reason_to_leave": "Timetable is wrong", "what_we_do": "Weekly check with drivers"},
+                              {"reason_to_leave": "Forgot to renew", "what_we_do": "Reminder two days before"}],
+        "not_checked": [],
+    }
+
+
+def make_money(idea_id="offline-tickets", stages=PLAN_STAGES):
+    return {
+        "id": idea_id,
+        "currency": "EUR",
+        "assumptions": ["Price is 1.50 a month", "One in five trial riders pays"],
+        "start_costs": [{"item": "Posters", "amount": "30", "stage": stages[0]}],
+        "per_stage": [{"stage": stage, "paying_customers": "20", "income": "30", "costs": "15", "result": "+15"}
+                      for stage in stages],
+        "break_even": "10 paying riders cover the running costs.",
+        "budget_check": {"fits": True, "why": "Stage costs stay under 2,000 EUR."},
+        "legal": [{"topic": topic, "what_to_do": "Confirm the rule", "when": stages[0], "who_to_ask": "A local accountant"}
+                  for topic in ("Company form", "Tax", "Personal data")],
+        "not_checked": [],
+    }
