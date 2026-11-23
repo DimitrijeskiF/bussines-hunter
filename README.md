@@ -1,143 +1,256 @@
 # Business Hunter
 
-A multi-agent research pipeline for [Claude Code](https://claude.com/claude-code).
-It searches the world, region by region, for missing digital products that ordinary
-people, freelancers or one-person shops would pay $1-3 a month for. It then scores
-each idea, tries to knock it down, digs deeper into the best ones, and saves the
-result as a PDF report.
+Business Hunter is a team of AI agents that runs inside
+[Claude Code](https://claude.com/claude-code). It searches the web, region by region,
+for digital products that are missing: things that ordinary people, freelancers or
+one-person shops would pay $1-3 a month for. Two kinds of gap count: missing
+everywhere, or working in some countries and missing in others.
 
-Two kinds of gap count:
+You type one command and you get one PDF.
 
-- a product that is missing everywhere, and
-- a product that works in some countries but is missing in others.
+| Command | What it does | What you get |
+|---|---|---|
+| `/hunt` | Finds, scores and ranks ideas worldwide | A Hunt Report PDF |
+| `/launch-plan` | Turns one idea you picked into a staged plan | A Launch Plan PDF |
+
+Both PDFs are saved in `Desktop/Business Hunter/`.
 
 ## What you need
 
-- Claude Code, with web search available
-- Python 3.11 or newer (no extra packages to install)
-- Google Chrome or Chromium, which is used to print the PDF
-- macOS, if you want the optional weekly schedule
+- Claude Code, signed in.
+- Python 3.11 or newer. No extra packages.
+- Google Chrome, Brave, Edge or Chromium. The PDF is printed with it.
 
-Built and used on macOS.
+Built and used on macOS. The weekly schedule works on macOS only.
 
-## Quick start
+## Set up
 
-```sh
+```bash
 git clone https://github.com/DimitrijeskiF/bussines-hunter.git
 cd bussines-hunter
 claude
 ```
 
-Then type this into Claude Code:
+Then type `/hunt`. The project's settings already allow what a hunt needs: web
+search, reading web pages, and writing inside the `data/` folder.
+
+## Find ideas: `/hunt`
 
 ```
-/hunt --quick
-```
+/hunt
+/hunt study tools
+/hunt freelancers --regions europe,africa
+# Business Hunter
 
-When the hunt finishes, the report is in `~/Desktop/Business Hunter/`, named like
-`2026-11-23 Hunt Report.pdf`.
+Business Hunter is a team of AI agents that runs inside
+[Claude Code](https://claude.com/claude-code). It searches the web, region by region,
+for digital products that are missing: things that ordinary people, freelancers or
+one-person shops would pay $1-3 a month for. Two kinds of gap count: missing
+everywhere, or working in some countries and missing in others.
 
-## Hunt options
+You type one command and you get one PDF.
 
-```
-/hunt [theme] [--regions a,b] [--quick]
-```
-
-| What you type | What happens |
-|---|---|
-| `/hunt` | Full worldwide hunt across all eight regions |
-| `/hunt --quick` | Faster, cheaper run with fewer searches |
-| `/hunt pet owners` | Same hunt, focused on a theme of your choice |
-| `/hunt --regions europe,africa` | Only the regions you name |
-| `/hunt freelancers --regions latin_america,south_asia --quick` | All three combined |
-
-Full and quick runs differ like this:
-
-| | Full | Quick |
+| Command | What it does | What you get |
 |---|---|---|
-| Findings per region | 6-10 | 3-4 |
-| Ideas kept after merging | up to 20 | up to 8 |
-| Deep dives | top 5 | top 2 |
+| `/hunt` | Finds, scores and ranks ideas worldwide | A Hunt Report PDF |
+| `/launch-plan` | Turns one idea you picked into a staged plan | A Launch Plan PDF |
 
-Region names for `--regions`:
+Both PDFs are saved in `Desktop/Business Hunter/`.
 
-| Id | Region |
+## What you need
+
+- Claude Code, signed in.
+- Python 3.11 or newer. No extra packages.
+- Google Chrome, Brave, Edge or Chromium. The PDF is printed with it.
+
+Built and used on macOS. The weekly schedule works on macOS only.
+
+## Set up
+
+```bash
+git clone https://github.com/DimitrijeskiF/bussines-hunter.git
+cd bussines-hunter
+claude
+```
+
+Then type `/hunt`. The project's settings already allow what a hunt needs: web
+search, reading web pages, and writing inside the `data/` folder.
+
+## Find ideas: `/hunt`
+
+```
+/hunt
+/hunt study tools
+/hunt freelancers --regions europe,africa
+/hunt pet owners --quick
+```
+
+- **Theme** (optional): any text. Without one, the agents look at everything.
+- **`--regions`** (optional): a comma-separated list. Without it, all eight regions
+  are searched: `north_america`, `latin_america`, `europe`, `middle_east`, `africa`,
+  `south_asia`, `east_asia`, `southeast_asia_oceania`.
+- **`--quick`** (optional): a shorter, cheaper run. At most 8 ideas after merging,
+  and deep dives for the top 2 only.
+
+A full hunt across all eight regions took about 45 minutes in a recent run.
+
+### What happens
+
+1. **Scouts.** One agent per region, all at the same time. Each writes its findings
+   with links to the pages they came from.
+2. **Synthesizer.** Merges the findings into at most 20 ideas and flags two patterns:
+   a pain felt in many regions, and an idea already solved in one region but open
+   in another.
+3. **Scorer and skeptic.** The scorer gives each idea 1-5 on seven checks and applies
+   the hard rules. The skeptic tries to kill each idea and marks it as survives,
+   weakened or killed.
+4. **Ranking.** A script turns the checks into a score from 0 to 100. Weakened ideas
+   lose 15%. Killed ideas and ideas that break a hard rule are cut.
+5. **Deep dives.** The top 5 ideas each get one: competitors, customer, first
+   version, price, the numbers, how to get users, 10 places to find the first users,
+   and risks.
+6. **Report.** A script builds the PDF.
+
+After every step a script checks what the agents wrote. An agent whose output fails
+the check twice is left out, and the report says so.
+
+### The eight checks
+
+| Check | Question |
 |---|---|
-| `north_america` | North America |
-| `latin_america` | Latin America |
-| `europe` | Europe |
-| `middle_east` | Middle East |
-| `africa` | Africa |
-| `south_asia` | South Asia |
-| `east_asia` | East Asia |
-| `southeast_asia_oceania` | Southeast Asia + Oceania |
+| Needed every month | Is this a monthly need or a one-off? |
+| Audience size | How many people have the problem? |
+| Will pay $1-3 | Is there proof that people pay for this? |
+| Competition gap | How well do existing tools cover it? |
+| Small-team buildable | Can 1-3 people ship a first version? |
+| Cheap to run | Does the running cost per user fit the price? |
+| Users without ads | Can it find users without paid ads? |
+| Multi-region pull | In how many regions did the need show up? |
 
-## How a hunt works
+### What is in the Hunt Report
 
-1. **Scouts.** One `region-scout` agent per region searches the web, all at the same
-   time, and writes down what it finds with sources.
-2. **Synthesizer.** Merges the regional findings into one list of ideas and marks the
-   ones that show up in several regions.
-3. **Scorer.** Scores every idea from 1 to 5 on seven checks, such as how often people
-   feel the problem and whether anyone already pays for something similar.
-4. **Skeptic.** Tries to kill every idea: free alternatives, big tech giving it away,
-   reasons nobody would pay. Each idea survives, is weakened, or is killed.
-5. **Ranking.** A script combines scores and verdicts and picks the top ideas.
-6. **Deep dives.** One `deep-diver` agent per top idea covers competitors, customer,
-   first version, price, numbers, and where to find the first users.
-7. **Report.** A script builds the PDF.
+The top ideas, what changed since the last hunt, a deep dive for each top idea with
+its scorecard and the skeptic's verdict, the other candidates, the ideas that were
+cut and why, highlights per region, sources, and how the scoring works.
 
-A Python script checks every agent's output before the next step runs. Anything that
-fails twice is left out and named in the report, so you still get a report.
+## Plan one idea: `/launch-plan`
 
-## Cost and search limits
+> This command is being added on the `launch-plan-command` branch and is not in
+> `main` yet.
 
-A full hunt starts 16 agents and runs a few hundred web searches. If your plan limits
-web searches, the later steps end up with thinner research. To avoid that, start with
-`--quick`, or hunt two or three regions at a time with `--regions`.
-
-## Where results are kept
-
-- **The report:** `~/Desktop/Business Hunter/`. Set `BH_OUTPUT_DIR` to change the folder.
-- **Working files:** `data/`, created on the first hunt and ignored by git, so your
-  results never end up in the repository. Set `BH_DATA_DIR` to move it.
-  - `data/runs/<date>/` holds what the agents wrote during each hunt.
-  - `data/ideas.json` remembers ideas across hunts. Later hunts add fresh evidence to
-    known ideas, and each report shows what changed since the last one.
-
-To start again from zero, delete the `data/` folder.
-
-## Weekly unattended runs (macOS)
-
-```sh
-scripts/install_schedule.sh            # every Monday at 07:00
-scripts/install_schedule.sh 3 18 30    # weekday (0 = Sunday .. 6 = Saturday), hour, minute
-scripts/uninstall_schedule.sh          # switch it off
+```
+/launch-plan
+/launch-plan 1
+/launch-plan 1 web only, start in one city
+/launch-plan 1 --fresh
 ```
 
-The schedule is not installed by default. A macOS notification tells you when the
-report is ready. You can also run a hunt unattended by hand:
+- **Nothing after the command:** it shows the top ideas of your latest hunt and asks
+  which one to plan.
+- **A number:** plans the idea with that rank in your latest hunt.
+- **Text after the number:** notes for the planners.
+- **`--fresh`:** starts from zero. Without it, planning the same idea again builds
+  on the earlier plan, so names, stages and numbers stay stable.
 
-```sh
-HUNT_ARGS="--quick" BH_MAX_BUDGET_USD=20 scripts/run_weekly.sh
+The first time, it asks six short questions about you: who will build the product,
+your hours a week, your budget for six months, your country, your languages and
+your goal. The answers are remembered.
+
+Run it in a new Claude Code session. A full hunt uses a lot of web searches, and the
+planners need their own.
+
+### The planning team
+
+| Agent | What it works out |
+|---|---|
+| Product planner | Who it is for, the first market, and 3 to 5 stages |
+| Designer | Name ideas, colours, sketches of the main screens |
+| Build planner | The cheapest way to build it, tools, work per stage, running costs |
+| Sales planner | Pitch, prices, channels, the first 30 days, support, keeping customers |
+| Money and legal planner | Costs, income per stage, break-even, a legal checklist |
+| Critic | Contradictions between the parts and weak assumptions |
+| Plan lead | One roadmap, the verdict, and the decisions only you can make |
+
+### Rules built into every plan
+
+- **Prove it before building.** The first stage never builds software. It proves
+  that people will pay, for example with a hand-run pilot.
+- **An honest verdict.** Start, Start with caution, or Do not start.
+- **A stop rule for every stage.** Each stage says when to continue and when to stop.
+- **Nothing invented.** Each section lists what could not be checked.
+
+It does not write the product's code, make real design files, give legal or tax
+advice, or plan how to raise money from investors.
+
+## Weekly hunts without you (macOS)
+
+```bash
+scripts/install_schedule.sh     # start the weekly schedule
+scripts/uninstall_schedule.sh   # stop it
+scripts/run_weekly.sh           # run one unattended hunt now
 ```
 
-`HUNT_ARGS` is the text you would type after `/hunt`. `BH_MAX_BUDGET_USD` stops the
-run if spending passes that amount.
+Two optional settings for `run_weekly.sh`:
 
-## Make it yours
+```bash
+HUNT_ARGS="study tools --quick" BH_MAX_BUDGET_USD=20 scripts/run_weekly.sh
+```
+
+- `HUNT_ARGS`: the text passed to `/hunt`.
+- `BH_MAX_BUDGET_USD`: stops the run if spending passes this amount.
+
+You get a desktop notification when the report is ready. Logs are in `data/logs/`.
+
+## Change how it works
 
 | File | What it controls |
 |---|---|
-| `config/regions.toml` | The regions, their countries and languages, and hints for each scout |
-| `config/rubric.toml` | The checks, their weights, and how many ideas get a deep dive |
-| `config/exclusions.toml` | What gets rejected outright and what a good idea looks like |
-| `.claude/agents/` | The instructions for each of the five agents |
-| `.claude/skills/hunt/SKILL.md` | The steps of the `/hunt` command |
-| `scripts/report.css` | The look of the PDF |
+| `config/regions.toml` | The regions and what each scout covers |
+| `config/rubric.toml` | The weight of each check, how many ideas get a deep dive, the penalty for weakened ideas |
+| `config/exclusions.toml` | The hard rules that cut an idea |
+
+Environment variables: `BH_OUTPUT_DIR` (where PDFs are saved), `BH_DATA_DIR` (where
+run data is kept) and `BH_BROWSER` (the path to the browser that prints the PDF).
+
+## Folder layout
+
+```
+.claude/agents/   the agents: scouts, synthesizer, scorer, skeptic, deep-diver, planners
+.claude/skills/   the commands: hunt and launch-plan
+config/           regions, scoring weights, hard rules
+scripts/          checks, ranking, PDF, weekly-run scripts
+tests/            unit tests
+data/             your results (created on the first run, never uploaded)
+```
+
+Inside `data/`: `runs/` holds each hunt, `ideas.json` tracks ideas across hunts,
+`plans/` holds launch plans, `founder.json` holds your profile answers, and `logs/`
+holds weekly-run logs.
 
 ## Tests
 
-```sh
+```bash
 python3 -m unittest discover -s tests
 ```
+
+## If something goes wrong
+
+- **"No Chrome-based browser found":** install Google Chrome, or set `BH_BROWSER`.
+- **"Unknown region":** use the region names listed above.
+- **No PDF:** the same report is saved as `report.html` in the run's folder.
+- **"Operation not permitted" on macOS:** allow your terminal or Claude Code to use
+  the Desktop folder under System Settings, Privacy & Security, Files and Folders.
+
+## Good to know
+
+- This is desk research by AI agents. Check the key facts and talk to real users
+  before you commit to an idea.
+- Your results stay on your machine. The `data/` folder is never uploaded to GitHub.
+
+Three things to know before you paste it:
+
+- /launch-plan is ahead of GitHub. That command's code is still only on your machine, so the README carries a one-line note saying it is not in main yet. I'll remove the note when the branch is merged.
+- Two details I could not check without folder access: the day and time of the weekly schedule (so I left it out), and anything specific your current README says about setup.
+- The last troubleshooting line is general macOS advice for that error. It is the same fix I suggested for this session, and it has not been confirmed here yet.
+
+Once the Desktop folder is unblocked, I'll save the same text into the project so your machine and GitHub match.
